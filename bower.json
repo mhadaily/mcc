@@ -4,6 +4,7 @@
     "ember": "~2.7.0-beta.4",
     "ember-cli-shims": "0.1.1",
     "ember-qunit-notifications": "0.1.0",
-    "theme-dashboard": "git@bitbucket.org:squarrific/theme-dashboard.git"
+    "theme-dashboard": "git@bitbucket.org:squarrific/theme-dashboard.git",
+    "blueimp-md5": "2.1.0"
   }
 }
