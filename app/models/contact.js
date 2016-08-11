@@ -3,7 +3,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   notes: DS.hasMany(),
-  sales-orders: DS.hasMany(),
+  sales_orders: DS.hasMany(),
   tasks: DS.hasMany(),
   firstName: DS.attr(),
   lastName: DS.attr(),
