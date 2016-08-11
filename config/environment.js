@@ -42,5 +42,9 @@ module.exports = function(environment) {
 
   }
 
+  ENV.apiHost = process.env.API_HOST || 'mobecentral.herokuapp.com'
+  ENV.apiPort = process.env.API_PORT ? ':' + process.env.API_PORT : ''
+  ENV.apiUrl = process.env.API_URL || `http://${ENV.apiHost}${ENV.apiPort}`;
+
   return ENV;
 };
