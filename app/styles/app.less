@@ -1,6 +1,9 @@
 @import 'bower_components/theme-dashboard/less/toolkit-inverse.less';
 @body-bg: rgb(82, 43, 91);
 
+@pre-bg:  darken(@body-bg,5%);
+@note-bg: darken(@body-bg,5%);
+@pre-text-color: #e1e1e1;
 // @import 'bower_components/theme-dashboard/less/toolkit-light.less';
 // @body-bg: rgba(255, 136, 136, 0.11);
 // @text-color: black;
@@ -10,4 +13,94 @@
   .with-iconav > .liquid-container {
     margin-left: 70px;
   }
+}
+
+dl {
+
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+
+	  dt {
+	  float: left;
+	  width: 45%;
+	  padding: 0;
+	  margin: 0
+	}
+	dd {
+	  float: left;
+	  width: 55%;
+	  padding: 0;
+	  margin: 0
+	}
+}
+
+pre {
+	background: @pre-bg;
+	color:@pre-text-color;
+}
+
+.setRules(){
+	background: @note-bg;
+	color:@pre-text-color;
+}
+.form-control{
+	.setRules();
+	&:focus{
+		.setRules();
+	}
+	&:hover{
+		.setRules();
+	}
+
+}
+
+
+.blinker{
+	 animation: changecolor 5s infinite;
+	-moz-animation: changecolor 5s infinite;
+	-webkit-animation: changecolor 5s infinite;
+	-ms-animation: changecolor 5s infinite;
+	-o-animation: changecolor 5s infinite;
+}
+
+@keyframes changecolor
+{
+	0%   {color: red;}
+	25%  {color: yellow;}
+	50%  {color: blue;}
+	100% {color: green;}
+}
+/* Mozilla Browser */
+@-moz-keyframes changecolor
+{
+	0%   {color: red;}
+	25%  {color: yellow;}
+	50%  {color: blue;}
+	100% {color: green;}
+}
+/* WebKit browser Safari and Chrome */
+@-webkit-keyframes changecolor
+{
+	0%   {color: red;}
+	25%  {color: yellow;}
+	50%  {color: blue;}
+	100% {color: green;}
+}
+/* IE 9,10*/
+@-ms-keyframes changecolor
+{
+	0%   {color: red;}
+	25%  {color: yellow;}
+	50%  {color: blue;}
+	100% {color: green;}
+}
+/* Opera Browser*/
+@-o-keyframes changecolor
+{
+	0%   {color: red;}
+	25%  {color: yellow;}
+	50%  {color: blue;}
+	100% {color: green;}
 }

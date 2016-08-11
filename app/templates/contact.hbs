@@ -1,13 +1,287 @@
 <div class="container-fluid p-t">
-  <div class="dashhead">
-    <div class="dashhead-titles">
-      <h6 class="dashhead-subtitle">
-        {{link-to '<< Contacts' 'contacts'}}
-      </h6>
-      <h2 class="dashhead-title">Contact Details</h2>
-    </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="dashhead">
+        <div class="dashhead-titles">
+          <h6 class="dashhead-subtitle">
+            {{link-to '<< Contacts' 'contacts'}}
+          </h6>
+          <h2 class="dashhead-title">Contact Details</h2>
+        </div>
 
-    <div class="btn-toolbar dashhead-toolbar">
+        <div class="btn-toolbar dashhead-toolbar">
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-body">
+        <dl>
+          <dt>Date:</dt> <dd> November 29, 2015 07:13</dd>
+          <dt>Date Last Modified:</dt>  <dd>August 08, 2016 21:58 </dd>
+          <dt>First Name:</<dt>  <dd>William</dd>
+          <dt>Last Name:</dt> <dd>Glover</dd>
+          <dt>Reference:</dt><dd>633456</dd>
+          <dt>Source:</dt> <dd>OAP</dd>
+          <dt>Email:</dt> <dd>Lilwillyboobboo@gmail.com</dd>
+          <dt>Step:</dt> <dd>2</dd>
+          <dt>L1: MTTB Coach:</dt> <dd>Tammy Bee</dd>
+       </dl>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="hr-divider m-t m-b">
+        <h3 class="hr-divider-content hr-divider-heading">Quick stats</h3>
+      </div>
+
+      <dl>
+          <dt>Date assigned:</dt> <dd>August 09, 2016 23:57</dd>
+          <dt>Date due:</dt> <dd>August 12, 2016 23:57</dd>
+          <dt>Date complete:</dt> <dd>312312</dd>
+          <dt>Reference:</dt> <dd>1315389</dd>
+          <dt>Source:</dt> <dd> OAP</dd>
+          <dt>Subject:</dt> <dd>21Step :Call#2for Steps2</dd>
+          <dt>Step num:</dt> <dd> 17</dd>
+          <dt>Contact:</dt> <dd><a href="/contacts/341278">William Glover</a></dd>
+      </dl>
+      <hr>
+      <pre>{{{model.content}}}</pre>
+
+      </div>
+    <div class="col-sm-5">
+      <div class="hr-divider m-t m-b">
+        <h3 class="hr-divider-content hr-divider-heading">Quick stats</h3>
+      </div>
+      <div class="table-full" style="height:400px;overflow-y:auto;">
+        <div class="table-responsive">
+          <table class="table" data-sort="table">
+            <thead>
+              <tr>
+                <th class="header">
+                  <input type="checkbox" class="select-all" id="selectAll">
+                </th>
+                <th class="header headerSortDown">Order</th>
+                <th class="header">Customer name</th>
+                <th class="header">Description</th>
+                <th class="header">Date</th>
+                <th class="header">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10001" "task"}}</td>
+                <td>First Last</td>
+                <td>Admin theme, marketing theme</td>
+                <td>01/01/2015</td>
+                <td>$200.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10002" "task"}}</td>
+                <td>Firstname Lastname</td>
+                <td>Admin theme</td>
+                <td>01/01/2015</td>
+                <td>$100.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10003" "task"}}</td>
+                <td>Name Another</td>
+                <td>Personal blog theme</td>
+                <td>01/01/2015</td>
+                <td>$100.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10004" "task"}}</td>
+                <td>One More</td>
+                <td>Marketing theme, personal blog theme, admin theme</td>
+                <td>01/01/2015</td>
+                <td>$300.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10005" "task"}}</td>
+                <td>Name Right Here</td>
+                <td>Personal blog theme, admin theme</td>
+                <td>01/02/2015</td>
+                <td>$200.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10006" "task"}}</td>
+                <td>First Last</td>
+                <td>Admin theme, marketing theme</td>
+                <td>01/01/2015</td>
+                <td>$200.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10007" "task"}}</td>
+                <td>Firstname Lastname</td>
+                <td>Admin theme</td>
+                <td>01/01/2015</td>
+                <td>$100.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10008" "task"}}</td>
+                <td>Name Another</td>
+                <td>Personal blog theme</td>
+                <td>01/01/2015</td>
+                <td>$100.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10009" "task"}}</td>
+                <td>One More</td>
+                <td>Marketing theme, personal blog theme, admin theme</td>
+                <td>01/01/2015</td>
+                <td>$300.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10010" "task"}}</td>
+                <td>Name Right Here</td>
+                <td>Personal blog theme, admin theme</td>
+                <td>01/02/2015</td>
+                <td>$200.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10011" "task"}}</td>
+                <td>First Last</td>
+                <td>Admin theme, marketing theme</td>
+                <td>01/01/2015</td>
+                <td>$200.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10012" "task"}}</td>
+                <td>Firstname Lastname</td>
+                <td>Admin theme</td>
+                <td>01/01/2015</td>
+                <td>$100.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10013" "task"}}</td>
+                <td>Name Another</td>
+                <td>Personal blog theme</td>
+                <td>01/01/2015</td>
+                <td>$100.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10014" "task"}}</td>
+                <td>One More</td>
+                <td>Marketing theme, personal blog theme, admin theme</td>
+                <td>01/01/2015</td>
+                <td>$300.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10015" "task"}}</td>
+                <td>Name Right Here</td>
+                <td>Personal blog theme, admin theme</td>
+                <td>01/02/2015</td>
+                <td>$200.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10016" "task"}}</td>
+                <td>First Last</td>
+                <td>Admin theme, marketing theme</td>
+                <td>01/01/2015</td>
+                <td>$200.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10017" "task"}}</td>
+                <td>Firstname Lastname</td>
+                <td>Admin theme</td>
+                <td>01/01/2015</td>
+                <td>$100.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10018" "task"}}</td>
+                <td>Name Another</td>
+                <td>Personal blog theme</td>
+                <td>01/01/2015</td>
+                <td>$100.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10019" "task"}}</td>
+                <td>One More</td>
+                <td>Marketing theme, personal blog theme, admin theme</td>
+                <td>01/01/2015</td>
+                <td>$300.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="select-row">
+                </td>
+                <td>{{link-to "#10020" "task"}}</td>
+                <td>Name Right Here</td>
+                <td>Personal blog theme, admin theme</td>
+                <td>01/02/2015</td>
+                <td>$200.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="hr-divider m-t m-b">
+        <h3 class="hr-divider-content hr-divider-heading">Quick stats</h3>
+      </div>
+      <form class="form">
+        <div class="form-group">
+          <textarea class="form-control" rows="8"></textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success btn-block">Save</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
