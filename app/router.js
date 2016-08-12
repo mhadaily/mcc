@@ -8,8 +8,8 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('tasks');
+  this.route('task',{path: 'tasks/:task_id'});
   this.route('contacts');
-  this.route('task');
   this.route('contact');
   this.route('settings');
   this.route('login');

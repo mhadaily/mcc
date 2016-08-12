@@ -12,5 +12,8 @@ export default DS.Model.extend({
   email: DS.attr(),
   homePhone: DS.attr(),
   reference: DS.attr(),
-  state: DS.attr()
+  state: DS.attr(),
+  name: Ember.computed('firstName','lastName',function() {
+    return [this.get('firstName'),this.get('lastName')].join(' ')
+  })
 });
