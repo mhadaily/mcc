@@ -3,6 +3,7 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 import config from '../config/environment';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
+
   model() {
     return Ember.RSVP.hash({
       account: new Ember.RSVP.Promise((resolve, reject) => {
