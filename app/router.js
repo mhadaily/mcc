@@ -10,7 +10,7 @@ Router.map(function() {
   this.route('tasks');
   this.route('task',{path: 'tasks/:task_id'});
   this.route('contacts');
-  this.route('contact');
+  this.route('contact',{path: 'contact/:reference'});
   this.route('settings');
   this.route('login');
 });
