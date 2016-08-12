@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	  model() {
     return {
       content: `karuna@mobe.com, you've got a new MTTB client to call:\n\n<a href=\"http://myonlinebusinessempire.com/info/index.php?lead=796593\"

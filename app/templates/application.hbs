@@ -4,26 +4,28 @@
       <span class="icon icon-leaf iconav-brand-icon"></span>
     {{/link-to}}
     <div class="iconav-slider">
-      <ul class="nav nav-pills iconav-nav">
-        <li>
-          {{#link-to 'contacts' title="Overview" data-toggle="tooltip" data-placement="right" data-container="body" }}
-            <span class="icon icon-users"></span>
-            <small class="iconav-nav-label visible-xs-block">Contacts</small>
-          {{/link-to}}
-        </li>
-        <li>
-          {{#link-to 'tasks' title="Order history" data-toggle="tooltip" data-placement="right" data-container="body" }}
-            <span class="icon icon-check"></span>
-            <small class="iconav-nav-label visible-xs-block">Tasks</small>
-          {{/link-to}}
-        </li>
-        <li>
-          <a href="#" title="Signed in as mdo" data-toggle="tooltip" data-placement="right" data-container="body">
-            {{gravatar-image email='simon@simontseng.com' class="img-circle img-responsive"}}
-            <small class="iconav-nav-label visible-xs-block">@simontseng</small>
-          </a>
-        </li>
-      </ul>
+      {{#if session.isAuthenticated}}
+        <ul class="nav nav-pills iconav-nav">
+          <li>
+            {{#link-to 'contacts' title="Overview" data-toggle="tooltip" data-placement="right" data-container="body" }}
+              <span class="icon icon-users"></span>
+              <small class="iconav-nav-label visible-xs-block">Contacts</small>
+            {{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'tasks' title="Order history" data-toggle="tooltip" data-placement="right" data-container="body" }}
+              <span class="icon icon-check"></span>
+              <small class="iconav-nav-label visible-xs-block">Tasks</small>
+            {{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'settings' title="Signed in as mdo" data-toggle="tooltip" data-placement="right" data-container="body" }}
+              {{gravatar-image email='simon@simontseng.com' class="img-circle img-responsive"}}
+              <small class="iconav-nav-label visible-xs-block">@simontseng</small>
+            {{/link-to}}
+          </li>
+        </ul>
+      {{/if}}
     </div>
   </nav>
   {{liquid-outlet}}

@@ -11,6 +11,8 @@ Router.map(function() {
   this.route('contacts');
   this.route('task');
   this.route('contact');
+  this.route('settings');
+  this.route('login');
 });
 
 export default Router;
