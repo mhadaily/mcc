@@ -1,10 +1,10 @@
 <div class="with-iconav">
+  {{#if session.isAuthenticated}}
   <nav class="iconav iconav-inverse">
     {{#link-to 'index' class="iconav-brand" }}
-      <span class="icon icon-leaf iconav-brand-icon"></span>
+      <span class="iconav-brand-icon"><img src="img/logomobehat.png"></span>
     {{/link-to}}
     <div class="iconav-slider">
-      {{#if session.isAuthenticated}}
         <ul class="nav nav-pills iconav-nav">
           <li>
             {{#link-to 'contacts' title="Overview" data-toggle="tooltip" data-placement="right" data-container="body" }}
@@ -25,8 +25,9 @@
             {{/link-to}}
           </li>
         </ul>
-      {{/if}}
+
     </div>
   </nav>
+  {{/if}}
   {{liquid-outlet}}
 </div>
