@@ -16,23 +16,21 @@
         <div class="panel-body">
           <dl>
             <dt>Date:</dt>
-            <dd> November 29, 2015 07:13</dd>
+            <dd>{{moment-format model.contact.date 'MMM Do YY'}}&nbsp;</dd>
             <dt>Date Last Modified:</dt>
-            <dd>August 08, 2016 21:58 </dd>
+            <dd>{{moment-format model.contact.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
             <<dt>First Name:</<dt>
-            <dd>William</dd>
+            <dd>{{model.contact.firstName}}&nbsp;</dd>
             <dt>Last Name:</dt>
-            <dd>Glover</dd>
+            <dd>{{model.contact.lastName}}&nbsp;</dd>
             <dt>Reference:</dt>
-            <dd>633456</dd>
-            <dt>Source:</dt>
-            <dd>OAP</dd>
+            <dd>{{model.contact.reference}} ({{model.contact.source}})</dd>
             <dt>Email:</dt>
-            <dd>Lilwillyboobboo@gmail.com</dd>
+            <dd>{{model.contact.email}}&nbsp;</dd>
             <dt>Step:</dt>
-            <dd>2</dd>
+            <dd>{{model.contact.step}}&nbsp;</dd>
             <dt>L1: MTTB Coach:</dt>
-            <dd>Tammy Bee</dd>
+            <dd>{{model.contact.l1_mttb_coach}}&nbsp;</dd>
           </dl>
         </div>
       </div>
@@ -43,24 +41,34 @@
       </div>
       <dl>
         <dt>Date assigned:</dt>
-        <dd>{{moment-format model.dateAssigned 'MMM Do YY'}}</dd>
+        <dd>{{moment-format model.dateAssigned 'MMM Do YY'}}&npbs;</dd>
         <dt>Date due:</dt>
-        <dd>{{moment-format model.dateDue 'MMM Do YY'}}</dd>
+        <dd>{{moment-format model.dateDue 'MMM Do YY'}}&nbsp;</dd>
         <dt>Date complete:</dt>
-        <dd>{{and model.dateComplete (moment-format model.dateComplete 'MMM Do YY')}}</dd>
+        <dd>{{and model.dateComplete (moment-format model.dateComplete 'MMM Do YY')}}&nbsp;</dd>
         <dt>Reference:</dt>
-        <dd>{{model.reference}} ({{model.source}})</dd>
+        <dd>{{model.reference}} ({{model.source}})&nbsp;</dd>
         <dt>Subject:</dt>
         <dd>{{model.subject}}</dd>
         <dt>Step num:</dt>
-        <dd>{{model.step}}</dd>
+        <dd>{{model.stepNum}}</dd>
       </dl>
       <hr>
 
-      <pre>{{{model.content}}}</pre> </div>
+      <pre>{{{model.data.details}}}</pre> </div>
     <div class="col-sm-5">
       <div class="hr-divider m-t m-b">
-        <h3 class="hr-divider-content hr-divider-heading">Quick stats</h3>
+        <ul class="nav nav-pills hr-divider-content hr-divider-nav">
+          <li class="active">
+            <a href="#">Activities</a>
+          </li>
+          <li>
+            <a href="#">Tasks</a>
+          </li>
+          <li>
+            <a href="#">Sales</a>
+          </li>
+        </ul>
       </div>
       <div class="table-full" style="height:400px;overflow-y:auto;">
         <div class="table-responsive">
