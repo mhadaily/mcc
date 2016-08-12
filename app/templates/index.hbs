@@ -2,36 +2,39 @@
   <div class="row">
 
     <div class="col-sm-3">
+      <div class="hr-divider m-t">
+        <h3 class="hr-divider-content hr-divider-heading">Step 0</h3>
+      </div>
       <div class="statcard">
         <div class="p-a p-b-0 text-center">
-          <span class="statcard-desc">Step 0</span>
           <h2 class="statcard-number" style="font-size:48pt">
             27
             {{!-- <small class="label label-success">5%</small> --}}
           </h2>
+          <span class="statcard-desc">total</span>
         </div>
       </div>
       <div class="row statcards">
         <div class="col-sm-4">
-          <div class="statcard">
+          <div class="statcard p-b">
             <div class="p-l">
               <span class="statcard-desc">&lt;&nbsp;24h</span>
               <h2 class="statcard-number">
-          4
-          {{!-- <small class="label label-success">5%</small> --}}
-        </h2>
+                4
+                {{!-- <small class="label label-success">5%</small> --}}
+              </h2>
             </div>
             {{!-- <canvas id="sparkline1" width="318" height="79" class="sparkline" data-chart="spark-line" data-value="[{strokeColor: '#1ca8dd', fillColor:'rgba(28,168,221,.03)', data:[28,68,41,43,96,45,100]}]" data-labels="['a', 'b','c','d','e','f','g']" style="width: 318px; height: 79px;"></canvas> --}}
           </div>
         </div>
         <div class="col-sm-4">
-          <div class="statcard">
+          <div class="statcard p-b">
             <div class="p-l">
               <span class="statcard-desc">&lt;&nbsp;5d</span>
               <h2 class="statcard-number">
-          12
-          {{!-- <small class="label label-danger">1.3%</small> --}}
-        </h2>
+                12
+                {{!-- <small class="label label-danger">1.3%</small> --}}
+              </h2>
             </div>
             {{!-- <canvas id="sparkline1" width="318" height="79" class="sparkline" data-chart="spark-line" data-value="[{strokeColor: '#1ca8dd', fillColor:'rgba(28,168,221,.03)', data:[4,34,64,27,96,50,80]}]" data-labels="['a', 'b','c','d','e','f','g']" style="width: 318px; height: 79px;"></canvas> --}}
           </div>
@@ -117,19 +120,59 @@
 
     <div class="col-sm-4">
 
+      <div class="hr-divider m-t m-b">
+        <h3 class="hr-divider-content hr-divider-heading">Contact Status</h3>
+      </div>
+
+      <div class="row statcards">
+        <div class="col-sm-6 col-md-4 m-b">
+          <div class="statcard">
+            <div class="p-a">
+              <span class="statcard-desc">No&nbsp;Contact</span>
+              <h2 class="statcard-number">
+                5
+                <small class="label label-success">5%</small>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 m-b">
+          <div class="statcard">
+            <div class="p-a">
+              <span class="statcard-desc">Unreachable</span>
+              <h2 class="statcard-number">
+                758
+                <small class="label label-danger">1.3%</small>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 m-b">
+          <div class="statcard">
+            <div class="p-a">
+              <span class="statcard-desc">Sign-ups</span>
+              <h2 class="statcard-number">
+                1,293
+                <small class="label label-success">6.75%</small>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="col-sm-5">
       <div class="hr-divider m-t m-b">
         <ul class="nav nav-pills hr-divider-content hr-divider-nav">
           <li class="active">
-            <a href="#">Comming</a>
+            <a href="#">Today</a>
           </li>
           <li>
-            <a href="#">Tab</a>
+            <a href="#">Scheduled</a>
           </li>
           <li>
-            <a href="#">Tab</a>
+            <a href="#">Overdue</a>
           </li>
         </ul>
       </div>
