@@ -84,11 +84,13 @@
               </tr>
             </thead>
             <tbody>
-              {{#each task.contact.tasks as |task|}}
+              {{#each model.contact.tasks as |task|}}
               <tr>
-                <td></td>
+                <td>
+                </td>
+                <td>{{moment-format ask.dateDue 'MMM Do YY'}}</td>
                 <td>{{task.subject}}</td>
-                <td></td>
+                <td>{{moment-format ask.dateComplete 'MMM Do YY'}}</td>
               </tr>
               {{/each}}
             </tbody>
