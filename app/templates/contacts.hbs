@@ -1,8 +1,8 @@
 <div class="container p-t-lg">
   <div class="dashhead">
     <div class="dashhead-titles">
-      <h6 class="dashhead-subtitle">Contacts {{model.length}}</h6>
-      <h2 class="dashhead-title">Search Contacts</h2>
+      <h6 class="dashhead-subtitle">Contacts</h6>
+      <h2 class="dashhead-title">Search Contacts </h2>
     </div>
 
     <div class="btn-toolbar dashhead-toolbar">
@@ -32,19 +32,14 @@
   </div>
   <div class="text-center">
     <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous" {{action "prevPage"}}>
+            <span aria-hidden="true">«</span>
+          </a>
+        </li>
 
-      <li>
-        <a href="#" aria-label="Previous">
-          <span aria-hidden="true">«</span>
-        </a>
-      </li>
-      <li class="active">{{link-to "1" "contact"}}</li>
-      <li>{{link-to "2" "contact"}}</li>
-      <li>{{link-to "3" "contact"}}</li>
-      <li>{{link-to "4" "contact"}}</li>
-      <li>{{link-to "5" "contact"}}</li>
-      <li>
-        <a href="#" aria-label="Next">
+        <li>
+        <a href="#" aria-label="Next" {{action "nextPage"}}>
           <span aria-hidden="true">»</span>
         </a>
       </li>
@@ -80,6 +75,7 @@
           {{/each}}
         </tbody>
       </table>
+
     </div>
   </div>
   {{outlet}}
