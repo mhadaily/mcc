@@ -7,7 +7,7 @@ export default DS.Model.extend({
   source: DS.attr(),
   subject: DS.attr(),
   stepNum: DS.attr(),
-  dateAssigned:DS.attr(),
-  dateDue: DS.attr(),
-  dateComplete: DS.attr()
+  dateAssigned:DS.attr('date'),
+  dateDue: DS.attr('date'),
+  dateComplete: DS.attr('date')
 });
