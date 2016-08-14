@@ -33,7 +33,7 @@
                 <input type="checkbox" class="select-row">
               </td>
               <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
-              <td>{{task.subject}}</td>
+              <td>{{link-to task.subject 'task' task}}</td>
               <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
             </tr>
             {{/each}}
