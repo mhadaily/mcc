@@ -4,9 +4,10 @@ export default Ember.Controller.extend({
 
 	queryParams:[
 		'page',
+		'search',
 	],
 	page: 1,
-
+	search: "",
 	actions:{
 		nextPage(){
 			let page = this.get('page');

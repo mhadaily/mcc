@@ -6,7 +6,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   queryParams:{
   		page:{
   			refreshModel: true
-  		}
+  		},
+  		search: {
+	      refreshModel: true
+	    }
   },
 
   model(params) {
