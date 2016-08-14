@@ -1,6 +1,6 @@
 <div class="container-fluid p-t">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-7">
       <div class="dashhead">
         <div class="dashhead-titles">
           <h6 class="dashhead-subtitle">
@@ -16,265 +16,31 @@
         <div class="panel-body">
         <dl>
          <img src="http://placehold.it/65x65" class="img-circle pull-right">
-          <dt>Date:</dt> <dd> November 29, 2015 07:13</dd>
-          <dt>Date Last Modified:</dt>  <dd>August 08, 2016 21:58 </dd>
-          <div class="clearfix"></div>
-          <dt>First Name:</<dt>  <dd>William</dd>
-          <dt>Last Name:</dt> <dd>Glover</dd>
-          <dt>Reference:</dt><dd>633456</dd>
-          <dt>Source:</dt> <dd>OAP</dd>
-          <dt>Email:</dt> <dd>Lilwillyboobboo@gmail.com</dd>
-          <dt>Step:</dt> <dd>2</dd>
-          <dt>L1: MTTB Coach:</dt> <dd>Tammy Bee</dd>
+           <dt>Date:</dt>
+            <dd>{{moment-format model.date 'MMM Do YY'}}&nbsp;</dd>
+            <dt>Date Last Modified:</dt>
+            <dd>{{moment-format model.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
+            <div class="clearfix"></div>
+            <<dt>First Name:</<dt>
+            <dd>{{model.firstName}}&nbsp;</dd>
+            <dt>Last Name:</dt>
+            <dd>{{model.lastName}}&nbsp;</dd>
+            <dt>Reference:</dt>
+            <dd>{{model.reference}} ({{model.source}})</dd>
+            <dt>Email:</dt>
+            <dd>{{model.email}}&nbsp;</dd>
+            <dt>Step:</dt>
+            <dd>{{model.step}}&nbsp;</dd>
+            <dt>L1: MTTB Coach:</dt>
+            <dd>{{model.l1_mttb_coach}}&nbsp;</dd>
        </dl>
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
-      <div class="hr-divider m-t m-b">
-        <h3 class="hr-divider-content hr-divider-heading">Quick stats</h3>
-      </div>
-
-      <dl>
-          <dt>Date assigned:</dt> <dd>August 09, 2016 23:57</dd>
-          <dt>Date due:</dt> <dd>August 12, 2016 23:57</dd>
-          <dt>Date complete:</dt> <dd>312312</dd>
-          <dt>Reference:</dt> <dd>1315389</dd>
-          <dt>Source:</dt> <dd> OAP</dd>
-          <dt>Subject:</dt> <dd>21Step :Call#2for Steps2</dd>
-          <dt>Step num:</dt> <dd> 17</dd>
-          <dt>Contact:</dt> <dd><a href="/contacts/341278">William Glover</a></dd>
-      </dl>
-      <hr>
-      <pre>{{{model.content}}}</pre>
-
-      </div>
     <div class="col-sm-5">
+
       <div class="hr-divider m-t m-b">
-        <h3 class="hr-divider-content hr-divider-heading">Quick stats</h3>
-      </div>
-      <div class="table-full" style="height:400px;overflow-y:auto;">
-        <div class="table-responsive">
-          <table class="table" data-sort="table">
-            <thead>
-              <tr>
-                <th class="header">
-                  <input type="checkbox" class="select-all" id="selectAll">
-                </th>
-                <th class="header headerSortDown">Order</th>
-                <th class="header">Customer name</th>
-                <th class="header">Description</th>
-                <th class="header">Date</th>
-                <th class="header">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10001" "task"}}</td>
-                <td>First Last</td>
-                <td>Admin theme, marketing theme</td>
-                <td>01/01/2015</td>
-                <td>$200.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10002" "task"}}</td>
-                <td>Firstname Lastname</td>
-                <td>Admin theme</td>
-                <td>01/01/2015</td>
-                <td>$100.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10003" "task"}}</td>
-                <td>Name Another</td>
-                <td>Personal blog theme</td>
-                <td>01/01/2015</td>
-                <td>$100.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10004" "task"}}</td>
-                <td>One More</td>
-                <td>Marketing theme, personal blog theme, admin theme</td>
-                <td>01/01/2015</td>
-                <td>$300.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10005" "task"}}</td>
-                <td>Name Right Here</td>
-                <td>Personal blog theme, admin theme</td>
-                <td>01/02/2015</td>
-                <td>$200.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10006" "task"}}</td>
-                <td>First Last</td>
-                <td>Admin theme, marketing theme</td>
-                <td>01/01/2015</td>
-                <td>$200.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10007" "task"}}</td>
-                <td>Firstname Lastname</td>
-                <td>Admin theme</td>
-                <td>01/01/2015</td>
-                <td>$100.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10008" "task"}}</td>
-                <td>Name Another</td>
-                <td>Personal blog theme</td>
-                <td>01/01/2015</td>
-                <td>$100.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10009" "task"}}</td>
-                <td>One More</td>
-                <td>Marketing theme, personal blog theme, admin theme</td>
-                <td>01/01/2015</td>
-                <td>$300.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10010" "task"}}</td>
-                <td>Name Right Here</td>
-                <td>Personal blog theme, admin theme</td>
-                <td>01/02/2015</td>
-                <td>$200.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10011" "task"}}</td>
-                <td>First Last</td>
-                <td>Admin theme, marketing theme</td>
-                <td>01/01/2015</td>
-                <td>$200.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10012" "task"}}</td>
-                <td>Firstname Lastname</td>
-                <td>Admin theme</td>
-                <td>01/01/2015</td>
-                <td>$100.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10013" "task"}}</td>
-                <td>Name Another</td>
-                <td>Personal blog theme</td>
-                <td>01/01/2015</td>
-                <td>$100.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10014" "task"}}</td>
-                <td>One More</td>
-                <td>Marketing theme, personal blog theme, admin theme</td>
-                <td>01/01/2015</td>
-                <td>$300.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10015" "task"}}</td>
-                <td>Name Right Here</td>
-                <td>Personal blog theme, admin theme</td>
-                <td>01/02/2015</td>
-                <td>$200.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10016" "task"}}</td>
-                <td>First Last</td>
-                <td>Admin theme, marketing theme</td>
-                <td>01/01/2015</td>
-                <td>$200.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10017" "task"}}</td>
-                <td>Firstname Lastname</td>
-                <td>Admin theme</td>
-                <td>01/01/2015</td>
-                <td>$100.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10018" "task"}}</td>
-                <td>Name Another</td>
-                <td>Personal blog theme</td>
-                <td>01/01/2015</td>
-                <td>$100.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10019" "task"}}</td>
-                <td>One More</td>
-                <td>Marketing theme, personal blog theme, admin theme</td>
-                <td>01/01/2015</td>
-                <td>$300.00</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{link-to "#10020" "task"}}</td>
-                <td>Name Right Here</td>
-                <td>Personal blog theme, admin theme</td>
-                <td>01/02/2015</td>
-                <td>$200.00</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="hr-divider m-t m-b">
-        <h3 class="hr-divider-content hr-divider-heading">Quick stats</h3>
+        <h3 class="hr-divider-content hr-divider-heading">Quick Note</h3>
       </div>
       <form class="form">
         <div class="form-group">
@@ -285,6 +51,119 @@
         </div>
       </form>
     </div>
+
+  </div>
+  <div class="row">
+
+   <div class="col-md-8">
+    <div class="hr-divider m-y-md">
+    <ul class="nav nav-pills hr-divider-content hr-divider-nav" role="tablist">
+      <li class="active" role="presentation">
+        <a href="#sales" role="tab" data-toggle="tab" aria-controls="sales">Tasks</a>
+      </li>
+      <li role="presentation">
+        <a href="#inventory" role="tab" data-toggle="tab" aria-controls="inventory">Notes</a>
+      </li>
+      <li role="presentation">
+        <a href="#profit" role="tab" data-toggle="tab" aria-controls="profit">Sales</a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="sales">
+      <div class="table-full" style="height:400px;overflow-y:auto;">
+        <div class="table-responsive">
+          <table class="table" data-sort="table">
+            <thead>
+              <tr>
+                <th class="header">
+                  <input type="checkbox" class="select-all" id="selectAll">
+                </th>
+                <th class="header headerSortDown">Date</th>
+                <th class="header">Subject</th>
+                <th class="header">Completed</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each model.tasks as |task|}}
+              <tr>
+                <td>
+                </td>
+                <td>{{moment-format ask.dateDue 'MMM Do YY'}}</td>
+                <td>{{task.subject}}</td>
+                <td>{{moment-format ask.dateComplete 'MMM Do YY'}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="inventory">
+      <div class="table-full" style="height:400px;overflow-y:auto;">
+        <div class="table-responsive">
+          <table class="table" data-sort="table">
+            <thead>
+              <tr>
+                <th class="header">
+                  <input type="checkbox" class="select-all" id="selectAll">
+                </th>
+                <th class="header headerSortDown">Date</th>
+                <th class="header">Content</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each model.notes as |note|}}
+              <tr>
+                <td>
+                </td>
+                <td>{{moment-format note.date 'MMM Do YY'}}</td>
+                <td>{{note.content}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="profit">
+      <div class="table-full" style="height:400px;overflow-y:auto;">
+        <div class="table-responsive">
+          <table class="table" data-sort="table">
+            <thead>
+              <tr>
+                <th class="header">
+                  <input type="checkbox" class="select-all" id="selectAll">
+                </th>
+                <th class="header headerSortDown">Date</th>
+                <th class="header">Product</th>
+                <th class="header">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each model.salesOrders as |salesOrder|}}
+              <tr>
+                <td>
+                </td>
+                <td>{{moment-format salesOrder.date 'MMM Do YY'}}</td>
+                <td>{{salesOrder.product.name}}</td>
+                <td>{{salesOrder.amount}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="col-md-4">
+   <hr>
+        <pre>{{{model.content}}}</pre>
+  </div>
   </div>
 </div>
 {{outlet}}

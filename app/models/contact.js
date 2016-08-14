@@ -17,5 +17,6 @@ export default DS.Model.extend({
   state: DS.attr(),
   name: Ember.computed('firstName','lastName',function() {
     return [this.get('firstName'),this.get('lastName')].join(' ')
-  })
+  }),
+  content: 'row data will be replaced',
 });
