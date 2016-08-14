@@ -33,17 +33,17 @@
   <div class="text-center">
     <ul class="pagination">
       <li>
-        <a href="#" aria-label="Previous">
+      <a href="#" aria-label="Previous" {{action "prevPage"}}>
           <span aria-hidden="true">«</span>
         </a>
       </li>
-      <li class="active">{{link-to "1" "tasks"}}</li>
+   {{!--    <li class="active">{{link-to "1" "tasks"}}</li>
       <li>{{link-to "2" "tasks"}}</li>
       <li>{{link-to "3" "tasks"}}</li>
       <li>{{link-to "4" "tasks"}}</li>
-      <li>{{link-to "5" "tasks"}}</li>
+      <li>{{link-to "5" "tasks"}}</li> --}}
       <li>
-        <a href="#" aria-label="Next">
+        <a href="#" aria-label="Next" {{action "nextPage"}}>
           <span aria-hidden="true">»</span>
         </a>
       </li>
