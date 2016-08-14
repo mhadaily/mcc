@@ -30,10 +30,11 @@
             {{#each model.contact.tasks as |task|}}
             <tr>
               <td>
+                <input type="checkbox" class="select-row">
               </td>
-              <td>{{moment-format ask.dateDue 'MMM Do YY'}}</td>
+              <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
               <td>{{task.subject}}</td>
-              <td>{{moment-format ask.dateComplete 'MMM Do YY'}}</td>
+              <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
             </tr>
             {{/each}}
           </tbody>
@@ -59,6 +60,7 @@
             {{#each model.contact.notes as |note|}}
             <tr>
               <td>
+                <input type="checkbox" class="select-row">
               </td>
               <td>{{moment-format note.date 'MMM Do YY'}}</td>
               <td>{{note.content}}</td>
@@ -88,6 +90,7 @@
             {{#each model.contact.salesOrders as |salesOrder|}}
             <tr>
               <td>
+                <input type="checkbox" class="select-row">
               </td>
               <td>{{moment-format salesOrder.date 'MMM Do YY'}}</td>
               <td>{{salesOrder.product.name}}</td>
