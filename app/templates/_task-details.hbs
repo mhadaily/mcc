@@ -1,7 +1,7 @@
 <div class="hr-divider m-b">
   <h3 class="hr-divider-content hr-divider-heading">Task Details</h3>
 </div>
-<dl>
+<dl class="m-b">
   <dt>Date assigned:</dt>
   <dd>{{moment-format model.dateAssigned 'MMM Do YY'}}&npbs;</dd>
   <dt>Date due:</dt>
@@ -15,5 +15,4 @@
   <dt>Step num:</dt>
   <dd>{{model.stepNum}}</dd>
 </dl>
-<hr>
 <pre style="height:230px;overflow:auto;">{{{model.details}}}</pre>
