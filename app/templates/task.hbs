@@ -13,12 +13,15 @@
   <div class="row">
     <div class="col-sm-7">
       <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2 class="panel-title">{{model.contact.name}}</h2>
+        </div>
         <div class="panel-body">
           <dl>
             <dt>Date:</dt>
-            <dd>{{moment-format model.contact.date 'MMM Do YY'}}&nbsp;</dd>
+            <dd>{{and model.contact.date (moment-format model.contact.date 'MMM Do YY')}}&nbsp;</dd>
             <dt>Date Last Modified:</dt>
-            <dd>{{moment-format model.contact.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
+            <dd>{{and model.contact.dateLastModified (moment-format model.contact.date 'MMM Do YY')}}&nbsp;</dd>
             <<dt>First Name:</<dt>
             <dd>{{model.contact.firstName}}&nbsp;</dd>
             <dt>Last Name:</dt>
