@@ -13,12 +13,11 @@ export default DS.Model.extend({
   source: DS.attr(),
   email: DS.attr(),
   homePhone: DS.attr(),
-  reference: DS.attr(),
   state: DS.attr(),
   step: DS.attr(),
   l1MttbCoach: DS.attr(),
   name: Ember.computed('firstName','lastName',function() {
-    return [this.get('firstName'),this.get('lastName')].join(' ')
+    return [this.get('firstName'),this.get('lastName')].join(' ');
   }),
   content: 'row data will be replaced',
 });
