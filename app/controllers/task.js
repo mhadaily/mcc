@@ -1,31 +1,31 @@
 import Ember from 'ember';
-// import config from '../config/environment';
 
 export default Ember.Controller.extend({
 
 	actions: {
 
-     //    newNote: function() {
+        newNote: function() {
 
-     //    var model = this.get('model');
+        	var model = this.get('model');
+        	var newNoteData = {
 
-	    // $.post(config.apiUrl+"/api/savenote", {
+		      content: this.get('noteContent'),
+		      contact: model.get('contact')
 
-	    //   contactReference: model.get("contact.reference"),
-	    //   noteText: this.get("noteContent"),
+		    };
 
+        	model.store.createRecord('note', newNoteData).save().then(() => {
 
-	    // }).then(function() {
+		        alert('Note has been saved');
+		        this.set('noteContent', ' ');
 
-	    //   alert('Note has been saved');
-	    //   $(':input').val('');
+		    }, function() {
 
-	    // }, function() {
+			      alert('Saving Note Failed!');
 
-	    //   alert('Saving Note Failed!');
-	    //   this.set("Failed", true);
+			     }
+		    );
 
-	     // }.bind(this));
-	  // }
+	  }
   }
 });
