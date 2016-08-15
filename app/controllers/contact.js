@@ -2,30 +2,29 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-	actions: {
+    actions: {
 
         newNote: function() {
 
-        	//var model = this.get('model');
-        	var newNoteData = {
+            //var model = this.get('model');
+            var newNoteData = {
 
-		      content: this.get('noteContent'),
-		      contact: this.model
+                content: this.get('noteContent'),
+                contact: this.model
 
-		    };
+            };
 
-        	this.store.createRecord('note', newNoteData).save().then(() => {
+            this.store.createRecord('note', newNoteData).save().then(() => {
 
-		        alert('Note has been saved');
-		        this.set('noteContent', ' ');
+                alert('Note has been saved');
+                this.set('noteContent', ' ');
 
-		    }, function() {
+            }, function() {
 
-			      alert('Saving Note Failed!');
+                alert('Saving Note Failed!');
 
-			     }
-		    );
+            });
 
-	  }
-  }
+        }
+    }
 });
