@@ -6,15 +6,15 @@ export default Ember.Controller.extend({
 
         newNote: function() {
 
-        	var model = this.get('model');
+        	//var model = this.get('model');
         	var newNoteData = {
 
 		      content: this.get('noteContent'),
-		      contact: model
+		      contact: this.model
 
 		    };
 
-        	model.store.createRecord('note', newNoteData).save().then(() => {
+        	this.store.createRecord('note', newNoteData).save().then(() => {
 
 		        alert('Note has been saved');
 		        this.set('noteContent', ' ');
