@@ -21,8 +21,9 @@
         <table class="table" data-sort="table">
           <thead>
             <tr>
-              <th class="header headerSortDown">Date</th>
+              <th class="header headerSortUp">Due</th>
               <th class="header">Subject</th>
+              <th class="header">Contact</th>
               <th class="header">Completed</th>
             </tr>
           </thead>
@@ -31,6 +32,7 @@
               <tr>
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
                 <td>{{link-to task.subject 'task' task}}</td>
+                <td>{{task.contact.name}}</td>
                 <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
               </tr>
             {{/each}}
@@ -46,21 +48,19 @@
         <table class="table" data-sort="table">
           <thead>
             <tr>
-              <th class="header">
-                <input type="checkbox" class="select-all" id="selectAll">
-              </th>
-              <th class="header headerSortDown">Date</th>
-              <th class="header">Content</th>
+              <th class="header headerSortUp">Due</th>
+              <th class="header">Subject</th>
+              <th class="header">Contact</th>
+              <th class="header">Completed</th>
             </tr>
           </thead>
           <tbody>
-            {{#each model.contact.notes as |note|}}
+            {{#each overdueTasks as |task|}}
               <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{moment-format note.date 'MMM Do YY'}}</td>
-                <td>{{note.content}}</td>
+                <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
+                <td>{{link-to task.subject 'task' task}}</td>
+                <td>{{task.contact.name}}</td>
+                <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
               </tr>
             {{/each}}
           </tbody>
@@ -75,23 +75,19 @@
         <table class="table" data-sort="table">
           <thead>
             <tr>
-              <th class="header">
-                <input type="checkbox" class="select-all" id="selectAll">
-              </th>
-              <th class="header headerSortDown">Date</th>
-              <th class="header">Product</th>
-              <th class="header">Amount</th>
+              <th class="header headerSortUp">Due</th>
+              <th class="header">Subject</th>
+              <th class="header">Contact</th>
+              <th class="header">Completed</th>
             </tr>
           </thead>
           <tbody>
-            {{#each model.contact.salesOrders as |salesOrder|}}
+            {{#each futureTasks as |task|}}
               <tr>
-                <td>
-                  <input type="checkbox" class="select-row">
-                </td>
-                <td>{{moment-format salesOrder.date 'MMM Do YY'}}</td>
-                <td>{{salesOrder.product.name}}</td>
-                <td>{{salesOrder.amount}}</td>
+                <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
+                <td>{{link-to task.subject 'task' task}}</td>
+                <td>{{task.contact.name}}</td>
+                <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
               </tr>
             {{/each}}
           </tbody>
