@@ -4,26 +4,19 @@
       <h6 class="dashhead-subtitle">Tasks</h6>
       <h2 class="dashhead-title">Search Tasks</h2>
     </div>
-
-    <div class="btn-toolbar dashhead-toolbar">
-      <div class="btn-toolbar-item input-with-icon">
-        <input type="text" value="01/01/15 - 01/08/15" class="form-control" data-provide="datepicker">
-        <span class="icon icon-calendar"></span>
-      </div>
-    </div>
   </div>
   <div class="flextable">
     <div class="flextable-item">
       <form class="form-inline">
         <div class="form-group">
-          {{bootstrap-datepicker value=date_due format='yyyy-mm-dd' class="form-control" placeholder="due date (from)"}}
+          {{bootstrap-datepicker value=date_due_from format='yyyy-mm-dd' class="form-control" placeholder="due date (from)"}}
         </div>
       </form>
     </div>
     <div class="flextable-item">
       <form class="form-inline">
         <div class="form-group">
-          {{bootstrap-datepicker value=date_due format='yyyy-mm-dd' class="form-control" placeholder="due date (to)"}}
+          {{bootstrap-datepicker value=date_due_to format='yyyy-mm-dd' class="form-control" placeholder="due date (to)"}}
         </div>
       </form>
     </div>
@@ -49,25 +42,7 @@
       </form>
     </div>
   </div>
-  <div class="text-center">
-    <ul class="pagination">
-      <li>
-        <a href="#" aria-label="Previous" {{action "prevPage"}}>
-          <span aria-hidden="true">«</span>
-        </a>
-      </li>
-      {{!--    <li class="active">{{link-to "1" "tasks"}}</li>
-      <li>{{link-to "2" "tasks"}}</li>
-      <li>{{link-to "3" "tasks"}}</li>
-      <li>{{link-to "4" "tasks"}}</li>
-      <li>{{link-to "5" "tasks"}}</li> --}}
-      <li>
-        <a href="#" aria-label="Next" {{action "nextPage"}}>
-          <span aria-hidden="true">»</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+  {{page-numbers content=model class="text-right"}}
   <div class="table-full">
     <div class="table-responsive">
       <table class="table" data-sort="table">
