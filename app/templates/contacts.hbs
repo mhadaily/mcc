@@ -27,13 +27,9 @@
       <table class="table" data-sort="table">
         <thead>
           <tr>
-            <th class="header">
-              <input type="checkbox" class="select-all" id="selectAll">
-            </th>
             <th class="header">Email</th>
             <th class="header headerSortDown">Customer name</th>
             <th class="header">Reference</th>
-            <th class="header">Source</th>
             <th class="header">Step</th>
           </tr>
         </thead>
@@ -45,13 +41,9 @@
             {{else}}
               {{#each contacts as |contact|}}
                 <tr>
-                  <td>
-                    <input type="checkbox" class="select-row">
-                  </td>
                   <td>{{contact.email}}</td>
                   <td>{{contact.name}}</td>
                   <td>{{link-to contact.reference 'contact' contact}}</td>
-                  <td>{{contact.source}}</td>
                   <td>{{contact.step}}</td>
                 </tr>
               {{/each}}

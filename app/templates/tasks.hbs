@@ -48,10 +48,8 @@
       <table class="table" data-sort="table">
         <thead>
           <tr>
-            <th class="header">
-              <input type="checkbox" class="select-all" id="selectAll">
-            </th>
             <th class="header headerSortUp">Due</th>
+            <th class="header headerSortUp">Assigned</th>
             <th class="header">Contact</th>
             <th class="header">Subject</th>
             <th class="header">Completed</th>
@@ -66,10 +64,8 @@
             {{else}}
               {{#each tasks as |task|}}
                 <tr>
-                  <td>
-                    <input type="checkbox" class="select-row">
-                  </td>
                   <td>{{moment-format task.dateDue "MMM Do YY"}}</td>
+                  <td>{{moment-format task.dateAssigned "MMM Do YY"}}</td>
                   <td>{{task.contact.name}}</td>
                   <td>{{link-to task.subject 'task' task}}</td>
                   <td>{{and task.dateComplete (moment-format task.dateComplete "MMM Do YY")}}</td>
