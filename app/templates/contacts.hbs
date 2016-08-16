@@ -4,47 +4,24 @@
       <h6 class="dashhead-subtitle">Contacts</h6>
       <h2 class="dashhead-title">Search Contacts </h2>
     </div>
-
-    <div class="btn-toolbar dashhead-toolbar">
-      <div class="btn-toolbar-item input-with-icon">
-        <input type="text" value="01/01/15 - 01/08/15" class="form-control" data-provide="datepicker">
-        <span class="icon icon-calendar"></span>
-      </div>
-    </div>
   </div>
-  <div class="flextable table-actions">
-    <div class="flextable-item flextable-primary">
-      <div class="btn-toolbar-item input-with-icon">
-      {{input value=search class="form-control input-block" placeholder="Search contacts"}}
-        <span class="icon icon-magnifying-glass"></span>
-      </div>
+  <div class="flextable">
+    <div class="flextable-item">
+      <form {{action 'queryChanged' on="submit"}} class="form-inline">
+        <div class="form-group">
+          {{input type="text" value=contact class="form-control" placeholder="search contact"}}
+        </div>
+      </form>
     </div>
     <div class="flextable-item">
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary-outline">
-          <span class="icon icon-pencil"></span>
-        </button>
-        <button type="button" class="btn btn-primary-outline">
-          <span class="icon icon-erase"></span>
-        </button>
-      </div>
+      <form {{action 'queryChanged' on="submit"}} class="form-inline">
+        <div class="form-group">
+          {{input type="text" value=step class="form-control" placeholder="search step"}}
+        </div>
+      </form>
     </div>
   </div>
-  <div class="text-center">
-    <ul class="pagination">
-        <li>
-          <a href="#" aria-label="Previous" {{action "prevPage"}}>
-            <span aria-hidden="true">«</span>
-          </a>
-        </li>
-
-        <li>
-        <a href="#" aria-label="Next" {{action "nextPage"}}>
-          <span aria-hidden="true">»</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+  {{page-numbers content=model class="text-right"}}
   <div class="table-full">
     <div class="table-responsive">
       <table class="table" data-sort="table">
@@ -54,25 +31,31 @@
               <input type="checkbox" class="select-all" id="selectAll">
             </th>
             <th class="header">Email</th>
-            <th class="header">Customer name</th>
+            <th class="header headerSortDown">Customer name</th>
             <th class="header">Reference</th>
             <th class="header">Source</th>
-            <th class="header">State</th>
+            <th class="header">Step</th>
           </tr>
         </thead>
         <tbody>
-           {{#each model as |contact|}}
-            <tr>
-              <td>
-                <input type="checkbox" class="select-row">
-              </td>
-              <td>{{contact.email}}</td>
-              <td>{{contact.name}}</td>
-              <td>{{link-to contact.reference 'contact' contact}}</td>
-              <td>{{contact.source}}</td>
-              <td>{{contact.state}}</td>
-            </tr>
-          {{/each}}
+          {{#unless contacts.length}}
+            <div class="m-a-1">
+              Your search returned no result
+            </div>
+            {{else}}
+              {{#each contacts as |contact|}}
+                <tr>
+                  <td>
+                    <input type="checkbox" class="select-row">
+                  </td>
+                  <td>{{contact.email}}</td>
+                  <td>{{contact.name}}</td>
+                  <td>{{link-to contact.reference 'contact' contact}}</td>
+                  <td>{{contact.source}}</td>
+                  <td>{{contact.step}}</td>
+                </tr>
+              {{/each}}
+          {{/unless}}
         </tbody>
       </table>
 
