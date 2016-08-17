@@ -10,9 +10,10 @@ export default Ember.Controller.extend({
   futureTasks: Ember.computed('model.tasks.[]', function() {
     return this.get('model.tasks');
   }),
-  steps: Ember.computed('summary.steps',function() {
-    var steps = {}
-    for (i = 1; i <= 21; i++)
-    return steps;
+  steps: Ember.computed('summary.steps', function() {
+    var steps = {};
+    for (var i = 1; i <= 21; i++) {
+      return steps;
+    }
   })
 });
