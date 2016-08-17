@@ -5,7 +5,7 @@
 </div>
 <ul class="nav nav-bordered m-y" role="tablist">
   <li class="active" role="presentation">
-    <a href="#tasks-due-today" role="tab" data-toggle="tab" aria-controls="tasks-due-today">Due Today</a>
+    <a href="#tasks-today" role="tab" data-toggle="tab" aria-controls="tasks-today">Due Today</a>
   </li>
   <li role="presentation">
     <a href="#tasks-overdue" role="tab" data-toggle="tab" aria-controls="tasks-overdue">Overdue</a>
@@ -15,7 +15,8 @@
   </li>
 </ul>
 <div class="tab-content" style="height:600px;overflow-y:auto;">
-  <div role="tabpanel" class="tab-pane active" id="tasks-due-today">
+  <div role="tabpanel" class="tab-pane active" id="tasks-today">
+    {{page-numbers content=model.todayTasks}}
     <div class="table-full">
       <div class="table-responsive">
         <table class="table" data-sort="table">
@@ -28,7 +29,7 @@
             </tr>
           </thead>
           <tbody>
-            {{#each dueTodayTasks as |task|}}
+            {{#each model.todayTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
                 <td>{{link-to task.subject 'task' task}}</td>
@@ -43,6 +44,7 @@
   </div>
 
   <div role="tabpanel" class="tab-pane" id="tasks-overdue">
+    {{page-numbers content=model.overdueTasks}}
     <div class="table-full">
       <div class="table-responsive">
         <table class="table" data-sort="table">
@@ -55,7 +57,7 @@
             </tr>
           </thead>
           <tbody>
-            {{#each overdueTasks as |task|}}
+            {{#each model.overdueTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
                 <td>{{link-to task.subject 'task' task}}</td>
@@ -70,6 +72,7 @@
   </div>
 
   <div role="tabpanel" class="tab-pane" id="tasks-future">
+    {{page-numbers content=model.futureTasks}}
     <div class="table-full">
       <div class="table-responsive">
         <table class="table" data-sort="table">
@@ -82,7 +85,7 @@
             </tr>
           </thead>
           <tbody>
-            {{#each futureTasks as |task|}}
+            {{#each model.futureTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
                 <td>{{link-to task.subject 'task' task}}</td>

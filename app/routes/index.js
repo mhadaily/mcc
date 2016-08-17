@@ -1,8 +1,10 @@
 import Ember from 'ember';
 import config from '../config/environment';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import moment from 'moment';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   model(params) {
     let headers = {};
 
@@ -10,8 +12,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       headers[headerName] = headerValue;
     });
 
+    var today = moment().startOf('day').toDate();
+    var tomorrow = moment().startOf('day').add(1,'day').toDate();
+    params.paramMapping = {total_pages: 'total-pages'}
+
     return Ember.RSVP.hash({
-      tasks: this.store.findAll('task'),
+      todayTasks: this.findPaged('task',Ember.merge(params,{q:{date_due_gteq: today, date_due_lt: tomorrow}})),
+      futureTasks: this.findPaged('task',Ember.merge(params,{q:{date_due_gteq: tomorrow}})),
+      overdueTasks: this.findPaged('task',Ember.merge(params,{q:{date_due_lt: today}})),
       summary: Ember.$.ajax(`${config.apiUrl}/analytics/phonereps`, {
         headers: headers,
         data: params
