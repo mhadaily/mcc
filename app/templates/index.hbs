@@ -5,6 +5,7 @@
       <div class="hr-divider m-t">
         <h3 class="hr-divider-content hr-divider-heading">Contacts Steps</h3>
       </div>
+      {{#link-to 'contacts' (query-params step="_blank")}}
       <div class="statcard">
         <div class="p-a p-b-0 text-center">
           <span class="statcard-desc"> Step 0 / <small>Total</small></span>
@@ -14,6 +15,7 @@
           </h2>
         </div>
       </div>
+      {{/link-to}}
       <div class="hr-divider m-b">
         <h3 class="hr-divider-content hr-divider-heading">Step 0 Aging</h3>
       </div>
