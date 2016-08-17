@@ -35,7 +35,7 @@
             {{#each model.todayTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
-                <td>{{link-to task.subject 'task' task}}</td>
+                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
                 <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
               </tr>
@@ -63,7 +63,7 @@
             {{#each model.overdueTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
-                <td>{{link-to task.subject 'task' task}}</td>
+                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
                 <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
               </tr>
@@ -91,7 +91,7 @@
             {{#each model.futureTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
-                <td>{{link-to task.subject 'task' task}}</td>
+                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
                 <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
               </tr>
@@ -103,7 +103,7 @@
   </div>
 
   <div role="tabpanel" class="tab-pane" id="tasks-completed">
-    {{page-numbers content=model.futureTasks}}
+    {{page-numbers content=model.completedTasks}}
     <div class="table-full">
       <div class="table-responsive">
         <table class="table" data-sort="table">
@@ -119,7 +119,7 @@
             {{#each model.completedTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
-                <td>{{link-to task.subject 'task' task}}</td>
+                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
                 <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
               </tr>
