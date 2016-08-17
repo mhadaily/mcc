@@ -116,7 +116,7 @@
             </tr>
           </thead>
           <tbody>
-            {{#each model.futureTasks as |task|}}
+            {{#each model.completedTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
                 <td>{{link-to task.subject 'task' task}}</td>
