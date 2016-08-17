@@ -11,8 +11,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-7">
-      <div class="panel panel-default">
+    <div class="col-sm-3">
+       {{render '_task-details' model}}
+    </div>
+    <div class="col-sm-5">
+     <div class="panel panel-default">
         <div class="panel-heading">
           <h2 class="panel-title">{{model.contact.name}}&nbsp;</h2>
         </div>
@@ -38,11 +41,35 @@
           {{render '_task-activities' model}}
         </div>
       </div>
-    </div>
-    <div class="col-sm-5">
-      {{render '_task-details' model}}
 
-      <div class="hr-divider m-t m-b">
+
+    </div>
+    <div class="col-sm-4">
+    <div class="table-responsive" style="max-height:300px;overflow-y:auto;">
+        <table class="table" data-sort="table">
+          <thead>
+            <tr>
+              <th class="header">
+                <input type="checkbox" class="select-all" id="selectAll">
+              </th>
+              <th class="header headerSortDown">Date</th>
+              <th class="header">Content</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each model.contact.notes as |note|}}
+            <tr>
+              <td>
+                <input type="checkbox" class="select-row">
+              </td>
+              <td>{{moment-format note.date 'MMM Do YY'}}</td>
+              <td>{{note.content}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+       <div class="hr-divider m-t m-b">
         <h3 class="hr-divider-content hr-divider-heading">Quick Note</h3>
       </div>
       <form class="form" {{action "newNote" on="submit"}}>

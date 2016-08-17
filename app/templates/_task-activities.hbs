@@ -1,19 +1,9 @@
-<div class="hr-divider m-y-md">
-  <ul class="nav nav-pills hr-divider-content hr-divider-nav" role="tablist">
-    <li class="active" role="presentation">
-      <a href="#sales" role="tab" data-toggle="tab" aria-controls="sales">Tasks</a>
-    </li>
-    <li role="presentation">
-      <a href="#inventory" role="tab" data-toggle="tab" aria-controls="inventory">Notes</a>
-    </li>
-    <li role="presentation">
-      <a href="#profit" role="tab" data-toggle="tab" aria-controls="profit">Sales</a>
-    </li>
-  </ul>
-</div>
 <div class="tab-content">
-  <div role="tabpanel" class="tab-pane active" id="sales">
-    <div class="table-full" style="height:400px;overflow-y:auto;">
+  <div id="sales">
+    <div class="table-full" style="max-height:400px;overflow-y:auto;">
+     <div class="hr-divider m-t m-b">
+        <h3 class="hr-divider-content hr-divider-heading">  Tasks</h3>
+      </div>
       <div class="table-responsive">
         <table class="table" data-sort="table">
           <thead>
@@ -43,37 +33,13 @@
     </div>
   </div>
 
-  <div role="tabpanel" class="tab-pane" id="inventory">
-    <div class="table-full" style="height:400px;overflow-y:auto;">
-      <div class="table-responsive">
-        <table class="table" data-sort="table">
-          <thead>
-            <tr>
-              <th class="header">
-                <input type="checkbox" class="select-all" id="selectAll">
-              </th>
-              <th class="header headerSortDown">Date</th>
-              <th class="header">Content</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each model.contact.notes as |note|}}
-            <tr>
-              <td>
-                <input type="checkbox" class="select-row">
-              </td>
-              <td>{{moment-format note.date 'MMM Do YY'}}</td>
-              <td>{{note.content}}</td>
-            </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
 
-  <div role="tabpanel" class="tab-pane" id="profit">
-    <div class="table-full" style="height:400px;overflow-y:auto;">
+  <div id="profit">
+    <div class="table-full" style="max-height:400px;overflow-y:auto;">
+      <div class="hr-divider m-t m-b">
+        <h3 class="hr-divider-content hr-divider-heading">  Sales</h3>
+      </div>
+
       <div class="table-responsive">
         <table class="table" data-sort="table">
           <thead>
