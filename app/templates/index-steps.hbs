@@ -1,199 +1,199 @@
 <div class="row">
   <div class="col-sm-6">
     <div class="list-group">
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="1") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '1') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{get model.summary.steps '1'}}
           ({{format-number (div (or (get model.summary.steps '1') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 1
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="2") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '2') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{get model.summary.steps '2'}}
           ({{format-number (div (or (get model.summary.steps '2') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 2
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="3") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '3') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{get model.summary.steps '3'}}
           ({{format-number (div (or (get model.summary.steps '3') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 3
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="4") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '4') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '4') 0}}
           ({{format-number (div (or (get model.summary.steps '4') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 4
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="5") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '5') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '5') 0}}
           ({{format-number (div (or (get model.summary.steps '5') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 5
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="6") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '6') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '6') 0}}
           ({{format-number (div (or (get model.summary.steps '6') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 6
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="7") class="list-group-item"}}
         <span class="list-group-progress" style="width: 1.7%;"></span>
         <span class="pull-right">
           {{get model.summary.steps '7'}}
           ({{format-number (div (or (get model.summary.steps '7')) model.summary.step_total) '0.0%'}})
         </span>
         Step 7
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="8") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '8') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '8') 0}}
           ({{format-number (div (or (get model.summary.steps '8') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 8
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="9") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '9') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '9') 0}}
           ({{format-number (div (or (get model.summary.steps '9') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 9
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="10") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '10') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '10') 0}}
           ({{format-number (div (or (get model.summary.steps '10') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 10
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="11") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '11') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '11') 0}}
           ({{format-number (div (or (get model.summary.steps '11') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 11
-      </a>
+      {{/link-to}}
 
     </div>
 
   </div>
   <div class="col-sm-6">
     <div class="list-group">
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="12") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '12') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{get model.summary.steps '12'}}
           ({{format-number (div (or (get model.summary.steps '12') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 12
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="13") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '13') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{get model.summary.steps '13'}}
           ({{format-number (div (or (get model.summary.steps '13') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 13
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="14") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '14') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{get model.summary.steps '14'}}
           ({{format-number (div (or (get model.summary.steps '14') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 14
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="15") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '15') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '15') 0}}
           ({{format-number (div (or (get model.summary.steps '15') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 15
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="16") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '16') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '16') 0}}
           ({{format-number (div (or (get model.summary.steps '16') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 16
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="17") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '17') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '17') 0}}
           ({{format-number (div (or (get model.summary.steps '17') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 17
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="18") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '18') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '18') 0}}
           ({{format-number (div (or (get model.summary.steps '18') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 18
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="19") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '19') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '19') 0}}
           ({{format-number (div (or (get model.summary.steps '19') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 19
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="20") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '20') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '20') 0}}
           ({{format-number (div (or (get model.summary.steps '20') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 20
-      </a>
+      {{/link-to}}
 
-      <a class="list-group-item" href="#">
+      {{#link-to 'contacts'(query-params step="21") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '21') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{or (get model.summary.steps '21') 0}}
           ({{format-number (div (or (get model.summary.steps '21') 0) model.summary.step_total) format="0.0%"}})
         </span>
         Step 21
-      </a>
+      {{/link-to}}
 
     </div>
 
