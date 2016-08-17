@@ -17,9 +17,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
     params.paramMapping = {total_pages: 'total-pages'}
 
     return Ember.RSVP.hash({
-      todayTasks: this.findPaged('task',Ember.merge(params,{q:{date_due_gteq: today, date_due_lt: tomorrow}})),
-      futureTasks: this.findPaged('task',Ember.merge(params,{q:{date_due_gteq: tomorrow}})),
-      overdueTasks: this.findPaged('task',Ember.merge(params,{q:{date_due_lt: today}})),
+      todayTasks:     this.findPaged('task',Ember.merge(params,{q:{date_complete_null: true, date_due_gteq: today, date_due_lt: tomorrow}})),
+      futureTasks:    this.findPaged('task',Ember.merge(params,{q:{date_complete_null: true, date_due_gteq: tomorrow}})),
+      overdueTasks:   this.findPaged('task',Ember.merge(params,{q:{date_complete_null: true, date_due_lt: today}})),
+      completedTasks: this.findPaged('task',Ember.merge(params,{q:{date_complete_null: false}})),
       summary: Ember.$.ajax(`${config.apiUrl}/analytics/phonereps`, {
         headers: headers,
         data: params

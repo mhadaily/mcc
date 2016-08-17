@@ -13,6 +13,9 @@
   <li role="presentation">
     <a href="#tasks-future" role="tab" data-toggle="tab" aria-controls="tasks-scheduled">Future</a>
   </li>
+  <li role="presentation">
+    <a href="#tasks-completed" role="tab" data-toggle="tab" aria-controls="tasks-completed">Completed</a>
+  </li>
 </ul>
 <div class="tab-content" style="height:600px;overflow-y:auto;">
   <div role="tabpanel" class="tab-pane active" id="tasks-today">
@@ -72,6 +75,34 @@
   </div>
 
   <div role="tabpanel" class="tab-pane" id="tasks-future">
+    {{page-numbers content=model.futureTasks}}
+    <div class="table-full">
+      <div class="table-responsive">
+        <table class="table" data-sort="table">
+          <thead>
+            <tr>
+              <th class="header headerSortUp">Due</th>
+              <th class="header">Subject</th>
+              <th class="header">Contact</th>
+              <th class="header">Completed</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each model.futureTasks as |task|}}
+              <tr>
+                <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
+                <td>{{link-to task.subject 'task' task}}</td>
+                <td>{{task.contact.name}}</td>
+                <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="tasks-completed">
     {{page-numbers content=model.futureTasks}}
     <div class="table-full">
       <div class="table-responsive">
