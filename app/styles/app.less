@@ -5,6 +5,7 @@
 @font-weight-base: 500;
 @text-color: @gray-darker;
 // @body-bg: rgba(231, 214, 143, 0.12);
+@list-group-progress: darken(@gray-darker, 25%);
 @brand-primary: maroon;
 @pre-bg: darken(@body-bg, 5%);
 @pre-text-color: #444;
@@ -16,6 +17,10 @@
   .with-iconav > .liquid-container {
     margin-left: 70px;
   }
+}
+
+.list-group-progress {
+  background: @list-group-progress;
 }
 
 dl {
@@ -38,8 +43,8 @@ dl {
 }
 
 // pre {
-// 	background: @pre-bg;
-// 	color:@pre-text-color;
+//  background: @pre-bg;
+//  color:@pre-text-color;
 // }
 .setRules() {
   background: @note-bg;
