@@ -1,37 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-
-
-  step: 0,
+  queryParams: ['step'],
+  step: null,
 
   actions: {
 
-    stepDown: function() {
-
-      var stepNoDown = this.get('step');
-      if (isNaN(stepNoDown) || stepNoDown === 0) {
-        alert('There is no value');
-      } else {
-        stepNoDown = parseInt(stepNoDown) - 1;
-        this.set('step', stepNoDown);
-
-      }
-
-    },
-
-    stepUp: function() {
-
-      var stepNoUp = this.get('step');
-      if (isNaN(stepNoUp)) {
-        alert('There is no value');
-      } else {
-        stepNoUp = parseInt(stepNoUp) + 1;
-        this.set('step', stepNoUp);
-      }
-    },
-
-    newStep: function() {
+    changeSave: function() {
 
       var newStepNumber = {
 
@@ -45,13 +20,16 @@ export default Ember.Controller.extend({
         alert('Step has been saved');
         this.set('step', newStepNumber.step);
 
+
       }, function() {
 
         alert('Failed to save! Please try later!');
 
       });
 
+
     },
+
 
     newNote: function() {
 
