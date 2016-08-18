@@ -1,4 +1,13 @@
-<p>Change step to</p>
-<p><button class="btn btn-danger btn-sm" {{action "stepDown"}}>-</button> {{input type="number" value=step class="modal-input"}} <button class="btn btn-danger btn-sm" {{action "stepUp"}}>+</button></p>
-<button {{action "dismiss"}} class="done btn btn-sm btn-danger">Dismiss</button>
-<button {{action "change"}} class="change btn btn-sm btn-success">Change&Save</button>
+<div class="modal-content modal-lg">
+  <div class="modal-header">
+    <button type="button" class="close"  {{action "dismiss"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Change step to</h4>
+  </div>
+  <div class="modal-body">
+   <p style="text-align:center;"><button class="btn btn-danger btn-sm" {{action "stepDown"}}>-</button> {{input type="number" value=step class="modal-input"}} <button class="btn btn-danger btn-sm" {{action "stepUp"}}>+</button></p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default"  {{action "dismiss"}}>Close</button>
+    <button type="button" class="btn btn-primary" {{action "change"}}>Save changes</button>
+  </div>
+</div><!-- /.modal-content -->
