@@ -44,9 +44,9 @@
           <tr>
             <th class="header headerSortUp">Due</th>
             <th class="header">Assigned</th>
-            <th class="header">Contact</th>
-            <th class="header">Subject</th>
             <th class="header">Completed</th>
+            <th class="header">Subject</th>
+            <th class="header">Contact</th>
             <th class="header">Step</th>
           </tr>
         </thead>
@@ -60,10 +60,10 @@
                 <tr>
                   <td>{{moment-format task.dateDue}}</td>
                   <td>{{moment-format task.dateAssigned}}</td>
-                  <td>{{task.contact.name}}</td>
-                  <td>{{link-to task.subject 'task' task}}</td>
                   <td>{{moment-format task.dateComplete}}</td>
-                  <td>{{task.stepNum}}</td>
+                  <td>{{link-to task.subject 'task' task}}</td>
+                  <td>{{task.contact.name}}</td>
+                  <td>{{task.contact.step}}</td>
                 </tr>
               {{/each}}
           {{/unless}}
