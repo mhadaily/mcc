@@ -8,6 +8,11 @@
     </div>
 
     <div class="btn-toolbar dashhead-toolbar">
+       <button type="submit" class="btn btn-danger" {{action 'taskComplete'}} disabled={{isCancelled}}>Complete Your Task</button>
+
+     {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-primary'}}
+              Change Step
+     {{/link-to}}
     </div>
   </div>
   <div class="row">
@@ -19,14 +24,9 @@
       {{render 'contact-details' model.contact}}
     </div>
     <div class="col-sm-4">
-      <p>
-         <button type="submit" class="btn btn-danger btn-block" {{action 'taskComplete'}} disabled={{isCancelled}}>Complete Your Task</button>
-      </p>
-      <p>
-     {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-block btn-sm btn-primary'}}
-              Change Step
-     {{/link-to}}
-     </p>
+
+
+
     <div class="table-responsive" style="max-height:300px;overflow-y:auto;">
         <table class="table" data-sort="table">
           <thead>
