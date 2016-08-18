@@ -1,4 +1,4 @@
-    <div class="list-group">
+    <div class="list-group compact">
       {{#link-to 'contacts'(query-params step="1") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '1') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
