@@ -22,9 +22,9 @@
         <div class="panel-body">
           <dl>
             <dt>Date:</dt>
-            <dd>{{and model.contact.date (moment-format model.contact.date 'MMM Do YY')}}&nbsp;</dd>
+            <dd>{{moment-format model.contact.date}}&nbsp;</dd>
             <dt>Date Last Modified:</dt>
-            <dd>{{and model.contact.dateLastModified (moment-format model.contact.date 'MMM Do YY')}}&nbsp;</dd>
+            <dd>{{moment-format model.contact.dateLastModified}}&nbsp;</dd>
             <<dt>First Name:</<dt>
             <dd>{{model.contact.firstName}}&nbsp;</dd>
             <dt>Last Name:</dt>
@@ -59,7 +59,7 @@
           <tbody>
             {{#each model.contact.notes as |note|}}
             <tr>
-              <td>{{moment-format note.date 'MMM Do YY'}}</td>
+              <td>{{moment-format note.date}}</td>
               <td>{{note.content}}</td>
             </tr>
             {{/each}}

@@ -9,7 +9,7 @@
       <tbody>
         {{#each model.notes as |note|}}
         <tr>
-          <td>{{moment-format note.date 'MMM Do YY'}}</td>
+          <td>{{moment-format note.date}}</td>
           <td>{{note.content}}</td>
         </tr>
         {{/each}}

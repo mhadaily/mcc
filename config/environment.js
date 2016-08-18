@@ -2,6 +2,10 @@
 
 module.exports = function(environment) {
   var ENV = {
+    moment: {
+      outputFormat: 'MMM Do YY',
+      allowEmpty: true // default: false
+    },
     modulePrefix: 'mobecallcentre',
     environment: environment,
     rootURL: '/',

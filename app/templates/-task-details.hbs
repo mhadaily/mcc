@@ -3,11 +3,11 @@
 </div>
 <dl class="m-b">
   <dt>Date assigned:</dt>
-  <dd>{{moment-format model.dateAssigned 'MMM Do YY'}}&nbsp;</dd>
+  <dd>{{moment-format model.dateAssigned}}&nbsp;</dd>
   <dt>Date due:</dt>
-  <dd>{{moment-format model.dateDue 'MMM Do YY'}}&nbsp;</dd>
+  <dd>{{moment-format model.dateDue}}&nbsp;</dd>
   <dt>Date complete:</dt>
-  <dd>{{and model.dateComplete (moment-format model.dateComplete 'MMM Do YY')}}&nbsp;</dd>
+  <dd>{{moment-format model.dateComplete}}&nbsp;</dd>
   <dt>Reference:</dt>
   <dd>{{model.reference}} ({{model.source}})&nbsp;</dd>
   <dt>Subject:</dt>

@@ -10,7 +10,7 @@
     <tbody>
       {{#each model.salesOrders as |salesOrder|}}
       <tr>
-        <td>{{moment-format salesOrder.date 'MMM Do YY'}}</td>
+        <td>{{moment-format salesOrder.date}}</td>
         <td>{{salesOrder.product.name}}</td>
         <td>{{salesOrder.amount}}</td>
       </tr>

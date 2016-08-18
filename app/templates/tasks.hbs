@@ -58,11 +58,11 @@
             {{else}}
               {{#each tasks as |task|}}
                 <tr>
-                  <td>{{moment-format task.dateDue "MMM Do YY"}}</td>
-                  <td>{{moment-format task.dateAssigned "MMM Do YY"}}</td>
+                  <td>{{moment-format task.dateDue}}</td>
+                  <td>{{moment-format task.dateAssigned}}</td>
                   <td>{{task.contact.name}}</td>
                   <td>{{link-to task.subject 'task' task}}</td>
-                  <td>{{and task.dateComplete (moment-format task.dateComplete "MMM Do YY")}}</td>
+                  <td>{{moment-format task.dateComplete}}</td>
                   <td>{{task.stepNum}}</td>
                 </tr>
               {{/each}}
