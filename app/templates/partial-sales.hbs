@@ -1,0 +1,20 @@
+<div class="table-responsive">
+  <table class="table" data-sort="table">
+    <thead>
+      <tr>
+        <th class="header headerSortDown">Date</th>
+        <th class="header">Product</th>
+        <th class="header">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model.salesOrders as |salesOrder|}}
+      <tr>
+        <td>{{moment-format salesOrder.date 'MMM Do YY'}}</td>
+        <td>{{salesOrder.product.name}}</td>
+        <td>{{salesOrder.amount}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
