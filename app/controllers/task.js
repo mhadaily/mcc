@@ -31,17 +31,38 @@ export default Ember.Controller.extend({
 
 
     },
-    newNote: function() {
+    taskComplete: function() {
 
-      var model = this.get('model');
-      var newNoteData = {
+      var newNoteComplete = {
 
-        content: this.get('noteContent'),
-        contact: model.get('contact')
+        complete: 1,
+        contact: this.model.get('contact')
 
       };
 
-      model.store.createRecord('note', newNoteData).save().then(() => {
+      this.store.createRecord('task', newNoteComplete).save().then(() => {
+
+        alert('Note has been saved');
+
+      }, function() {
+
+        alert('Saving Note Failed!');
+
+      });
+
+
+    },
+    newNote: function() {
+
+
+      var newNoteData = {
+
+        content: this.get('noteContent'),
+        contact: this.model.get('contact')
+
+      };
+
+      this.store.createRecord('note', newNoteData).save().then(() => {
 
         alert('Note has been saved');
         this.set('noteContent', ' ');
