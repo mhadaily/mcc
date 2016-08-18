@@ -14,13 +14,14 @@
           </li>
           <li>
             {{#link-to 'tasks' title="Order history" data-toggle="tooltip" data-placement="right" data-container="body" }}
-              <span class="icon icon-check"></span>
+              <span class="icon icon-list"></span>
               <small class="iconav-nav-label visible-xs-block">Tasks</small>
             {{/link-to}}
           </li>
           <li>
             {{#link-to 'settings' title="Signed in as mdo" data-toggle="tooltip" data-placement="right" data-container="body" }}
-              {{gravatar-image email='simon@simontseng.com' class="img-circle img-responsive"}}
+              {{!-- {{gravatar-image email='simon@simontseng.com' class="img-circle img-responsive"}} --}}
+              <span class="icon icon-cog"></span>
               <small class="iconav-nav-label visible-xs-block">@simontseng</small>
             {{/link-to}}
           </li>
