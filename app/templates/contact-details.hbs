@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">{{model.name}}&nbsp;</h2>
+  </div>
+  <div class="panel-body">
+    <dl>
+      <img src="http://placehold.it/65x65" class="img-circle pull-right">
+      <dt>Date:</dt>
+      <dd>{{moment-format model.date 'MMM Do YY'}}&nbsp;</dd>
+      <dt>Date Last Modified:</dt>
+      <dd>{{moment-format model.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
+      <div class="clearfix"></div>
+      <<dt>First Name:</<dt>
+      <dd>{{model.firstName}}&nbsp;</dd>
+      <dt>Last Name:</dt>
+      <dd>{{model.lastName}}&nbsp;</dd>
+      <dt>Reference:</dt>
+      <dd>{{model.reference}} ({{model.source}})</dd>
+      <dt>Email:</dt>
+      <dd>{{model.email}}&nbsp;</dd>
+      <dt>Step:</dt>
+      <dd>
+        {{input type="number" value=model.step}}
+        {{#link-to (query-params step=model.step) tagName='button' class='btn btn-sm btn-primary' }}
+          Change Step
+        {{/link-to}}
+      </dd>
+      <dt>L1: MTTB Coach:</dt>
+      <dd>{{model.l1MttbCoach}}&nbsp;</dd>
+      <dt>L2: MTTB Coach:</dt>
+      <dd>{{model.l2MttbCoach}}&nbsp;</dd>
+    </dl>
+
+    {{render '-task-activities' model}}
+
+  </div>
+</div>

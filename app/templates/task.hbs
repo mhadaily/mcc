@@ -16,34 +16,7 @@
        {{render '-task-details' model}}
     </div>
     <div class="col-sm-5">
-     <div class="panel panel-default">
-        <div class="panel-heading">
-          <h2 class="panel-title">{{model.contact.name}}&nbsp;</h2>
-        </div>
-        <div class="panel-body">
-          <dl>
-            <dt>Date:</dt>
-            <dd>{{moment-format model.contact.date}}&nbsp;</dd>
-            <dt>Date Last Modified:</dt>
-            <dd>{{moment-format model.contact.dateLastModified}}&nbsp;</dd>
-            <<dt>First Name:</<dt>
-            <dd>{{model.contact.firstName}}&nbsp;</dd>
-            <dt>Last Name:</dt>
-            <dd>{{model.contact.lastName}}&nbsp;</dd>
-            <dt>Reference:</dt>
-            <dd>{{model.contact.reference}} ({{model.contact.source}})</dd>
-            <dt>Email:</dt>
-            <dd>{{model.contact.email}}&nbsp;</dd>
-            <dt>Step:</dt>
-            <dd>{{model.contact.step}}&nbsp;</dd>
-            <dt>L1: MTTB Coach:</dt>
-            <dd>{{model.contact.l1MttbCoach}}&nbsp;</dd>
-          </dl>
-          {{render '-task-activities' model}}
-        </div>
-      </div>
-
-
+      {{render 'contact-details' model.contact}}
     </div>
     <div class="col-sm-4">
       <p>
