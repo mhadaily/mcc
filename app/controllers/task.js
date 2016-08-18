@@ -42,6 +42,7 @@ export default Ember.Controller.extend({
       this.store.createRecord('task', newNoteComplete).save().then(() => {
 
         alert('Note has been saved');
+        this.set('isCancelled', true);
 
       }, function() {
 
