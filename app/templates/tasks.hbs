@@ -5,44 +5,38 @@
       <h2 class="dashhead-title">Search Tasks</h2>
     </div>
   </div>
-  <div class="flextable">
-    <div class="flextable-item">
-      <form class="form-inline">
+  <div class="clearfix">
+  {{page-numbers content=model class="text-right"}}
+  </div>
+  <div class="col-md-2">
+      <form class="form">
         <div class="form-group">
           {{bootstrap-datepicker value=date_due_from format='yyyy-mm-dd' class="form-control" placeholder="due date (from)"}}
         </div>
       </form>
-    </div>
-    <div class="flextable-item">
-      <form class="form-inline">
+      <form class="form">
         <div class="form-group">
           {{bootstrap-datepicker value=date_due_to format='yyyy-mm-dd' class="form-control" placeholder="due date (to)"}}
         </div>
       </form>
-    </div>
-    <div class="flextable-item">
-      <form {{action 'queryChanged' on="submit"}} class="form-inline">
+      <form {{action 'queryChanged' on="submit"}} class="form">
         <div class="form-group">
           {{input type="text" value=contact class="form-control" placeholder="search contact"}}
         </div>
       </form>
-    </div>
-    <div class="flextable-item">
-      <form {{action 'queryChanged' on="submit"}} class="form-inline">
+      <form {{action 'queryChanged' on="submit"}} class="form">
         <div class="form-group">
           {{input type="text" value=subject class="form-control" placeholder="search subject"}}
         </div>
       </form>
-    </div>
-    <div class="flextable-item">
-      <form {{action 'queryChanged' on="submit"}} class="form-inline">
+
+      <form {{action 'queryChanged' on="submit"}} class="form">
         <div class="form-group">
           {{input type="text" value=step class="form-control" placeholder="search step"}}
         </div>
       </form>
-    </div>
   </div>
-  {{page-numbers content=model class="text-right"}}
+  <div class="col-md-10">
   <div class="table-full">
     <div class="table-responsive">
       <table class="table" data-sort="table">
@@ -77,7 +71,8 @@
       </table>
     </div>
   </div>
-  {{outlet}}
 
+  {{outlet}}
+</div>
 </div>
 {{outlet}}
