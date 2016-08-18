@@ -49,9 +49,6 @@
         <table class="table" data-sort="table">
           <thead>
             <tr>
-              <th class="header">
-                <input type="checkbox" class="select-all" id="selectAll">
-              </th>
               <th class="header headerSortDown">Date</th>
               <th class="header">Content</th>
             </tr>
@@ -59,9 +56,6 @@
           <tbody>
             {{#each model.contact.notes as |note|}}
             <tr>
-              <td>
-                <input type="checkbox" class="select-row">
-              </td>
               <td>{{moment-format note.date 'MMM Do YY'}}</td>
               <td>{{note.content}}</td>
             </tr>
