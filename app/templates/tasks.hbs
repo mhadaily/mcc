@@ -10,24 +10,15 @@
         <div class="form-group">
           {{bootstrap-datepicker value=date_due_from format='yyyy-mm-dd' class="form-control" placeholder="due date (from)"}}
         </div>
-      </form>
-      <form class="form">
         <div class="form-group">
           {{bootstrap-datepicker value=date_due_to format='yyyy-mm-dd' class="form-control" placeholder="due date (to)"}}
         </div>
-      </form>
-      <form {{action 'queryChanged' on="submit"}} class="form">
         <div class="form-group">
           {{input type="text" value=contact class="form-control" placeholder="search contact"}}
         </div>
-      </form>
-      <form {{action 'queryChanged' on="submit"}} class="form">
         <div class="form-group">
           {{input type="text" value=subject class="form-control" placeholder="search subject"}}
         </div>
-      </form>
-
-      <form {{action 'queryChanged' on="submit"}} class="form">
         <div class="form-group">
           {{input type="text" value=step class="form-control" placeholder="search step"}}
         </div>
