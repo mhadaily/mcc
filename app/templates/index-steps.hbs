@@ -69,10 +69,10 @@
       {{/link-to}}
 
       {{#link-to 'contacts'(query-params step="7") class="list-group-item"}}
-        <span class="list-group-progress" style="width: 1.7%;"></span>
+      <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '7') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{get model.summary.steps '7'}}
-          ({{format-number (div (or (get model.summary.steps '7')) model.summary.step_total) '0.0%'}})
+          ({{format-number (div (or (get model.summary.steps '7')) model.summary.step_total) format='0.0%'}})
         </span>
         Step 7
       {{/link-to}}
@@ -221,7 +221,7 @@
       {{/link-to}}
 
       {{#link-to 'contacts'(query-params step="-1") class="list-group-item"}}
-        <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '130') 0.0) model.summary.step_total) format="0.0%"}};"></span>
+        <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '-1') 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{get model.summary.steps '-1'}}
           ({{format-number (div (or (get model.summary.steps '-1') 0) model.summary.step_total) format="0.0%"}})
