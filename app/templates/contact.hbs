@@ -17,14 +17,13 @@
           <h2 class="panel-title">{{model.name}}&nbsp;</h2>
         </div>
         <div class="panel-body">
+        <div class="col-md-10">
           <dl>
-             <img src="http://placehold.it/65x65" class="img-circle pull-right">
-           <dt>Date:</dt>
-            <dd>{{moment-format model.date 'MMM Do YY'}}&nbsp;</dd>
+            <dt>Date:</dt>
+            <dd>{{moment-format model.date}}&nbsp;</dd>
             <dt>Date Last Modified:</dt>
-            <dd>{{moment-format model.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
-            <div class="clearfix"></div>
-            <<dt>First Name:</<dt>
+            <dd>{{moment-format model.dateLastModified}}&nbsp;</dd>
+            <dt>First Name:</<dt>
             <dd>{{model.firstName}}&nbsp;</dd>
             <dt>Last Name:</dt>
             <dd>{{model.lastName}}&nbsp;</dd>
@@ -44,6 +43,10 @@
             <dt>L2: MTTB Coach:</dt>
             <dd>{{model.l2MttbCoach}}&nbsp;</dd>
           </dl>
+        </div>
+        <div class="col-md-2">
+           <img src="http://placehold.it/65x65" class="img-circle">
+        </div>
           <div class="hr-divider m-y-md">
               <ul class="nav nav-pills hr-divider-content hr-divider-nav" role="tablist">
                 <li class="active" role="presentation">
@@ -72,9 +75,9 @@
                       <tbody>
                         {{#each model.tasks as |task|}}
                         <tr>
-                          <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
+                          <td>{{moment-format task.dateDue}}</td>
                           <td>{{link-to task.subject 'task' task}}</td>
-                          <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
+                          <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
                         </tr>
                         {{/each}}
                       </tbody>
