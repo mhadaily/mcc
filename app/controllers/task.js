@@ -35,7 +35,6 @@ export default Ember.Controller.extend({
 
       var newNoteComplete = {
 
-        complete: 1,
         contact: this.model.get('contact')
 
       };
