@@ -32,10 +32,12 @@
       <table class="table" data-sort="table">
         <thead>
           <tr>
-            <th class="header">Email</th>
-            <th class="header headerSortDown">Customer name</th>
             <th class="header">Reference</th>
+            <th class="header headerSortDown">Customer name</th>
+            <th class="header">Email</th>
             <th class="header">Step</th>
+            <th class="header">L1 MTTB Coach</th>
+            <th class="header">L2 MTTB Coach</th>
           </tr>
         </thead>
         <tbody>
@@ -46,10 +48,12 @@
             {{else}}
               {{#each contacts as |contact|}}
                 <tr>
-                  <td>{{contact.email}}</td>
-                  <td>{{contact.name}}</td>
                   <td>{{link-to contact.reference 'contact' contact}}</td>
+                  <td>{{contact.name}}</td>
+                  <td>{{contact.email}}</td>
                   <td>{{contact.step}}</td>
+                  <td>{{contact.l1MttbCoach}}</td>
+                  <td>{{contact.l2MttbCoach}}</td>
                 </tr>
               {{/each}}
           {{/unless}}
