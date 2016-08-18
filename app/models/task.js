@@ -4,6 +4,7 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   contact: DS.belongsTo(),
   status: DS.attr(),
+  statusEvent: DS.attr(),
   details: DS.attr(),
   reference: DS.attr(),
   source: DS.attr(),
