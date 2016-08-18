@@ -8,9 +8,6 @@
         <table class="table" data-sort="table">
           <thead>
             <tr>
-              <th class="header">
-                <input type="checkbox" class="select-all" id="selectAll">
-              </th>
               <th class="header headerSortDown">Date</th>
               <th class="header">Subject</th>
               <th class="header">Completed</th>
@@ -44,9 +41,6 @@
         <table class="table" data-sort="table">
           <thead>
             <tr>
-              <th class="header">
-                <input type="checkbox" class="select-all" id="selectAll">
-              </th>
               <th class="header headerSortDown">Date</th>
               <th class="header">Product</th>
               <th class="header">Amount</th>
@@ -55,9 +49,6 @@
           <tbody>
             {{#each model.contact.salesOrders as |salesOrder|}}
             <tr>
-              <td>
-                <input type="checkbox" class="select-row">
-              </td>
               <td>{{moment-format salesOrder.date 'MMM Do YY'}}</td>
               <td>{{salesOrder.product.name}}</td>
               <td>{{salesOrder.amount}}</td>
