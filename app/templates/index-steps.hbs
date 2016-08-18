@@ -1,5 +1,11 @@
+<div class="hr-divider m-y">
+  <h3 class="hr-divider-content hr-divider-heading">
+    21 Steps
+  </h3>
+</div>
+
     <div class="list-group compact">
-      {{#link-to 'contacts'(query-params step="0") class="list-group-item"}}
+      {{#link-to 'contacts'(query-params step="_blank") class="list-group-item"}}
         <span class="list-group-progress" style="width: {{format-number (div (or model.summary.step_0 0.0) model.summary.step_total) format="0.0%"}};"></span>
         <span class="pull-right">
           {{model.summary.step_0}}
@@ -196,5 +202,39 @@
         </span>
         Step 21
       {{/link-to}}
+    </div>
 
+    <div class="hr-divider m-y">
+      <h3 class="hr-divider-content hr-divider-heading">
+        Other Steps
+      </h3>
+    </div>
+
+    <div class="list-group compact">
+      {{#link-to 'contacts'(query-params step="130") class="list-group-item"}}
+        <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '130') 0.0) model.summary.step_total) format="0.0%"}};"></span>
+        <span class="pull-right">
+          {{get model.summary.steps '130'}}
+          ({{format-number (div (or (get model.summary.steps '130') 0) model.summary.step_total) format="0.0%"}})
+        </span>
+        Step 130
+      {{/link-to}}
+
+      {{#link-to 'contacts'(query-params step="-1") class="list-group-item"}}
+        <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '130') 0.0) model.summary.step_total) format="0.0%"}};"></span>
+        <span class="pull-right">
+          {{get model.summary.steps '-1'}}
+          ({{format-number (div (or (get model.summary.steps '-1') 0) model.summary.step_total) format="0.0%"}})
+        </span>
+        Step -1
+      {{/link-to}}
+
+      {{#link-to 'contacts'(query-params step="-2") class="list-group-item"}}
+        <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '-2') 0.0) model.summary.step_total) format="0.0%"}};"></span>
+        <span class="pull-right">
+          {{get model.summary.steps '-2'}}
+          ({{format-number (div (or (get model.summary.steps '-2') 0) model.summary.step_total) format="0.0%"}})
+        </span>
+        Step -2
+      {{/link-to}}
     </div>
