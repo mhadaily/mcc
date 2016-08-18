@@ -12,7 +12,7 @@
   </div>
   <div class="row">
     <div class="col-sm-3">
-       {{render '_task-details' model}}
+       {{render '-task-details' model}}
     </div>
     <div class="col-sm-5">
      <div class="panel panel-default">
@@ -38,7 +38,7 @@
             <dt>L1: MTTB Coach:</dt>
             <dd>{{model.contact.l1MttbCoach}}&nbsp;</dd>
           </dl>
-          {{render '_task-activities' model}}
+          {{render '-task-activities' model}}
         </div>
       </div>
 
@@ -47,7 +47,7 @@
     <div class="col-sm-4">
      {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-block btn-sm btn-primary'}}
               Change Step
-            {{/link-to}}
+     {{/link-to}}
     <div class="table-responsive" style="max-height:300px;overflow-y:auto;">
         <table class="table" data-sort="table">
           <thead>
