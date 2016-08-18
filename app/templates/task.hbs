@@ -8,7 +8,7 @@
     </div>
 
     <div class="btn-toolbar dashhead-toolbar">
-       <button type="submit" class="btn btn-danger" {{action 'taskComplete'}} disabled={{isCancelled}}>Complete Your Task</button>
+       <button {{action 'taskComplete'}}  class="btn btn-danger" disabled={{model.dateComplete}}>Complete Your Task</button>
 
      {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-primary'}}
               Change Step
