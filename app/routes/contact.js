@@ -15,16 +15,20 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         alert('Failed to save! Please try later!');
       });
     },
-    newNote: function() {
+    newNote: function(noteContent) {
+      //debugger;
       var newNoteData = {
-        content: this.get('noteContent'),
-        contact: this.model,
+        content: noteContent,
+        contact: this.currentModel,
+        user: this.modelFor('application').account
       };
       this.store.createRecord('note', newNoteData).save().then(() => {
         alert('Note has been saved');
         this.set('noteContent', ' ');
       }, function() {
+        alert(newNoteData.author);
         alert('Saving Note Failed!');
+
       });
     }
   }
