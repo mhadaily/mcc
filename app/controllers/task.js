@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   queryParams: ['backTo', 'step'],
   step: null,
+
   backTo: null,
   actions: {
     changeSave: function() {
@@ -19,11 +20,11 @@ export default Ember.Controller.extend({
       });
     },
     taskComplete: function() {
-      // this.model.set('statusEvent','complete');
-      // this.model.save().then(d=>{
-      //   alert('task complated')
-      // //  return d;
-      // });
+      this.model.set('statusEvent', 'complete');
+      this.model.save().then(d => {
+        alert('task complated');
+        return d;
+      });
     },
     newNote: function() {
 

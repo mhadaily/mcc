@@ -8,8 +8,9 @@
     </div>
 
     <div class="btn-toolbar dashhead-toolbar">
-       <button {{action 'taskComplete'}}  class="btn btn-danger" disabled={{model.dateComplete}}>Complete Your Task</button>
-
+    {{#link-to (query-params task=1) tagName='button' class='btn btn-primary'}}
+              Complete Your Task
+     {{/link-to}}
      {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-primary'}}
               Change Step
      {{/link-to}}
@@ -25,29 +26,9 @@
     </div>
     <div class="col-sm-4">
 
-      <div class="hr-divider m-t m-b">
-       <h3 class="hr-divider-content hr-divider-heading">Contact Notes</h3>
-     </div>
 
 
-      <div class="table-responsive" style="height:400px;overflow-y:auto;">
-        <table class="table" data-sort="table">
-          <thead>
-            <tr>
-              <th class="header headerSortDown">Date</th>
-              <th class="header">Content</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each model.contact.notes as |note|}}
-            <tr>
-              <td>{{moment-format note.date}}</td>
-              <td>{{note.content}}</td>
-            </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      </div>
+      {{render 'note-list' model}}
 
         {{render 'note-box' model}}
 

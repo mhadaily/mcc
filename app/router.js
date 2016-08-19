@@ -7,12 +7,19 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+
   this.route('tasks');
   this.route('task', { path: 'tasks/:task_id' }, function() {
     this.modal('step-modal', {
       withParams: ['step'],
       actions: {
         changeSave: 'changeSave'
+      }
+    });
+    this.modal('task-modal', {
+      withParams: ['task'],
+      actions: {
+        complete: 'complete'
       }
     });
   });
@@ -25,6 +32,7 @@ Router.map(function() {
       }
     });
   });
+
   this.route('settings');
   this.route('login');
 });
