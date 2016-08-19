@@ -4,7 +4,6 @@ export default Ember.Controller.extend({
   queryParams: ['backTo', 'step', 'taskStatus'],
   step: null,
   taskStatus: null,
-
   backTo: null,
   actions: {
     changeSave: function() {
@@ -28,20 +27,16 @@ export default Ember.Controller.extend({
       });
     },
     newNote: function() {
-
-
       var newNoteData = {
         content: this.get('noteContent'),
         contact: this.model.get('contact')
       };
-
       this.store.createRecord('note', newNoteData).save().then(() => {
         alert('Note has been saved');
         this.set('noteContent', ' ');
       }, function() {
         alert('Saving Note Failed!');
       });
-
     }
   }
 });
