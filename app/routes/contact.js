@@ -2,17 +2,18 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
+
   actions: {
     changeSave: function(step) {
+      //debugger;
       var newStepNumber = {
         step: step,
-        contact: this.currentModel
+        contact: this.currentModel,
       };
-      this.store.createRecord('contact', newStepNumber).save().then(() => {
-        alert('Step has been saved');
-        this.set('step', newStepNumber.step);
-      }, function() {
-        alert('Failed to save! Please try later!');
+      this.currentModel.set('step', newStepNumber.step);
+      this.currentModel.save().then(d => {
+        alert('Step has been saved to' + newStepNumber.step);
+        return d;
       });
     },
     newNote: function(noteContent) {
