@@ -8,6 +8,9 @@
     </div>
 
     <div class="btn-toolbar dashhead-toolbar">
+      {{#link-to (query-params step=model.step) tagName='button' class='btn btn-sm  btn-primary'}}
+              Change Step
+     {{/link-to}}
     </div>
   </div>
   <div class="row">
@@ -15,11 +18,6 @@
       {{render 'contact-details' model}}
     </div>
     <div class="col-sm-5">
-    <p>
-     {{#link-to (query-params step=model.step) tagName='button' class='btn btn-sm btn-block btn-primary'}}
-              Change Step
-     {{/link-to}}
-    </p>
     <div class="hr-divider m-b">
       <h3 class="hr-divider-content hr-divider-heading">Contact State</h3>
     </div>
@@ -29,17 +27,7 @@
     </dl>
     <pre style="height:230px;overflow:auto;">{{{model.details}}}</pre>
 
-      <div class="hr-divider m-t m-b">
-        <h3 class="hr-divider-content hr-divider-heading">Quick Note</h3>
-      </div>
-      <form class="form" {{action "newNote" on="submit"}}>
-        <div class="form-group">
-         {{textarea value=noteContent class="form-control" rows="8"}}
-        </div>
-        <div class="form-group">
-          <button class="btn btn-success btn-block" type="submit">Save</button>
-        </div>
-      </form>
+      {{render 'note-box' model}}
     </div>
   </div>
 </div>

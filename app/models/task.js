@@ -10,6 +10,7 @@ export default DS.Model.extend({
   source: DS.attr(),
   subject: DS.attr(),
   stepNum: DS.attr(),
+  status: DS.attr(),
   dateAssigned: DS.attr('date'),
   dateDue: DS.attr('date'),
   dateComplete: DS.attr('date')

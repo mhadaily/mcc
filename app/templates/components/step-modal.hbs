@@ -1,10 +1,10 @@
-<div class="modal-content modal-lg">
+<div class="modal-content">
   <div class="modal-header">
     <button type="button" class="close"  {{action "dismiss"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="modal-title">Change step to</h4>
   </div>
   <div class="modal-body">
-   <p style="text-align:center;"><button class="btn btn-danger btn-sm" {{action "stepDown"}}>-</button> {{input type="number" value=step class="modal-input"}} <button class="btn btn-danger btn-sm" {{action "stepUp"}}>+</button></p>
+   <p style="text-align:center;">{{input type="number" value=step class="modal-input input-lg"}} </p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default"  {{action "dismiss"}}>Close</button>

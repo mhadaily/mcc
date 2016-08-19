@@ -1,0 +1,11 @@
+<div class="hr-divider m-t m-b">
+  <h3 class="hr-divider-content hr-divider-heading">Quick Note</h3>
+</div>
+<form class="form" {{action "newNote" on="submit"}}>
+  <div class="form-group">
+   {{textarea value=noteContent class="form-control" rows="8"}}
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success btn-block" type="submit">Save</button>
+  </div>
+</form>

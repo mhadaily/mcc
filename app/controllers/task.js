@@ -33,20 +33,9 @@ export default Ember.Controller.extend({
     },
     taskComplete: function() {
 
-      // var newNoteComplete = {
-      //   contact: this.model.get('contact')
-      // };
-      //
-      // this.store.createRecord('task', newNoteComplete).save().then(() => {
-      //   alert('Note has been saved');
-      //   this.set('isCancelled', true);
-      // }, function() {
-      //   alert('Saving Note Failed!');
-      // });
-      //
 
-      this.model.set('statusEvent','complete');
-      this.model.save().then(d=>{
+      this.model.set('statusEvent', 'complete');
+      this.model.save().then(d => {
         alert('task complated')
         return d;
       });
