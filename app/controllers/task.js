@@ -34,11 +34,11 @@ export default Ember.Controller.extend({
     taskComplete: function() {
 
 
-      this.model.set('statusEvent', 'complete');
-      this.model.save().then(d => {
-        alert('task complated')
-        return d;
-      });
+      // this.model.set('statusEvent','complete');
+      // this.model.save().then(d=>{
+      //   alert('task complated')
+      // //  return d;
+      // });
 
     },
     newNote: function() {
