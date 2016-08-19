@@ -6,8 +6,8 @@ export default Ember.Component.extend({
     dismiss: function() {
       this.sendAction('dismiss');
     },
-    change: function() {
-      this.sendAction('changeSave');
+    change: function(step) {
+      this.sendAction('changeSave', step);
     },
     stepDown: function() {
       var stepNoDown = this.get('step');

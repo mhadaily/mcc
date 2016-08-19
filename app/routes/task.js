@@ -3,24 +3,25 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   actions: {
-
-    changeSave: function() {
+    changeSave: function(step) {
+      //debugger;
       var newStepNumber = {
-        step: this.get('step'),
-        contact: this.model
+        step: step,
+        contact: this.currentModel.get('contact.id'),
       };
+      this.store.findRecord('contact', newStepNumber.contact).then((contact) => {
+        contact.set('step', newStepNumber.step);
+        contact.save();
+        alert('Step has been saved to' + newStepNumber.step);
 
-      this.store.createRecord('contact', newStepNumber).save().then(() => {
-        alert('Step has been saved');
-        this.set('step', newStepNumber.step);
       }, function() {
         alert('Failed to save! Please try later!');
       });
     },
 
     taskComplete: function() {
-      this.model.set('statusEvent', 'complete');
-      this.model.save().then(d => {
+      this.currentModel.set('statusEvent', 'complete');
+      this.currentModel.save().then(d => {
         alert('task complated');
         return d;
       });
@@ -36,11 +37,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.store.createRecord('note', newNoteData).save().then(() => {
         alert('Note has been saved');
         this.set('noteContent', ' ');
-
       }, function() {
         alert(newNoteData.author);
         alert('Saving Note Failed!');
-
       });
     }
   }

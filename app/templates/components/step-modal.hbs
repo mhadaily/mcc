@@ -4,10 +4,11 @@
     <h4 class="modal-title">Change step to</h4>
   </div>
   <div class="modal-body">
-   <p style="text-align:center;">{{input type="number" value=step class="modal-input input-lg"}} </p>
+   <p style="text-align:center;">
+   {{input type="number" value=step class="modal-input input-lg"}} </p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default"  {{action "dismiss"}}>Close</button>
-    <button type="button" class="btn btn-primary" {{action "change"}}>Save changes</button>
+    <button type="button" class="btn btn-primary" {{action "change" step}}>Save changes</button>
   </div>
 </div><!-- /.modal-content -->
