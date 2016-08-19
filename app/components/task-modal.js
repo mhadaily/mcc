@@ -4,8 +4,8 @@ export default Ember.Component.extend({
 
   classNames: ['task-modal'],
   actions: {
-    cancel: function() {
-      this.sendAction('cancel');
+    dismiss: function() {
+      this.sendAction('dismiss');
     },
     complete: function() {
       this.sendAction('complete');

@@ -1,7 +1,7 @@
 <div class="modal-content">
   <div class="modal-header">
-    <button type="button" class="close"  {{action "cancel"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title">This is </h4>
+    <button type="button" class="close"  {{action "dismiss"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Complete task with note</h4>
   </div>
   <div class="modal-body">
 	<form class="form" {{action "newNote" on="submit"}}>
@@ -12,6 +12,6 @@
 	</form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default"  {{action "cancel"}}>Close</button>
+    <button type="button" class="btn btn-default"  {{action "dismiss"}}>Close</button>
   </div>
 </div><!-- /.modal-content -->

@@ -8,7 +8,7 @@
     </div>
 
     <div class="btn-toolbar dashhead-toolbar">
-    {{#link-to (query-params task=1) tagName='button' class='btn btn-primary'}}
+    {{#link-to (query-params taskStatus=model.reference) tagName='button' class='btn btn-primary'}}
               Complete Your Task
      {{/link-to}}
      {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-primary'}}

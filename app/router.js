@@ -17,7 +17,7 @@ Router.map(function() {
       }
     });
     this.modal('task-modal', {
-      withParams: ['task'],
+      withParams: ['taskStatus'],
       actions: {
         complete: 'complete'
       }
