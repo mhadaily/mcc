@@ -20,9 +20,6 @@
         <div class="form-group">
           {{input type="text" value=subject class="form-control" placeholder="search subject"}}
         </div>
-        <div class="form-group">
-          {{input type="text" value=step class="form-control" placeholder="search step"}}
-        </div>
         <button type="submit" class="btn btn-primary">Search</button>
       </form>
     </div>
@@ -45,8 +42,7 @@
                 <th class="header">Assigned</th>
                 <th class="header">Completed</th>
                 <th class="header">Subject</th>
-                <th class="header">Contact</th>
-                <th class="header">Step</th>
+                <th class="header">Client</th>
               </tr>
             </thead>
             <tbody>
@@ -62,7 +58,6 @@
                       <td>{{moment-format task.dateComplete}}</td>
                       <td>{{link-to task.subject 'task' task}}</td>
                       <td>{{task.contact.name}}</td>
-                      <td>{{task.contact.step}}</td>
                     </tr>
                   {{/each}}
               {{/unless}}

@@ -9,7 +9,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       q: {
         contact_first_name_or_contact_last_name_cont: params.contact,
         subject_cont: params.subject,
-        step_num_eq: params.step,
         date_due_gteq: params.date_due_gteq,
         date_due_lteq: params.date_due_lteq
       }
