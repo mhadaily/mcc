@@ -1,34 +1,32 @@
 <div class="with-iconav">
   {{#if session.isAuthenticated}}
-  <nav class="iconav iconav-inverse">
-    {{#link-to 'index' class="iconav-brand" }}
-      <span class="iconav-brand-icon"><img src="/img/logomobehat.png"></span>
-    {{/link-to}}
-    <div class="iconav-slider">
+    <nav class="iconav iconav-inverse">
+      {{#link-to 'index' class="iconav-brand" }}
+        <span class="iconav-brand-icon"><img src="/img/logomobehat.png"></span>
+      {{/link-to}}
+      <div class="iconav-slider">
         <ul class="nav nav-pills iconav-nav">
-          <li>
-            {{#link-to 'contacts' title="Overview" data-toggle="tooltip" data-placement="right" data-container="body" }}
+          {{#link-to-with-tip 'contacts' tagName="li" }}
+            <a href="#" title="Contacts" data-toggle="tooltip" data-placement="right" data-container="body">
               <span class="icon icon-users"></span>
               <small class="iconav-nav-label visible-xs-block">Contacts</small>
-            {{/link-to}}
-          </li>
-          <li>
-            {{#link-to 'tasks' title="Order history" data-toggle="tooltip" data-placement="right" data-container="body" }}
+            </a>
+          {{/link-to-with-tip}}
+          {{#link-to-with-tip 'tasks' tagName="li" }}
+            <a href="#" title="Tasks" data-toggle="tooltip" data-placement="right" data-container="body">
               <span class="icon icon-list"></span>
               <small class="iconav-nav-label visible-xs-block">Tasks</small>
-            {{/link-to}}
-          </li>
-          <li>
-            {{#link-to 'settings' title="Signed in as mdo" data-toggle="tooltip" data-placement="right" data-container="body" }}
-              {{!-- {{gravatar-image email='simon@simontseng.com' class="img-circle img-responsive"}} --}}
-              <span class="icon icon-cog"></span>
-              <small class="iconav-nav-label visible-xs-block">@simontseng</small>
-            {{/link-to}}
-          </li>
+            </a>
+          {{/link-to-with-tip}}
+          {{#link-to-with-tip 'settings' tagName="li" }}
+            <a href="#" title= {{concat 'Sign in as ' model.account.name}} data-toggle="tooltip" data-placement="right" data-container="body">
+              {{gravatar-image email='account.email' class="img-circle img-responsive" title=model.account.name defaultImage='mm'}}
+              <small class="iconav-nav-label visible-xs-block">@model.account.name</small>
+            </a>
+          {{/link-to-with-tip}}
         </ul>
-
-    </div>
-  </nav>
+      </div>
+    </nav>
   {{/if}}
   {{outlet}}
 </div>
