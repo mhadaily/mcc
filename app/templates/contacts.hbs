@@ -54,8 +54,8 @@
                 {{else}}
                   {{#each contacts as |contact|}}
                     <tr>
-                      <td>{{link-to contact.reference 'contact' contact}}</td>
-                      <td>{{contact.name}}</td>
+                      <td>{{ contact.reference}}</td>
+                      <td>{{link-to contact.name 'contact' contact}}</td>
                       <td>{{contact.email}}</td>
                       <td>{{contact.step}}</td>
                       <td>{{contact.l1MttbCoach}}</td>
