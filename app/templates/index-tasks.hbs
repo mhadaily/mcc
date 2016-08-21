@@ -36,6 +36,7 @@
               <th class="header headerSortUp">Due</th>
               <th class="header">Subject</th>
               <th class="header">Client</th>
+              <th class="header">Step</th>
             </tr>
           </thead>
           <tbody>
@@ -44,6 +45,7 @@
                 <td>{{moment-format task.dateDue}}</td>
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
+                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
               </tr>
             {{/each}}
           </tbody>
@@ -70,6 +72,7 @@
               <th class="header headerSortUp">Due</th>
               <th class="header">Subject</th>
               <th class="header">Client</th>
+              <th class="header">Step</th>
             </tr>
           </thead>
           <tbody>
@@ -78,6 +81,7 @@
                 <td>{{moment-format task.dateDue}}</td>
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
+                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
               </tr>
             {{/each}}
           </tbody>
@@ -112,6 +116,7 @@
                 <td>{{moment-format task.dateDue}}</td>
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
+                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
               </tr>
             {{/each}}
           </tbody>
@@ -138,6 +143,7 @@
               <th class="header headerSortUp">Due</th>
               <th class="header">Subject</th>
               <th class="header">Client</th>
+              <th class="header">Step</th>
               <th class="header">Completed</th>
             </tr>
           </thead>
@@ -147,6 +153,7 @@
                 <td>{{moment-format task.dateDue}}</td>
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
+                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
                 <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
               </tr>
             {{/each}}
