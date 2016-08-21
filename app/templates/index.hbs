@@ -1,118 +1,14 @@
 <div class="container-fluid">
-  <div class="row">
+  <div class="col-sm-4">
+    {{partial 'index-stats'}}
+  </div>
 
-    <div class="col-sm-4">
-      <div class="hr-divider m-t">
-        <h3 class="hr-divider-content hr-divider-heading">Clients Steps</h3>
-      </div>
-      {{#link-to 'contacts' (query-params step="_blank")}}
-      <div class="statcard">
-        <div class="p-a p-b-0 text-center">
-          <span class="statcard-desc"> Step 0 / <small>Total</small></span>
-          <h2 class="statcard-number" style="font-size:42pt">
-            {{model.summary.step_0}}/<small>{{model.summary.step_total}}</small>
-            <small class="label text-lg {{if (gt (div model.summary.step_0 model.summary.step_total) 0.5) 'label-danger' 'label-success'}}">{{format-number (div model.summary.step_0 model.summary.step_total) format="0.0%"}}</small>
-          </h2>
-        </div>
-      </div>
-      {{/link-to}}
-      <div class="hr-divider m-b">
-        <h3 class="hr-divider-content hr-divider-heading">Clients on Step 0</h3>
-      </div>
-      <div class="row statcards">
-        <div class="col-sm-4">
-          <div class="statcard p-b">
-            <div class="p-l">
-              <span class="statcard-desc">&lt;&nbsp;24h</span>
-              <h2 class="statcard-number">
-                {{model.summary.step_0_24h}}
-                {{!-- <small class="label label-success">5%</small> --}}
-              </h2>
-            </div>
-            {{!-- <canvas id="sparkline1" width="318" height="79" class="sparkline" data-chart="spark-line" data-value="[{strokeColor: '#1ca8dd', fillColor:'rgba(28,168,221,.03)', data:[28,68,41,43,96,45,100]}]" data-labels="['a', 'b','c','d','e','f','g']" style="width: 318px; height: 79px;"></canvas> --}}
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="statcard p-b">
-            <div class="p-l">
-              <span class="statcard-desc">&lt;&nbsp;5 days</span>
-              <h2 class="statcard-number">
-                {{model.summary.step_0_5d}}
-                {{!-- <small class="label label-danger">1.3%</small> --}}
-              </h2>
-            </div>
-            {{!-- <canvas id="sparkline1" width="318" height="79" class="sparkline" data-chart="spark-line" data-value="[{strokeColor: '#1ca8dd', fillColor:'rgba(28,168,221,.03)', data:[4,34,64,27,96,50,80]}]" data-labels="['a', 'b','c','d','e','f','g']" style="width: 318px; height: 79px;"></canvas> --}}
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="statcard statcard-danger blinker">
-            <div class="p-l">
-              <span class="statcard-desc">> 5 days</span>
-              <h2 class="statcard-number">
-                {{model.summary.step_0_5dp}}
-                {{!-- <small class="label label-success">6.75%</small> --}}
-              </h2>
-            </div>
-            {{!-- <canvas id="sparkline1" width="318" height="79" class="sparkline" data-chart="spark-line" data-value="[{strokeColor: '#1ca8dd', fillColor:'rgba(28,168,221,.03)', data:[12,38,32,60,36,54,68]}]" data-labels="['a', 'b','c','d','e','f','g']" style="width: 318px; height: 79px;"></canvas> --}}
-          </div>
-        </div>
-      </div>
+  <div class="col-sm-2">
+    {{partial 'index-steps'}}
+  </div>
 
-
-    </div>
-
-    {{!-- <div class="col-sm-4">
-
-      <div class="hr-divider m-t m-b">
-        <h3 class="hr-divider-content hr-divider-heading">Contact Status</h3>
-      </div>
-
-      <div class="row statcards">
-        <div class="col-sm-6 col-md-4 m-b">
-          <div class="statcard">
-            <div class="p-a">
-              <span class="statcard-desc">No&nbsp;Contact</span>
-              <h2 class="statcard-number">
-                5
-                <small class="label label-success">5%</small>
-              </h2>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 m-b">
-          <div class="statcard">
-            <div class="p-a">
-              <span class="statcard-desc">Unreachable</span>
-              <h2 class="statcard-number">
-                758
-                <small class="label label-danger">1.3%</small>
-              </h2>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 m-b">
-          <div class="statcard">
-            <div class="p-a">
-              <span class="statcard-desc">Sign-ups</span>
-              <h2 class="statcard-number">
-                1,293
-                <small class="label label-success">6.75%</small>
-              </h2>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
- --}}
-    <div class="col-sm-2">
-
-      {{partial 'index-steps'}}
-
-    </div>
-    <div class="col-sm-6">
-      {{partial 'index-tasks'}}
-    </div>
+  <div class="col-sm-6">
+    {{partial 'index-tasks'}}
   </div>
 </div>
 {{outlet}}

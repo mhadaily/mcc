@@ -1,0 +1,43 @@
+<div class="hr-divider m-t">
+  <h3 class="hr-divider-content hr-divider-heading">Clients on Step 0</h3>
+</div>
+<div class="row statcards">
+  <div class="col-sm-4">
+    <div class="statcard p-b">
+      <div class="p-l">
+        <span class="statcard-desc">&lt;&nbsp;24h</span>
+        <h2 class="statcard-number">{{model.summary.step_0_24h}}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="statcard p-b">
+      <div class="p-l">
+        <span class="statcard-desc">&lt;&nbsp;5 days</span>
+        <h2 class="statcard-number">{{model.summary.step_0_5d}}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="statcard statcard-danger blinker">
+      <div class="p-l">
+        <span class="statcard-desc">> 5 days</span>
+        <h2 class="statcard-number">{{model.summary.step_0_5dp}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hr-divider m-t">
+  <h3 class="hr-divider-content hr-divider-heading">Clients Steps</h3>
+</div>
+<div class="statcard">
+  {{#link-to 'contacts' (query-params step="_blank" )}}
+    <div class="p-a p-b-0 text-center">
+      <span class="statcard-desc"> Step 0 / <small>Total</small></span>
+      <h2 class="statcard-number" style="font-size:42pt">
+        {{model.summary.step_0}}/<small>{{model.summary.step_total}}</small>
+        <small class="label text-lg {{if (gt (div model.summary.step_0 model.summary.step_total) 0.5) 'label-danger' 'label-success'}}">{{format-number (div model.summary.step_0 model.summary.step_total) format="0.0%"}}</small>
+      </h2>
+    </div>
+  {{/link-to}}
+</div>
