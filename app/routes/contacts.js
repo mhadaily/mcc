@@ -8,7 +8,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       paramMapping: { total_pages: "total-pages" },
       q: {
         first_name_or_last_name_or_email_cont: params.contact,
-        step_eq_with_blank: params.step
+        step_eq_with_blank: params.step,
+        l1_mttb_coach_cont: params.l1_mttb_coach,
+        l2_mttb_coach_cont: params.l2_mttb_coach
       }
     });
   },

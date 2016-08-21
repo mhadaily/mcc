@@ -8,10 +8,16 @@
   <div class="col-md-2">
      <form {{action 'queryChanged' on="submit"}} class="form">
         <div class="form-group">
-          {{input type="text" value=contact class="form-control" placeholder="search client"}}
+          {{input type="text" value=contact class="form-control" placeholder="Client Name/Email"}}
         </div>
         <div class="form-group">
-          {{input type="text" value=step class="form-control" placeholder="search step"}}
+          {{input type="text" value=step class="form-control" placeholder="Current Step"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=l1_mttb_coach class="form-control" placeholder="Business Coach"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=l2_mttb_coach class="form-control" placeholder="Senior Business Coach"}}
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
       </form>
