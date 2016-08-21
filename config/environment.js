@@ -3,7 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     moment: {
-      outputFormat: 'MMM Do YY',
+      outputFormat: 'MM/DD/YYYY',
       allowEmpty: true // default: false
     },
     modulePrefix: 'mobecallcentre',

@@ -41,7 +41,7 @@
           <tbody>
             {{#each model.todayTasks as |task|}}
               <tr>
-                <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
+                <td>{{moment-format task.dateDue}}</td>
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
               </tr>
@@ -75,7 +75,7 @@
           <tbody>
             {{#each model.overdueTasks as |task|}}
               <tr>
-                <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
+                <td>{{moment-format task.dateDue}}</td>
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
               </tr>
@@ -109,7 +109,7 @@
           <tbody>
             {{#each model.futureTasks as |task|}}
               <tr>
-                <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
+                <td>{{moment-format task.dateDue}}</td>
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
               </tr>
@@ -144,10 +144,10 @@
           <tbody>
             {{#each model.completedTasks as |task|}}
               <tr>
-                <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
+                <td>{{moment-format task.dateDue}}</td>
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
-                <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
+                <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
               </tr>
             {{/each}}
           </tbody>

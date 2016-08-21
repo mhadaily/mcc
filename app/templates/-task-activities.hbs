@@ -16,9 +16,9 @@
           <tbody>
             {{#each model.tasks as |task|}}
             <tr>
-              <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
-              <td>{{link-to task.subject 'task' task}}</td>
-              <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
+              <td>{{moment-format task.dateDue}}</td>
+              <td>{{link-to task.subject 'task' task (query-params backTo=backTo)}}</td>
+              <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
             </tr>
             {{/each}}
           </tbody>
@@ -46,7 +46,7 @@
           <tbody>
             {{#each model.salesOrders as |salesOrder|}}
             <tr>
-              <td>{{moment-format salesOrder.date 'MMM Do YY'}}</td>
+              <td>{{moment-format salesOrder.date}}</td>
               <td>{{salesOrder.product.name}}</td>
               <td align="right">{{salesOrder.amount}}</td>
             </tr>
