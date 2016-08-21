@@ -5,7 +5,7 @@
 </div>
 <ul class="nav nav-bordered m-y" role="tablist">
   <li class="active" role="presentation">
-    <a href="#tasks-today" role="tab" data-toggle="tab" aria-controls="tasks-today">Due Today <span class="badge">{{model.todayTasks.meta.total-count}}</span></a>
+    <a href="#tasks-today" role="tab" data-toggle="tab" aria-controls="tasks-today">Today's Calls <span class="badge">{{model.todayTasks.meta.total-count}}</span></a>
   </li>
   <li role="presentation">
     <a href="#tasks-overdue" role="tab" data-toggle="tab" aria-controls="tasks-overdue">Overdue <span class="badge">{{model.overdueTasks.meta.total-count}}</span></a>
@@ -35,8 +35,7 @@
             <tr>
               <th class="header headerSortUp">Due</th>
               <th class="header">Subject</th>
-              <th class="header">Contact</th>
-              <th class="header">Completed</th>
+              <th class="header">Client</th>
             </tr>
           </thead>
           <tbody>
@@ -45,7 +44,6 @@
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
-                <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
               </tr>
             {{/each}}
           </tbody>
@@ -71,8 +69,7 @@
             <tr>
               <th class="header headerSortUp">Due</th>
               <th class="header">Subject</th>
-              <th class="header">Contact</th>
-              <th class="header">Completed</th>
+              <th class="header">Client</th>
             </tr>
           </thead>
           <tbody>
@@ -81,7 +78,6 @@
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
-                <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
               </tr>
             {{/each}}
           </tbody>
@@ -107,8 +103,7 @@
             <tr>
               <th class="header headerSortUp">Due</th>
               <th class="header">Subject</th>
-              <th class="header">Contact</th>
-              <th class="header">Completed</th>
+              <th class="header">Client</th>
             </tr>
           </thead>
           <tbody>
@@ -117,7 +112,6 @@
                 <td>{{moment-format task.dateDue 'MMM Do YY'}}</td>
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
-                <td>{{and task.dateComplete (moment-format task.dateComplete 'MMM Do YY')}}</td>
               </tr>
             {{/each}}
           </tbody>
@@ -143,7 +137,7 @@
             <tr>
               <th class="header headerSortUp">Due</th>
               <th class="header">Subject</th>
-              <th class="header">Contact</th>
+              <th class="header">Client</th>
               <th class="header">Completed</th>
             </tr>
           </thead>
