@@ -5,7 +5,7 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-sm-6">
-        <div class="statcard statcard-primary p-a">
+        <div class="statcard statcard-success text-center">
           <h3 class="statcard-number">
             {{model.step}}&nbsp;
           </h3>
@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="col-sm-6">
-        <div class="statcard statcard-success p-a">
+        <div class="statcard statcard-success text-center">
           <h3 class="statcard-number">
             12
           </h3>
@@ -21,25 +21,31 @@
         </div>
       </div>
     </div>
-    <dl>
-      <dt>Date:</dt>
-      <dd>{{moment-format model.date 'MMM Do YY'}}&nbsp;</dd>
-      <dt>Date Last Modified:</dt>
-      <dd>{{moment-format model.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
-      <<dt>First Name:</<dt>
-      <dd>{{model.firstName}}&nbsp;</dd>
-      <dt>Last Name:</dt>
-      <dd>{{model.lastName}}&nbsp;</dd>
-      <dt>Reference:</dt>
-      <dd>{{model.reference}} ({{model.source}})</dd>
-      <dt>Email:</dt>
-      <dd>{{model.email}}&nbsp;</dd>
-      <dt>L1: MTTB Coach:</dt>
-      <dd>{{model.l1MttbCoach}}&nbsp;</dd>
-      <dt>L2: MTTB Coach:</dt>
-      <dd>{{model.l2MttbCoach}}&nbsp;</dd>
-      <a target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{model.reference}}">Link to OAP</a>
-    </dl>
+    <div class="row">
+      <div class="col-sm-12">
+        <dl>
+          <dt>Date:</dt>
+          <dd>{{moment-format model.date 'MMM Do YY'}}&nbsp;</dd>
+          <dt>Date Last Modified:</dt>
+          <dd>{{moment-format model.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
+          <<dt>First Name:</<dt>
+          <dd>{{model.firstName}}&nbsp;</dd>
+          <dt>Last Name:</dt>
+          <dd>{{model.lastName}}&nbsp;</dd>
+          <dt>Reference:</dt>
+          <dd>{{model.reference}} ({{model.source}})</dd>
+          <dt>Email:</dt>
+          <dd>{{model.email}}&nbsp;</dd>
+          <dt>L1: MTTB Coach:</dt>
+          <dd>{{model.l1MttbCoach}}&nbsp;</dd>
+          <dt>L2: MTTB Coach:</dt>
+          <dd>{{model.l2MttbCoach}}&nbsp;</dd>
+        </dl>
+      </div>
+      <div class="col-sm-12">
+        <a class="btn btn-default btn-block" target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{model.reference}}">Link to OAP</a>
+      </div>
+    </div>
     {{render '-task-activities' model}}
   </div>
 </div>
