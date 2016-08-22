@@ -2,12 +2,12 @@
   <div class="dashhead">
     <div class="dashhead-titles">
       <h6 class="dashhead-subtitle">
-            {{link-to '<< Contacts' 'contacts'}}
+        {{link-to '<< Contacts' 'contacts'}}
       </h6>
       <h2 class="dashhead-title">CLIENT OAP ID: #{{model.reference}}</h2>
     </div>
     <div class="btn-toolbar dashhead-toolbar">
-      {{#link-to (query-params step=model.step) tagName='button' class='btn btn-sm btn-primary'}} Change Step {{/link-to}}
+      {{link-to 'Change Step' (query-params step=model.step) tagName='button' class='btn btn-sm btn-primary'}}
     </div>
   </div>
   <div class="row">
