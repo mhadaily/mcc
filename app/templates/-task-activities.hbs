@@ -39,6 +39,7 @@
           <thead>
             <tr>
               <th class="header headerSortDown">Date</th>
+              <th class="header">Status</th>
               <th class="header">Product</th>
               <th class="header">Amount</th>
             </tr>
@@ -47,6 +48,7 @@
             {{#each model.salesOrders as |salesOrder|}}
             <tr>
               <td>{{moment-format salesOrder.date}}</td>
+              <td>{{salesOrder.status}}</td>
               <td>{{salesOrder.product.name}}</td>
               <td align="right">{{salesOrder.amount}}</td>
             </tr>
