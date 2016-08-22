@@ -226,7 +226,7 @@
           {{get model.summary.steps '-1'}}
           ({{format-number (div (or (get model.summary.steps '-1') 0) model.summary.step_total) format="0.0%"}})
         </span>
-        -1
+        Refunded
       {{/link-to}}
 
       {{#link-to 'contacts'(query-params step="-2") class="list-group-item"}}
@@ -235,6 +235,6 @@
           {{get model.summary.steps '-2'}}
           ({{format-number (div (or (get model.summary.steps '-2') 0) model.summary.step_total) format="0.0%"}})
         </span>
-        -2
+        Voided
       {{/link-to}}
     </div>
