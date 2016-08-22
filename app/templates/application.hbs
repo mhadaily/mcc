@@ -5,7 +5,12 @@
     <span class="iconav-brand-icon"><img src="/img/logomobehat.png"></span> {{/link-to}}
     <div class="iconav-slider">
       <ul class="nav nav-pills iconav-nav">
-        {{#link-to-with-tip 'contacts' tagName="li" }}
+        {{#link-to-with-tip 'index' tagName="li" }}
+        <a href="#" title="Dashboard" data-toggle="tooltip" data-placement="right" data-container="body">
+          <span class="icon icon-home"></span>
+          <small class="iconav-nav-label visible-xs-block">Dashboard</small>
+        </a>
+        {{/link-to-with-tip}} {{#link-to-with-tip 'contacts' tagName="li" }}
         <a href="#" title="Contacts" data-toggle="tooltip" data-placement="right" data-container="body">
           <span class="icon icon-users"></span>
           <small class="iconav-nav-label visible-xs-block">Contacts</small>
