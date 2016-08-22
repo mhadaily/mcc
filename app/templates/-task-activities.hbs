@@ -17,7 +17,7 @@
             {{#each model.tasks as |task|}}
             <tr>
               <td>{{moment-format task.dateDue}}</td>
-              <td>{{link-to task.subject 'task' task (query-params backTo=backTo)}}</td>
+              <td>{{link-to task.subject 'task' task}}</td>
               <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
             </tr>
             {{/each}}
