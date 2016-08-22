@@ -16,7 +16,7 @@
           <small class="iconav-nav-label visible-xs-block">Tasks</small>
         </a>
         {{/link-to-with-tip}} {{#link-to-with-tip 'settings' tagName="li" }}
-        <a href="#" title={{concat 'Sign in as ' model.account.name}} data-toggle="tooltip" data-placement="right" data-container="body">
+        <a href="#" title={{concat 'Signed in as ' model.account.name}} data-toggle="tooltip" data-placement="right" data-container="body">
               {{gravatar-image email='account.email' class="img-circle img-responsive" title=model.account.name defaultImage='mm'}}
               <small class="iconav-nav-label visible-xs-block">@model.account.name</small>
             </a> {{/link-to-with-tip}}
