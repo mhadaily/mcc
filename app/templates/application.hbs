@@ -1,34 +1,27 @@
+ {{#if session.isAuthenticated}}
 <div class="with-iconav">
-  {{#if session.isAuthenticated}}
-    <nav class="iconav iconav-inverse">
-      {{#link-to 'index' class="iconav-brand" }}
-        <span class="iconav-brand-icon"><img src="/img/logomobehat.png"></span>
-      {{/link-to}}
-      <div class="iconav-slider">
-        <ul class="nav nav-pills iconav-nav">
-          {{#link-to-with-tip 'contacts' tagName="li" }}
-            <a href="#" title="Contacts" data-toggle="tooltip" data-placement="right" data-container="body">
-              <span class="icon icon-users"></span>
-              <small class="iconav-nav-label visible-xs-block">Contacts</small>
-            </a>
-          {{/link-to-with-tip}}
-          {{#link-to-with-tip 'tasks' tagName="li" }}
-            <a href="#" title="Tasks" data-toggle="tooltip" data-placement="right" data-container="body">
-              <span class="icon icon-list"></span>
-              <small class="iconav-nav-label visible-xs-block">Tasks</small>
-            </a>
-          {{/link-to-with-tip}}
-          {{#link-to-with-tip 'settings' tagName="li" }}
-            <a href="#" title= {{concat 'Sign in as ' model.account.name}} data-toggle="tooltip" data-placement="right" data-container="body">
+  <nav class="iconav iconav-inverse">
+    {{#link-to 'index' class="iconav-brand" }}
+    <span class="iconav-brand-icon"><img src="/img/logomobehat.png"></span> {{/link-to}}
+    <div class="iconav-slider">
+      <ul class="nav nav-pills iconav-nav">
+        {{#link-to-with-tip 'contacts' tagName="li" }}
+        <a href="#" title="Contacts" data-toggle="tooltip" data-placement="right" data-container="body">
+          <span class="icon icon-users"></span>
+          <small class="iconav-nav-label visible-xs-block">Contacts</small>
+        </a>
+        {{/link-to-with-tip}} {{#link-to-with-tip 'tasks' tagName="li" }}
+        <a href="#" title="Tasks" data-toggle="tooltip" data-placement="right" data-container="body">
+          <span class="icon icon-list"></span>
+          <small class="iconav-nav-label visible-xs-block">Tasks</small>
+        </a>
+        {{/link-to-with-tip}} {{#link-to-with-tip 'settings' tagName="li" }}
+        <a href="#" title={ {concat 'Sign in as ' model.account.name}} data-toggle="tooltip" data-placement="right" data-container="body">
               {{gravatar-image email='account.email' class="img-circle img-responsive" title=model.account.name defaultImage='mm'}}
               <small class="iconav-nav-label visible-xs-block">@model.account.name</small>
-            </a>
-          {{/link-to-with-tip}}
-        </ul>
-      </div>
-    </nav>
-  {{/if}}
-  {{outlet}}
+            </a> {{/link-to-with-tip}}
+      </ul>
+    </div>
+  </nav>
 </div>
-
-{{liquid-modal}}
+{{/if}} {{outlet}} {{liquid-modal}}
