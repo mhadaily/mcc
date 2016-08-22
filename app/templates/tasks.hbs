@@ -1,13 +1,10 @@
-<div class="container-fluid p-t">
-  <div class="dashhead">
-    <div class="dashhead-titles">
-      <h6 class="dashhead-subtitle">Tasks</h6>
-      <h2 class="dashhead-title">Search Tasks</h2>
-    </div>
-  </div>
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-2">
-      <form class="form" {{action 'queryChanged' on="submit"}}>
+    <div class="col-md-2 sameHeight bgFilledGrey">
+      <div class="dashhead">
+        <h2 class="dashhead-title">TASKS</h2>
+      </div>
+      <form class="form" {{action 'queryChanged' on="submit" }}>
         <div class="form-group">
           {{date-picker date=date_due_gteq valueFormat='YYYY-MM-DD' allowBlank=true class="form-control" placeholder="due date (from)"}}
         </div>
@@ -20,10 +17,10 @@
         <div class="form-group">
           {{input type="text" value=subject class="form-control" placeholder="search subject"}}
         </div>
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" class="btn btn-block btn-primary">Search</button>
       </form>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-10 sameHeight">
       <div class="clearfix">
         {{page-numbers content=model class="pull-right"}}
         <div class="statcard p-a m-b">
@@ -50,21 +47,19 @@
             </thead>
             <tbody>
               {{#unless tasks.length}}
-                <div class="m-a-1">
-                  Your search returned no result
-                </div>
-                {{else}}
-                  {{#each tasks as |task|}}
-                    <tr>
-                      <td>{{moment-format task.dateDue}}</td>
-                      <td>{{moment-format task.dateAssigned}}</td>
-                      <td>{{moment-format task.dateComplete}}</td>
-                      <td>{{link-to task.subject 'task' task}}</td>
-                      <td>{{task.contact.name}}</td>
-                      <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
-                    </tr>
-                  {{/each}}
-              {{/unless}}
+              <div class="m-a-1">
+                Your search returned no result
+              </div>
+              {{else}} {{#each tasks as |task|}}
+              <tr>
+                <td>{{moment-format task.dateDue}}</td>
+                <td>{{moment-format task.dateAssigned}}</td>
+                <td>{{moment-format task.dateComplete}}</td>
+                <td>{{link-to task.subject 'task' task}}</td>
+                <td>{{task.contact.name}}</td>
+                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+              </tr>
+              {{/each}} {{/unless}}
             </tbody>
           </table>
         </div>
