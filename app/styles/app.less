@@ -4,7 +4,7 @@
 @import 'bower_components/theme-dashboard/less/toolkit-light.less';
 @font-weight-base: 500;
 @text-color: @gray-darker;
-// @body-bg: rgba(231, 214, 143, 0.12);
+//@body-bg: rgba(0, 0, 0, 0.12);
 @list-group-progress: lighten(@brand-primary, 65%);
 @brand-primary: maroon;
 @pre-bg: darken(@body-bg, 5%);
@@ -13,7 +13,8 @@
 @blink: #c00;
 @blink-bg: lighten(@blink, 5%);
 @blink-bg: lighten(@blink, 5%);
-@bgFilledGrey: darken(@body-bg, 10%);
+@bgFilledGrey: darken(@body-bg, 3%);
+@bgFilledGrey8: darken(@body-bg, 8%);
 .sameHeight {
   height: 100vh;
   padding: 25px 15px;
@@ -21,6 +22,16 @@
 
 .bgFilledGrey {
   background: @bgFilledGrey;
+}
+
+.bgFilledGrey8 {
+  background: @bgFilledGrey8;
+}
+
+@media (min-width: 768px) {
+  .iconav {
+    width: 85px;
+  }
 }
 
 @media (min-width: 768px) {

@@ -1,66 +1,64 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2 sameHeight bgFilledGrey">
-      <div class="dashhead">
-        <h2 class="dashhead-title">Clients</h2>
-      </div>
-      <form {{action 'queryChanged' on="submit" }} class="form">
-        <div class="form-group">
-          {{input type="text" value=contact class="form-control" placeholder="Client Name/Email"}}
-        </div>
-        <div class="form-group">
-          {{input type="text" value=step class="form-control" placeholder="Current Step"}}
-        </div>
-        <div class="form-group">
-          {{input type="text" value=l1_mttb_coach class="form-control" placeholder="Business Coach"}}
-        </div>
-        <div class="form-group">
-          {{input type="text" value=l2_mttb_coach class="form-control" placeholder="Senior Business Coach"}}
-        </div>
-        <button type="submit" class="btn btn-block btn-primary">Search</button>
-      </form>
+  <div class="col-md-2 sameHeight bgFilledGrey">
+    <div class="dashhead">
+      <h2 class="dashhead-title">Clients</h2>
     </div>
-    <div class="col-md-10 sameHeight">
-      <div class="clearfix">
-        {{page-numbers content=model class="pull-right"}}
-        <div class="statcard p-a m-b">
-          <span class="h3 statcard-number">
+    <form {{action 'queryChanged' on="submit" }} class="form">
+      <div class="form-group">
+        {{input type="text" value=contact class="form-control" placeholder="Client Name/Email"}}
+      </div>
+      <div class="form-group">
+        {{input type="text" value=step class="form-control" placeholder="Current Step"}}
+      </div>
+      <div class="form-group">
+        {{input type="text" value=l1_mttb_coach class="form-control" placeholder="Business Coach"}}
+      </div>
+      <div class="form-group">
+        {{input type="text" value=l2_mttb_coach class="form-control" placeholder="Senior Business Coach"}}
+      </div>
+      <button type="submit" class="btn btn-block btn-primary">Search</button>
+    </form>
+  </div>
+  <div class="col-md-10 sameHeight">
+    <div class="clearfix">
+      {{page-numbers content=model class="pull-right"}}
+      <div class="statcard p-a m-b">
+        <span class="h3 statcard-number">
             {{format-number model.meta.total-count format=",0"}}
           </span>
-          <span class="statcard-desc text-mute">client(s)</span>
-        </div>
+        <span class="statcard-desc text-mute">client(s)</span>
       </div>
-      <div class="table-full">
-        <div class="table-responsive">
-          <table class="table" data-sort="table">
-            <thead>
-              <tr>
-                <th class="header">Reference</th>
-                <th class="header headerSortDown">Client</th>
-                <th class="header">Email</th>
-                <th class="header">Current Step</th>
-                <th class="header">Business Coach</th>
-                <th class="header">Senior Business Coach</th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#unless contacts.length}}
-              <div class="m-a-1">
-                Your search returned no result
-              </div>
-              {{else}} {{#each contacts as |contact|}}
-              <tr>
-                <td>{{ contact.reference}}</td>
-                <td>{{link-to contact.name 'contact' contact}}</td>
-                <td>{{contact.email}}</td>
-                <td class="{{unless contact.step 'text-danger'}}">{{or contact.step 0}}</td>
-                <td>{{contact.l1MttbCoach}}</td>
-                <td>{{contact.l2MttbCoach}}</td>
-              </tr>
-              {{/each}} {{/unless}}
-            </tbody>
-          </table>
-        </div>
+    </div>
+    <div class="table-full">
+      <div class="table-responsive">
+        <table class="table" data-sort="table">
+          <thead>
+            <tr>
+              <th class="header">Reference</th>
+              <th class="header headerSortDown">Client</th>
+              <th class="header">Email</th>
+              <th class="header">Current Step</th>
+              <th class="header">Business Coach</th>
+              <th class="header">Senior Business Coach</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#unless contacts.length}}
+            <div class="m-a-1">
+              Your search returned no result
+            </div>
+            {{else}} {{#each contacts as |contact|}}
+            <tr>
+              <td>{{ contact.reference}}</td>
+              <td>{{link-to contact.name 'contact' contact}}</td>
+              <td>{{contact.email}}</td>
+              <td class="{{unless contact.step 'text-danger'}}">{{or contact.step 0}}</td>
+              <td>{{contact.l1MttbCoach}}</td>
+              <td>{{contact.l2MttbCoach}}</td>
+            </tr>
+            {{/each}} {{/unless}}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

@@ -1,68 +1,66 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2 sameHeight bgFilledGrey">
-      <div class="dashhead">
-        <h2 class="dashhead-title">TASKS</h2>
-      </div>
-      <form class="form" {{action 'queryChanged' on="submit" }}>
-        <div class="form-group">
-          {{date-picker date=date_due_gteq valueFormat='YYYY-MM-DD' allowBlank=true class="form-control" placeholder="due date (from)"}}
-        </div>
-        <div class="form-group">
-          {{date-picker date=date_due_lteq valueFormat='YYYY-MM-DD' allowBlank=true class="form-control" placeholder="due date (to)"}}
-        </div>
-        <div class="form-group">
-          {{input type="text" value=contact class="form-control" placeholder="search contact"}}
-        </div>
-        <div class="form-group">
-          {{input type="text" value=subject class="form-control" placeholder="search subject"}}
-        </div>
-        <button type="submit" class="btn btn-block btn-primary">Search</button>
-      </form>
+  <div class="col-md-2 sameHeight bgFilledGrey">
+    <div class="dashhead">
+      <h2 class="dashhead-title">TASKS</h2>
     </div>
-    <div class="col-md-10 sameHeight">
-      <div class="clearfix">
-        {{page-numbers content=model class="pull-right"}}
-        <div class="statcard p-a m-b">
-          <span class="h3 statcard-number">
+    <form class="form" {{action 'queryChanged' on="submit" }}>
+      <div class="form-group">
+        {{date-picker date=date_due_gteq valueFormat='YYYY-MM-DD' allowBlank=true class="form-control" placeholder="due date (from)"}}
+      </div>
+      <div class="form-group">
+        {{date-picker date=date_due_lteq valueFormat='YYYY-MM-DD' allowBlank=true class="form-control" placeholder="due date (to)"}}
+      </div>
+      <div class="form-group">
+        {{input type="text" value=contact class="form-control" placeholder="search contact"}}
+      </div>
+      <div class="form-group">
+        {{input type="text" value=subject class="form-control" placeholder="search subject"}}
+      </div>
+      <button type="submit" class="btn btn-block btn-primary">Search</button>
+    </form>
+  </div>
+  <div class="col-md-10 sameHeight">
+    <div class="clearfix">
+      {{page-numbers content=model class="pull-right"}}
+      <div class="statcard p-a m-b">
+        <span class="h3 statcard-number">
           {{format-number model.meta.total-count format=",0"}}
         </span>
-          <span class="statcard-desc text-mute">tasks(s)</span>
-        </div>
+        <span class="statcard-desc text-mute">tasks(s)</span>
       </div>
-      <div class="table-full">
-        <div class="table-responsive">
-          <table class="table" data-sort="table">
-            <thead>
-              <tr>
-                <th class="header {{if (eq model.meta.sort-attr-name 'date_due') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                  {{link-to 'Due' (query-params date_due=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-                </th>
-                <th class="header {{if (eq model.meta.sort-attr-name 'date_assigned') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Assigned</th>
-                <th class="header {{if (eq model.meta.sort-attr-name 'date_complete') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Completed</th>
-                <th class="header {{if (eq model.meta.sort-attr-name 'subject') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Subject</th>
-                <th class="header {{if (eq model.meta.sort-attr-name 'contact_name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Client</th>
-                <th class="header {{if (eq model.meta.sort-attr-name 'contact_step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Current Step</th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#unless tasks.length}}
-              <div class="m-a-1">
-                Your search returned no result
-              </div>
-              {{else}} {{#each tasks as |task|}}
-              <tr>
-                <td>{{moment-format task.dateDue}}</td>
-                <td>{{moment-format task.dateAssigned}}</td>
-                <td>{{moment-format task.dateComplete}}</td>
-                <td>{{link-to task.subject 'task' task}}</td>
-                <td>{{task.contact.name}}</td>
-                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
-              </tr>
-              {{/each}} {{/unless}}
-            </tbody>
-          </table>
-        </div>
+    </div>
+    <div class="table-full">
+      <div class="table-responsive">
+        <table class="table" data-sort="table">
+          <thead>
+            <tr>
+              <th class="header {{if (eq model.meta.sort-attr-name 'date_due') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Due' (query-params date_due=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'date_assigned') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Assigned</th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'date_complete') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Completed</th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'subject') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Subject</th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'contact_name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Client</th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'contact_step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Current Step</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#unless tasks.length}}
+            <div class="m-a-1">
+              Your search returned no result
+            </div>
+            {{else}} {{#each tasks as |task|}}
+            <tr>
+              <td>{{moment-format task.dateDue}}</td>
+              <td>{{moment-format task.dateAssigned}}</td>
+              <td>{{moment-format task.dateComplete}}</td>
+              <td>{{link-to task.subject 'task' task}}</td>
+              <td>{{task.contact.name}}</td>
+              <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+            </tr>
+            {{/each}} {{/unless}}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
