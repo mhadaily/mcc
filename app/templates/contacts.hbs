@@ -57,7 +57,7 @@
                       <td>{{ contact.reference}}</td>
                       <td>{{link-to contact.name 'contact' contact}}</td>
                       <td>{{contact.email}}</td>
-                      <td>{{contact.step}}</td>
+                      <td class="{{unless contact.step 'text-danger'}}">{{or contact.step 0}}</td>
                       <td>{{contact.l1MttbCoach}}</td>
                       <td>{{contact.l2MttbCoach}}</td>
                     </tr>
