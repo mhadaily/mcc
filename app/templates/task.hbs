@@ -6,27 +6,29 @@
       </h6>
       <h2 class="dashhead-title">{{model.subject}}</h2>
     </div>
-
     <div class="btn-toolbar dashhead-toolbar">
-    {{#link-to (query-params taskStatus=model.reference) tagName='button' class='btn btn-primary'}}
-              Complete Your Task
-     {{/link-to}}
-     {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-primary'}}
-              Change Step
-     {{/link-to}}
+      {{#link-to (query-params taskStatus=model.reference) tagName='button' class='btn btn-primary'}} Complete Your Task {{/link-to}} {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-primary'}} Change Step {{/link-to}}
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-3">
-
-       {{render '-task-details' model}}
+    <div class="col-sm-12">
+      <div class="text-center"><a class="bt btn-sm btn-info" data-toggle="collapse" data-target="#demo">TASK DETAILS - CLICK TO VIEW DETAILS</a></div>
+      <div id="demo" class="collapse">
+        {{render '-task-details' model}}
+      </div>
     </div>
-    <div class="col-sm-5">
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
       {{render 'contact-details' model.contact}}
     </div>
-    <div class="col-sm-4">
-      {{render 'note-list' model.contact}}
-      {{render 'note-box' model.contact}}
+    <div class="col-sm-6">
+      {{render 'note-list' model.contact}} {{render 'note-box' model.contact}}
     </div>
   </div>
 </div>
