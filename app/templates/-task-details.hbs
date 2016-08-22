@@ -1,19 +1,23 @@
-<div class="hr-divider m-b">
-  <h3 class="hr-divider-content hr-divider-heading">Task Details</h3>
+<div class="well">
+  <div class="row">
+    <div class="col-sm-2">Status: <strong>{{model.status}}&nbsp; </strong></div>
+    <div class="col-sm-2">Date assigned: <strong>{{moment-format model.dateAssigned}}&nbsp;</strong> </div>
+    <div class="col-sm-2">Status: <strong>{{model.status}}&nbsp;</strong></div>
+    <div class="col-sm-2">Date due: <strong>{{moment-format model.dateDue}}&nbsp;</strong></div>
+    <div class="col-sm-2">Date complete: <strong>{{moment-format model.dateComplete}}&nbsp;</strong></div>
+    <div class="col-sm-2">Reference: <strong>{{model.reference}} ({{model.source}})&nbsp;</strong></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-9">
+      Subject: <strong>{{model.subject}} </strong>
+    </div>
+    <div class="col-xs-3">
+      <div class="text-right">
+        <button class="bt btn-sm btn-block btn-default" data-toggle="collapse" data-target="#takdetail">More</button>
+      </div>
+    </div>
+  </div>
 </div>
-<dl class="m-b">
-  <dt>Status:</dt>
-  <dd>{{model.status}}&nbsp;</dd>
-  <dt>Date assigned:</dt>
-  <dd>{{moment-format model.dateAssigned}}&nbsp;</dd>
-  <dt>Date due:</dt>
-  <dd>{{moment-format model.dateDue}}&nbsp;</dd>
-  <dt>Date complete:</dt>
-  <dd>{{moment-format model.dateComplete}}&nbsp;</dd>
-  <dt>Reference:</dt>
-  <dd>{{model.reference}} ({{model.source}})&nbsp;</dd>
-  <dt>Subject:</dt>
-  <dd>{{model.subject}}</dd>
-</dl>
-
-<pre style="height:530px;overflow:auto;">{{{model.details}}}</pre>
+<div id="takdetail" class="collapse">
+  <pre style="height:530px;overflow:auto;">{{{model.details}}}</pre>
+</div>
