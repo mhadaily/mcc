@@ -13,9 +13,25 @@
 @blink: #c00;
 @blink-bg: lighten(@blink, 5%);
 @blink-bg: lighten(@blink, 5%);
+@bgFilledGrey: darken(@body-bg, 10%);
+.sameHeight {
+  height: 100vh;
+  padding: 25px 15px;
+}
+
+.bgFilledGrey {
+  background: @bgFilledGrey;
+}
+
 @media (min-width: 768px) {
   .with-iconav > .liquid-container {
     margin-left: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sameHeight {
+    height: auto;
   }
 }
 
