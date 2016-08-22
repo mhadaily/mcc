@@ -3,13 +3,29 @@
     <h2 class="panel-title">{{model.name}}&nbsp;</h2>
   </div>
   <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="statcard statcard-primary p-a">
+          <h3 class="statcard-number">
+            {{model.step}}&nbsp;
+          </h3>
+          <span class="statcard-desc">Step</span>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="statcard statcard-success p-a">
+          <h3 class="statcard-number">
+            12
+          </h3>
+          <span class="statcard-desc">Step Aging</span>
+        </div>
+      </div>
+    </div>
     <dl>
-      <img src="http://placehold.it/65x65" class="img-circle pull-right">
       <dt>Date:</dt>
       <dd>{{moment-format model.date 'MMM Do YY'}}&nbsp;</dd>
       <dt>Date Last Modified:</dt>
       <dd>{{moment-format model.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
-      <div class="clearfix"></div>
       <<dt>First Name:</<dt>
       <dd>{{model.firstName}}&nbsp;</dd>
       <dt>Last Name:</dt>
@@ -18,16 +34,12 @@
       <dd>{{model.reference}} ({{model.source}})</dd>
       <dt>Email:</dt>
       <dd>{{model.email}}&nbsp;</dd>
-      <dt>Current Step:</dt>
-      <dd>{{model.step}}&nbsp;</dd>
-      <dt>Business Coach:</dt>
+      <dt>L1: MTTB Coach:</dt>
       <dd>{{model.l1MttbCoach}}&nbsp;</dd>
-      <dt>Senior Business Coach:</dt>
+      <dt>L2: MTTB Coach:</dt>
       <dd>{{model.l2MttbCoach}}&nbsp;</dd>
       <a target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{model.reference}}">Link to OAP</a>
     </dl>
-
     {{render '-task-activities' model}}
-
   </div>
 </div>
