@@ -13,14 +13,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
     });
 
     var today = moment().startOf('day').toDate();
-    var tomorrow = moment().startOf('day').add(1,'day').toDate();
-    params.paramMapping = {total_pages: 'total-pages'}
+    var tomorrow = moment().startOf('day').add(1, 'day').toDate();
+    params.paramMapping = { total_pages: 'total-pages' };
 
     return Ember.RSVP.hash({
-      todayTasks:     this.findPaged('task',Ember.merge(params,{q:{date_complete_null: true, date_due_gteq: today, date_due_lt: tomorrow}})),
-      futureTasks:    this.findPaged('task',Ember.merge(params,{q:{date_complete_null: true, date_due_gteq: tomorrow}})),
-      overdueTasks:   this.findPaged('task',Ember.merge(params,{q:{date_complete_null: true, date_due_lt: today}})),
-      completedTasks: this.findPaged('task',Ember.merge(params,{q:{date_complete_null: false},s:{date_complete:'desc'}})),
+      todayTasks: this.findPaged('task', Ember.merge(params, { q: { date_complete_null: true, date_due_gteq: today, date_due_lt: tomorrow } })),
+      futureTasks: this.findPaged('task', Ember.merge(params, { q: { date_complete_null: true, date_due_gteq: tomorrow } })),
+      overdueTasks: this.findPaged('task', Ember.merge(params, { q: { date_complete_null: true, date_due_lt: today } })),
+      completedTasks: this.findPaged('task', Ember.merge(params, { q: { date_complete_null: false }, s: { date_complete: 'desc' } })),
       summary: Ember.$.ajax(`${config.apiUrl}/analytics/phonereps`, {
         headers: headers,
         data: params

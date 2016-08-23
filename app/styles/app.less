@@ -15,6 +15,8 @@
 @blink-bg: lighten(@blink, 5%);
 @bgFilledGrey: darken(@body-bg, 3%);
 @bgFilledGrey8: darken(@body-bg, 6%);
+@search-col-width: 200px;
+@search-col-padding: @search-col-width+70;
 .sameHeight {
   height: 100vh;
   padding: 25px 15px;
@@ -28,10 +30,30 @@
   background: @bgFilledGrey8;
 }
 
+.search-col {
+  margin-top: -20px; // offset the min body padding
+  margin-bottom: 30px;
+  @media (min-width: @screen-sm-min) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding: 20px;
+    left: 70px;
+    width: @search-col-width;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: @bgFilledGrey;
+    overflow-y: auto;
+    -webkit-transform: translate3d(0, 0, 0); // Make the sidebar scrollable at all times in Safari
+  }
+}
+
 @media (min-width: 768px) {
   .with-iconav > .liquid-container {
-    margin-left: 70px;
-
+    padding-left: 70px;
+  }
+  .with-iconav > .container-fluid.search-panel {
+    padding-left: @search-col-padding;
   }
 }
 
