@@ -3,7 +3,7 @@ import Ember from 'ember';
 export function breakLine(param) {
 
   var text = Ember.String.htmlSafe(param);
-  text = text.toString().replace(/(\r\n|\n|\r)/gm, '<br>');
+  text = text.toString().replace(/(\r\n|\n|\r)/gm, '<p></p>');
   return Ember.String.htmlSafe(text);
 
 }
