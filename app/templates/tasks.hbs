@@ -75,7 +75,7 @@
               <td>{{moment-format task.dateComplete}}</td>
               <td>{{link-to task.subject 'task' task}}</td>
               <td>{{task.contact.name}}</td>
-              <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+              <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
               <td>{{task.status}}</td>
             </tr>
             {{/each}}
