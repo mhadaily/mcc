@@ -4,20 +4,17 @@
       <h6 class="dashhead-subtitle">
         {{link-to '<< Tasks' (or backTo 'tasks')}}
       </h6>
-      <h2 class="dashhead-title">{{model.subject}}</h2>
+      <h3 class="dashhead-title">{{model.subject}}</h3>
     </div>
     <div class="btn-toolbar dashhead-toolbar">
       {{#link-to (query-params taskStatus=model.reference) tagName='button' class='btn btn-primary'}} Complete Your Task {{/link-to}} {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-primary'}} Change Step {{/link-to}}
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
-      {{render '-task-details' model}}
-    </div>
-  </div>
-  <div class="row">
     <div class="col-sm-6">
-      {{render 'contact-details' model.contact}}
+      <div class=" position-fixed">
+        {{render '-task-details' model}} {{render 'contact-details' model.contact}}
+      </div>
     </div>
     <div class="col-sm-6">
       {{render 'note-list' model.contact}} {{render 'note-box' model.contact}}
