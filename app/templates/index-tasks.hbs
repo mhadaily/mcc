@@ -16,6 +16,9 @@
   <li role="presentation">
     <a href="#tasks-completed" role="tab" data-toggle="tab" aria-controls="tasks-completed">Completed</a>
   </li>
+  <li role="presentation">
+    <a href="#tasks-cancelled" role="tab" data-toggle="tab" aria-controls="tasks-cancelled">Cancelled</a>
+  </li>
 </ul>
 <div class="tab-content" style="height:600px;overflow-y:auto;">
   <div role="tabpanel" class="tab-pane active" id="tasks-today">
@@ -155,6 +158,42 @@
                 <td>{{task.contact.name}}</td>
                 <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
                 <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="tasks-cancelled">
+    <div class="clearfix">
+      {{page-numbers content=model.cancelledTasks class="pull-right"}}
+      <div class="statcard p-a m-b">
+        <span class="h3 statcard-number">
+          {{format-number model.cancelledTasks.meta.total-count format=",0"}}
+        </span>
+          <span class="statcard-desc text-mute">tasks(s)</span>
+      </div>
+    </div>
+    <div class="table-full">
+      <div class="table-responsive">
+        <table class="table" data-sort="table">
+          <thead>
+            <tr>
+              <th class="header headerSortUp">Due</th>
+              <th class="header">Subject</th>
+              <th class="header">Client</th>
+              <th class="header">Step</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each model.cancelledTasks as |task|}}
+              <tr>
+                <td>{{moment-format task.dateDue}}</td>
+                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
+                <td>{{task.contact.name}}</td>
+                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
               </tr>
             {{/each}}
           </tbody>

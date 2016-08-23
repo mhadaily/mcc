@@ -17,10 +17,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
     params.paramMapping = { total_pages: 'total-pages' };
 
     return Ember.RSVP.hash({
-      todayTasks: this.findPaged('task', Ember.merge(params, { q: { date_complete_null: true, date_due_gteq: today, date_due_lt: tomorrow } })),
-      futureTasks: this.findPaged('task', Ember.merge(params, { q: { date_complete_null: true, date_due_gteq: tomorrow } })),
-      overdueTasks: this.findPaged('task', Ember.merge(params, { q: { date_complete_null: true, date_due_lt: today } })),
-      completedTasks: this.findPaged('task', Ember.merge(params, { q: { date_complete_null: false }, s: { date_complete: 'desc' } })),
+      todayTasks:     this.findPaged('task',Ember.merge(params,{q:{status_eq: 'pending', date_due_gteq: today, date_due_lt: tomorrow}})),
+      futureTasks:    this.findPaged('task',Ember.merge(params,{q:{status_eq: 'pending', date_due_gteq: tomorrow}})),
+      overdueTasks:   this.findPaged('task',Ember.merge(params,{q:{status_eq: 'pending', date_due_lt: today}})),
+      completedTasks: this.findPaged('task',Ember.merge(params,{q:{status_eq: 'completed'}})),
+      cancelledTasks: this.findPaged('task',Ember.merge(params,{q:{status_eq: 'cancelled'}})),
       summary: Ember.$.ajax(`${config.apiUrl}/analytics/phonereps`, {
         headers: headers,
         data: params
