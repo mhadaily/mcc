@@ -23,14 +23,13 @@
     </dl>
   </div>
   <div class="col-sm-3">
-    <div class="statcard statcard-success text-center">
+    <div class="statcard statcard-success p-t m-b text-center">
       <h3 class="statcard-number">
-            {{if model.step step '0'}}&nbsp;
+            {{if (eq model.step '') '0' step}}&nbsp;
           </h3>
       <span class="statcard-desc">Step</span>
     </div>
-    <hr>
-    <div class="statcard statcard-success text-center">
+    <div class="statcard statcard-success p-t m-b text-center">
       <h3 class="statcard-number">
             12
           </h3>
