@@ -1,51 +1,50 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h2 class="panel-title">{{model.name}}&nbsp;</h2>
+<div class="hr-divider m-t m-b">
+  <h3 class="hr-divider-content hr-divider-heading">{{model.name}}&nbsp;</h3>
+</div>
+<div class="row">
+  <div class="col-sm-9">
+    <dl>
+      <dt>Date:</dt>
+      <dd>{{moment-format model.date 'MMM Do YY'}}&nbsp;</dd>
+      <dt>Date Last Modified:</dt>
+      <dd>{{moment-format model.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
+      <<dt>First Name:</<dt>
+      <dd>{{model.firstName}}&nbsp;</dd>
+      <dt>Last Name:</dt>
+      <dd>{{model.lastName}}&nbsp;</dd>
+      <dt>Reference:</dt>
+      <dd>{{model.reference}} ({{model.source}})&nbsp;</dd>
+      <dt>Email:</dt>
+      <dd>{{model.email}}&nbsp;</dd>
+      <dt>L1: MTTB Coach:</dt>
+      <dd>{{model.l1MttbCoach}}&nbsp;</dd>
+      <dt>L2: MTTB Coach:</dt>
+      <dd>{{model.l2MttbCoach}}&nbsp;</dd>
+    </dl>
   </div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="statcard statcard-success text-center">
-          <h3 class="statcard-number">
+  <div class="col-sm-3">
+    <div class="statcard statcard-success text-center">
+      <h3 class="statcard-number">
             {{if model.step step '0'}}&nbsp;
           </h3>
-          <span class="statcard-desc">Step</span>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="statcard statcard-success text-center">
-          <h3 class="statcard-number">
+      <span class="statcard-desc">Step</span>
+    </div>
+    <hr>
+    <div class="statcard statcard-success text-center">
+      <h3 class="statcard-number">
             12
           </h3>
-          <span class="statcard-desc">Step Aging</span>
-        </div>
-      </div>
+      <span class="statcard-desc">Step Aging</span>
     </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <dl>
-          <dt>Date:</dt>
-          <dd>{{moment-format model.date 'MMM Do YY'}}&nbsp;</dd>
-          <dt>Date Last Modified:</dt>
-          <dd>{{moment-format model.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
-          <<dt>First Name:</<dt>
-          <dd>{{model.firstName}}&nbsp;</dd>
-          <dt>Last Name:</dt>
-          <dd>{{model.lastName}}&nbsp;</dd>
-          <dt>Reference:</dt>
-          <dd>{{model.reference}} ({{model.source}})</dd>
-          <dt>Email:</dt>
-          <dd>{{model.email}}&nbsp;</dd>
-          <dt>L1: MTTB Coach:</dt>
-          <dd>{{model.l1MttbCoach}}&nbsp;</dd>
-          <dt>L2: MTTB Coach:</dt>
-          <dd>{{model.l2MttbCoach}}&nbsp;</dd>
-        </dl>
-      </div>
-      <div class="col-sm-12">
-        <a class="btn btn-default btn-block" target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{model.reference}}">Link to OAP</a>
-      </div>
-    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <a class="btn btn-block" target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{model.reference}}">Link to OAP</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
     {{render '-task-activities' model}}
   </div>
 </div>
