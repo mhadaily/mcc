@@ -43,22 +43,32 @@
               <th class="header {{if (eq model.meta.sort-attr-name 'date_assigned') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Assigned' (query-params sort="date_assigned" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'date_complete') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Completed</th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'subject') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Subject</th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'contact_name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Client</th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'contact_step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Current Step</th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'status') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Status</th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'date_complete') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Completed' (query-params sort="date_complete" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'subject') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'first_name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Client' (query-params sort="contact_first_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'status') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Status' (query-params sort="status" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
             </tr>
           </thead>
           {{#if model.loading}}
             loading
           {{else}}
           <tbody>
-            {{#unless tasks.length}}
+            {{#unless model.length}}
             <div class="m-a-1">
               Your search returned no result
             </div>
-            {{else}} {{#each tasks as |task|}}
+            {{else}} {{#each model as |task|}}
             <tr>
               <td>{{moment-format task.dateDue}}</td>
               <td>{{moment-format task.dateAssigned}}</td>
