@@ -35,9 +35,11 @@
           <thead>
             <tr>
               <th class="header {{if (eq model.meta.sort-attr-name 'date_due') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Due' (query-params date_due=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+                {{link-to 'Due' (query-params sort="date_due" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'date_assigned') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Assigned</th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'date_assigned') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Assigned' (query-params sort="date_assigned" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'date_complete') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Completed</th>
               <th class="header {{if (eq model.meta.sort-attr-name 'subject') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Subject</th>
               <th class="header {{if (eq model.meta.sort-attr-name 'contact_name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Client</th>
