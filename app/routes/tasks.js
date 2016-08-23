@@ -7,6 +7,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
     sort: {refreshModel: true},
     sortDir: {refreshModel: true}
   },
+  page: 1,
+  perPage: 20,
   model(params) {
     return this.findPaged('task', {
       paramMapping: { total_pages: "total-pages" },

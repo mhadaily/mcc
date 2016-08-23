@@ -8,7 +8,6 @@ export default Ember.Controller.extend({
   l2_mttb_coach: null,
   query: '',
   page: 1,
-  perPage: 25,
   sortBy: ['name:asc'],
   contacts: Ember.computed.sort('model', 'sortBy')
 });
