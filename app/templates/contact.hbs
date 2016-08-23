@@ -4,7 +4,7 @@
       <h6 class="dashhead-subtitle">
         {{link-to '<< Contacts' 'contacts'}}
       </h6>
-      <h2 class="dashhead-title">CLIENT OAP ID: #{{model.reference}}</h2>
+      <h3 class="dashhead-title">CLIENT OAP ID: #{{model.reference}}</h3>
     </div>
     <div class="btn-toolbar dashhead-toolbar">
       {{link-to 'Change Step' (query-params step=model.step) tagName='button' class='btn btn-sm btn-primary'}}
@@ -12,7 +12,9 @@
   </div>
   <div class="row">
     <div class="col-sm-6">
-      {{render 'contact-details' model}}
+      <div class=" position-fixed">
+        {{render 'contact-details' model}}
+      </div>
     </div>
     <div class="col-sm-6">
       {{render 'note-list' model}} {{render 'note-box' model}}
