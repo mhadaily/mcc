@@ -9,7 +9,5 @@ export default Ember.Controller.extend({
   status_eq: null,
   query: '',
   sort: '',
-  sortDir: 'asc',
-  sortBy: ['dateDue:desc'],
-  tasks: Ember.computed.sort('model', 'sortBy')
+  sortDir: 'asc'
 });
