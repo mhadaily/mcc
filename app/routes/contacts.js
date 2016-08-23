@@ -3,6 +3,7 @@ import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
+  perPage: 20,
   model(params) {
     return this.findPaged('contact', {
       paramMapping: { total_pages: "total-pages" },
