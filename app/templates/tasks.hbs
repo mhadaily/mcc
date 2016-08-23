@@ -15,6 +15,9 @@
     <div class="form-group">
       {{input type="text" value=subject class="form-control" placeholder="search subject"}}
     </div>
+    <div class="form-group">
+      {{input type="text" value=status_eq class="form-control" placeholder="search status"}}
+    </div>
     <button type="submit" class="btn btn-block btn-primary">Search</button>
   </form>
 </div>
@@ -44,6 +47,7 @@
               <th class="header {{if (eq model.meta.sort-attr-name 'subject') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Subject</th>
               <th class="header {{if (eq model.meta.sort-attr-name 'contact_name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Client</th>
               <th class="header {{if (eq model.meta.sort-attr-name 'contact_step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Current Step</th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'status') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Status</th>
             </tr>
           </thead>
           {{#if model.loading}}
@@ -62,6 +66,7 @@
               <td>{{link-to task.subject 'task' task}}</td>
               <td>{{task.contact.name}}</td>
               <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+              <td>{{task.status}}</td>
             </tr>
             {{/each}}
             {{/unless}}
