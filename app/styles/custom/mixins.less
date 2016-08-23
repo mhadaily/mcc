@@ -1,0 +1,14 @@
+.setRules() {
+  background: @note-bg;
+  color: @pre-text-color;
+}
+
+.form-control {
+  .setRules();
+  &:focus {
+    .setRules();
+  }
+  &:hover {
+    .setRules();
+  }
+}

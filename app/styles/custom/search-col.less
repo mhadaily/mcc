@@ -1,0 +1,50 @@
+.position-fixed {
+  padding-right: 15px;
+  height: 85vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.position-fixed {
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f9f9f9;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, .3);
+    background-color: #999;
+  }
+}
+
+.search-col {
+  margin-top: -20px; // offset the min body padding
+  margin-bottom: 30px;
+  @media (min-width: @screen-sm-min) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding: 20px;
+    left: 70px;
+    width: @search-col-width;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: @bgFilledGrey;
+    overflow-y: auto;
+    -webkit-transform: translate3d(0, 0, 0); // Make the sidebar scrollable at all times in Safari
+  }
+}
+
+@media (min-width: 768px) {
+  .with-iconav > .liquid-container {
+    padding-left: 70px;
+  }
+  .with-iconav > .container-fluid.search-panel {
+    padding-left: @search-col-padding;
+  }
+}

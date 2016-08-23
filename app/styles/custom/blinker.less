@@ -1,0 +1,74 @@
+.blinker {
+  animation: changecolor 0.5s infinite;
+  -moz-animation: changecolor 0.5s infinite;
+  -webkit-animation: changecolor 0.5s infinite;
+  -ms-animation: changecolor 0.5s infinite;
+  -o-animation: changecolor 0.5s infinite;
+}
+
+@keyframes changecolor {
+  0% {
+    color: @pre-text-color;
+    background: @pre-bg;
+  }
+  100% {
+    color: @pre-text-color;
+    background: @blink-bg;
+  }
+}
+
+
+/* Mozilla Browser */
+
+@-moz-keyframes changecolor {
+  0% {
+    color: @pre-text-color;
+    background: @pre-bg;
+  }
+  100% {
+    color: @pre-text-color;
+    background: @blink-bg;
+  }
+}
+
+
+/* WebKit browser Safari and Chrome */
+
+@-webkit-keyframes changecolor {
+  0% {
+    color: @pre-text-color;
+    background: @pre-bg;
+  }
+  100% {
+    color: @pre-text-color;
+    background: @blink-bg;
+  }
+}
+
+
+/* IE 9,10*/
+
+@-ms-keyframes changecolor {
+  0% {
+    color: @pre-text-color;
+    background: @pre-bg;
+  }
+  100% {
+    color: @pre-text-color;
+    background: @blink-bg;
+  }
+}
+
+
+/* Opera Browser*/
+
+@-o-keyframes changecolor {
+  0% {
+    color: @pre-text-color;
+    background: red;
+  }
+  100% {
+    color: @pre-text-color;
+    background: @blink-bg;
+  }
+}
