@@ -31,7 +31,7 @@
     </div>
     <div class="table-full">
       <div class="table-responsive">
-        <table class="table" data-sort="table">
+        <table class="table table-condensed" data-sort="table">
           <thead>
             <tr>
               <th class="header {{if (eq model.meta.sort-attr-name 'date_due') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
@@ -46,6 +46,9 @@
               <th class="header {{if (eq model.meta.sort-attr-name 'contact_step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">Current Step</th>
             </tr>
           </thead>
+          {{#if model.loading}}
+            loading
+          {{else}}
           <tbody>
             {{#unless tasks.length}}
             <div class="m-a-1">
@@ -60,8 +63,10 @@
               <td>{{task.contact.name}}</td>
               <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
             </tr>
-            {{/each}} {{/unless}}
+            {{/each}}
+            {{/unless}}
           </tbody>
+          {{/if}}
         </table>
       </div>
     </div>
