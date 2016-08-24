@@ -56,11 +56,11 @@
           </thead>
           {{#if model.loading}} loading {{else}}
           <tbody>
-            {{#unless contacts.length}}
+            {{#unless model.length}}
             <div class="m-a-1">
               Your search returned no result
             </div>
-            {{else}} {{#each contacts as |contact|}}
+            {{else}} {{#each model as |contact|}}
             <tr>
               <td>{{ contact.reference}}</td>
               <td>{{link-to contact.name 'contact' contact}}</td>

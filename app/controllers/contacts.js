@@ -7,7 +7,6 @@ export default Ember.Controller.extend({
   l1_mttb_coach: null,
   l2_mttb_coach: null,
   query: '',
-  page: 1,
-  sortBy: ['name:asc'],
-  contacts: Ember.computed.sort('model', 'sortBy')
+  sort: '',
+  sortDir: 'asc'
 });
