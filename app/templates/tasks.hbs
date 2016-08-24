@@ -19,7 +19,11 @@
       {{input type="text" value=contact_step class="form-control" placeholder="search step"}}
     </div>
     <div class="form-group">
-      {{input type="text" value=status_eq class="form-control" placeholder="search status"}}
+      {{ember-selectize
+          content=statuses
+          selection=status_eq
+          placeholder="select status"
+      }}
     </div>
     <button type="submit" class="btn btn-block btn-primary">Search</button>
   </form>
