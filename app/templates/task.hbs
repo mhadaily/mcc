@@ -44,8 +44,10 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="position-fixed less-position-fixed">
-        {{render 'note-list' model.contact}}
+      <div class="position-relative">
+        <div class="position-fixed less-position-fixed">
+          {{render 'note-list' model.contact}}
+        </div>
       </div>
       <div class="position-relative">
         {{render 'note-box' model.contact}}
