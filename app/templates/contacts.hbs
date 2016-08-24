@@ -10,10 +10,10 @@
       {{input type="text" value=step class="form-control" placeholder="Current Step"}}
     </div>
     <div class="form-group">
-      {{input type="text" value=l1_mttb_coach class="form-control" placeholder="Business Coach"}}
+      {{input type="text" value=home_phone class="form-control" placeholder="Phone Number"}}
     </div>
     <div class="form-group">
-      {{input type="text" value=l2_mttb_coach class="form-control" placeholder="Senior Business Coach"}}
+      {{input type="text" value=time_zone class="form-control" placeholder="Time Zone"}}
     </div>
     <button type="submit" class="btn btn-block btn-primary">Search</button>
   </form>
@@ -46,11 +46,11 @@
               <th class="header {{if (eq model.meta.sort-attr-name 'step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Step' (query-params sort="step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'l1_mttb_coach') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Business Coach' (query-params sort="l1_mttb_coach" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'home_phone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Phone' (query-params sort="home_phone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'l2_mttb_coach') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Senior Business Coach' (query-params sort="l2_mttb_coach" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'time_zone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Time Zone' (query-params sort="time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
             </tr>
           </thead>
@@ -69,8 +69,8 @@
                     <td>{{link-to contact.name 'contact' contact}}</td>
                     <td>{{contact.email}}</td>
                     <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step 0}}</td>
-                    <td>{{contact.l1MttbCoach}}</td>
-                    <td>{{contact.l2MttbCoach}}</td>
+                    <td>{{contact.homePhone}}</td>
+                    <td>{{contact.timeZone}}</td>
                   </tr>
                 {{/each}}
               {{/unless}}

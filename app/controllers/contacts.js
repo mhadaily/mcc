@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ["contact", "step", "l1_mttb_coach", "l2_mttb_coach", "query", "page", "perPage", "sort", "sortDir"],
+  queryParams: ["contact", "step", "home_phone", "time_zone", "query", "page", "perPage", "sort", "sortDir"],
   contact: null,
   step: null,
-  l1_mttb_coach: null,
-  l2_mttb_coach: null,
+  home_phone: null,
+  time_zone: null,
   query: '',
   sort: '',
   sortDir: 'asc'
