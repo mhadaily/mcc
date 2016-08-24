@@ -12,8 +12,23 @@
   </div>
   <div class="row">
     <div class="col-sm-6">
+      <ul class="nav nav-bordered m-y" role="tablist">
+        <li class="active" role="presentation">
+          <a href="#summery" role="tab" data-toggle="tab" aria-controls="tasks-today">Summery <span class="badge"></span></a>
+        </li>
+        <li role="presentation">
+          <a href="#task-sales" role="tab" data-toggle="tab" aria-controls="task-sales">Tasks & Sales</a>
+        </li>
+      </ul>
       <div class=" position-fixed">
-        {{render 'contact-details' model}}
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="summery">
+            {{render 'contact-details' model}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="task-sales">
+            {{render '-task-activities' model}}
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-sm-6">
