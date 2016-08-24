@@ -14,6 +14,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       paramMapping: { total_pages: "total-pages" },
       q: {
         contact_first_name_or_contact_last_name_cont: params.contact,
+        contact_step_eq: params.contact_step,
         subject_cont: params.subject,
         date_due_gteq: params.date_due_gteq,
         date_due_lteq: params.date_due_lteq,
