@@ -13,11 +13,41 @@
   <div class="row">
     <div class="col-sm-6">
       <div class=" position-fixed">
-        {{render '-task-details' model}} {{render 'contact-details' model.contact}}
+        <ul class="nav nav-bordered m-y" role="tablist">
+          <li class="active" role="presentation">
+            <a href="#summery" role="tab" data-toggle="tab" aria-controls="tasks-today">Summery <span class="badge"></span></a>
+          </li>
+          <li role="presentation">
+            <a href="#task-detail" role="tab" data-toggle="tab" aria-controls="task-detail">Task Details <span class="badge"></span></a>
+          </li>
+          <li role="presentation">
+            <a href="#task-client" role="tab" data-toggle="tab" aria-controls="task-client">Client Detail <span class="badge"></span></a>
+          </li>
+          <li role="presentation">
+            <a href="#task-sales" role="tab" data-toggle="tab" aria-controls="task-sales">Tasks & Sales</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="summery">
+            {{render '-task-details' model}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="task-detail">
+            {{render '-task-detail' model}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="task-client">
+            {{render 'contact-details' model.contact}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="task-sales">
+            {{render '-task-activities' model.contact}}
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-sm-6">
-      {{render 'note-list' model.contact}} {{render 'note-box' model.contact}}
+      {{render 'note-list' model.contact}}
+      <div class="position-relative">
+        {{render 'note-box' model.contact}}
+      </div>
     </div>
   </div>
 </div>

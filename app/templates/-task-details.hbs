@@ -15,10 +15,7 @@
     <label> Subject:</label>
     <p>{{model.subject}} </p>
     <p>
-      <a data-toggle="collapse" data-target="#takdetail">More</a>
+      <a href="#task-detail" role="tab" data-toggle="tab" aria-controls="task-detail">More <span class="badge"></span></a>
     </p>
   </div>
-</div>
-<div id="takdetail" class="collapse">
-  {{{breakLine model.details}}}
 </div>
