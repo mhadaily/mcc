@@ -20,19 +20,22 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
 
     taskComplete: function() {
-      this.currentModel.set('statusEvent', 'complete');
-      this.currentModel.save().then(d => {
-        alert('task complated');
-        return d;
-      });
+      // this.currentModel.set('statusEvent', 'complete');
+      // this.currentModel.save().then(d => {
+      //   alert('task complated');
+      //   return d;
+      // });
+      alert('there is no logic for now!!!');
     },
 
     taskCancel: function() {
-      this.currentModel.set('statusEvent', 'cancel');
-      this.currentModel.save().then(d => {
-        alert('Task hasn been canceled');
-        return d;
-      });
+      // this.currentModel.set('statusEvent', 'cancel');
+      // this.currentModel.save().then(d => {
+      //   alert('Task hasn been canceled');
+      //   return d;
+      // });
+      //
+      alert('there is no logic for now!!!');
     },
 
     newNote: function(noteContent) {

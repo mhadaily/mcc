@@ -1,14 +1,29 @@
-<div class="modal-content">
+<div class="modal-content modal-lg">
   <div class="modal-header">
     <button type="button" class="close" {{action "dismiss"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="modal-title">Complete task or cancel</h4>
   </div>
-  <div class="modal-body">
-    <button type="button" class="btn btn-success btn-lg" {{action "complete"}} disabled="true">Complete Task</button>
-    <button type="button" class="btn btn-danger btn-lg" {{action "cancel"}} disabled="true">Cancel Task</button>
+  <div class="modal-body ">
+    <form class="form">
+      <div class="form-group">
+        {{textarea value='' class="form-control" rows="5"}}
+      </div>
+      <div class="form-group">
+        <select class="custom-select width100">
+          <option value="0">PLEASE CHOOSE OUTCOME</option>
+          <option value="1">OUTCOME 1</option>
+          <option value="2">OUTCOME 1</option>
+          <option value="3">OUTCOME 1</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-block btn-success btn-lg" {{action "complete"}}>Complete Task</button>
+      {{!--
+      <button type="button" class="btn btn-danger btn-lg" {{action "cancel"}} disabled="true">Cancel Task</button>
+      --}}
+    </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" {{action "dismiss"}}>Close</button>
+    <button type="button" class="btn btn-danger btn-lg" {{action "dismiss"}}>Close</button>
   </div>
 </div>
 <!-- /.modal-content -->
