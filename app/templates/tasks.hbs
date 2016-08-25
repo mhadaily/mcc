@@ -47,12 +47,6 @@
               <th class="header {{if (eq model.meta.sort-attr-name 'date_due') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Due' (query-params sort="date_due" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'date_assigned') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Assigned' (query-params sort="date_assigned" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'date_complete') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Completed' (query-params sort="date_complete" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'subject') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
@@ -61,6 +55,9 @@
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'time_zone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Time Zone' (query-params sort="contact_time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'status') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Status' (query-params sort="status" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
@@ -78,11 +75,10 @@
             {{else}} {{#each model as |task|}}
             <tr>
               <td>{{moment-format task.dateDue}}</td>
-              <td>{{moment-format task.dateAssigned}}</td>
-              <td>{{moment-format task.dateComplete}}</td>
               <td>{{link-to task.subject 'task' task}}</td>
               <td>{{task.contact.name}}</td>
               <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+              <td>{{task.contact.timeZone}}</td>
               <td>{{task.status}}</td>
             </tr>
             {{/each}}
