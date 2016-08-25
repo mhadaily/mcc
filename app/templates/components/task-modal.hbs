@@ -16,13 +16,13 @@
           <option value="3">OUTCOME 1</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-block btn-success btn-lg" {{action "complete"}}>Complete Task</button>
       {{!--
       <button type="button" class="btn btn-danger btn-lg" {{action "cancel"}} disabled="true">Cancel Task</button>
       --}}
     </form>
   </div>
   <div class="modal-footer">
+    <button type="submit" class="btn btn-success btn-lg" {{action "complete"}}>Complete Task</button>
     <button type="button" class="btn btn-danger btn-lg" {{action "dismiss"}}>Close</button>
   </div>
 </div>
