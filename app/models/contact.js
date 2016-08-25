@@ -9,6 +9,7 @@ export default DS.Model.extend({
   dateLastModified: DS.attr(),
   firstName: DS.attr(),
   lastName: DS.attr(),
+  name: DS.attr(),
   reference: DS.attr(),
   source: DS.attr(),
   email: DS.attr(),
@@ -18,8 +19,5 @@ export default DS.Model.extend({
   l1MttbCoach: DS.attr(),
   l2MttbCoach: DS.attr(),
   timeZone: DS.attr(),
-  name: Ember.computed('firstName', 'lastName', function() {
-    return [this.get('firstName'), this.get('lastName')].join(' ');
-  }),
   content: 'row data will be replaced',
 });

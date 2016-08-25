@@ -37,8 +37,8 @@
               <th class="header {{if (eq model.meta.sort-attr-name 'reference') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Reference' (query-params sort="reference" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'first_name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Client' (query-params sort="first_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Client' (query-params sort="name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'email') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Email' (query-params sort="email" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
