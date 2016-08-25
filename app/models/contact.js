@@ -19,5 +19,8 @@ export default DS.Model.extend({
   l1MttbCoach: DS.attr(),
   l2MttbCoach: DS.attr(),
   timeZone: DS.attr(),
+  city: DS.attr(),
+  state: DS.attr(),
+  country: DS.attr(),
   content: 'row data will be replaced',
 });
