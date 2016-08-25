@@ -3,6 +3,8 @@
   <dd>{{moment-format model.dateDue 'MMM Do YY'}}&nbsp;</dd>
   <dt>Subject:</dt>
   <dd>{{model.subject}}&nbsp;</dd>
+  <dt>Client:</dt>
+  <dd>{{model.contact.name}}&nbsp;</dd>
   <dt>Step:</dt>
   <dd>{{or model.contact.step 0}}&nbsp;</dd>
   <dt>Time Zone:</dt>
@@ -11,6 +13,6 @@
   <dd>{{model.status}}&nbsp;</dd>
 </dl>
 
-<pre>
+<pre class="m-t">
 {{{model.details}}}
 </pre>
