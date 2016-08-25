@@ -2,6 +2,8 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
+  notify: Ember.inject.service('notify'),
+
   actions: {
     changeSave: function(step) {
       //debugger;
@@ -12,10 +14,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.store.findRecord('contact', newStepNumber.contact).then((contact) => {
         contact.set('step', newStepNumber.step);
         contact.save();
-        alert('Step has been saved to' + newStepNumber.step);
-
+        this.get('notify').success('Step has been saved to ' + newStepNumber.step);
       }, function() {
-        alert('Failed to save! Please try later!');
+        this.get('notify').error('Saving Note Failed! MR/MS ');
       });
     },
     newNote: function(noteContent) {
@@ -26,11 +27,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         user: this.modelFor('application').account
       };
       this.store.createRecord('note', newNoteData).save().then(() => {
-        alert('Note has been saved');
+        this.get('notify').success('Note has been saved');
         this.set('noteContent', ' ');
       }, function() {
-        alert(newNoteData.author);
-        alert('Saving Note Failed!');
+        this.get('notify').error('Saving Note Failed! MR/MS ' + newNoteData.author);
       });
     }
   }
