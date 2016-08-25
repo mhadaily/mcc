@@ -15,8 +15,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       q: {
         first_name_or_last_name_or_email_cont: params.contact,
         step_eq_with_blank: params.step,
-        l1_mttb_coach_cont: params.l1_mttb_coach,
-        l2_mttb_coach_cont: params.l2_mttb_coach,
+        home_phone_cont: params.home_phone,
+        time_zone_cont: params.time_zone,
         s: `${params.sort} ${params.sortDir}`
       }
     });
