@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  notify: Ember.inject.service('notify'),
   classNames: ['task-modal'],
   actions: {
     dismiss: function() {
@@ -8,12 +9,12 @@ export default Ember.Component.extend({
     },
     complete: function() {
       // this.sendAction('taskComplete');
-      alert('there is no logic for now!!!');
+      this.get('notify').success('there is no logic for now!!!');
     },
     cancel: function() {
       // this.sendAction('taskCancel');
       //
-      alert('there is no logic for now!!!');
+      this.get('notify').error('there is no logic for now!!!');
     }
   }
 });
