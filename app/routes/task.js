@@ -18,26 +18,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         alert('Failed to save! Please try later!');
       });
     },
-
-    taskComplete: function() {
-      // this.currentModel.set('statusEvent', 'complete');
-      // this.currentModel.save().then(d => {
-      //   alert('task complated');
-      //   return d;
-      // });
-      alert('there is no logic for now!!!');
-    },
-
-    taskCancel: function() {
-      // this.currentModel.set('statusEvent', 'cancel');
-      // this.currentModel.save().then(d => {
-      //   alert('Task hasn been canceled');
-      //   return d;
-      // });
-      //
-      alert('there is no logic for now!!!');
-    },
-
     newNote: function(noteContent) {
       //debugger;
       var newNoteData = {

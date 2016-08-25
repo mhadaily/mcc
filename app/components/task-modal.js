@@ -7,10 +7,13 @@ export default Ember.Component.extend({
       this.sendAction('dismiss');
     },
     complete: function() {
-      this.sendAction('taskComplete');
+      // this.sendAction('taskComplete');
+      alert('there is no logic for now!!!');
     },
     cancel: function() {
-      this.sendAction('taskCancel');
+      // this.sendAction('taskCancel');
+      //
+      alert('there is no logic for now!!!');
     }
   }
 });
