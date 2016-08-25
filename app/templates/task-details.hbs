@@ -1,1 +1,16 @@
-{{{breakLine model.details}}}
+<dl>
+  <dt>Date Due:</dt>
+  <dd>{{moment-format model.dateDue 'MMM Do YY'}}&nbsp;</dd>
+  <dt>Subject:</dt>
+  <dd>{{model.subject}}&nbsp;</dd>
+  <dt>Step:</dt>
+  <dd>{{or model.contact.step 0}}&nbsp;</dd>
+  <dt>Time Zone:</dt>
+  <dd>{{model.timeZone}}&nbsp;</dd>
+  <dt>Status:</dt>
+  <dd>{{model.status}}&nbsp;</dd>
+</dl>
+
+<pre>
+{{{model.details}}}
+</pre>
