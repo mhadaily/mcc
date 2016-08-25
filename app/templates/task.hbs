@@ -14,7 +14,7 @@
     <div class="col-sm-6">
       <ul class="nav nav-bordered m-y" role="tablist">
         <li class="active" role="presentation">
-          <a href="#summery" role="tab" data-toggle="tab" aria-controls="tasks-today">Summery <span class="badge"></span></a>
+          <a href="#summary" role="tab" data-toggle="tab" aria-controls="tasks-today">Summary <span class="badge"></span></a>
         </li>
         <li role="presentation">
           <a href="#task-detail" role="tab" data-toggle="tab" aria-controls="task-detail">Task Details <span class="badge"></span></a>
@@ -28,7 +28,7 @@
       </ul>
       <div class=" position-fixed">
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="summery">
+          <div role="tabpanel" class="tab-pane active" id="summary">
             {{render '-task-details' model}}
           </div>
           <div role="tabpanel" class="tab-pane" id="task-detail">

@@ -63,7 +63,7 @@
             {{else}} {{#each model as |contact|}}
             <tr>
               <td>{{ contact.reference}}</td>
-              <td>{{link-to contact.name 'contact' contact}}</td>
+              <td>{{link-to (or contact.name '<unnamed>')'contact' contact}}</td>
               <td>{{contact.email}}</td>
               <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step 0}}</td>
               <td>{{contact.homePhone}}</td>
