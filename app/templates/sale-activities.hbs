@@ -1,0 +1,27 @@
+<div class="table-full">
+  <div class="hr-divider m-t">
+    <h3 class="hr-divider-content hr-divider-heading">Sales</h3>
+  </div>
+  <div class="table-responsive">
+    <table class="table" data-sort="table">
+      <thead>
+        <tr>
+          <th class="header headerSortDown">Date</th>
+          <th class="header">Status</th>
+          <th class="header">Product</th>
+          <th class="header">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model.salesOrders as |salesOrder|}}
+          <tr>
+            <td>{{moment-format salesOrder.date}}</td>
+            <td>{{salesOrder.status}}</td>
+            <td>{{salesOrder.product.name}}</td>
+            <td align="right">{{salesOrder.amount}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

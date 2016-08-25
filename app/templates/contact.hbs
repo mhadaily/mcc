@@ -14,19 +14,25 @@
     <div class="col-sm-6">
       <ul class="nav nav-bordered m-y" role="tablist">
         <li class="active" role="presentation">
-          <a href="#summery" role="tab" data-toggle="tab" aria-controls="tasks-today">Summery <span class="badge"></span></a>
+          <a href="#summary" role="tab" data-toggle="tab" aria-controls="summary">Summary <span class="badge"></span></a>
         </li>
         <li role="presentation">
-          <a href="#task-sales" role="tab" data-toggle="tab" aria-controls="task-sales">Tasks & Sales</a>
+          <a href="#task-activities" role="tab" data-toggle="tab" aria-controls="task-activities">Tasks</a>
+        </li>
+        <li role="presentation">
+          <a href="#sale-activities" role="tab" data-toggle="tab" aria-controls="task-activities">Sales</a>
         </li>
       </ul>
       <div class=" position-fixed">
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="summery">
-            {{render 'contact-details' model}}
+          <div role="tabpanel" class="tab-pane active" id="summary">
+            {{render 'summary' model}}
           </div>
-          <div role="tabpanel" class="tab-pane" id="task-sales">
-            {{render '-task-activities' model}}
+          <div role="tabpanel" class="tab-pane" id="task-activities">
+            {{render 'task-activities' model}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="sale-activities">
+            {{render 'sale-activities' model}}
           </div>
         </div>
       </div>

@@ -14,31 +14,43 @@
     <div class="col-sm-6">
       <ul class="nav nav-bordered m-y" role="tablist">
         <li class="active" role="presentation">
-          <a href="#summary" role="tab" data-toggle="tab" aria-controls="tasks-today">Summary <span class="badge"></span></a>
+          <a href="#summary" role="tab" data-toggle="tab" aria-controls="summary">Summary <span class="badge"></span></a>
         </li>
         <li role="presentation">
-          <a href="#task-detail" role="tab" data-toggle="tab" aria-controls="task-detail">Task Details <span class="badge"></span></a>
+          <a href="#task-details" role="tab" data-toggle="tab" aria-controls="task-details">Task Details <span class="badge"></span></a>
         </li>
         <li role="presentation">
-          <a href="#task-client" role="tab" data-toggle="tab" aria-controls="task-client">Client Detail <span class="badge"></span></a>
+          <a href="#contact-details" role="tab" data-toggle="tab" aria-controls="contact-details">Client Details <span class="badge"></span></a>
         </li>
         <li role="presentation">
-          <a href="#task-sales" role="tab" data-toggle="tab" aria-controls="task-sales">Tasks & Sales</a>
+          <a href="#task-activities" role="tab" data-toggle="tab" aria-controls="task-activities">Tasks</a>
+        </li>
+        <li role="presentation">
+          <a href="#sale-activities" role="tab" data-toggle="tab" aria-controls="sale-activities">Sales</a>
+        </li>
+        <li role="presentation">
+          <a href="#contact-tags" role="tab" data-toggle="tab" aria-controls="contact-tags">Contact Tags</a>
         </li>
       </ul>
       <div class=" position-fixed">
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="summary">
-            {{render '-task-details' model}}
+            {{render 'summary' contact}}
           </div>
-          <div role="tabpanel" class="tab-pane" id="task-detail">
-            {{render '-task-detail' model}}
+          <div role="tabpanel" class="tab-pane" id="task-details">
+            {{render 'task-details' model}}
           </div>
-          <div role="tabpanel" class="tab-pane" id="task-client">
+          <div role="tabpanel" class="tab-pane" id="contact-details">
             {{render 'contact-details' model.contact}}
           </div>
-          <div role="tabpanel" class="tab-pane" id="task-sales">
-            {{render '-task-activities' model.contact}}
+          <div role="tabpanel" class="tab-pane" id="task-activities">
+            {{render 'task-activities' model.contact}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="sale-activities">
+            {{render 'sale-activities' model.contact}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="contact-tags">
+            {{render 'contact-tags' contact}}
           </div>
         </div>
       </div>
