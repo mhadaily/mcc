@@ -6,7 +6,7 @@
   <div class="modal-body ">
     <form class="form">
       <div class="form-group">
-        {{textarea value='' class="form-control" rows="5"}}
+        {{textarea value=noteContentModal class="form-control" rows="5"}}
       </div>
       <div class="form-group">
         <select class="custom-select width100">
@@ -22,7 +22,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-success btn-lg" {{action "complete"}}>Complete Task</button>
+    <button type="submit" class="btn btn-success btn-lg" {{action "complete" noteContentModal}}>Complete Task</button>
     <button type="button" class="btn btn-danger btn-lg" {{action "dismiss"}}>Close</button>
   </div>
 </div>

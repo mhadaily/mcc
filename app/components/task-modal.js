@@ -7,9 +7,11 @@ export default Ember.Component.extend({
     dismiss: function() {
       this.sendAction('dismiss');
     },
-    complete: function() {
+    complete: function(noteContentModal) {
       // this.sendAction('taskComplete');
-      this.get('notify').success('there is no logic for now!!!');
+      this.get('notify').success('there is no logic for now!!! but this is yout note:' + noteContentModal);
+      this.set('noteContentModal', ' ');
+      this.sendAction('dismiss');
     },
     cancel: function() {
       // this.sendAction('taskCancel');
