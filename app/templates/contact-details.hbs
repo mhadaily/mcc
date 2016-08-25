@@ -1,37 +1,37 @@
 <div class="hr-divider m-t m-b">
-  <h3 class="hr-divider-content hr-divider-heading">{{model.name}}&nbsp;</h3>
+  <h3 class="hr-divider-content hr-divider-heading">{{contact.name}}&nbsp;</h3>
 </div>
 <div class="row">
   <div class="col-sm-9">
     <dl>
       <dt>Date:</dt>
-      <dd>{{moment-format model.date 'MMM Do YY'}}&nbsp;</dd>
+      <dd>{{moment-format contact.date 'MMM Do YY'}}&nbsp;</dd>
       <dt>Date Last Modified:</dt>
-      <dd>{{moment-format model.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
+      <dd>{{moment-format contact.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
       <<dt>First Name:</<dt>
-      <dd>{{model.firstName}}&nbsp;</dd>
+      <dd>{{contact.firstName}}&nbsp;</dd>
       <dt>Last Name:</dt>
-      <dd>{{model.lastName}}&nbsp;</dd>
+      <dd>{{contact.lastName}}&nbsp;</dd>
       <dt>Reference:</dt>
-      <dd>{{model.reference}} ({{model.source}})&nbsp;</dd>
+      <dd>{{contact.reference}} ({{contact.source}})&nbsp;</dd>
       <dt>Email:</dt>
-      <dd>{{model.email}}&nbsp;</dd>
+      <dd>{{contact.email}}&nbsp;</dd>
       <dt>L1: MTTB Coach:</dt>
-      <dd>{{model.l1MttbCoach}}&nbsp;</dd>
+      <dd>{{contact.l1MttbCoach}}&nbsp;</dd>
       <dt>L2: MTTB Coach:</dt>
-      <dd>{{model.l2MttbCoach}}&nbsp;</dd>
+      <dd>{{contact.l2MttbCoach}}&nbsp;</dd>
       <dt>Status:</dt>
-      <dd>{{model.status}}&nbsp;</dd>
+      <dd>{{contact.status}}&nbsp;</dd>
       <dt>Date Assigned:</dt>
-      <dd>{{moment-format model.dateAssigned}}&nbsp;</dd>
+      <dd>{{moment-format contact.dateAssigned}}&nbsp;</dd>
       <dt>Date Due</dt>
-      <dd>{{moment-format model.dateDue}}&nbsp;</dd>
+      <dd>{{moment-format contact.dateDue}}&nbsp;</dd>
       <dt>Date Complete:</dt>
-      <dd>{{moment-format model.dateComplete}}&nbsp;</dd>
+      <dd>{{moment-format contact.dateComplete}}&nbsp;</dd>
       <dt>Subject:</dt>
-      <dd>{{model.subject}}&nbsp;</dd>
+      <dd>{{contact.subject}}&nbsp;</dd>
       <dt>Date Complete:</dt>
-      <dd>{{moment-format model.dateComplete}}&nbsp;</dd>
+      <dd>{{moment-format contact.dateComplete}}&nbsp;</dd>
       <p>
         <a href="#task-detail" role="tab" data-toggle="tab" aria-controls="task-detail">More <span class="badge"></span></a>
       </p>
@@ -40,7 +40,7 @@
   <div class="col-sm-3">
     <div class="statcard statcard-success p-t m-b text-center">
       <h3 class="statcard-number">
-            {{if (eq model.step '') '0' step}}&nbsp;
+            {{if (eq contact.step '') '0' step}}&nbsp;
           </h3>
       <span class="statcard-desc">Step</span>
     </div>
@@ -54,6 +54,6 @@
 </div>
 <div class="row">
   <div class="col-sm-12">
-    <a class="btn btn-block" target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{model.reference}}">Link to OAP</a>
+    <a class="btn btn-block" target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{contact.reference}}">Link to OAP</a>
   </div>
 </div>

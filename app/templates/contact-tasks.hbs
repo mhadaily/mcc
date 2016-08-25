@@ -1,7 +1,4 @@
 <div class="table-full">
-  <div class="hr-divider m-t">
-    <h3 class="hr-divider-content hr-divider-heading">  Tasks</h3>
-  </div>
   <div class="table-responsive">
     <table class="table" data-sort="table">
       <thead>
@@ -12,7 +9,7 @@
         </tr>
       </thead>
       <tbody>
-        {{#each model.tasks as |task|}}
+        {{#each tasks as |task|}}
           <tr>
             <td>{{moment-format task.dateDue}}</td>
             <td>{{link-to task.subject 'task' task}}</td>
