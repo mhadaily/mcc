@@ -1,4 +1,4 @@
-<div class="modal-content modal-lg">
+<div class="modal-content ">
   <div class="modal-header">
     <button type="button" class="close" {{action "dismiss"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="modal-title">Complete task</h4>
@@ -6,14 +6,13 @@
   <div class="modal-body ">
     <form class="form">
       <div class="form-group">
-        {{textarea value=noteContentModal class="form-control" rows="5"}}
+        {{textarea value=noteContentModal class="form-control" rows="6" }}
       </div>
       <div class="form-group">
-        <select class="custom-select width100">
-          <option value="0">PLEASE CHOOSE OUTCOME</option>
-          <option value="1">OUTCOME 1</option>
-          <option value="2">OUTCOME 1</option>
-          <option value="3">OUTCOME 1</option>
+        <select class="custom-select width100" value=selectedOutcome {{action 'selectOutcome' on='change' }}>
+          {{#each outcomeList as |item|}}
+          <option value={{item}}>{{item}}</option>
+          {{/each}}
         </select>
       </div>
       {{!--
@@ -22,7 +21,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-success btn-lg" {{action "complete" noteContentModal}}>Complete Task</button>
+    <button type="submit" class="btn btn-success btn-lg" {{action "complete" noteContentModal selectedOutcome}}>Complete Task</button>
     <button type="button" class="btn btn-danger btn-lg" {{action "dismiss"}}>Close</button>
   </div>
 </div>

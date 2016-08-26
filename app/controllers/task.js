@@ -5,7 +5,6 @@ export default Ember.Controller.extend({
   step: null,
   ref: null,
   backTo: null,
-  modalStatus: null,
   contact: Ember.computed('model.contact', function() {
     return this.get('model.contact');
   }),
