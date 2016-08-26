@@ -22,5 +22,6 @@ export default DS.Model.extend({
   city: DS.attr(),
   state: DS.attr(),
   country: DS.attr(),
+  tags: DS.attr(),
   content: 'row data will be replaced',
 });
