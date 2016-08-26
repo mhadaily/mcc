@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -22,4 +23,12 @@ export default DS.Model.extend({
   country: DS.attr(),
   tags: DS.attr(),
   content: 'row data will be replaced',
+  agreementTags: Ember.computed('tags',function() {
+    var tags    = this.get('tags'),
+        result  = {};
+    for(var k in tags) {
+      if(tags[k].match(/agreement/i)) result[k] = tags[k];
+    }
+    return result;
+  })
 });

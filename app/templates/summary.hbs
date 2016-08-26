@@ -6,10 +6,10 @@
 </div>
 <dl>
   <dt>Reference:</<dt>
-    <dd>{{model.reference}}<a target="_blank" href="https://app.ontraport.com/#!/model/edit&id={{model.reference}}"> (Link to OAP)</a></dd>
-    <dt>Name:</<dt>
-    <dd>{{model.name}}&nbsp;</dd>
-    <dt>Email:</dt>
+  <dd>{{model.reference}}<a target="_blank" href="https://app.ontraport.com/#!/model/edit&id={{model.reference}}"> (Link to OAP)</a></dd>
+  <dt>Name:</<dt>
+  <dd>{{model.name}}&nbsp;</dd>
+  <dt>Email:</dt>
   <dd>{{model.email}}&nbsp;</dd>
   <dt>Phone:</dt>
   <dd>{{model.homePhone}}&nbsp;</dd>
@@ -22,6 +22,14 @@
   <dt>Time Zone:</dt>
   <dd>{{model.timeZone}}&nbsp;</dd>
 </dl>
+<div class="hr-divider m-y">
+  <h3 class="hr-divider-content hr-divider-heading">Agreement&nbsp;</h3>
+</div>
+<ul>
+  {{#each-in (or model.agreementTags model.contact.agreementTags) as |key value|}}
+    <li>{{key}}: {{value}}</li>
+  {{/each-in}}
+</ul>
 <div class="hr-divider m-y">
   <h3 class="hr-divider-content hr-divider-heading">Recent Sales&nbsp;</h3>
 </div>
