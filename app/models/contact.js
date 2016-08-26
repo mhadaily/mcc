@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -14,7 +13,6 @@ export default DS.Model.extend({
   source: DS.attr(),
   email: DS.attr(),
   homePhone: DS.attr(),
-  state: DS.attr(),
   step: DS.attr(),
   l1MttbCoach: DS.attr(),
   l2MttbCoach: DS.attr(),
