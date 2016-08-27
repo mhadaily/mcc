@@ -10,7 +10,7 @@
       </div>
       <div class="form-group">
         <select class="custom-select width100" value=selectedOutcome {{action 'selectOutcome' on='change' }}>
-          {{#each outcomeList as |item|}}
+          {{#each task.taskType.outcomes as |item|}}
           <option value={{item}}>{{item}}</option>
           {{/each}}
         </select>

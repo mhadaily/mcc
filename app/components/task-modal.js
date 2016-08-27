@@ -4,7 +4,6 @@ export default Ember.Component.extend({
   notify: Ember.inject.service('notify'),
   classNames: ['task-modal'],
   task: null,
-  outcomeList: ['PLEASE CHOOSE WHAT WOULD BE THE OUTCOME', 'OUTCOME4', 'OUTCOME5', 'OUTCOME6'],
 
   init: function() {
     this._super(...arguments);
