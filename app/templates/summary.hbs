@@ -1,6 +1,22 @@
-<div class="hr-divider m-y">
-  <h3 class="hr-divider-content hr-divider-heading">Task&nbsp;</h3>
-</div>
+{{#if task}}
+  <div class="hr-divider m-y">
+    <h3 class="hr-divider-content hr-divider-heading">Task&nbsp;</h3>
+  </div>
+  <dl>
+    <dt>Date Due:</dt>
+    <dd>{{moment-format task.dateDue 'MMM Do YY'}}&nbsp;</dd>
+    <dt>Subject:</dt>
+    <dd>{{task.subject}}&nbsp;</dd>
+    <dt>Client:</dt>
+    <dd>{{task.contact.name}}&nbsp;</dd>
+    <dt>Step:</dt>
+    <dd>{{or task.contact.step 0}}&nbsp;</dd>
+    <dt>Time Zone:</dt>
+    <dd>{{task.timeZone}}&nbsp;</dd>
+    <dt>Status:</dt>
+    <dd>{{task.status}}&nbsp;</dd>
+  </dl>
+{{/if}}
 <div class="hr-divider m-y">
   <h3 class="hr-divider-content hr-divider-heading">Client&nbsp;</h3>
 </div>

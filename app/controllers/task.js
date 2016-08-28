@@ -5,6 +5,9 @@ export default Ember.Controller.extend({
   step: null,
   ref: null,
   backTo: null,
+  task: Ember.computed('model', function() {
+    return this.get('model');
+  }),
   contact: Ember.computed('model.contact', function() {
     return this.get('model.contact');
   }),
