@@ -35,10 +35,10 @@
       <div class=" position-fixed">
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="summary">
-            {{render 'summary' contact}}
+            {{partial 'summary'}}
           </div>
           <div role="tabpanel" class="tab-pane" id="task-details">
-            {{render 'task-details' model}}
+            {{partial 'task-details'}}
           </div>
           <div role="tabpanel" class="tab-pane" id="contact-details">
             {{partial 'contact-details'}}
