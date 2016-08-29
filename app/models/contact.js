@@ -27,7 +27,7 @@ export default DS.Model.extend({
     var tags    = this.get('tags'),
         result  = {};
     for(var k in tags) {
-      if(tags[k].match(/agreement/i)) result[k] = tags[k];
+      if(tags[k].match(/agreement/i)) { result[k] = tags[k]; }
     }
     return result;
   })
