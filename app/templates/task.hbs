@@ -10,9 +10,39 @@
       {{#link-to (query-params ref=model.reference) tagName='button' class='btn btn-primary'}} Complete Your Task {{/link-to}} {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-primary'}} Change Step {{/link-to}}
     </div>
   </div>
+  <div class="row task-detail">
+    <div class="col-sm-1">
+      <p> Date Due:
+        <br/> {{moment-format model.dateDue 'MMM Do YY'}}&nbsp;</p>
+    </div>
+    <div class="col-sm-4">
+      <p>Subject:
+        <br/> {{model.subject}}&nbsp;
+      </p>
+    </div>
+    <div class="col-sm-2">
+      <p>Client:
+        <br/> {{model.contact.name}}&nbsp;
+      </p>
+    </div>
+    <div class="col-sm-1">
+      <p>Step:
+        <br/> {{or model.contact.step 0}}&nbsp;</p>
+    </div>
+    <div class="col-sm-2">
+      <p>Time Zone:
+        <br/> {{model.timeZone}}&nbsp;
+      </p>
+    </div>
+    <div class="col-sm-2">
+      <p>Status:
+        <br/> {{model.status}}&nbsp;
+      </p>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-6">
-      <ul class="nav nav-bordered m-y" role="tablist">
+      <ul class="nav nav-bordered" role="tablist">
         <li class="active" role="presentation">
           <a href="#summary" role="tab" data-toggle="tab" aria-controls="summary">Summary <span class="badge"></span></a>
         </li>
