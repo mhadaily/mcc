@@ -13,30 +13,32 @@
   <div class="row task-detail">
     <div class="col-sm-1">
       <p> Date Due:
-        <br/> {{moment-format model.dateDue 'MMM Do YY'}}&nbsp;</p>
+        <br/> <strong>{{moment-format model.dateDue 'MMM Do YY'}}&nbsp;</strong>
+      </p>
     </div>
     <div class="col-sm-4">
       <p>Subject:
-        <br/> {{model.subject}}&nbsp;
+        <br/> <strong>{{model.subject}}&nbsp;</strong>
       </p>
     </div>
     <div class="col-sm-2">
       <p>Client:
-        <br/> {{model.contact.name}}&nbsp;
+        <br/> <strong>{{model.contact.name}}&nbsp;</strong>
       </p>
     </div>
     <div class="col-sm-1">
       <p>Step:
-        <br/> {{or model.contact.step 0}}&nbsp;</p>
+        <br/> <strong>{{or model.contact.step 0}}&nbsp;</strong>
+      </p>
     </div>
     <div class="col-sm-2">
       <p>Time Zone:
-        <br/> {{model.timeZone}}&nbsp;
+        <br/><strong> {{model.timeZone}}&nbsp;</strong>
       </p>
     </div>
     <div class="col-sm-2">
       <p>Status:
-        <br/> {{model.status}}&nbsp;
+        <br/> <strong>{{model.status}}&nbsp;</strong>
       </p>
     </div>
   </div>
