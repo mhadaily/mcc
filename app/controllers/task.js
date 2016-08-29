@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   step: null,
   ref: null,
   backTo: null,
+  blink: null,
   task: Ember.computed('model', function() {
     return this.get('model');
   }),
@@ -19,5 +20,14 @@ export default Ember.Controller.extend({
   }),
   notes: Ember.computed('contact.notes.[]', 'contact.notes.@each.date', function() {
     return this.model.get('contact.notes').sortBy('date').reverse();
-  })
+  }),
+  actions: {
+    taskChangeColor: function() {
+      this.set('blink', 'blinker');
+      setTimeout(function() {
+        this.set('blink', ' ');
+      }.bind(this), 1000);
+    }
+  }
+
 });

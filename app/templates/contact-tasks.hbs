@@ -12,11 +12,11 @@
     </thead>
     <tbody>
       {{#each tasks as |task|}}
-        <tr>
-          <td>{{moment-format task.dateDue}}</td>
-          <td>{{link-to task.subject 'task' task}}</td>
-          <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
-        </tr>
+      <tr>
+        <td>{{moment-format task.dateDue}}</td>
+        <td>{{link-to task.subject 'task' task invokeAction=(action 'taskChangeColor')}}</td>
+        <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
+      </tr>
       {{/each}}
     </tbody>
   </table>
