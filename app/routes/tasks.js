@@ -4,8 +4,8 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   queryParams: {
-    sort: {refreshModel: true},
-    sortDir: {refreshModel: true}
+    sort: { refreshModel: true },
+    sortDir: { refreshModel: true }
   },
   page: 1,
   perPage: 20,
