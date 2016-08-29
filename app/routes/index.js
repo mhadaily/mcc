@@ -5,7 +5,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import moment from 'moment';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
-  perPage: 14,
+  perPage: 15,
   model(params) {
     let headers = {};
 
