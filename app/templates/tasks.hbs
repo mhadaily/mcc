@@ -19,11 +19,7 @@
       {{input type="text" value=contact_step class="form-control" placeholder="search step"}}
     </div>
     <div class="form-group">
-      {{ember-selectize
-          content=statuses
-          selection=status_eq
-          placeholder="select status"
-      }}
+      {{ember-selectize content=statuses selection=status_eq placeholder="select status" }}
     </div>
     <button type="submit" class="btn btn-block btn-primary">Search</button>
   </form>
@@ -65,7 +61,13 @@
             </tr>
           </thead>
           {{#if model.loading}}
-            loading
+          <div class="padding-200">
+            <div id="img1" class="loading"></div>
+            <div id="img2" class="loading"></div>
+            <div id="img3" class="loading"></div>
+            <div id="img4" class="loading"></div>
+            <div id="img5" class="loading"></div>
+          </div>
           {{else}}
           <tbody>
             {{#unless model.length}}
@@ -81,8 +83,7 @@
               <td>{{task.contact.timeZone}}</td>
               <td>{{task.status}}</td>
             </tr>
-            {{/each}}
-            {{/unless}}
+            {{/each}} {{/unless}}
           </tbody>
           {{/if}}
         </table>
