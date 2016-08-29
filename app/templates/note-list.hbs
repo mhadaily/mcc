@@ -14,7 +14,7 @@
         {{#each model as |note|}}
         <tr>
           <td>{{moment-format note.date}}</td>
-          <td>{{note.content}}</td>
+          <td>{{breakLine note.content}}</td>
         </tr>
         {{/each}}
       </tbody>

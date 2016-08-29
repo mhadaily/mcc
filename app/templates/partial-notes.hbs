@@ -1,19 +1,18 @@
 <div class="table-responsive">
-    <table class="table" data-sort="table">
-      <thead>
-        <tr>
-          <th class="header headerSortDown">Date</th>
-          <th class="header">Content</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each model.notes as |note|}}
-        <tr>
-          <td>{{moment-format note.date}}</td>
-          <td>{{note.content}}</td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
+  <table class="table" data-sort="table">
+    <thead>
+      <tr>
+        <th class="header headerSortDown">Date</th>
+        <th class="header">Content</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model.notes as |note|}}
+      <tr>
+        <td>{{moment-format note.date}}</td>
+        <td>{{breakLine note.content}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
-
