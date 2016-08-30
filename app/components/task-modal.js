@@ -21,8 +21,8 @@ export default Ember.Component.extend({
     },
     selectOutcome: function() {
       let selectedIndex = this.$('select')[0].selectedIndex;
-      let content = this.get('outcomeList.taskType.outcomes');
-      let _selection = content[selectedIndex];
+      let content = this.get('task.taskType.outcomes');
+      let _selection = content[selectedIndex - 1];
       this.set('selectedOutcome', _selection);
 
     },
