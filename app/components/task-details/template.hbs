@@ -1,0 +1,30 @@
+<div class="modal-content ">
+  <div class="modal-header">
+    <button type="button" class="close" {{action "dimiss"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">TASK DETAILS</h4>
+  </div>
+  <div class="modal-body ">
+    <dl>
+      <dt>Date Due:</dt>
+      <dd>{{moment-format task.dateDue 'MMM Do YY'}}&nbsp;</dd>
+      <dt>Subject:</dt>
+      <dd>{{task.subject}}&nbsp;</dd>
+      <dt>Client:</dt>
+      <dd>{{task.contact.name}}&nbsp;</dd>
+      <dt>Step:</dt>
+      <dd>{{or task.contact.step 0}}&nbsp;</dd>
+      <dt>Time Zone:</dt>
+      <dd>{{task.timeZone}}&nbsp;</dd>
+      <dt>Status:</dt>
+      <dd>{{task.status}}&nbsp;</dd>
+    </dl>
+    <pre class="m-t" style="max-height:150px">
+{{{task.details}}}
+</pre>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" {{action "dimiss"}}>Close</button>
+    <button type="submit" class="btn btn-success">{{link-to 'Click to see' 'task' task invokeAction=(action 'taskChangeColor')}}</button>
+  </div>
+</div>
+<!-- /.modal-content -->

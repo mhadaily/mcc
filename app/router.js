@@ -16,6 +16,13 @@ Router.map(function() {
         changeSave: 'changeSave'
       }
     });
+    this.modal('task-details', {
+      withParams: ['taskrf'],
+      actions: {
+        dimiss: 'dimiss',
+        taskChangeColor: 'taskChangeColor'
+      }
+    });
     this.modal('task-modal', {
       withParams: ['ref'],
       otherParams: {

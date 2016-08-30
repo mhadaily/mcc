@@ -14,7 +14,7 @@
       {{#each tasks as |task|}}
       <tr>
         <td>{{moment-format task.dateDue}}</td>
-        <td>{{link-to task.subject 'task' task invokeAction=(action 'taskChangeColor')}}</td>
+        <td>{{#link-to (query-params taskrf=task.id)}} {{task.subject}} {{/link-to}}</td>
         <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
       </tr>
       {{/each}}
