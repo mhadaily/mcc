@@ -7,10 +7,72 @@
 }
 
 .task-detail.blinker {
-  color: #fff;
-  p,
-  strong {
-    color: #fff;
+  animation: changecolortask 0.5s infinite;
+  -moz-animation: changecolortask 0.5s infinite;
+  -webkit-animation: changecolortask 0.5s infinite;
+  -ms-animation: changecolortask 0.5s infinite;
+  -o-animation: changecolortask 0.5s infinite;
+}
+
+@keyframes changecolortask {
+  0% {
+    color: @pre-text-color;
+  }
+  100% {
+    color: @pre-text-color;
+    border: 2px solid @blink-bg;
+  }
+}
+
+
+/* Mozilla Browser */
+
+@-moz-keyframes changecolortask {
+  0% {
+    color: @pre-text-color;
+  }
+  100% {
+    color: @pre-text-color;
+    border: 4px solid @blink-bg;
+  }
+}
+
+
+/* WebKit browser Safari and Chrome */
+
+@-webkit-keyframes changecolortask {
+  0% {
+    color: @pre-text-color;
+  }
+  100% {
+    color: @pre-text-color;
+    border: 4px solid @blink-bg;
+  }
+}
+
+
+/* IE 9,10*/
+
+@-ms-keyframes changecolortask {
+  0% {
+    color: @pre-text-color;
+  }
+  100% {
+    color: @pre-text-color;
+    border: 4px solid @blink-bg;
+  }
+}
+
+
+/* Opera Browser*/
+
+@-o-keyframes changecolortask {
+  0% {
+    color: @pre-text-color;
+  }
+  100% {
+    color: @pre-text-color;
+    border: 4px solid @blink-bg;
   }
 }
 
