@@ -8,6 +8,7 @@
       <div class="form-group">
         <label>OUTCOME: </label>
         <select class="custom-select width100" value=selectedOutcome {{action 'selectOutcome' on='change' }}>
+          <option value=''>NO OUTCOME</option>
           {{#each task.taskType.outcomes as |item|}}
           <option value={{item}}>{{item}}</option>
           {{/each}}
