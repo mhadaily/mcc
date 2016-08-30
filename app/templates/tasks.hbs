@@ -4,7 +4,7 @@
   </div>
   <form class="form" {{action 'queryChanged' on="submit" }}>
     <div class="form-group">
-      {{date-picker date=date_due_gteq valueFormat='YYYY-MM-DD' allowBlank=true class="form-control" placeholder="due date (from)"}}
+      {{!-- {{bootstrap-datepicker date=date_due_lteq format="yyyy-mm-dd" placeholder="due date (to)" class="form-control" autoclose=true forceDateValue=true}} --}} {{date-picker date=date_due_gteq valueFormat='YYYY-MM-DD' allowBlank=true class="form-control" placeholder="due date (from)"}}
     </div>
     <div class="form-group">
       {{date-picker date=date_due_lteq valueFormat='YYYY-MM-DD' allowBlank=true class="form-control" placeholder="due date (to)"}}
