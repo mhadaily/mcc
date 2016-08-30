@@ -25,8 +25,8 @@ export default Ember.Component.extend({
     },
     complete: function(noteContentModal, selectedOutcome) {
       this.get('task').set('statusEvent', 'complete');
-      this.get('task').set('outcome', noteContentModal);
-      this.get('task').set('taskFinalNote', selectedOutcome);
+      this.get('task').set('outcome', selectedOutcome);
+      this.get('task').set('taskFinalNote', noteContentModal);
       this.get('task').save().then(d => {
 
         this.get('notify').success('Task has been completed with following note :' + noteContentModal + ' and outcome is ' + selectedOutcome);
