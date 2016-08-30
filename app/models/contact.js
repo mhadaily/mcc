@@ -22,7 +22,6 @@ export default DS.Model.extend({
   state: DS.attr(),
   country: DS.attr(),
   tags: DS.attr(),
-  content: 'row data will be replaced',
   extraData: DS.attr(),
   agreementTags: Ember.computed('tags',function() {
     var tags    = this.get('tags'),
