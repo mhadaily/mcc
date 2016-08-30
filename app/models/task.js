@@ -12,7 +12,7 @@ export default DS.Model.extend({
   source: DS.attr(),
   subject: DS.attr(),
   outcome: DS.attr(),
-  taskFinalNote: DS.attr(),
+  note: DS.attr(),
   stepNum: DS.attr(),
   dateAssigned: DS.attr('date'),
   dateDue: DS.attr('date'),
