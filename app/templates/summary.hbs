@@ -25,54 +25,56 @@
   </div>
 </div>
 {{#if task}}
-  <div class="hr-divider m-y">
-    <h3 class="hr-divider-content hr-divider-heading">Task&nbsp;</h3>
-  </div>
-  <dl>
-    <dt>Date Due:</dt>
-    <dd>{{moment-format task.dateDue}}&nbsp;</dd>
-    <dt>Subject:</dt>
-    <dd>{{task.subject}}&nbsp;</dd>
-    <dt>Client:</dt>
-    <dd>{{task.contact.name}}&nbsp;</dd>
-    <dt>Step:</dt>
-    <dd>{{or task.contact.step 0}}&nbsp;</dd>
-    <dt>Time Zone:</dt>
-    <dd>{{task.timeZone}}&nbsp;</dd>
-    <dt>Status:</dt>
-    <dd>{{task.status}}&nbsp;</dd>
-  </dl>
+<div class="hr-divider m-y">
+  <h3 class="hr-divider-content hr-divider-heading">Task&nbsp;</h3>
+</div>
+<dl>
+  <dt>Date Due:</dt>
+  <dd>{{moment-format task.dateDue}}&nbsp;</dd>
+  <dt>Subject:</dt>
+  <dd>{{task.subject}}&nbsp;</dd>
+  <dt>Client:</dt>
+  <dd>{{task.contact.name}}&nbsp;</dd>
+  <dt>Step:</dt>
+  <dd>{{or task.contact.step 0}}&nbsp;</dd>
+  <dt>Time Zone:</dt>
+  <dd>{{task.timeZone}}&nbsp;</dd>
+  <dt>Status:</dt>
+  <dd>{{task.status}}&nbsp;</dd>
+  <dt>Reference:</dt>
+  <dd>{{task.reference}}&nbsp;</dd>
+</dl>
 {{/if}}
 <div class="hr-divider m-y">
   <h3 class="hr-divider-content hr-divider-heading">Client&nbsp;</h3>
 </div>
 <dl>
   <dt>Reference:</<dt>
-  <dd>{{contact.reference}}<a target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{model.reference}}"> (Link to OAP)</a></dd>
-  <dt>Name:</<dt>
-  <dd>{{contact.name}}&nbsp;</dd>
-  <dt>Email:</dt>
-  <dd>{{contact.email}}&nbsp;</dd>
-  <dt>Phone:</dt>
-  <dd>{{contact.homePhone}}&nbsp;</dd>
-  <dt>City:</dt>
-  <dd>{{contact.city}}&nbsp;</dd>
-  <dt>State:</dt>
-  <dd>{{contact.state}}&nbsp;</dd>
-  <dt>Country:</dt>
-  <dd>{{contact.country}}&nbsp;</dd>
-  <dt>Time Zone:</dt>
-  <dd>{{contact.timeZone}}&nbsp;</dd>
+    <dd>{{contact.reference}}<a target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{model.reference}}"> (Link to OAP)</a></dd>
+    <dt>Name:</<dt>
+      <dd>{{contact.name}}&nbsp;</dd>
+      <dt>Email:</dt>
+      <dd>{{contact.email}}&nbsp;</dd>
+      <dt>Phone:</dt>
+      <dd>{{contact.homePhone}}&nbsp;</dd>
+      <dt>City:</dt>
+      <dd>{{contact.city}}&nbsp;</dd>
+      <dt>State:</dt>
+      <dd>{{contact.state}}&nbsp;</dd>
+      <dt>Country:</dt>
+      <dd>{{contact.country}}&nbsp;</dd>
+      <dt>Time Zone:</dt>
+      <dd>{{contact.timeZone}}&nbsp;</dd>
 </dl>
 <div class="hr-divider m-y">
   <h3 class="hr-divider-content hr-divider-heading">Agreement&nbsp;</h3>
 </div>
 {{#unless (is-empty model.agreementTags)}}
-  <p class="text-center text-muted">No Agreements</p>
-  {{else}}
-    <ul>
-      {{#each-in (or model.agreementTags model.contact.agreementTags) as |key value|}}
-        <li>{{key}}: {{value}}</li>
-      {{/each-in}}
-    </ul>
+<p class="text-center text-muted">No Agreements</p>
+{{else}}
+<ul>
+  {{#each-in (or model.agreementTags model.contact.agreementTags) as |key value|}}
+  <li>{{key}}: {{value}}</li>
+  {{/each-in}}
+</ul>
 {{/unless}}
