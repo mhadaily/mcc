@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     moment: {
+      includeTimezone: 'all',
       outputFormat: 'MM/DD/YYYY',
       allowEmpty: true // default: false
     },
