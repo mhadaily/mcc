@@ -2,8 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   notify: Ember.inject.service('notify'),
+  store: Ember.inject.service(),
   classNames: ['task-modal'],
-  task: null,
+  ref: null,
+  outcomeList: Ember.computed('ref', function() {
+    return this.get('store').peekRecord('task', this.get('ref'));
+  }),
   selectedOutcome: null,
   init: function() {
     this._super(...arguments);
@@ -17,7 +21,7 @@ export default Ember.Component.extend({
     },
     selectOutcome: function() {
       let selectedIndex = this.$('select')[0].selectedIndex;
-      let content = this.get('outcomeList');
+      let content = this.get('outcomeList.taskType.outcomes');
       let _selection = content[selectedIndex];
       this.set('selectedOutcome', _selection);
 
@@ -26,6 +30,7 @@ export default Ember.Component.extend({
       this.get('task').set('statusEvent', 'complete');
       this.get('task').set('outcome', selectedOutcome);
       this.get('task').set('note', noteContentModal);
+
       this.get('task').save().then(d => {
 
         this.get('notify').success('Task has been completed with following note :' + noteContentModal + ' and outcome is ' + selectedOutcome);
@@ -36,6 +41,7 @@ export default Ember.Component.extend({
         this.get('notify').error('Already Completed');
         return e;
       });
+
 
     },
     cancel: function() {
