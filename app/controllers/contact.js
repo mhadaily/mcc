@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['backTo', 'step'],
+  queryParams: ['backTo', 'step', 'taskrf'],
   step: null,
   backTo: null,
   blink: null,
@@ -16,5 +16,14 @@ export default Ember.Controller.extend({
   }),
   notes: Ember.computed('model.notes.[]', 'model.notes.@each.date', function() {
     return this.model.get('notes').sortBy('date').reverse();
-  })
+  }),
+  actions: {
+    taskChangeColor: function() {
+      this.set('blink', 'blinker');
+      // remove blinker after 1 sec, it must be passed to reference for 'this' so easily we can bind that.
+      setTimeout(function() {
+        this.set('blink', ' ');
+      }.bind(this), 1000);
+    }
+  }
 });

@@ -43,6 +43,13 @@ Router.map(function() {
         changeSave: 'changeSave'
       }
     });
+    this.modal('task-details', {
+      withParams: ['taskrf'],
+      actions: {
+        dimiss: 'dimiss',
+        taskChangeColor: 'taskChangeColor'
+      }
+    });
   });
   this.route('settings');
   this.route('login');
