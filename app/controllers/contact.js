@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   step: null,
   backTo: null,
   blink: null,
+  noteContent: null,
   contact: Ember.computed('model', function() {
     return this.get('model');
   }),

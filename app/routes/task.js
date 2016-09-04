@@ -26,7 +26,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         user: this.modelFor('application').account
       };
       this.store.createRecord('note', newNoteData).save().then(() => {
-        this.get('notify').success('Note has been saved').
+        this.get('notify').success('Note has been saved');
         this.controller.set('noteContent', ' ');
       }, function() {
         this.get('notify').error('Saving Note Failed! MR/MS ' + newNoteData.author);

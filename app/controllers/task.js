@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
   ref: null,
   backTo: null,
   blink: null,
+  noteContent: null,
   task: Ember.computed('model', function() {
     return this.get('model');
   }),
