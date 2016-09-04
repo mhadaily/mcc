@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        {{#each model as |note|}}
+        {{#each notes as |note|}}
         <tr>
           <td>{{moment-format note.date}}</td>
           <td>{{breakLine note.content}}</td>

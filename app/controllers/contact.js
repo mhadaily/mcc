@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
     return this.get('model.salesOrders').sortBy('date').reverse();
   }),
   notes: Ember.computed('model.notes.[]', 'model.notes.@each.date', function() {
-    return this.model.get('notes').sortBy('date').reverse();
+    return this.get('model.notes').sortBy('date').reverse();
   }),
   actions: {
     taskChangeColor: function() {

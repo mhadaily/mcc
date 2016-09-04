@@ -50,7 +50,12 @@
       </div>
     </div>
     <div class="col-sm-6  m-y">
-      {{render 'note-list' notes}} {{render 'note-box' model}}
+      <div class="position-relative m-y">
+        {{partial 'note-list'}}
+      </div>
+      <div class="position-relative">
+        {{partial 'note-box'}}
+      </div>
     </div>
   </div>
 </div>
