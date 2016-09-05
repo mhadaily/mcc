@@ -38,7 +38,7 @@ export default Ember.Component.extend({
         this.sendAction('dismiss');
         return d;
       }).catch(e => {
-        this.get('notify').error('Already Completed');
+        this.get('notify').error(e.message);
         return e;
       });
 
