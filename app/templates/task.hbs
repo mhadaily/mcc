@@ -7,7 +7,8 @@
       <h3 class="dashhead-title">{{model.subject}}</h3>
     </div>
     <div class="btn-toolbar dashhead-toolbar">
-      {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-primary'}} Complete Your Task {{/link-to}} {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-primary'}} Change Step {{/link-to}}
+      {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Task {{/link-to}}
+      {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-primary'}} Change Step {{/link-to}}
     </div>
   </div>
   <div class="row task-detail {{blink}}">
