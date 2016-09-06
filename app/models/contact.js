@@ -22,7 +22,7 @@ export default DS.Model.extend({
   state: DS.attr(),
   country: DS.attr(),
   tags: DS.attr(),
-  extraData: DS.attr(),
+  spent: DS.attr(),
   agreementTags: Ember.computed('tags',function() {
     var tags    = this.get('tags'),
         result  = {};
