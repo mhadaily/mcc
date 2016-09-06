@@ -1,12 +1,17 @@
 import Ember from 'ember';
 import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import moment from 'moment';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
+
   queryParams: {
     sort: { refreshModel: true },
-    sortDir: { refreshModel: true }
+    sortDir: { refreshModel: true },
+    date_due_gteq: { replace: true },
+    date_due_lteq: { replace: true }
   },
+
   page: 1,
   perPage: 20,
   model(params) {
