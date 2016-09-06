@@ -42,16 +42,6 @@ export default Ember.Component.extend({
         return e;
       });
 
-
-    },
-    cancel: function() {
-      // this.currentModel.set('statusEvent', 'cancel');
-      // this.currentModel.save().then(d => {
-      //   alert('Task hasn been canceled');
-      //   return d;
-      // });
-      //
-      this.get('notify').error('there is no logic for now!!!');
     }
   }
 });
