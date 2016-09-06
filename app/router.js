@@ -30,6 +30,14 @@ Router.map(function() {
       },
       actions: {
         complete: 'complete',
+      }
+    });
+    this.modal('task-cancel', {
+      withParams: ['refID'],
+      otherParams: {
+        model: 'task'
+      },
+      actions: {
         cancel: 'cancel'
       }
     });
