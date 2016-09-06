@@ -1,9 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['backTo', 'step', 'ref', 'taskrf'],
+  queryParams: ['backTo', 'step', 'ref', 'taskrf', 'refID'],
   step: null,
   ref: null,
+  refID: null,
   backTo: null,
   blink: null,
   noteContent: null,
