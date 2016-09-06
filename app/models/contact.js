@@ -23,6 +23,10 @@ export default DS.Model.extend({
   country: DS.attr(),
   tags: DS.attr(),
   spent: DS.attr(),
+  extraData: DS.attr(),
+  currentTime: Ember.computed(function() {
+    return new Date();
+  }),
   agreementTags: Ember.computed('tags',function() {
     var tags    = this.get('tags'),
         result  = {};
