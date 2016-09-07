@@ -15,6 +15,7 @@ export default Ember.Component.extend({
       this.set('outcomeList', []);
     }
   },
+
   actions: {
     dismiss: function() {
       this.sendAction('dismiss');
