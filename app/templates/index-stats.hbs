@@ -31,13 +31,13 @@
   <h3 class="hr-divider-content hr-divider-heading">Clients Steps</h3>
 </div>
 <div class="statcard">
-  {{#link-to 'contacts' (query-params step="_blank" )}}
-    <div class="p-a p-b-0 text-center">
-      <span class="statcard-desc"> Step 0 / <small>Total</small></span>
-      <h2 class="statcard-number" style="font-size:42pt">
+  {{#link-to 'contacts' (query-params step="_blank" ) }}
+  <div class="p-a p-b-0 text-center">
+    <span class="statcard-desc"> Step 0 / <small>Total</small></span>
+    <h2 class="statcard-number" style="font-size:42pt">
         {{model.summary.step_0}}/<small>{{model.summary.step_total}}</small>
         <small class="label text-lg {{if (gt (div model.summary.step_0 model.summary.step_total) 0.5) 'label-danger' 'label-success'}}">{{format-number (div model.summary.step_0 model.summary.step_total) format="0.0%"}}</small>
       </h2>
-    </div>
+  </div>
   {{/link-to}}
 </div>
