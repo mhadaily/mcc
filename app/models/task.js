@@ -17,7 +17,10 @@ export default DS.Model.extend({
   dateAssigned: DS.attr('date'),
   dateDue: DS.attr('date'),
   dateComplete: DS.attr('date'),
-  isOverdue: Ember.computed('dateDue',function() {
+  isOverdue: Ember.computed('dateDue', function() {
     return this.get('dateDue') < new Date();
+  }),
+  isPending: Ember.computed('status', function() {
+    return this.get('status') == 'pending';
   })
 });

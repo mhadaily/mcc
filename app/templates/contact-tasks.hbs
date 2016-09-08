@@ -12,9 +12,9 @@
     </thead>
     <tbody>
       {{#each tasks as |task|}}
-      <tr>
+      <tr class="{{if task.isPending (if task.isOverdue 'warning') 'text-muted'}}">
         <td>{{moment-format task.dateDue}}</td>
-        <td>{{#link-to (query-params taskrf=task.id)}} {{task.subject}} {{/link-to}}</td>
+        <td>{{#link-to (query-params taskrf=task.id) class=(if task.isPending '' 'text-muted')}} {{task.subject}} {{/link-to}}</td>
         <td>{{task.status}}</td>
       </tr>
       {{/each}}
