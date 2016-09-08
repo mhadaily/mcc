@@ -10,7 +10,7 @@
       {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Task {{/link-to}} {{#link-to (query-params step=model.contact.step) tagName='button' class='btn btn-primary'}} Change Step {{/link-to}}
     </div>
   </div>
-  <div class="row task-detail {{blink}}">
+  <div class="row task-detail well {{blink}}">
     <div class="col-sm-1">
       <p> Date Due:
         <br/> <strong>{{moment-format model.dateDue 'MMM Do YY'}}&nbsp;</strong>
