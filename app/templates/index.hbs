@@ -1,9 +1,11 @@
 <div class="container-fluid">
-  <div class="col-sm-4">
-    {{partial 'index-stats'}} {{partial 'index-steps'}}
-  </div>
-  <div class="col-sm-8">
-    {{partial 'index-tasks'}}
+  <div class="wrapper-index">
+    <div class="col-sm-4 bgFilledGrey8">
+      {{partial 'index-stats'}} {{partial 'index-steps'}}
+    </div>
+    <div class="col-sm-8">
+      {{partial 'index-tasks'}}
+    </div>
   </div>
 </div>
 {{outlet}}
