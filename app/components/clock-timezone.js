@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import moment from 'moment';
 
-var timer;
+let timer;
 
 export default Ember.Component.extend({
   tagName: 'span',
