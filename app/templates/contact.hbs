@@ -6,9 +6,6 @@
       </h6>
       <h3 class="dashhead-title">CLIENT: {{or model.name "<unnamed>"}} #{{model.reference}}</h3>
     </div>
-    <div class="btn-toolbar dashhead-toolbar">
-      {{link-to 'Change Step' (query-params step=model.step) tagName='button' class='btn btn-sm btn-primary'}}
-    </div>
   </div>
   <div class="row">
     <div class="col-sm-6">
