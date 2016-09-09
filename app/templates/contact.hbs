@@ -4,27 +4,27 @@
       <div class="col-sm-6">
         <div class="dashhead-titles">
           <h6 class="dashhead-subtitle">
-        {{link-to '<< Contacts' 'contacts'}}
-      </h6>
-          <h3 class="dashhead-title">CLIENT: {{or model.name "<unnamed>"}} #{{model.reference}}</h3>
+              {{link-to '<< Contacts' 'contacts'}}
+          </h6>
+          <h3 class="dashhead-title">CLIENT: {{or model.name "unnamed"}}</h3>
         </div>
       </div>
       <div class="col-sm-2">
         <div class="text-center">
-          <h2 class="statcard-number">{{or model.step '0'}}&nbsp;</h2>
           <small class="statcard-desc">Step</small>
+          <h2 class="statcard-number">{{or model.step '0'}}&nbsp;</h2>
         </div>
       </div>
       <div class="col-sm-2">
         <div class="text-center">
-          <h2 class="statcard-number">${{format-number model.spent format=",0"}}&nbsp;</h2>
           <small class="statcard-desc">Spent</small>
+          <h2 class="statcard-number">${{format-number model.spent format=",0"}}&nbsp;</h2>
         </div>
       </div>
       <div class="col-sm-2">
         <div class="text-center">
-          <h2 class="statcard-number">{{clock-timezone timezone=model.timeZone}}</h2>
           <small class="statcard-desc">Client Time</small>
+          <h2 class="statcard-number">{{clock-timezone timezone=model.timeZone}}</h2>
         </div>
       </div>
     </div>
