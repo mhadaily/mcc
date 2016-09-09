@@ -7,6 +7,14 @@ export default Ember.Controller.extend({
   refID: null,
   backTo: null,
   blink: null,
+  winHeight: Ember.computed('winHeight', function() {
+    let wheight = parseInt(window.innerHeight - 240, 10);
+    return wheight;
+  }),
+  winHeightNote: Ember.computed('winHeight', function() {
+    let wheight = parseInt(window.innerHeight - 280, 10);
+    return wheight;
+  }),
   noteContent: null,
   task: Ember.computed('model', function() {
     return this.get('model');
