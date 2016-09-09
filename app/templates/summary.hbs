@@ -41,12 +41,8 @@
 <div class="hr-divider m-y">
   <h3 class="hr-divider-content hr-divider-heading">Agreement&nbsp;</h3>
 </div>
-{{#unless (is-empty model.agreementTags)}}
-<p class="text-center text-muted">No Agreements</p>
-{{else}}
 <ul>
   {{#each-in (or model.agreementTags model.contact.agreementTags) as |key value|}}
   <li>{{key}}: {{value}}</li>
   {{/each-in}}
 </ul>
-{{/unless}}
