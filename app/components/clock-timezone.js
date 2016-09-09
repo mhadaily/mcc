@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import moment from 'moment';
 
-let timer;
+var timer;
 
 export default Ember.Component.extend({
   tagName: 'span',
@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   format: 'hh:mm a',
   timezone: null,
   interval: 60000,
+
   init() {
     this._super(...arguments);
     this.set('time', moment.tz(this.get('timezone')).format(this.get('format')));
@@ -23,7 +24,6 @@ export default Ember.Component.extend({
   },
   willDestroyElement() {
     this._super(...arguments);
-    /* TO DO - We need to destory timer while exiting */
-    //timer().destory();
+    clearInterval(timer);
   }
 });
