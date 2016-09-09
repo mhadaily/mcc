@@ -21,6 +21,7 @@ export default DS.Model.extend({
   city: DS.attr(),
   state: DS.attr(),
   country: DS.attr(),
+  skypeId: DS.attr(),
   tags: DS.attr(),
   spent: DS.attr(),
   extraData: DS.attr(),
