@@ -1,13 +1,10 @@
 <div class="note-fixed">
-  <div class="hr-divider m-t m-b">
-    <h3 class="hr-divider-content hr-divider-heading">Quick Note</h3>
-  </div>
   <form class="form" {{action "newNote" noteContent on="submit" }}>
-    <div class="form-group">
-      {{textarea value=noteContent class="form-control" rows="5"}}
-    </div>
-    <div class="form-group">
-      <button class="btn btn-success btn-block" type="submit">Save</button>
+    <div class="input-group">
+      {{textarea value=noteContent placeholder="Quick Note" class="form-control custom-control" rows="2"}}
+      <span class="input-group-btn btn-success">
+         <button class="btn btn-success" type="submit">Save</button>
+      </span>
     </div>
   </form>
 </div>

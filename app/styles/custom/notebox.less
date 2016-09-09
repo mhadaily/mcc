@@ -1,7 +1,18 @@
 .note-fixed {
   position: fixed;
-  bottom: 0px;
+  bottom: 10px;
   width: 44%;
+}
+
+.note-fixed {
+  textarea {
+    height: 56px;
+    transition: all 0.7s ease 0s !important;
+    &:focus {
+      height: 100px;
+      outline: none;
+    }
+  }
 }
 
 @media (max-width: @screen-sm-min) {
