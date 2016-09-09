@@ -1,29 +1,3 @@
-<div class="row m-y">
-  <div class="col-sm-4">
-    <div class="statcard statcard-success text-center">
-      <div class="p-a">
-        <h2 class="statcard-number">{{or contact.step '0'}}&nbsp;</h2>
-        <small class="statcard-desc">Step</small>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="statcard statcard-success text-center">
-      <div class="p-a">
-        <h2 class="statcard-number">${{format-number contact.spent format=",0"}}&nbsp;</h2>
-        <small class="statcard-desc">Spent</small>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="statcard statcard-success text-center">
-      <div class="p-a">
-        <h2 class="statcard-number" style="font-size:29px;">{{clock-timezone timezone=contact.timeZone}}</h2>
-        <small class="statcard-desc">Client Time</small>
-      </div>
-    </div>
-  </div>
-</div>
 {{#if task}}
 <div class="hr-divider m-y">
   <h3 class="hr-divider-content hr-divider-heading">Task&nbsp;</h3>

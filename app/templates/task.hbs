@@ -1,10 +1,32 @@
 <div class="container-fluid p-t">
   <div class="dashhead dashhead-solid">
-    <div class="dashhead-titles">
-      <h6 class="dashhead-subtitle">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="dashhead-titles">
+          <h6 class="dashhead-subtitle">
         {{link-to '<< Tasks' (or backTo 'tasks')}}
       </h6>
-      <h3 class="dashhead-title">CLIENT: {{or contact.name "<unnamed>"}} #{{contact.reference}}</h3>
+          <h3 class="dashhead-title">CLIENT: {{or contact.name "<unnamed>"}} #{{contact.reference}}</h3>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="statcard statcard-success text-center">
+          <h2 class="statcard-number">{{or contact.step '0'}}&nbsp;</h2>
+          <small class="statcard-desc">Step</small>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="statcard statcard-success text-center">
+          <h2 class="statcard-number">${{format-number contact.spent format=",0"}}&nbsp;</h2>
+          <small class="statcard-desc">Spent</small>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="statcard statcard-success text-center">
+          <h2 class="statcard-number" style="font-size:29px;">{{clock-timezone timezone=contact.timeZone}}</h2>
+          <small class="statcard-desc">Client Time</small>
+        </div>
+      </div>
     </div>
     <div class="btn-toolbar dashhead-toolbar">
       {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Task {{/link-to}}
