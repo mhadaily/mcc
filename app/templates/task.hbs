@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="btn-toolbar dashhead-toolbar">
-      {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Task {{/link-to}}
+      {{#if (eq model.status "pending")}} {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Task {{/link-to}} {{/if}}
     </div>
   </div>
   <div class="row task-detail well {{blink}}">
@@ -44,8 +44,8 @@
     </div>
     <div class="col-sm-2">
       <p>Status:
-        <br/> <strong>{{model.status}}&nbsp;</strong>
-        <br/> {{#link-to (query-params refID=model.id) disabled=(eq model.status "cancelled" 'disabled')}} Cancel Your Task {{/link-to}}
+        <br/> <strong>{{model.status}}&nbsp;</strong> {{#if (eq model.status "pending")}}
+        <br/> {{#link-to (query-params refID=model.id)}} Cancel Your Task {{/link-to}} {{/if}}
       </p>
     </div>
   </div>
