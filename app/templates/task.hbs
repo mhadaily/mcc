@@ -1,7 +1,7 @@
 <div class="container-fluid p-t">
   <div class="dashhead dashhead-solid">
     <div class="row">
-      <div class="col-sm-5">
+      <div class="col-sm-6">
         <div class="dashhead-titles">
           <h6 class="dashhead-subtitle">
            {{link-to '<< Tasks' (or backTo 'tasks')}}
@@ -9,26 +9,24 @@
           <h3 class="dashhead-title">CLIENT: {{or contact.name 'unnamed'}}</h3>
         </div>
       </div>
-      <div class="col-sm-1">
-        <div class="text-center">
-          <small class="statcard-desc">Step</small>
-          <h2 class="statcard-number">{{or contact.step '0'}}&nbsp;</h2>
-        </div>
-      </div>
-      <div class="col-sm-2">
-        <div class="text-center">
-          <small class="statcard-desc">Spent</small>
-          <h2 class="statcard-number">${{format-number contact.spent format=",0"}}&nbsp;</h2>
-        </div>
-      </div>
-      <div class="col-sm-2">
-        <div class="text-center">
-          <small class="statcard-desc">Client Time</small>
-          <h2 class="statcard-number">{{clock-timezone timezone=contact.timeZone}}</h2>
-        </div>
-      </div>
-      <div class="col-sm-2">
-        <br/> {{#if (eq model.status "pending")}} {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Task {{/link-to}} {{/if}}
+      <div class="col-sm-6">
+        <ul class="nav nav-bordered pull-right">
+          <li>
+            <small class="statcard-desc">Step</small>
+            <h2 class="statcard-number">{{or contact.step '0'}}&nbsp;</h2>
+          </li>
+          <li>
+            <small class="statcard-desc">Spent</small>
+            <h2 class="statcard-number">${{format-number contact.spent format=",0"}}&nbsp;</h2>
+          </li>
+          <li>
+            <small class="statcard-desc">Client Time</small>
+            <h2 class="statcard-number">{{clock-timezone timezone=contact.timeZone}}</h2>
+          </li>
+          <li>
+            {{#if (eq model.status "pending")}} {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Task {{/link-to}} {{/if}}
+          </li>
+        </ul>
       </div>
     </div>
   </div>

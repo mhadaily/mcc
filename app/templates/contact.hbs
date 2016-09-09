@@ -9,23 +9,21 @@
           <h3 class="dashhead-title">CLIENT: {{or model.name "unnamed"}}</h3>
         </div>
       </div>
-      <div class="col-sm-2">
-        <div class="text-center">
-          <small class="statcard-desc">Step</small>
-          <h2 class="statcard-number">{{or model.step '0'}}&nbsp;</h2>
-        </div>
-      </div>
-      <div class="col-sm-2">
-        <div class="text-center">
-          <small class="statcard-desc">Spent</small>
-          <h2 class="statcard-number">${{format-number model.spent format=",0"}}&nbsp;</h2>
-        </div>
-      </div>
-      <div class="col-sm-2">
-        <div class="text-center">
-          <small class="statcard-desc">Client Time</small>
-          <h2 class="statcard-number">{{clock-timezone timezone=model.timeZone}}</h2>
-        </div>
+      <div class="col-sm-6">
+        <ul class="nav nav-bordered pull-right">
+          <li>
+            <small class="statcard-desc">Step</small>
+            <h2 class="statcard-number">{{or model.step '0'}}&nbsp;</h2>
+          </li>
+          <li>
+            <small class="statcard-desc">Spent</small>
+            <h2 class="statcard-number">${{format-number model.spent format=",0"}}&nbsp;</h2>
+          </li>
+          <li>
+            <small class="statcard-desc">Client Time</small>
+            <h2 class="statcard-number">{{clock-timezone timezone=model.timeZone}}</h2>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

@@ -1,3 +1,23 @@
+.dashhead .nav-bordered {
+  li {
+    padding-left: 5px;
+    padding-right: 1px;
+    text-align: center;
+  }
+  &> li + li {
+    margin-left: 5px;
+    padding-left: 5px;
+    margin-right: 5px;
+    border-left: 1px solid @bgFilledGrey8;
+  }
+  &> li + li:last-child {
+    border-left: 0px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+}
+
 .wrapper-index {
   margin: 0 -15px;
   .hr-divider-content {
