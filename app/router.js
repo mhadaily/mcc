@@ -7,7 +7,6 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-
   this.route('tasks');
   this.route('task', { path: 'tasks/:task_id' }, function() {
     this.modal('step-modal', {
@@ -61,6 +60,7 @@ Router.map(function() {
   });
   this.route('settings');
   this.route('login');
+  this.route('informations');
 });
 
 export default Router;
