@@ -23,6 +23,7 @@ export default Ember.Component.extend({
   },
   willDestroyElement() {
     this._super(...arguments);
-    timer.destory();
+    /* TO DO - We need to destory timer while exiting */
+    //timer().destory();
   }
 });
