@@ -21,6 +21,6 @@ export default DS.Model.extend({
     return this.get('dateDue') < new Date();
   }),
   isPending: Ember.computed('status', function() {
-    return this.get('status') == 'pending';
+    return this.get('status') === 'pending';
   })
 });
