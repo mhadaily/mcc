@@ -10,20 +10,20 @@
         </div>
       </div>
       <div class="col-sm-2">
-        <div class="statcard statcard-success text-center">
+        <div class="text-center">
           <h2 class="statcard-number">{{or model.step '0'}}&nbsp;</h2>
           <small class="statcard-desc">Step</small>
         </div>
       </div>
       <div class="col-sm-2">
-        <div class="statcard statcard-success text-center">
+        <div class="text-center">
           <h2 class="statcard-number">${{format-number model.spent format=",0"}}&nbsp;</h2>
           <small class="statcard-desc">Spent</small>
         </div>
       </div>
       <div class="col-sm-2">
-        <div class="statcard statcard-success text-center">
-          <h2 class="statcard-number" style="font-size:29px;">{{clock-timezone timezone=model.timeZone}}</h2>
+        <div class="text-center">
+          <h2 class="statcard-number">{{clock-timezone timezone=model.timeZone}}</h2>
           <small class="statcard-desc">Client Time</small>
         </div>
       </div>
