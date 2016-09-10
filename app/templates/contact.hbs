@@ -6,7 +6,7 @@
           <h6 class="dashhead-subtitle">
               {{link-to '<< Contacts' 'contacts'}}
           </h6>
-          <h3 class="dashhead-title">CLIENT: {{or model.name "unnamed"}}</h3>
+          <h3 class="dashhead-title">CLIENT: {{or model.name 'unnamed'}}</h3>
         </div>
       </div>
       <div class="col-sm-6">
@@ -46,8 +46,8 @@
           <a href="#contact-tags" role="tab" data-toggle="tab" aria-controls="contact-tags">Contact Tags</a>
         </li>
       </ul>
-      <div class=" position-fixed">
-        <div class="tab-content">
+      <div class="position-fixed">
+        <div class="tab-content content-block" style="height:{{blockHeight}}px">
           <div role="tabpanel" class="tab-pane active" id="summary">
             {{partial 'summary'}}
           </div>
@@ -66,8 +66,8 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-6  m-y">
-      <div class="position-relative m-y">
+    <div class="col-sm-6 m-y">
+      <div class="position-relative content-block m-y" style="height:{{blockHeight}}px">
         {{partial 'note-list'}}
       </div>
       <div class="position-relative">
