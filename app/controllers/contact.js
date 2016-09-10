@@ -7,18 +7,31 @@ export default Ember.Controller.extend({
   blink: null,
   noteContent: null,
   blockHeight: Ember.computed('blockHeight', function() {
-    let wheight = parseInt(window.innerHeight - 200, 10);
+    let wheight = parseInt(window.innerHeight - 190, 10);
     // Fix heights on window resize
     let iv = null;
     Ember.$(window).resize(function() {
-
       if(iv !== null) {
         window.clearTimeout(iv);
       }
-
       // Needs to be a timeout function so it doesn't fire every ms of resize
       iv = setTimeout(function() {
-              Ember.$('.content-block').height(window.innerHeight - 210);
+              Ember.$('.content-block-tab').height(window.innerHeight - 190);
+      }, 20);
+    });
+    return wheight;
+  }),
+  blockHeightNote: Ember.computed('blockHeightNote', function() {
+    let wheight = parseInt(window.innerHeight - 230, 10);
+    // Fix heights on window resize
+    let iv = null;
+    Ember.$(window).resize(function() {
+      if(iv !== null) {
+        window.clearTimeout(iv);
+      }
+      // Needs to be a timeout function so it doesn't fire every ms of resize
+      iv = setTimeout(function() {
+              Ember.$('.content-block').height(window.innerHeight - 230);
       }, 20);
     });
     return wheight;

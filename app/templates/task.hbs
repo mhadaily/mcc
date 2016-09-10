@@ -69,8 +69,8 @@
           <a href="#contact-tags" role="tab" data-toggle="tab" aria-controls="contact-tags">Contact Tags</a>
         </li>
       </ul>
-      <div class="position-fixed">
-        <div class="tab-content content-block" style="height:{{blockHeight}}px">
+      <div class="position-fixed content-block-tab"  style="height:{{blockHeight}}px">
+        <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="summary">
             {{partial 'summary'}}
           </div>
@@ -93,7 +93,7 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="position-relative content-block m-y" style="height:{{blockHeight}}px">
+      <div class="position-relative m-y">
         {{partial 'note-list' notes}}
       </div>
       <div class="position-relative">
