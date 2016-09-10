@@ -14,7 +14,7 @@
         {{#each notes as |note|}}
         <tr>
           <td>{{moment-format note.date}}</td>
-          <td>{{breakLine note.content}}</td>
+          <td><div class="partial-view">{{breakLine note.content}}</div></td>
         </tr>
         {{/each}}
       </tbody>

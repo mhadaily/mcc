@@ -20,25 +20,30 @@
     font-size: 18px;
   }
 }
-// .fadeout {
-//     position: relative;
-//     bottom: 1em;
-//     height: 1em;
-//     background-image: linear-gradient(
-//         rgba(255, 255, 255, 0) 0%,
-//         rgba(255, 255, 255, 1) 100%
-//     );
-// }
 
-// .partial-view{
-//    max-height: 80px;
-//    overflow: hidden;
-//    transition: all 0.3s ease 0s !important;
-//    &:hover{
-//       max-height:100%;
-//       overflow: auto;
-//    }
-// }
+.fadeout {
+    position: relative;
+    bottom: 1em;
+    height: 1em;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 100%
+    );
+}
+
+.partial-view{
+   max-height: 95px;
+   overflow: hidden;
+   transition: all 0.3s ease 0s !important;
+   &:hover{
+      max-height:100%;
+      overflow: auto;
+    .fadeout{
+        display: none;
+      }
+   }
+
+}
 
 .wrapper-index {
   margin: 0 -15px;
