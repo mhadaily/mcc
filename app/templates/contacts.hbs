@@ -4,7 +4,7 @@
   </div>
   <form {{action 'queryChanged' on="submit" }} class="form">
     <div class="form-group">
-      {{input type="text" value=contact class="form-control" placeholder="Client Name/Email"}}
+      {{input type="text" value=contact class="form-control" placeholder="Name/Email/Ref"}}
     </div>
     <div class="form-group">
       {{input type="text" value=step class="form-control" placeholder="Current Step"}}
@@ -40,9 +40,6 @@
         <table class="table table-condensed" data-sort="table">
           <thead>
             <tr>
-              <th class="header {{if (eq model.meta.sort-attr-name 'reference') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Reference' (query-params sort="reference" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Client' (query-params sort="name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
@@ -81,11 +78,9 @@
             </div>
             {{else}} {{#each model as |contact|}}
             <tr>
-              <td>{{ contact.reference}}</td>
-              <td>{{link-to (or contact.name '
-                <unnamed>')'contact' contact}}</td>
-              <td>{{contact.email}}</td>
-              <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step 0}}</td>
+              <td>{{link-to (or contact.name '[unnamed]') 'contact' contact}}</td>
+              <td>{{link-to (or contact.email '[no email]') 'contact' contact}}</td>
+              <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step '0'}}</td>
               <td>{{contact.homePhone}}</td>
               <td>{{contact.skypeId}}</td>
               <td>{{contact.country}}</td>
