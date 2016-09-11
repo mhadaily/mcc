@@ -2,18 +2,18 @@
   <h3 class="hr-divider-content hr-divider-heading">Task Details</h3>
 </div>
 <dl>
-  <dt>Date Due:</dt>
-  <dd>{{moment-format model.dateDue 'MMM Do YY'}}&nbsp;</dd>
-  <dt>Subject:</dt>
+  <dt>Task Type:</dt>
   <dd>{{model.subject}}&nbsp;</dd>
+  <dt>Status:</dt>
+  <dd><span class="label label-info">{{model.status}}</span>&nbsp;</dd>
+  <dt>Date Due:</dt>
+  <dd>{{moment-format model.dateDue}}&nbsp;</dd>
+  <dt>Date Assigned:</dt>
+  <dd>{{moment-format model.dateAssigned}}&nbsp;</dd>
+  <dt>Date Completed:</dt>
+  <dd>{{moment-format model.dateCompleted}}&nbsp;</dd>
   <dt>Client:</dt>
   <dd>{{model.contact.name}}&nbsp;</dd>
-  <dt>Step:</dt>
-  <dd>{{or model.contact.step 0}}&nbsp;</dd>
-  <dt>Time Zone:</dt>
-  <dd>{{model.timeZone}}&nbsp;</dd>
-  <dt>Status:</dt>
-  <dd>{{model.status}}&nbsp;</dd>
 </dl>
 
 <pre class="m-t">
