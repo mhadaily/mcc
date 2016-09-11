@@ -3,7 +3,7 @@ import moment from 'moment';
 
 export default Ember.Controller.extend({
   statuses: [
-    'pending', 'completed', 'cancelled'
+    'all status', 'pending', 'completed', 'cancelled'
   ],
   queryParams: ["contact", "contact_step", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "query", "page", "perPage", "sort", "sortDir"],
   contact: null,

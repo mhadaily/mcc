@@ -22,7 +22,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
         subject_cont: params.subject,
         date_due_gteq: params.date_due_gteq,
         date_due_lteq: params.date_due_lteq,
-        status_eq: params.status_eq,
+        status_eq: (params.status_eq == 'all status' ? '' : params.status_eq),
         s: `${params.sort} ${params.sortDir}`
       }
     });
