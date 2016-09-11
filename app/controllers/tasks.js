@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
   subject: null,
   date_due_gteq: null,
   startDateToJSDate: Ember.computed('date_due_gteq', {
-    get(key) {
+    get(/* key */) {
       return this.get('date_due_gteq') ? moment(this.get('date_due_gteq')).toDate() : null;
     },
     set(key, value) {
@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
   }),
   date_due_lteq: null,
   endDateToJSDate: Ember.computed('date_due_lteq', {
-    get(key) {
+    get(/* key */) {
       return this.get('date_due_lteq') ? moment(this.get('date_due_lteq')).toDate() : null;
     },
     set(key, value) {
