@@ -6,7 +6,7 @@
     <div class="statcard p-b">
       <div class="p-l">
         <span class="statcard-desc">&lt;&nbsp;24h</span>
-        <h2 class="statcard-number">{{model.summary.step_0_24h}}</h2>
+        <h3 class="statcard-number">{{model.summary.step_0_24h}}</h3>
       </div>
     </div>
   </div>
@@ -14,7 +14,7 @@
     <div class="statcard p-b">
       <div class="p-l">
         <span class="statcard-desc">&lt;&nbsp;5 days</span>
-        <h2 class="statcard-number">{{model.summary.step_0_5d}}</h2>
+        <h3 class="statcard-number">{{model.summary.step_0_5d}}</h3>
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
     <div class="statcard statcard-danger">
       <div class="p-l">
         <span class="statcard-desc">> 5 days</span>
-        <h2 class="statcard-number">{{model.summary.step_0_5dp}}</h2>
+        <h3 class="statcard-number">{{model.summary.step_0_5dp}}</h3>
       </div>
     </div>
   </div>
@@ -32,12 +32,12 @@
 </div>
 <div class="statcard">
   {{#link-to 'contacts' (query-params step="_blank" ) }}
-  <div class="p-a p-b-0 text-center">
-    <span class="statcard-desc"> Step 0 / <small>Total</small></span>
-    <h2 class="statcard-number" style="font-size:42pt">
+    <div class="p-a p-b-0 text-center">
+      <span class="statcard-desc"> Step 0 / <small>Total</small></span>
+      <h2 class="statcard-number">
         {{model.summary.step_0}}/<small>{{model.summary.step_total}}</small>
         <small class="label text-lg {{if (gt (div model.summary.step_0 model.summary.step_total) 0.5) 'label-danger' 'label-success'}}">{{format-number (div model.summary.step_0 model.summary.step_total) format="0.0%"}}</small>
       </h2>
-  </div>
+    </div>
   {{/link-to}}
 </div>
