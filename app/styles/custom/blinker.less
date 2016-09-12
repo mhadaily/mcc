@@ -6,12 +6,17 @@
   -o-animation: changecolor 0.5s infinite;
 }
 
-.task-detail.blinker {
-  animation: changecolortask 0.5s infinite;
-  -moz-animation: changecolortask 0.5s infinite;
-  -webkit-animation: changecolortask 0.5s infinite;
-  -ms-animation: changecolortask 0.5s infinite;
-  -o-animation: changecolortask 0.5s infinite;
+.task-detail {
+  &.blinker {
+    animation: changecolortask 0.5s infinite;
+    -moz-animation: changecolortask 0.5s infinite;
+    -webkit-animation: changecolortask 0.5s infinite;
+    -ms-animation: changecolortask 0.5s infinite;
+    -o-animation: changecolortask 0.5s infinite;
+  }
+  h3 {
+    margin-top: 14px;
+  }
 }
 
 @keyframes changecolortask {
