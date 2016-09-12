@@ -1,4 +1,4 @@
-export default function(){
+export default function() {
   this.transition(
     this.fromRoute('index'),
     this.use('crossFade'),
@@ -20,4 +20,10 @@ export default function(){
     this.use('toLeft'),
     this.reverse('toRight')
   );
+  this.transition(
+    this.hasClass('change-description'),
+    this.toValue(true),
+    this.use('toUp'),
+  );
+
 }

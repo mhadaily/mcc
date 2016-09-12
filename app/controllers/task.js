@@ -7,17 +7,18 @@ export default Ember.Controller.extend({
   refID: null,
   backTo: null,
   blink: null,
+  isChange: false,
   blockHeight: Ember.computed('blockHeight', function() {
     let wheight = parseInt(window.innerHeight - 245, 10);
     // Fix heights on window resize
     let iv = null;
     Ember.$(window).resize(function() {
-      if(iv !== null) {
+      if (iv !== null) {
         window.clearTimeout(iv);
       }
       // Needs to be a timeout function so it doesn't fire every ms of resize
       iv = setTimeout(function() {
-              Ember.$('.content-block-tab').height(window.innerHeight - 245);
+        Ember.$('.content-block-tab').height(window.innerHeight - 245);
       }, 20);
     });
     return wheight;
@@ -27,12 +28,12 @@ export default Ember.Controller.extend({
     // Fix heights on window resize
     let iv = null;
     Ember.$(window).resize(function() {
-      if(iv !== null) {
+      if (iv !== null) {
         window.clearTimeout(iv);
       }
       // Needs to be a timeout function so it doesn't fire every ms of resize
       iv = setTimeout(function() {
-              Ember.$('.content-block').height(window.innerHeight - 325);
+        Ember.$('.content-block').height(window.innerHeight - 325);
       }, 20);
     });
     return wheight;
@@ -56,9 +57,11 @@ export default Ember.Controller.extend({
   actions: {
     taskChangeColor: function() {
       this.set('blink', 'blinker');
+      this.set('isChange', true);
       // remove blinker after 1 sec, it must be passed to reference for 'this' so easily we can bind that.
       setTimeout(function() {
         this.set('blink', ' ');
+        this.set('isChange', false);
       }.bind(this), 1000);
     }
   }
