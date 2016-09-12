@@ -1,9 +1,9 @@
-<div class="hr-divider m-y">
+<div class="hr-divider">
   <h3 class="hr-divider-content hr-divider-heading">
     21 Steps
   </h3>
 </div>
-<div class="list-group compact">
+<div class="row list-group compact">
   <div class="col-sm-6">
     {{#link-to 'contacts'(query-params step="_blank") class="list-group-item"}}
     <span class="list-group-progress" style="width: {{format-number (div (or model.summary.step_0 0.0) model.summary.step_total) format=" 0.0% "}};"></span>

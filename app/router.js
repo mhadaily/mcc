@@ -7,6 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('dashboard');
   this.route('tasks');
   this.route('task', { path: 'tasks/:task_id' }, function() {
     this.modal('step-modal', {
