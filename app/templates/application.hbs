@@ -1,8 +1,9 @@
 <div class="with-iconav">
   {{#if session.isAuthenticated}}
   <nav class="iconav iconav-inverse">
-    {{#link-to 'index' class="iconav-brand" }}
-    <span class="iconav-brand-icon"><img src="/img/logomobehat.png"></span> {{/link-to}}
+    <div class="iconav-brand">
+      <span class="iconav-brand-icon"><img src="/img/logomobehat.png"></span>
+    </div>
     <div class="iconav-slider">
       <ul class="nav nav-pills iconav-nav">
         {{#link-to-with-tip 'index' tagName="li" }}
@@ -11,14 +12,14 @@
           <small class="iconav-nav-label visible-xs-block">Dashboard</small>
         </a>
         {{/link-to-with-tip}} {{#link-to-with-tip 'contacts' tagName="li" }}
-        <a href="#" title="Contacts" data-toggle="tooltip" data-placement="right" data-container="body">
+        <a href="#" title="Clients" data-toggle="tooltip" data-placement="right" data-container="body">
           <span class="icon icon-users"></span>
-          <small class="iconav-nav-label visible-xs-block">Contacts</small>
+          <small class="iconav-nav-label visible-xs-block">Clients</small>
         </a>
         {{/link-to-with-tip}} {{#link-to-with-tip 'tasks' tagName="li" }}
-        <a href="#" title="Tasks" data-toggle="tooltip" data-placement="right" data-container="body">
+        <a href="#" title="Calls" data-toggle="tooltip" data-placement="right" data-container="body">
           <span class="icon icon-list"></span>
-          <small class="iconav-nav-label visible-xs-block">Tasks</small>
+          <small class="iconav-nav-label visible-xs-block">Calles</small>
         </a>
         {{/link-to-with-tip}} {{#link-to-with-tip 'informations' tagName="li" }}
         <a href="#" title="Informations" data-toggle="tooltip" data-placement="right" data-container="body">
