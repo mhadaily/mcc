@@ -1,14 +1,14 @@
 <div class="modal-content ">
   <div class="modal-header">
     <button type="button" class="close" {{action "dismiss"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title">Complete task</h4>
+    <h4 class="modal-title">Completing the Call</h4>
   </div>
   <div class="modal-body ">
     <form class="form">
       <div class="form-group">
         <label>OUTCOME: </label>
         <select class="custom-select width100" value=selectedOutcome {{action 'selectOutcome' on='change' }}>
-          <option value=''>NO OUTCOME</option>
+          <option value=''>-- select an outcome --</option>
           {{#each task.taskType.outcomes as |item|}}
           <option value={{item}}>{{item}}</option>
           {{/each}}
@@ -23,12 +23,12 @@
       --}}
     </form>
   </div>
-  <div class="modal-footer">
-    <div class="col-sm-4">
-      <button type="button" class="btn btn-default btn-block" {{action "dismiss"}}>Don't Save</button>
+  <div class="row modal-footer">
+    <div class="col-sm-6">
+      <button type="button" class="btn btn-default btn-block" {{action "dismiss"}}>Close without complete call</button>
     </div>
-    <div class="col-sm-8">
-      <button type="submit" class="btn btn-success btn-block" {{action "complete" noteContentModal selectedOutcome}}>SAVE</button>
+    <div class="col-sm-6">
+      <button type="submit" class="btn btn-success btn-block" {{action "complete" noteContentModal selectedOutcome}}>Complete</button>
     </div>
   </div>
 </div>
