@@ -24,7 +24,9 @@
             <h2 class="statcard-number">{{clock-timezone timezone=contact.timeZone}}</h2>
           </li>
           <li>
-            {{#if (eq model.status "pending")}} {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Task {{/link-to}} {{/if}}
+            {{#if (eq model.status "pending")}}
+              {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Task {{/link-to}}
+            {{/if}}
           </li>
         </ul>
       </div>
@@ -32,18 +34,23 @@
   </div>
   <div class="row task-detail well {{blink}}">
     <div class="col-sm-9">
-      <h2><span class="text-danger text-uppercase">Task:</span>
-        {{model.subject}}&nbsp;</h2>
+      <h3><span class="text-danger text-uppercase">Task:</span> {{model.subject}}</h3>
     </div>
     <div class="col-sm-1">
       <p> Date Due:
         <br/> <strong>{{moment-format model.dateDue}}&nbsp;</strong>
       </p>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-1">
       <p>Status:
-        <br/> <strong>{{model.status}}&nbsp;</strong> {{#if (eq model.status "pending")}}
-        <br/> {{#link-to (query-params refID=model.id)}} Cancel Your Task {{/link-to}} {{/if}}
+        <br/> <strong>{{model.status}}&nbsp;</strong>
+      </p>
+    </div>
+    <div class="col-sm-1">
+      <p>
+        {{#if (eq model.status "pending")}}
+          {{#link-to (query-params refID=model.id)}} Cancel Your Task {{/link-to}}
+        {{/if}}
       </p>
     </div>
   </div>
@@ -69,7 +76,7 @@
           <a href="#contact-tags" role="tab" data-toggle="tab" aria-controls="contact-tags">Contact Tags</a>
         </li>
       </ul>
-      <div class="position-fixed content-block-tab"  style="height:{{blockHeight}}px">
+      <div class="position-fixed content-block-tab" style="height:{{blockHeight}}px">
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="summary">
             {{partial 'summary'}}
