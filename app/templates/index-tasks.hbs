@@ -8,7 +8,7 @@
     <a href="#tasks-today" role="tab" data-toggle="tab" aria-controls="tasks-today">Today's Calls: <span class="badge">{{model.todayTasks.meta.total-count}}</span></a>
   </li>
   <li role="presentation">
-    <a href="#tasks-overdue" role="tab" data-toggle="tab" aria-controls="tasks-overdue">Overdue: <span class="badge">{{model.overdueTasks.meta.total-count}}</span></a>
+    <a href="#tasks-overdue" role="tab" data-toggle="tab" aria-controls="tasks-overdue">Overdue: <span class="badge {{if model.overdueTasks.meta.total-count 'animated infinite pulse'}}">{{model.overdueTasks.meta.total-count}}</span></a>
   </li>
   <li role="presentation">
     <a href="#tasks-future" role="tab" data-toggle="tab" aria-controls="tasks-scheduled">Future: <span class="badge">{{model.futureTasks.meta.total-count}}</span></a>

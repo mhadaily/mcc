@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="col-sm-4">
-    <div class="statcard statcard-danger animated infinite flash">
+    <div class="statcard statcard-danger {{if model.summary.step_0_5dp 'animated infinite pulse'}}">
       <div class="p-l">
         <span class="statcard-desc">> 5 days {{hover-help title='This shows the number of clients you have on Step 0, who have been stuck there for more than 5 days.  When you are short on calls to make, focus on making contact with these clients to get them to Step 1.'}}</span>
         <h3 class="statcard-number"> {{model.summary.step_0_5dp}}</h3>
