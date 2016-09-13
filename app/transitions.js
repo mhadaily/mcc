@@ -23,7 +23,7 @@ export default function() {
   this.transition(
     this.hasClass('change-description'),
     this.toValue(true),
-    this.use('toUp')
+    this.use('scale')
   );
 
 }
