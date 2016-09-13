@@ -24,7 +24,7 @@ export default Ember.Controller.extend({
     return wheight;
   }),
   blockHeightNote: Ember.computed('blockHeightNote', function() {
-    let wheight = parseInt(window.innerHeight - 325, 10);
+    let wheight = parseInt(window.innerHeight - 195, 10);
     // Fix heights on window resize
     let iv = null;
     Ember.$(window).resize(function() {
@@ -33,7 +33,7 @@ export default Ember.Controller.extend({
       }
       // Needs to be a timeout function so it doesn't fire every ms of resize
       iv = setTimeout(function() {
-        Ember.$('.content-block').height(window.innerHeight - 325);
+        Ember.$('.content-block').height(window.innerHeight - 195);
       }, 20);
     });
     return wheight;

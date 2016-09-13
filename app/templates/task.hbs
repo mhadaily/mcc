@@ -29,57 +29,31 @@
       </div>
     </div>
   </div>
-{{#liquid-if isChange class="change-description" }}
-  <div class="row task-detail well {{blink}}">
-    <div class="col-sm-9">
-      <h3><span class="text-danger text-uppercase">Task:</span> {{model.subject}}</h3>
-    </div>
-    <div class="col-sm-1">
-      <p> Date Due:
-        <br/> <strong>{{moment-format model.dateDue}}&nbsp;</strong>
-      </p>
-    </div>
-    <div class="col-sm-1">
-      <p>Status:
-        <br/> <strong>{{model.status}}&nbsp;</strong>
-      </p>
-    </div>
-    <div class="col-sm-1">
-      <p>
-        {{#if (eq model.status "pending")}}
-          {{#link-to (query-params refID=model.id)}} Cancel Your Task {{/link-to}}
-        {{/if}}
-      </p>
-    </div>
-  </div>
-  {{else}}
-    <div class="row task-detail well {{blink}}">
-      <div class="col-sm-9">
-        <h3><span class="text-danger text-uppercase">Task:</span> {{model.subject}}</h3>
-      </div>
-      <div class="col-sm-1">
-        <p> Date Due:
-          <br/> <strong>{{moment-format model.dateDue}}&nbsp;</strong>
-        </p>
-      </div>
-      <div class="col-sm-1">
-        <p>Status:
-          <br/> <strong>{{model.status}}&nbsp;</strong>
-        </p>
-      </div>
-      <div class="col-sm-1">
-        <p>
-          {{#if (eq model.status "pending")}}
-            {{#link-to (query-params refID=model.id)}} Cancel Your Task {{/link-to}}
-          {{/if}}
-        </p>
-      </div>
-    </div>
-{{/liquid-if}}
-
-
   <div class="row">
     <div class="col-sm-6">
+      {{#liquid-if isChange class="change-description" }}
+        <div class="row task-detail well {{blink}}">
+          <div class="col-sm-12">
+            <h3><span class="text-danger text-uppercase">Task:</span> {{model.subject}}</h3>
+            <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}&nbsp;</strong> |
+              {{#if (eq model.status "pending")}}
+                {{#link-to (query-params refID=model.id)}} Cancel Your Task {{/link-to}}
+              {{/if}}
+            </p>
+          </div>
+        </div>
+        {{else}}
+          <div class="row task-detail well {{blink}}">
+            <div class="col-sm-12">
+              <h3><span class="text-danger text-uppercase">Task:</span> {{model.subject}}</h3>
+              <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}&nbsp;</strong> |
+                {{#if (eq model.status "pending")}}
+                  {{#link-to (query-params refID=model.id)}} Cancel Your Task {{/link-to}}
+                {{/if}}
+              </p>
+            </div>
+          </div>
+      {{/liquid-if}}
       <ul class="nav nav-bordered" role="tablist">
         <li class="active" role="presentation">
           <a href="#summary" role="tab" data-toggle="tab" aria-controls="summary">Summary <span class="badge"></span></a>
