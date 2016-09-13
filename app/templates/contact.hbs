@@ -12,16 +12,13 @@
       <div class="col-sm-6">
         <ul class="nav nav-bordered pull-right">
           <li>
-            <small class="statcard-desc">Step</small>
-            <h2 class="statcard-number">{{or model.step '0'}}&nbsp;</h2>
+            <h2 class="statcard-number">Step: <strong>{{or model.step '0'}}</strong>&nbsp;</h2>
           </li>
           <li>
-            <small class="statcard-desc">Spent</small>
-            <h2 class="statcard-number">${{format-number model.spent format=",0"}}&nbsp;</h2>
+            <h2 class="statcard-number">Spent: <strong>${{format-number model.spent format=",0"}}</strong>&nbsp;</h2>
           </li>
           <li>
-            <small class="statcard-desc">Client Time</small>
-            <h2 class="statcard-number">{{clock-timezone timezone=model.timeZone}}</h2>
+            <h2 class="statcard-number">Client Time: <strong>{{clock-timezone timezone=model.timeZone}}</strong></h2>
           </li>
           <!-- <li>
             {{link-to 'edit contact' (query-params contactrf=model.id) tagName="button" class="btn btn-primary"}}
@@ -80,3 +77,4 @@
   </div>
 </div>
 {{outlet}}
+
