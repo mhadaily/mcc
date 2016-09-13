@@ -1,42 +1,47 @@
 <div class="with-iconav">
   {{#if session.isAuthenticated}}
-  <nav class="iconav iconav-inverse">
-    <div class="iconav-brand">
-      <span class="iconav-brand-icon"><img src="/img/logomobehat.png"></span>
-    </div>
-    <div class="iconav-slider">
-      <ul class="nav nav-pills iconav-nav">
-        {{#link-to-with-tip 'index' tagName="li" }}
-        <a href="#" title="Dashboard" data-toggle="tooltip" data-placement="right" data-container="body">
-          <span class="icon icon-home"></span>
-          <small class="iconav-nav-label visible-xs-block">Dashboard</small>
-        </a>
-        {{/link-to-with-tip}} {{#link-to-with-tip 'contacts' tagName="li" }}
-        <a href="#" title="Clients" data-toggle="tooltip" data-placement="right" data-container="body">
-          <span class="icon icon-users"></span>
-          <small class="iconav-nav-label visible-xs-block">Clients</small>
-        </a>
-        {{/link-to-with-tip}} {{#link-to-with-tip 'tasks' tagName="li" }}
-        <a href="#" title="Calls" data-toggle="tooltip" data-placement="right" data-container="body">
-          <span class="icon icon-list"></span>
-          <small class="iconav-nav-label visible-xs-block">Calles</small>
-        </a>
-        {{/link-to-with-tip}} {{#link-to-with-tip 'informations' tagName="li" }}
-        <a href="#" title="Informations" data-toggle="tooltip" data-placement="right" data-container="body">
-          <span class="icon icon-info"></span>
-          <small class="iconav-nav-label visible-xs-block">Information</small>
-        </a>
-        {{/link-to-with-tip}} {{#link-to-with-tip 'settings' tagName="li" }}
-        <a href="#" title={{concat 'Signed in as ' model.account.name}} data-toggle="tooltip" data-placement="right" data-container="body">
+    <nav class="iconav iconav-inverse">
+      <div class="iconav-brand">
+        <span class="iconav-brand-icon"><img src="/img/logomobehat.png"></span>
+      </div>
+      <div class="iconav-slider">
+        <ul class="nav nav-pills iconav-nav">
+          {{#link-to-with-tip 'index' tagName="li" }}
+            <a href="#" title="Dashboard" data-toggle="tooltip" data-placement="right" data-container="body">
+              <span class="icon icon-home"></span>
+              <small class="iconav-nav-label visible-xs-block">Dashboard</small>
+            </a>
+          {{/link-to-with-tip}}
+          {{#link-to-with-tip 'contacts' tagName="li" }}
+            <a href="#" title="Clients" data-toggle="tooltip" data-placement="right" data-container="body">
+              <span class="icon icon-users"></span>
+              <small class="iconav-nav-label visible-xs-block">Clients</small>
+            </a>
+          {{/link-to-with-tip}}
+          {{#link-to-with-tip 'tasks' tagName="li" }}
+            <a href="#" title="Calls" data-toggle="tooltip" data-placement="right" data-container="body">
+              <span class="icon icon-list"></span>
+              <small class="iconav-nav-label visible-xs-block">Calles</small>
+            </a>
+          {{/link-to-with-tip}}
+          {{#link-to-with-tip (query-params fakeNumber='open' ) tagName="li" }}
+            <a href="#" title="Library" data-toggle="tooltip" data-placement="right" data-container="body">
+              <span class="icon icon-open-book"></span>
+              <small class="iconav-nav-label visible-xs-block">Library</small>
+            </a>
+          {{/link-to-with-tip}}
+          {{#link-to-with-tip 'settings' tagName="li" }}
+            <a href="#" title= {{concat 'Signed in as ' model.account.name}} data-toggle="tooltip" data-placement="right" data-container="body">
               {{gravatar-image email='account.email' class="img-circle img-responsive" title=model.account.name defaultImage='mm'}}
               <small class="iconav-nav-label visible-xs-block">@model.account.name</small>
             </a> {{/link-to-with-tip}}
-      </ul>
-    </div>
-    <div class="name-vertical">
-      <strong>{{concat 'Signed in as ' model.account.name}}</strong>
-    </div>
-  </nav>
+        </ul>
+      </div>
+      <div class="name-vertical">
+        <strong>{{concat 'Signed in as ' model.account.name}}</strong>
+      </div>
+    </nav>
   {{/if}} {{outlet}}
 </div>
 {{liquid-modal}} {{ember-notify messageStyle='bootstrap' classPrefix="custom-notify"}}
+
