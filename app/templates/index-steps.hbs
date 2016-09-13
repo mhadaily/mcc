@@ -119,28 +119,44 @@
           {{or (get model.summary.steps '21') 0}}
           ({{format-number (div (or (get model.summary.steps '21') 0) model.summary.step_total) format="0.0%"}})
         </span> 21 {{/link-to}}
-    <div class="hr-divider m-y">
+    <div class="hr-divider m-t">
       <h3 class="hr-divider-content hr-divider-heading">
         Other Steps
       </h3>
     </div>
     <div class="list-group compact">
       {{#link-to 'contacts'(query-params step="130") class="list-group-item"}}
-      <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '130') 0.0) model.summary.step_total) format=" 0.0% "}};"></span>
-      <span class="pull-right">
+        <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '130') 0.0) model.summary.step_total) format=" 0.0% "}};"></span>
+        <span class="pull-right">
           {{get model.summary.steps '130'}}
           ({{format-number (div (or (get model.summary.steps '130') 0) model.summary.step_total) format="0.0%"}})
-        </span> 130 {{/link-to}} {{#link-to 'contacts'(query-params step="-1") class="list-group-item"}}
-      <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '-1') 0.0) model.summary.step_total) format=" 0.0% "}};"></span>
-      <span class="pull-right">
+        </span>
+        Complete (130)
+      {{/link-to}}
+
+      {{#link-to 'contacts'(query-params step="-1") class="list-group-item"}}
+        <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '-1') 0.0) model.summary.step_total) format=" 0.0% "}};"></span>
+        <span class="pull-right">
           {{get model.summary.steps '-1'}}
           ({{format-number (div (or (get model.summary.steps '-1') 0) model.summary.step_total) format="0.0%"}})
-        </span> Refunded {{/link-to}} {{#link-to 'contacts'(query-params step="-2") class="list-group-item"}}
-      <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '-2') 0.0) model.summary.step_total) format=" 0.0% "}};"></span>
-      <span class="pull-right">
+        </span> Refunded (-1)
+      {{/link-to}}
+
+      {{#link-to 'contacts'(query-params step="-2") class="list-group-item"}}
+        <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '-2') 0.0) model.summary.step_total) format=" 0.0% "}};"></span>
+        <span class="pull-right">
           {{get model.summary.steps '-2'}}
           ({{format-number (div (or (get model.summary.steps '-2') 0) model.summary.step_total) format="0.0%"}})
-        </span> Voided {{/link-to}}
+        </span> Voided (-2)
+      {{/link-to}}
+
+      {{#link-to 'contacts'(query-params step="-3") class="list-group-item"}}
+        <span class="list-group-progress" style="width: {{format-number (div (or (get model.summary.steps '-3') 0.0) model.summary.step_total) format=" 0.0% "}};"></span>
+        <span class="pull-right">
+          {{get model.summary.steps '-3'}}
+          ({{format-number (div (or (get model.summary.steps '-2') 0) model.summary.step_total) format="0.0%"}})
+        </span> Uncontactable (-3)
+      {{/link-to}}
     </div>
   </div>
 </div>
