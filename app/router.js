@@ -58,6 +58,13 @@ Router.map(function() {
         taskChangeColor: 'taskChangeColor'
       }
     });
+    this.modal('contact-modal', {
+      withParams: ['contactrf'],
+      actions: {
+        cancel: 'cancel',
+        update: 'update'
+      }
+    });
   });
   this.route('settings');
   this.route('login');

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['backTo', 'step', 'taskrf'],
+  queryParams: ['backTo', 'step', 'taskrf', 'contactrf'],
   step: null,
   backTo: null,
   blink: null,
