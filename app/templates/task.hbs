@@ -12,16 +12,13 @@
       <div class="col-sm-6">
         <ul class="nav nav-bordered pull-right">
           <li>
-            <small class="statcard-desc">Step</small>
-            <h2 class="statcard-number">{{or contact.step '0'}}&nbsp;</h2>
+            <h2 class="statcard-number">Step: <strong>{{or contact.step '0'}}</strong>&nbsp;</h2>
           </li>
           <li>
-            <small class="statcard-desc">Spent</small>
-            <h2 class="statcard-number">${{format-number contact.spent format=",0"}}&nbsp;</h2>
+            <h2 class="statcard-number">Spent: <strong>${{format-number contact.spent format=",0"}}</strong>&nbsp;</h2>
           </li>
           <li>
-            <small class="statcard-desc">Client Time</small>
-            <h2 class="statcard-number">{{clock-timezone timezone=contact.timeZone}}</h2>
+            <h2 class="statcard-number">Client Time: <strong>{{clock-timezone timezone=contact.timeZone}}</strong></h2>
           </li>
           <li>
             {{#if (eq model.status "pending")}}
@@ -32,7 +29,30 @@
       </div>
     </div>
   </div>
-  {{#liquid-if isChange class="change-description" }}
+{{#liquid-if isChange class="change-description" }}
+  <div class="row task-detail well {{blink}}">
+    <div class="col-sm-9">
+      <h3><span class="text-danger text-uppercase">Task:</span> {{model.subject}}</h3>
+    </div>
+    <div class="col-sm-1">
+      <p> Date Due:
+        <br/> <strong>{{moment-format model.dateDue}}&nbsp;</strong>
+      </p>
+    </div>
+    <div class="col-sm-1">
+      <p>Status:
+        <br/> <strong>{{model.status}}&nbsp;</strong>
+      </p>
+    </div>
+    <div class="col-sm-1">
+      <p>
+        {{#if (eq model.status "pending")}}
+          {{#link-to (query-params refID=model.id)}} Cancel Your Task {{/link-to}}
+        {{/if}}
+      </p>
+    </div>
+  </div>
+  {{else}}
     <div class="row task-detail well {{blink}}">
       <div class="col-sm-9">
         <h3><span class="text-danger text-uppercase">Task:</span> {{model.subject}}</h3>
@@ -55,30 +75,9 @@
         </p>
       </div>
     </div>
-    {{else}}
-      <div class="row task-detail well {{blink}}">
-        <div class="col-sm-9">
-          <h3><span class="text-danger text-uppercase">Task:</span> {{model.subject}}</h3>
-        </div>
-        <div class="col-sm-1">
-          <p> Date Due:
-            <br/> <strong>{{moment-format model.dateDue}}&nbsp;</strong>
-          </p>
-        </div>
-        <div class="col-sm-1">
-          <p>Status:
-            <br/> <strong>{{model.status}}&nbsp;</strong>
-          </p>
-        </div>
-        <div class="col-sm-1">
-          <p>
-            {{#if (eq model.status "pending")}}
-              {{#link-to (query-params refID=model.id)}} Cancel Your Task {{/link-to}}
-            {{/if}}
-          </p>
-        </div>
-      </div>
-  {{/liquid-if}}
+{{/liquid-if}}
+
+
   <div class="row">
     <div class="col-sm-6">
       <ul class="nav nav-bordered" role="tablist">
@@ -135,3 +134,4 @@
   </div>
 </div>
 {{outlet}}
+
