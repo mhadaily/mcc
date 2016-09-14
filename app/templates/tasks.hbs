@@ -46,8 +46,8 @@
               <th class="header {{if (eq model.meta.sort-attr-name 'subject') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'first_name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Client' (query-params sort="contact_first_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Client' (query-params sort="contact_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
