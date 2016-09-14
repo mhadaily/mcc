@@ -58,6 +58,9 @@
               <th class="header {{if (eq model.meta.sort-attr-name 'status') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Status' (query-params sort="status" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'outcome') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Outcome' (query-params sort="outcome" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
             </tr>
           </thead>
           {{#if model.loading}}
@@ -78,6 +81,7 @@
               <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
               <td>{{task.contact.timeZone}}</td>
               <td>{{task.status}}</td>
+              <td>{{task.outcome}}</td>
             </tr>
             {{/each}} {{/unless}}
           </tbody>
