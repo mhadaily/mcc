@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="dashhead-titles">
-          <h3 class="dashhead-title"> <span> {{link-to '<< Tasks' (or backTo 'tasks')}} </span> | CLIENT: {{or contact.name 'unnamed'}}</h3>
+          <h3 class="dashhead-title"> <span> {{link-to '<< Calls' (or backTo 'tasks')}} </span> | CLIENT: {{or contact.name 'unnamed'}}</h3>
         </div>
       </div>
       <div class="col-sm-6">
@@ -31,10 +31,10 @@
       {{#liquid-if isChange class="change-description" }}
         <div class="row task-detail well {{blink}}">
           <div class="col-sm-12">
-            <h3><span class="text-danger text-uppercase">Task:</span> {{model.subject}}</h3>
+            <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
             <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}&nbsp;</strong> |
               {{#if (eq model.status "pending")}}
-                {{#link-to (query-params refID=model.id)}} Cancel Your Task {{/link-to}}
+                {{#link-to (query-params refID=model.id)}} Cancel Your Call {{/link-to}}
               {{/if}}
             </p>
           </div>
@@ -42,10 +42,10 @@
         {{else}}
           <div class="row task-detail well {{blink}}">
             <div class="col-sm-12">
-              <h3><span class="text-danger text-uppercase">Task:</span> {{model.subject}}</h3>
+              <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
               <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}&nbsp;</strong> |
                 {{#if (eq model.status "pending")}}
-                  {{#link-to (query-params refID=model.id)}} Cancel Your Task {{/link-to}}
+                  {{#link-to (query-params refID=model.id)}} Cancel Your Call {{/link-to}}
                 {{/if}}
               </p>
             </div>
@@ -56,13 +56,13 @@
           <a href="#summary" role="tab" data-toggle="tab" aria-controls="summary">Summary <span class="badge"></span></a>
         </li>
         <li role="presentation">
-          <a href="#task-details" role="tab" data-toggle="tab" aria-controls="task-details">Task Details <span class="badge"></span></a>
+          <a href="#task-details" role="tab" data-toggle="tab" aria-controls="task-details">Call Details <span class="badge"></span></a>
         </li>
         <li role="presentation">
           <a href="#contact-details" role="tab" data-toggle="tab" aria-controls="contact-details">Client Details <span class="badge"></span></a>
         </li>
         <li role="presentation">
-          <a href="#task-activities" role="tab" data-toggle="tab" aria-controls="task-activities">Tasks</a>
+          <a href="#task-activities" role="tab" data-toggle="tab" aria-controls="task-activities">Calls</a>
         </li>
         <li role="presentation">
           <a href="#sale-activities" role="tab" data-toggle="tab" aria-controls="sale-activities">Sales</a>
@@ -105,4 +105,3 @@
   </div>
 </div>
 {{outlet}}
-
