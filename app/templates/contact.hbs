@@ -17,6 +17,9 @@
           <li>
             <h2 class="statcard-number">Client Time: <strong>{{clock-timezone timezone=model.timeZone}}</strong></h2>
           </li>
+          <li>
+            {{link-to 'Change Step' (query-params step=model.step) tagName='button' class='btn btn-sm btn-primary'}}
+          </li>
           <!-- <li>
             {{link-to 'edit contact' (query-params contactrf=model.id) tagName="button" class="btn btn-primary"}}
           </li> -->
@@ -74,4 +77,3 @@
   </div>
 </div>
 {{outlet}}
-
