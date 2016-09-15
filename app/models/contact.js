@@ -28,11 +28,11 @@ export default DS.Model.extend({
   currentTime: Ember.computed(function() {
     return new Date();
   }),
-  agreementTags: Ember.computed('tags',function() {
-    var tags    = this.get('tags'),
-        result  = {};
-    for(var k in tags) {
-      if(tags[k].match(/agreement/i)) { result[k] = tags[k]; }
+  agreementTags: Ember.computed('tags', function() {
+    var tags = this.get('tags'),
+      result = {};
+    for (var k in tags) {
+      if (tags[k].match(/agreement/i)) { result[k] = tags[k]; }
     }
     return result;
   })
