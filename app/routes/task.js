@@ -18,6 +18,18 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.get('notify').error('Saving Note Failed! MR/MS ');
       });
     },
+    dateSave: function(dateDue) {
+      
+      var newDateDue = {
+        dateDue: dateDue,
+        task: this.currentModel,
+      };
+      this.currentModel.set('dateDue', newDateDue.dateDue);
+      this.currentModel.save().then(d => {
+        this.get('notify').success('Task successfully rescheduled');
+        return d;
+      });
+    },
     newNote: function(noteContent) {
       //debugger;
       var newNoteData = {

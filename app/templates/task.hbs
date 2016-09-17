@@ -17,11 +17,14 @@
           <li>
             <h2 class="statcard-number">Client Time: <strong>{{clock-timezone timezone=contact.timeZone}}</strong></h2>
           </li>
-          <li>
-            {{#if (eq model.status "pending")}}
+          {{#if (eq model.status "pending")}}
+            <li>
               {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Call {{/link-to}}
-            {{/if}}
-          </li>
+            </li>
+            <li>
+              {{link-to 'reschedule task' (query-params taskrf=model.id) tagName="button" class="btn-sm btn-primary"}}
+            </li>
+          {{/if}}
         </ul>
       </div>
     </div>

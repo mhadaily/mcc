@@ -47,6 +47,13 @@ Router.map(function() {
         cancel: 'cancel'
       }
     });
+    this.modal('task-reschedule', {
+      withParams: ['taskrf'],
+      actions: {
+        cancel: 'cancel',
+        dateSave: 'dateSave'
+      }
+    });
   });
 
   this.route('contacts');
