@@ -19,7 +19,7 @@
           </li>
           <li>
             {{#if (eq model.status "pending")}}
-              {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Task {{/link-to}}
+              {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Call {{/link-to}}
             {{/if}}
           </li>
         </ul>
