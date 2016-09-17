@@ -5,9 +5,10 @@ export default Ember.Controller.extend({
   statuses: [
     'all status', 'pending', 'completed', 'cancelled'
   ],
-  queryParams: ["contact", "contact_step", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "query", "page", "perPage", "sort", "sortDir"],
+  queryParams: ["contact", "contact_step", "contact_time_zone", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "query", "page", "perPage", "sort", "sortDir"],
   contact: null,
   contact_step: null,
+  contact_time_zone: null,
   subject: null,
   date_due_gteq: null,
   startDateToJSDate: Ember.computed('date_due_gteq', {

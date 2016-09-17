@@ -19,6 +19,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       q: {
         contact_name_cont: params.contact,
         contact_step_eq: params.contact_step,
+        contact_time_zone_cont: params.contact_time_zone,
         subject_cont: params.subject,
         date_due_gteq: params.date_due_gteq,
         date_due_lteq: params.date_due_lteq,
