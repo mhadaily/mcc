@@ -12,8 +12,9 @@ export default Ember.Component.extend({
     cancel() {
       this.sendAction('dismiss');
     },
-    create() {
-      this.sendAction('update');
+    update(homePhone, skypeId) {
+      this.sendAction('contactSave', homePhone, skypeId);
+      this.sendAction('dismiss');
     }
   }
 });

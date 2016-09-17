@@ -68,7 +68,7 @@ Router.map(function() {
       withParams: ['contactrf'],
       actions: {
         cancel: 'cancel',
-        update: 'update'
+        contactSave: 'contactSave'
       }
     });
   });

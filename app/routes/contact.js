@@ -17,6 +17,23 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         return d;
       });
     },
+    contactSave: function(homePhone, skypeId) {
+
+      var newPhoneNumber = {
+        homePhone: homePhone,
+        contact: this.currentModel,
+      };
+      var newSkypeId = {
+        skypeId: skypeId,
+        contact: this.currentModel,
+      };
+      this.currentModel.set('homePhone', newPhoneNumber.homePhone);
+      this.currentModel.set('skypeId', newSkypeId.skypeId);
+      this.currentModel.save().then(d => {
+        this.get('notify').success('Contact successfully updated');
+        return d;
+      });
+    },
     newNote: function(noteContent) {
       var newNoteData = {
         content: noteContent,
