@@ -15,6 +15,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.currentModel.save().then(d => {
         this.get('notify').success('Step has been saved to ' + newStepNumber.step);
         return d;
+      }).catch(e => {
+        this.get('notify').error(e.message);
+        return e;
       });
     },
     contactSave: function(homePhone, skypeId) {
@@ -32,6 +35,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.currentModel.save().then(d => {
         this.get('notify').success('Contact successfully updated');
         return d;
+      }).catch(e => {
+        this.get('notify').error(e.message);
+        return e;
       });
     },
     newNote: function(noteContent) {

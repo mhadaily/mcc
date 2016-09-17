@@ -19,7 +19,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       });
     },
     dateSave: function(dateDue) {
-      
+
       var newDateDue = {
         dateDue: dateDue,
         task: this.currentModel,
@@ -28,6 +28,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.currentModel.save().then(d => {
         this.get('notify').success('Task successfully rescheduled');
         return d;
+      }).catch(e => {
+        this.get('notify').error(e.message);
+        return e;
       });
     },
     newNote: function(noteContent) {
