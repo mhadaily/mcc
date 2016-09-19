@@ -1,9 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: 'search-contact',
-  queryParams: ['searchContact'],
-  searchContact: null,
+  classNames: ['searchc-modal'],
   actions: {
     cancel() {
       this.sendAction('dismiss');

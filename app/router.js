@@ -13,8 +13,8 @@ Router.map(function() {
       dimiss: 'dimiss',
     }
   });
-  this.modal('search-contact', {
-    withParams: ['searchContact'],
+  this.modal('searchc-modal', {
+    withParams: ['searchModal'],
     actions: {
       dimiss: 'dimiss',
       queryChanged: 'queryChanged'
