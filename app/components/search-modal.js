@@ -14,9 +14,8 @@ export default Ember.Component.extend({
       this.sendAction('dismiss');
     },
     searchNow() {
-      let email = this.get('contact')
-      console.log(email);
-      /* TODO - PASS TO CONTACTS ROUTE */
+      this.sendAction('dismiss');
+      this.sendAction('queryChanged');
     }
   }
 });
