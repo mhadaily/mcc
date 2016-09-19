@@ -13,7 +13,7 @@ Router.map(function() {
       dimiss: 'dimiss',
     }
   });
-  this.modal('modal-searchcontact', {
+  this.modal('search-contact', {
     withParams: ['searchContact'],
     actions: {
       dimiss: 'dimiss',

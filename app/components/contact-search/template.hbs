@@ -1,1 +1,39 @@
-{{yield}}
+<div class="modal-header">
+  <button {{action 'cancel'}} type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title">Search Clients</h4>
+</div>
+<div class="modal-body">
+  <div class="form-group row">
+    <div class="col-sm-12">
+      <form {{action 'queryChanged' on="submit" }} class="form">
+        <div class="form-group">
+          {{input type="text" value=contact class="form-control" placeholder="Name/Email/Ref"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=step class="form-control" placeholder="Current Step"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=home_phone class="form-control" placeholder="Phone Number"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=skype_id class="form-control" placeholder="Skype ID"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=country_or_state class="form-control" placeholder="Country or State"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=time_zone class="form-control" placeholder="Time Zone"}}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-actions">
+  <button {{action 'cancel'}} type="button" class="btn-link modal-action" data-dismiss="modal">
+    Cancel
+  </button>
+  <button {{action 'queryChanged'}} type="button" class="btn-link modal-action" data-dismiss="modal">
+    <strong>Search</strong>
+  </button>
+</div>
+
