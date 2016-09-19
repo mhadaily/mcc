@@ -6,7 +6,7 @@
   <div class="modal-body">
     <div class="row m-a">
       <div class="col-sm-12">
-        <form {{action 'queryChanged' on="submit" }} class="form">
+        <form class="form">
           <div class="form-group col-md-6">
             {{input type="text" value=contact class="form-control" placeholder="Name/Email/Ref"}}
           </div>
@@ -31,9 +31,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" {{action "dismiss"}}>Close</button>
-    <button {{action 'queryChanged'}} type="button" class="btn btn-primary" data-dismiss="modal">
-      <strong>Search</strong>
-    </button>
+    <button {{action 'searchNow'}} type="button" class="btn btn-primary">Search</button>
   </div>
 </div>
 
