@@ -8,13 +8,13 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.modal('library-modal', {
-    withParams: ['fakeNumber'],
+    withParams: ['library'],
     actions: {
       dimiss: 'dimiss',
     }
   });
   this.modal('search-modal', {
-    withParams: ['searchShow'],
+    withParams: ['search'],
     actions: {
       dimiss: 'dimiss',
       queryChanged: 'queryChanged'
