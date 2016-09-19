@@ -13,6 +13,13 @@ Router.map(function() {
       dimiss: 'dimiss',
     }
   });
+  this.modal('modal-searchcontact', {
+    withParams: ['searchContact'],
+    actions: {
+      dimiss: 'dimiss',
+      queryChanged: 'queryChanged'
+    }
+  });
   this.route('dashboard');
   this.route('tasks');
   this.route('task', { path: 'tasks/:task_id' }, function() {
