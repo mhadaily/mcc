@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
-  queryParams: ['fakeNumber', 'searchModal'],
+  queryParams: ['fakeNumber', 'searchShow'],
   fakeNumber: null,
-  searchModal: null,
+  searchShow: null
 
 });
