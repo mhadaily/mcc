@@ -21,9 +21,9 @@
             <li>
               {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Call {{/link-to}}
             </li>
-            <!-- <li>
+            <li>
               {{link-to 'reschedule task' (query-params taskrf=model.id) tagName="button" class="btn-sm btn-primary"}}
-            </li> -->
+            </li>
           {{/if}}
         </ul>
       </div>

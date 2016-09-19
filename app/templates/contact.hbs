@@ -23,9 +23,9 @@
           <li>
             {{link-to 'Search Clients' (query-params searchModal='open') tagName='button' class='btn btn-sm btn-primary'}}
           </li>
-          <!-- <li>
-            {{link-to 'edit contact' (query-params contactrf=model.id) tagName="button" class="btn-sm btn-primary"}}
-          </li> -->
+          <li>
+            {{link-to 'Edit Contact' (query-params contactrf=model.id) tagName="button" class="btn btn-sm btn-primary"}}
+          </li>
         </ul>
       </div>
     </div>
@@ -80,4 +80,3 @@
   </div>
 </div>
 {{outlet}}
-
