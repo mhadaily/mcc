@@ -11,12 +11,12 @@ export default Ember.Controller.extend({
     // Fix heights on window resize
     let iv = null;
     Ember.$(window).resize(function() {
-      if(iv !== null) {
+      if (iv !== null) {
         window.clearTimeout(iv);
       }
       // Needs to be a timeout function so it doesn't fire every ms of resize
       iv = setTimeout(function() {
-              Ember.$('.content-block-tab').height(window.innerHeight - 190);
+        Ember.$('.content-block-tab').height(window.innerHeight - 190);
       }, 20);
     });
     return wheight;
@@ -26,12 +26,12 @@ export default Ember.Controller.extend({
     // Fix heights on window resize
     let iv = null;
     Ember.$(window).resize(function() {
-      if(iv !== null) {
+      if (iv !== null) {
         window.clearTimeout(iv);
       }
       // Needs to be a timeout function so it doesn't fire every ms of resize
       iv = setTimeout(function() {
-              Ember.$('.content-block').height(window.innerHeight - 230);
+        Ember.$('.content-block').height(window.innerHeight - 230);
       }, 20);
     });
     return wheight;
