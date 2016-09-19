@@ -2,98 +2,90 @@
   <div class="h3 m-t-0 text-center">
     <strong>September Sales Blitz Leaderboards:</strong>
   </div>
+  {{#if (or (eq application.model.account.team "Coach") (eq application.model.account.role "superadmin"))}}
   <div class="row">
     <div class="col-lg-6">
       <iframe width="210" height="130" src="https://www.youtube.com/embed/hwH8iqyGRx4?rel=0&amp;controls=0&amp;showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="col-lg-6">
       <span style="font-size: large">
-        <strong>1st:</strong> Chris Ross 7<br />
+        Business Coaches<br />
+        <strong>1st:</strong> Chris Ross 8<br />
         <strong>2nd:</strong> Greg Atkins 6<br />
         <strong>3rd:</strong> Tyler Shurtliff 4<br />
         <strong>3rd:</strong> Sam Hutchinson 4<br />
-        <strong>4th:</strong> Timothy Hillian 3<br />
       </span>
     </div>
   </div>
-  <small>(Leaderboards Updated 9/17/2016 1:00 pm EST)</small>
-  <div class="row" style="height: 120px; overflow-y: scroll; background-color: #f2c900; font-size: smaller">
-    <div class="col-md-12">
-      <strong>5th:</strong> Terry McDonough 2
-      <br />
-      <strong>5th:</strong> Sherry De La Cruz 2
-      <br />
-      <strong>6th:</strong> Karuna Kangaratnam 1
-      <br />
-      <strong>6th:</strong> Travoye McCray 1
-      <br />
-      <strong>6th:</strong> Laura Marsh 1
-      <br />
-      <strong>6th:</strong> Tammy Bee 1
-      <br />
-      <strong>6th:</strong> Jeff Bigley 1
-      <br />
-      <strong>6th:</strong> Glenn Bolton 1
-      <br />
-      <strong>7th:</strong> Carlos Verdugo 0
-      <br />
-      <strong>7th:</strong> Chiko Matenda 0
-      <br />
-      <strong>7th:</strong> Leigh Fish 0
-      <br />
-      <strong>7th:</strong> Al Monteiro 0
-      <br />
-      <strong>7th:</strong> Sebastian Apelbaum 0
-      <br />
-      <strong>7th:</strong> David Traub 0
-      <br />
-      <strong>7th:</strong> Grant McDonnell 0
-      <br />
-      <strong>7th:</strong> Steve Hamlin 0
-      <br />
-      <strong>7th:</strong> Rachel O’Neill 0
-      <br />
-      <strong>7th:</strong> Paul Finney 0
-      <br />
-      <strong>7th:</strong> Chuck Powers 0
-      <br />
-      <strong>7th:</strong> Daryl Larnach 0
-      <br />
+  {{/if}}
+  {{#if (or (eq application.model.account.team "Senior Coach") (eq application.model.account.role "superadmin"))}}
+  <div class="row">
+    <div class="col-lg-6">
+      <iframe width="210" height="130" src="https://www.youtube.com/embed/hwH8iqyGRx4?rel=0&amp;controls=0&amp;showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
     </div>
-    <!-- <div class="col-md-6">
-      <strong>7th:</strong> Carlos Verdugo 0
-      <br />
-      <strong>9th:</strong> Chiko Matenda 0
-      <br />
-      <strong>11th:</strong> Al Monteiro 0
-      <br />
-      <strong>13th:</strong> Timothy Hillian 0
-      <br />
-      <strong>15th:</strong> Travoye McCray 0
-      <br />
-      <strong>17th:</strong> Jeff Bigley 0
-      <br />
-      <strong>19th:</strong> Karuna Kangaratnam 0
-      <br />
-      <strong>21th:</strong> Rachel O’Neill 0
-      <br />
-      <strong>23th:</strong> Glenn Bolton 0
-      <br />
-      <strong>25th:</strong> Daryl Larnach 0
-      <br />
-    </div> -->
-    <div class="col-xs-12">
-      <u>Senior Business Coaches</u>
-      <br />
-      <strong>1st:</strong> Marlon Nuqui $73924.00
-      <br />
-      <strong>2nd:</strong> Max Aria $37463.92
-      <br />
-      <strong>3rd:</strong> Tiji Thomas $30156
-      <br />
-      <strong>4th:</strong> Ryan Jaten 0
-      <br />
+    <div class="col-lg-6">
+      <span style="font-size: large">Senior Biz Coaches</span><br />
+      <strong>1st:</strong> Marlon Nuqui $73924.00<br />
+      <strong>2nd:</strong> Tiji Thomas $49035.49<br />
+      <strong>3rd:</strong> Max Aria $37463.92<br />
+      <strong>4th:</strong> Ryan Jaten 0<br />
     </div>
   </div>
+  {{/if}}
+  <!-- {{#if (or (eq application.model.account.team "Traffic Coach") (eq application.model.account.role "superadmin"))}}
+  <div class="row">
+    <div class="col-lg-6">
+      <iframe width="210" height="130" src="https://www.youtube.com/embed/GexrYnGhmGo?rel=0&amp;controls=0&amp;showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-lg-6">
+      <span style="font-size: large">Traffic Coaches</span><br />
+      <strong>1st:</strong> Russell DeWitt $39430<br />
+      <strong>2nd:</strong> Michelle Perna $23300<br />
+      <strong>3rd:</strong> Wayne Gosse $15750<br />
+      <strong>4th:</strong> Raena Lynn $4500<br />
+    </div>
+  </div>
+  {{/if}} -->
+  <small>(Leaderboards Updated 9/17/2016 1:00 pm EST)</small><br />
+  {{#if (or (eq application.model.account.team "Coach") (eq application.model.account.role "superadmin"))}}
+    <div class="row" style="height: 120px; overflow-y: scroll; background-color: #f2c900; font-size: smaller">
+      <div class="col-md-6">
+        <strong>4th:</strong> Timothy Hillian 3<br />
+        <strong>5th:</strong> Terry McDonough 2<br />
+        <strong>5th:</strong> Sherry De La Cruz 2<br />
+        <strong>5th:</strong> Laura Marsh 2<br />
+        <strong>6th:</strong> Karuna Kangaratnam 1<br />
+        <strong>6th:</strong> Travoye McCray 1<br />
+        <strong>6th:</strong> Tammy Bee 1<br />
+        <strong>6th:</strong> Jeff Bigley 1<br />
+        <strong>6th:</strong> Glenn Bolton 1<br />
+        <strong>6th:</strong> Al Monteiro 1<br />
+        <strong>7th:</strong> Carlos Verdugo 0<br />
+        <strong>7th:</strong> Chiko Matenda 0<br />
+        <strong>7th:</strong> Leigh Fish 0<br />
+        <strong>7th:</strong> Sebastian Apelbaum 0<br />
+        <strong>7th:</strong> David Traub 0<br />
+        <strong>7th:</strong> Grant McDonnell 0<br />
+        <strong>7th:</strong> Steve Hamlin 0<br />
+        <strong>7th:</strong> Rachel O’Neill 0<br />
+        <strong>7th:</strong> Paul Finney 0<br />
+        <strong>7th:</strong> Chuck Powers 0<br />
+        <strong>7th:</strong> Daryl Larnach 0  <br />
+      </div>
+
+      <!-- {{#if (or (eq application.model.account.team "Traffic Coach") (eq application.model.account.role "superadmin"))}}
+      <div class="col-md-6">
+        <strong>5th:</strong> Regina Manuel $1125<br />
+        <strong>5th:</strong> Jason and Erika Miller $1125<br />
+        <strong>6th:</strong> Carlo Manf $0<br />
+        <strong>6th:</strong> Tony Albert $0<br />
+        <strong>6th:</strong> Corey Moore $0<br />
+        <strong>6th:</strong> David Amer $0<br />
+        <strong>6th:</strong> Christian Stevenson $0<br />
+        <strong>6th:</strong> Karen Otto $0<br />
+      </div>
+      {{/if}} -->
+    </div>
+  {{/if}}
   <small><strong>Points system:</strong> Full-pay Silver = 3 points, 2-pay Silver = 2 points</small>
 </div>
