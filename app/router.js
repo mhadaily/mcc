@@ -7,17 +7,17 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.modal('library-modal', {
-    withParams: ['fakeNumber'],
-    actions: {
-      dimiss: 'dimiss',
-    }
-  });
   this.modal('searchc-modal', {
     withParams: ['searchModal'],
     actions: {
       dimiss: 'dimiss',
       queryChanged: 'queryChanged'
+    }
+  });
+  this.modal('library-modal', {
+    withParams: ['fakeNumber'],
+    actions: {
+      dimiss: 'dimiss',
     }
   });
   this.route('dashboard');
