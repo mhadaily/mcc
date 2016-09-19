@@ -3,11 +3,10 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['searchc-modal'],
   actions: {
-    cancel() {
+    dismiss() {
       this.sendAction('dismiss');
     },
     queryChanged() {
-
 
     }
   }
