@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import DS from 'ember-data';
+import moment from 'moment';
 
 export default DS.Model.extend({
   notes: DS.hasMany(),
@@ -36,5 +37,9 @@ export default DS.Model.extend({
       if (tags[k].match(/agreement/i)) { result[k] = tags[k]; }
     }
     return result;
+  }),
+  utcOffsetFormat: Ember.computed(function() {
+    let sec = this.get('utcOffset');
+    return moment.duration(sec, 'seconds');
   })
 });
