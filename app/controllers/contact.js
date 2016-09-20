@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['backTo', 'step', 'taskrf', 'contactrf'],
+  queryParams: ['backTo', 'step', 'taskrf', 'contactrf', "sort", "sortDir", "query"],
   step: null,
   backTo: null,
   blink: null,
@@ -48,6 +48,9 @@ export default Ember.Controller.extend({
   notes: Ember.computed('model.notes.[]', 'model.notes.@each.date', function() {
     return this.get('model.notes').sortBy('date').reverse();
   }),
+  query: '',
+  sort: '',
+  sortDir: 'asc',
   actions: {
     taskChangeColor: function() {
       this.set('blink', 'blinker');

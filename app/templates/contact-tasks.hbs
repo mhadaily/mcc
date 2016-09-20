@@ -5,21 +5,32 @@
   <table class="table" data-sort="table">
     <thead>
       <tr>
-        <th class="header headerSortDown">Date</th>
-        <th class="header">Subject</th>
-        <th class="header">Status</th>
-        <th class="header">Outcome</th>
+        <th class="header {{if (eq tasks.meta.sort-attr-name 'date_due') (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+          {{link-to 'Due' (query-params sort="date_due" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+        </th>
+        <th class="header {{if (eq tasks.meta.sort-attr-name 'subject') (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+          {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+        </th>
+        <th class="header {{if (eq tasks.meta.sort-attr-name 'status') (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+          {{link-to 'Status' (query-params sort="status" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+        </th>
+        <th class="header {{if (eq tasks.meta.sort-attr-name 'outcome') (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+          {{link-to 'Outcome' (query-params sort="outcome" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+        </th>
       </tr>
     </thead>
     <tbody>
       {{#each tasks as |task|}}
-      <tr class="{{if task.isPending (if task.isOverdue 'warning') 'text-muted'}}">
-        <td>{{moment-format task.dateDue}}</td>
-        <td>{{#link-to (query-params taskrf=task.id) class=(if task.isPending '' 'text-muted')}} {{task.subject}} {{/link-to}}</td>
-        <td>{{task.status}}</td>
-        <td>{{task.outcome}}</td>
-      </tr>
+        <tr class="{{if task.isPending (if task.isOverdue 'warning') 'text-muted'}}">
+          <td>{{moment-format task.dateDue}}</td>
+          <td>
+            {{#link-to (query-params taskrf=task.id) class=(if task.isPending '' 'text-muted')}} {{task.subject}} {{/link-to}}
+          </td>
+          <td>{{task.status}}</td>
+          <td>{{task.outcome}}</td>
+        </tr>
       {{/each}}
     </tbody>
   </table>
 </div>
+
