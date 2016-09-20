@@ -9,6 +9,22 @@ export default Ember.Controller.extend({
   taskOwners: [
     'my calls', 'all calls'
   ],
+  utcHour: Ember.computed(function() {
+    let i = 0;
+    let arr = [];
+    for (i; i <= 24; i++) {
+      arr.push(i);
+    }
+    return arr;
+  }),
+  utcMin: Ember.computed(function() {
+    let i = 0;
+    let arr = [];
+    for (i; i <= 60; i++) {
+      arr.push(i);
+    }
+    return arr;
+  }),
   contact: null,
   contactTrim: Ember.computed('contact', {
     get( /* key */ ) {

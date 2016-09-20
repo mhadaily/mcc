@@ -28,7 +28,17 @@
       {{ember-selectize content=taskOwners selection=user_name placeholder="select owner" }}
     </div>
     <div class="form-group">
-      {{ember-selectize content=hour selection=status_eq placeholder="Select Hour" }} {{ember-selectize content=min selection=status_eq placeholder="Select Min" }}
+      <div class="row">
+        <div class="hr-divider m-t">
+          <h3 class="hr-divider-content hr-divider-heading">Clients Time</h3>
+        </div>
+        <div class="col-md-12">From:</div>
+        <div class="col-md-6">{{ember-selectize content=utcHour selection=utcHour placeholder="H" }} </div>
+        <div class="col-md-6">{{ember-selectize content=utcMin selection=utcMin placeholder="M" }}</div>
+        <div class="col-md-12">to:</div>
+        <div class="col-md-6">{{ember-selectize content=utcHour selection=utcHourTo placeholder="H" }} </div>
+        <div class="col-md-6">{{ember-selectize content=utcMin selection=utcMinTo placeholder="M" }}</div>
+      </div>
     </div>
     <button type="submit" class="btn btn-block btn-primary">Search</button>
   </form>
