@@ -5,7 +5,8 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   queryParams: {
     sort: { refreshModel: true },
-    sortDir: { refreshModel: true }
+    sortDir: { refreshModel: true },
+    contact: { replace: true },
   },
   page: 1,
   perPage: 20,
@@ -13,7 +14,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
     return this.findPaged('contact', {
       paramMapping: { total_pages: "total-pages" },
       q: {
-        name_or_email_or_reference_cont: params.contact,
+        name_or_email_or_reference_cont: Ember.$.trim(params.contact),
         step_eq_with_blank: params.step,
         home_phone_cont: params.home_phone,
         skype_id_cont: params.skype_id,

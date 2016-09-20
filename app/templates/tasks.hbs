@@ -1,4 +1,4 @@
-  <div class="search-col">
+<div class="search-col">
   <div class="dashhead">
     <h2 class="dashhead-title">Calls</h2>
   </div>
@@ -10,16 +10,16 @@
       {{bootstrap-datepicker value=endDateToJSDate format="yyyy-mm-dd" placeholder="due date (to)" class="form-control" autoclose=true forceDateValue=true}}
     </div>
     <div class="form-group">
-      {{input type="text" value=contact class="form-control" placeholder="search contact"}}
+      {{input type="text" value=contactTrim class="form-control" placeholder="search contact"}}
     </div>
     <div class="form-group">
-      {{input type="text" value=subject class="form-control" placeholder="search subject"}}
+      {{input type="text" value=subjectTrim class="form-control" placeholder="search subject"}}
     </div>
     <div class="form-group">
-      {{input type="text" value=contact_step class="form-control" placeholder="search step"}}
+      {{input type="text" value=contact_stepTrim class="form-control" placeholder="search step"}}
     </div>
     <div class="form-group">
-      {{input type="text" value=contact_time_zone class="form-control" placeholder="search timezone"}}
+      {{input type="text" value=contact_time_zoneTrim class="form-control" placeholder="search timezone"}}
     </div>
     <div class="form-group">
       {{ember-selectize content=statuses selection=status_eq placeholder="select status" }}
@@ -67,27 +67,29 @@
             </tr>
           </thead>
           {{#if model.loading}}
-          <div class="padding-200">
-            {{ember-spinner}}
-          </div>
-          {{else}}
-          <tbody>
-            {{#unless model.length}}
-            <div class="m-a-1">
-              Your search returned no result
+            <div class="padding-200">
+              {{ember-spinner}}
             </div>
-            {{else}} {{#each model as |task|}}
-            <tr class="{{if task.isOverdue 'warning'}}">
-              <td class="{{if task.isOverdue 'text-danger'}}">{{moment-format task.dateDue}}</td>
-              <td>{{link-to task.subject 'task' task}}</td>
-              <td>{{task.contact.name}}</td>
-              <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
-              <td>{{task.contact.timeZone}}</td>
-              <td>{{task.status}}</td>
-              <td>{{task.outcome}}</td>
-            </tr>
-            {{/each}} {{/unless}}
-          </tbody>
+          {{else}}
+            <tbody>
+              {{#unless model.length}}
+                <div class="m-a-1">
+                  Your search returned no result
+                </div>
+          {{else}}
+            {{#each model as |task|}}
+              <tr class="{{if task.isOverdue 'warning'}}">
+                <td class="{{if task.isOverdue 'text-danger'}}">{{moment-format task.dateDue}}</td>
+                <td>{{link-to task.subject 'task' task}}</td>
+                <td>{{task.contact.name}}</td>
+                <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+                <td>{{task.contact.timeZone}}</td>
+                <td>{{task.status}}</td>
+                <td>{{task.outcome}}</td>
+              </tr>
+            {{/each}}
+              {{/unless}}
+            </tbody>
           {{/if}}
         </table>
       </div>
@@ -95,3 +97,4 @@
   </div>
 </div>
 {{outlet}}
+

@@ -4,22 +4,22 @@
   </div>
   <form {{action 'queryChanged' on="submit" }} class="form">
     <div class="form-group">
-      {{input type="text" value=contact class="form-control" placeholder="Name/Email/Ref"}}
+      {{input type="text" value=contactTrim class="form-control" placeholder="Name/Email/Ref"}}
     </div>
     <div class="form-group">
-      {{input type="text" value=step class="form-control" placeholder="Current Step"}}
+      {{input type="text" value=stepTrim class="form-control" placeholder="Current Step"}}
     </div>
     <div class="form-group">
-      {{input type="text" value=home_phone class="form-control" placeholder="Phone Number"}}
+      {{input type="text" value=home_phoneTrim class="form-control" placeholder="Phone Number"}}
     </div>
     <div class="form-group">
-      {{input type="text" value=skype_id class="form-control" placeholder="Skype ID"}}
+      {{input type="text" value=skype_idTrim class="form-control" placeholder="Skype ID"}}
     </div>
     <div class="form-group">
-      {{input type="text" value=country_or_state class="form-control" placeholder="Country or State"}}
+      {{input type="text" value=country_or_stateTrim class="form-control" placeholder="Country or State"}}
     </div>
     <div class="form-group">
-      {{input type="text" value=time_zone class="form-control" placeholder="Time Zone"}}
+      {{input type="text" value=time_zoneTrim class="form-control" placeholder="Time Zone"}}
     </div>
     <button type="submit" class="btn btn-block btn-primary">Search</button>
   </form>
@@ -67,28 +67,30 @@
             </tr>
           </thead>
           {{#if model.loading}}
-          <div class="padding-200">
-            {{ember-spinner}}
-          </div>
-          {{else}}
-          <tbody>
-            {{#unless model.length}}
-            <div class="m-a-1">
-              Your search returned no result
+            <div class="padding-200">
+              {{ember-spinner}}
             </div>
-            {{else}} {{#each model as |contact|}}
-            <tr>
-              <td>{{link-to (or contact.name '[unnamed]') 'contact' contact}}</td>
-              <td>{{link-to (or contact.email '[no email]') 'contact' contact}}</td>
-              <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step '0'}}</td>
-              <td>{{contact.homePhone}}</td>
-              <td>{{contact.skypeId}}</td>
-              <td>{{contact.country}}</td>
-              <td>{{contact.state}}</td>
-              <td>{{contact.timeZone}}</td>
-            </tr>
-            {{/each}} {{/unless}}
-          </tbody>
+          {{else}}
+            <tbody>
+              {{#unless model.length}}
+                <div class="m-a-1">
+                  Your search returned no result
+                </div>
+          {{else}}
+            {{#each model as |contact|}}
+              <tr>
+                <td>{{link-to (or contact.name '[unnamed]') 'contact' contact}}</td>
+                <td>{{link-to (or contact.email '[no email]') 'contact' contact}}</td>
+                <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step '0'}}</td>
+                <td>{{contact.homePhone}}</td>
+                <td>{{contact.skypeId}}</td>
+                <td>{{contact.country}}</td>
+                <td>{{contact.state}}</td>
+                <td>{{contact.timeZone}}</td>
+              </tr>
+            {{/each}}
+              {{/unless}}
+            </tbody>
           {{/if}}
         </table>
       </div>
@@ -96,3 +98,4 @@
   </div>
 </div>
 {{outlet}}
+
