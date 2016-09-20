@@ -5,6 +5,11 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import moment from 'moment';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
+  queryParams: {
+    sort: { refreshModel: true },
+    sortDir: { refreshModel: true },
+  },
+
   perPage: 15,
   model(params) {
     let headers = {};

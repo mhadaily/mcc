@@ -36,20 +36,28 @@
         <table class="table table-condensed" data-sort="table">
           <thead>
             <tr>
-              <th class="header headerSortUp">Due</th>
-              <th class="header">Subject</th>
-              <th class="header">Client</th>
-              <th class="header">Step</th>
+              <th class="header {{if (eq model.todayTasks.meta.sort-attr-name 'date_due') (if (eq model.todayTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Due' (query-params sort="date_due" sortDir=(if (eq model.todayTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.todayTasks.meta.sort-attr-name 'subject') (if (eq model.todayTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq model.todayTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.todayTasks.meta.sort-attr-name 'name') (if (eq model.todayTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Client' (query-params sort="contact_name" sortDir=(if (eq model.todayTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.todayTasks.meta.sort-attr-name 'step') (if (eq model.todayTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.todayTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
             </tr>
           </thead>
           <tbody>
             {{#each model.todayTasks as |task|}}
-            <tr>
-              <td>{{moment-format task.dateDue}}</td>
-              <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
-              <td>{{task.contact.name}}</td>
-              <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
-            </tr>
+              <tr>
+                <td>{{moment-format task.dateDue}}</td>
+                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
+                <td>{{task.contact.name}}</td>
+                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+              </tr>
             {{/each}}
           </tbody>
         </table>
@@ -71,20 +79,28 @@
         <table class="table table-condensed" data-sort="table">
           <thead>
             <tr>
-              <th class="header headerSortUp">Due</th>
-              <th class="header">Subject</th>
-              <th class="header">Client</th>
-              <th class="header">Step</th>
+              <th class="header {{if (eq model.overdueTasks.meta.sort-attr-name 'date_due') (if (eq model.overdueTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Due' (query-params sort="date_due" sortDir=(if (eq model.overdueTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.overdueTasks.meta.sort-attr-name 'subject') (if (eq model.overdueTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq model.overdueTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.overdueTasks.meta.sort-attr-name 'name') (if (eq model.overdueTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Client' (query-params sort="contact_name" sortDir=(if (eq model.overdueTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.overdueTasks.meta.sort-attr-name 'step') (if (eq model.overdueTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.overdueTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
             </tr>
           </thead>
           <tbody>
             {{#each model.overdueTasks as |task|}}
-            <tr>
-              <td>{{moment-format task.dateDue}}</td>
-              <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
-              <td>{{task.contact.name}}</td>
-              <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
-            </tr>
+              <tr>
+                <td>{{moment-format task.dateDue}}</td>
+                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
+                <td>{{task.contact.name}}</td>
+                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+              </tr>
             {{/each}}
           </tbody>
         </table>
@@ -106,19 +122,28 @@
         <table class="table table-condensed" data-sort="table">
           <thead>
             <tr>
-              <th class="header headerSortUp">Due</th>
-              <th class="header">Subject</th>
-              <th class="header">Client</th>
+              <th class="header {{if (eq model.futureTasks.meta.sort-attr-name 'date_due') (if (eq model.futureTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Due' (query-params sort="date_due" sortDir=(if (eq model.futureTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.futureTasks.meta.sort-attr-name 'subject') (if (eq model.futureTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq model.futureTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.futureTasks.meta.sort-attr-name 'name') (if (eq model.futureTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Client' (query-params sort="contact_name" sortDir=(if (eq model.futureTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.futureTasks.meta.sort-attr-name 'step') (if (eq model.futureTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.futureTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
             </tr>
           </thead>
           <tbody>
             {{#each model.futureTasks as |task|}}
-            <tr>
-              <td>{{moment-format task.dateDue}}</td>
-              <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
-              <td>{{task.contact.name}}</td>
-              <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
-            </tr>
+              <tr>
+                <td>{{moment-format task.dateDue}}</td>
+                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
+                <td>{{task.contact.name}}</td>
+                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+              </tr>
             {{/each}}
           </tbody>
         </table>
@@ -140,22 +165,30 @@
         <table class="table table-condensed" data-sort="table">
           <thead>
             <tr>
-              <th class="header headerSortUp">Due</th>
-              <th class="header">Subject</th>
-              <th class="header">Client</th>
-              <th class="header">Step</th>
+              <th class="header {{if (eq model.completedTasks.meta.sort-attr-name 'date_due') (if (eq model.completedTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Due' (query-params sort="date_due" sortDir=(if (eq model.completedTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.completedTasks.meta.sort-attr-name 'subject') (if (eq model.completedTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq model.completedTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.completedTasks.meta.sort-attr-name 'name') (if (eq model.completedTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Client' (query-params sort="contact_name" sortDir=(if (eq model.completedTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.completedTasks.meta.sort-attr-name 'step') (if (eq model.completedTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.completedTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
               <th class="header">Completed</th>
             </tr>
           </thead>
           <tbody>
             {{#each model.completedTasks as |task|}}
-            <tr>
-              <td>{{moment-format task.dateDue}}</td>
-              <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
-              <td>{{task.contact.name}}</td>
-              <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
-              <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
-            </tr>
+              <tr>
+                <td>{{moment-format task.dateDue}}</td>
+                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
+                <td>{{task.contact.name}}</td>
+                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+                <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
+              </tr>
             {{/each}}
           </tbody>
         </table>
@@ -177,20 +210,28 @@
         <table class="table table-condensed" data-sort="table">
           <thead>
             <tr>
-              <th class="header headerSortUp">Due</th>
-              <th class="header">Subject</th>
-              <th class="header">Client</th>
-              <th class="header">Step</th>
+              <th class="header {{if (eq model.cancelledTasks.meta.sort-attr-name 'date_due') (if (eq model.cancelledTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Due' (query-params sort="date_due" sortDir=(if (eq model.cancelledTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.cancelledTasks.meta.sort-attr-name 'subject') (if (eq model.cancelledTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq model.cancelledTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.cancelledTasks.meta.sort-attr-name 'name') (if (eq model.cancelledTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Client' (query-params sort="contact_name" sortDir=(if (eq model.cancelledTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.cancelledTasks.meta.sort-attr-name 'step') (if (eq model.cancelledTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.cancelledTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
             </tr>
           </thead>
           <tbody>
             {{#each model.cancelledTasks as |task|}}
-            <tr>
-              <td>{{moment-format task.dateDue}}</td>
-              <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
-              <td>{{task.contact.name}}</td>
-              <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
-            </tr>
+              <tr>
+                <td>{{moment-format task.dateDue}}</td>
+                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
+                <td>{{task.contact.name}}</td>
+                <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+              </tr>
             {{/each}}
           </tbody>
         </table>
@@ -198,3 +239,4 @@
     </div>
   </div>
 </div>
+
