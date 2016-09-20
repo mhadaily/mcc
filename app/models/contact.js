@@ -18,6 +18,7 @@ export default DS.Model.extend({
   l1MttbCoach: DS.attr(),
   l2MttbCoach: DS.attr(),
   timeZone: DS.attr(),
+  utcOffset: DS.attr(),
   city: DS.attr(),
   state: DS.attr(),
   country: DS.attr(),
