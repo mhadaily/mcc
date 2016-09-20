@@ -1,12 +1,12 @@
 <div class="container-fluid p-t">
   <div class="dashhead dashhead-solid">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-3">
         <div class="dashhead-titles">
           <h3 class="dashhead-title"> <span> {{link-to '<< Calls' (or backTo 'tasks')}} </span> | CLIENT: {{or contact.name 'unnamed'}}</h3>
         </div>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-9">
         <ul class="nav nav-bordered pull-right">
           <li>
             <h2 class="statcard-number">Step: <strong>{{or contact.step '0'}}</strong>&nbsp;</h2>
@@ -25,6 +25,9 @@
               {{link-to 'Reschedule Call' (query-params taskrf=model.id) tagName="button" class="btn btn-sm btn-primary"}}
             </li>
           {{/if}}
+          <li>
+            <button class="btn btn-sm btn-primary" target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{contact.reference}}">Link to OAP</button>
+          </li>
         </ul>
       </div>
     </div>
