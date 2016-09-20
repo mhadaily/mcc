@@ -24,6 +24,9 @@
     <div class="form-group">
       {{ember-selectize content=statuses selection=status_eq placeholder="select status" }}
     </div>
+    <div class="form-group">
+      {{ember-selectize content=taskOwners selection=user_name placeholder="select owner" }}
+    </div>
     <button type="submit" class="btn btn-block btn-primary">Search</button>
   </form>
 </div>
@@ -51,6 +54,9 @@
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Client' (query-params sort="contact_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Owner' (query-params sort="user_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
@@ -82,6 +88,7 @@
                 <td class="{{if task.isOverdue 'text-danger'}}">{{moment-format task.dateDue}}</td>
                 <td>{{link-to task.subject 'task' task}}</td>
                 <td>{{task.contact.name}}</td>
+                <td>{{task.user.name}}</td>
                 <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
                 <td>{{task.contact.timeZone}}</td>
                 <td>{{task.status}}</td>
@@ -97,4 +104,3 @@
   </div>
 </div>
 {{outlet}}
-

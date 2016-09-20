@@ -5,7 +5,10 @@ export default Ember.Controller.extend({
   statuses: [
     'all status', 'pending', 'completed', 'cancelled'
   ],
-  queryParams: ["contact", "contact_step", "contact_time_zone", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "query", "page", "perPage", "sort", "sortDir"],
+  queryParams: ["contact", "contact_step", "contact_time_zone", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "user_name", "query", "page", "perPage", "sort", "sortDir"],
+  taskOwners: [
+    'my tasks', 'all tasks'
+  ],
   contact: null,
   contactTrim: Ember.computed('contact', {
     get( /* key */ ) {
@@ -67,6 +70,7 @@ export default Ember.Controller.extend({
     }
   }),
   status_eq: 'pending',
+  user_name: 'my tasks',
   query: '',
   sort: '',
   sortDir: 'asc'

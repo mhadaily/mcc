@@ -14,6 +14,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   page: 1,
   perPage: 20,
   model(params) {
+    let user_name = this.modelFor('application').account.get('name');
     return this.findPaged('task', {
       paramMapping: { total_pages: "total-pages" },
       q: {
@@ -24,6 +25,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
         date_due_gteq: params.date_due_gteq,
         date_due_lteq: params.date_due_lteq,
         status_eq: (params.status_eq === 'all status' ? '' : params.status_eq),
+        user_name_eq: (params.user_name === 'all tasks' ? '' : user_name),
         s: `${params.sort} ${params.sortDir}`
       }
     });
