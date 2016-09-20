@@ -17,14 +17,6 @@ export default Ember.Controller.extend({
     }
     return arr;
   }),
-  utcMin: Ember.computed(function() {
-    let i = 0;
-    let arr = [];
-    for (i; i <= 60; i++) {
-      arr.push(i);
-    }
-    return arr;
-  }),
   contact: null,
   contactTrim: Ember.computed('contact', {
     get( /* key */ ) {

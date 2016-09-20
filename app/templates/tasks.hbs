@@ -30,14 +30,12 @@
     <div class="form-group">
       <div class="row">
         <div class="hr-divider m-t">
-          <h3 class="hr-divider-content hr-divider-heading">Clients Time</h3>
+          <h3 class="hr-divider-content hr-divider-heading">Client's Time</h3>
         </div>
-        <div class="col-md-12">From:</div>
-        <div class="col-md-6">{{ember-selectize content=utcHour selection=utcHour placeholder="H" }} </div>
-        <div class="col-md-6">{{ember-selectize content=utcMin selection=utcMin placeholder="M" }}</div>
-        <div class="col-md-12">to:</div>
+        <div class="col-md-6">From:</div>
+        <div class="col-md-6">To:</div>
+        <div class="col-md-6">{{ember-selectize content=utcHour selection=utcHourFrom placeholder="H" }} </div>
         <div class="col-md-6">{{ember-selectize content=utcHour selection=utcHourTo placeholder="H" }} </div>
-        <div class="col-md-6">{{ember-selectize content=utcMin selection=utcMinTo placeholder="M" }}</div>
       </div>
     </div>
     <button type="submit" class="btn btn-block btn-primary">Search</button>
