@@ -15,6 +15,7 @@ export default DS.Model.extend({
   source: DS.attr(),
   email: DS.attr(),
   homePhone: DS.attr(),
+  cellPhone: DS.attr(),
   step: DS.attr(),
   l1MttbCoach: DS.attr(),
   l2MttbCoach: DS.attr(),
