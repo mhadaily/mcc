@@ -20,7 +20,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
     return this.findPaged('task', {
       paramMapping: { total_pages: "total-pages" },
       q: {
-        contact_name_cont: Ember.$.trim(params.contact),
+        contact_name_or_contact_email_or_contact_reference_cont: Ember.$.trim(params.contact),
         contact_step_eq: Ember.$.trim(params.contact_step),
         contact_time_zone_cont: Ember.$.trim(params.contact_time_zone),
         subject_cont: Ember.$.trim(params.subject),
