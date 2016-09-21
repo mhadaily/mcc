@@ -76,7 +76,7 @@
                 {{link-to 'Time Zone' (query-params sort="contact_time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'utcOffset') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Offset' (query-params sort="contact_utcOffset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+                {{link-to 'Offset' (query-params sort="contact_utc_offset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'status') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Status' (query-params sort="status" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
