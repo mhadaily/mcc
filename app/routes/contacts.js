@@ -15,7 +15,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       paramMapping: { total_pages: "total-pages" },
       q: {
         name_or_email_or_reference_cont: Ember.$.trim(params.contact),
-        step_eq_with_blank: Ember.$.trim(params.step),
+        step_eq_with_blank: Ember.$.trim(params.step) === '0' ? '_blank' : Ember.$.trim(params.step),
         home_phone_cont: Ember.$.trim(params.home_phone),
         skype_id_cont: Ember.$.trim(params.skype_id),
         time_zone_cont: Ember.$.trim(params.time_zone),
