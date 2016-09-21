@@ -5,32 +5,31 @@ export default Ember.Controller.extend({
   statuses: [
     'all status', 'pending', 'completed', 'cancelled'
   ],
-  queryParams: ["contact", 'utc_offset', 'offsetFromSec', 'offsetToSec', "contact_step", "contact_time_zone", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "user_name", "query", "page", "perPage", "sort", "sortDir"],
+  queryParams: ["contact", 'offset_from', 'offset_to', "contact_step", "contact_time_zone", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "user_name", "query", "page", "perPage", "sort", "sortDir"],
   taskOwners: [
     'my calls', 'all calls'
   ],
-  utc_offset: null,
-  offsetFromSec: null,
-  utcHourFromAction: Ember.computed('offsetFromSec', {
+  offset_from: null,
+  utcHourFromAction: Ember.computed('offset_from', {
     get( /* key */ ) {
-      return this.get('offsetFromSec') ? Ember.$.trim(this.get('offsetFromSec')) : null;
+      return this.get('offset_from') ? Ember.$.trim(this.get('offset_from')) : null;
     },
     set(key, value) {
       let now = moment().utc().hour();
       let diff = (value - now) * 60 * 60;
-      this.set('offsetFromSec', value ? diff : '');
+      this.set('offset_from', value ? diff : '');
       return value;
     }
   }),
-  offsetToSec: null,
-  utcHourToAction: Ember.computed('offsetToSec', {
+  offset_to: null,
+  utcHourToAction: Ember.computed('offset_to', {
     get( /* key */ ) {
-      return this.get('offsetToSec') ? Ember.$.trim(this.get('offsetToSec')) : null;
+      return this.get('offset_to') ? Ember.$.trim(this.get('offset_to')) : null;
     },
     set(key, value) {
       let now = moment().utc().hour();
       let diff = (value - now) * 60 * 60;
-      this.set('offsetToSec', value ? diff : '');
+      this.set('offset_to', value ? diff : '');
       return value;
     }
   }),
