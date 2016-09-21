@@ -20,6 +20,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
         cell_phone_cont: Ember.$.trim(params.cell_phone),
         skype_id_cont: Ember.$.trim(params.skype_id),
         time_zone_cont: Ember.$.trim(params.time_zone),
+        utc_offset_gteq: Ember.$.trim(params.offset_from),
+        utc_offset_lt: Ember.$.trim(params.offset_to),
         country_or_state_cont: Ember.$.trim(params.country_or_state),
         s: `${params.sort} ${params.sortDir}`
       }

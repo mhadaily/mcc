@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
   offset_from: null,
   utcHourFromAction: Ember.computed('offset_from', {
     get( /* key */ ) {
-      return this.get('offset_from') ? Ember.$.trim(this.get('offset_from')) : ' ';
+      return this.get('offset_from') ? Ember.$.trim(this.get('offset_from')) : 'N/A';
     },
     set(key, value) {
       let now = moment().utc().hour();
@@ -24,7 +24,7 @@ export default Ember.Controller.extend({
   offset_to: null,
   utcHourToAction: Ember.computed('offset_to', {
     get( /* key */ ) {
-      return this.get('offset_to') ? Ember.$.trim(this.get('offset_to')) : ' ';
+      return this.get('offset_to') ? Ember.$.trim(this.get('offset_to')) : 'N/A';
     },
     set(key, value) {
       let now = moment().utc().hour();
