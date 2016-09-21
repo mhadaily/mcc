@@ -8,7 +8,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
     sort: { refreshModel: true },
     sortDir: { refreshModel: true },
     date_due_gteq: { replace: true },
-    date_due_lteq: { replace: true }
+    date_due_lteq: { replace: true },
+    offsetFromSec: { replace: true },
+    offsetToSec: { replace: true }
   },
 
   page: 1,

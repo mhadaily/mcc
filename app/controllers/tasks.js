@@ -10,7 +10,29 @@ export default Ember.Controller.extend({
     'my calls', 'all calls'
   ],
   offsetFromSec: null,
+  utcHourFromAction: Ember.computed('offsetFromSec', {
+    get( /* key */ ) {
+      return this.get('offsetFromSec') ? Ember.$.trim(this.get('offsetFromSec')) : null;
+    },
+    set(key, value) {
+      let now = moment().utc().hour();
+      let diff = (value - now) * 60 * 60;
+      this.set('offsetFromSec', value ? diff : '');
+      return value;
+    }
+  }),
   offsetToSec: null,
+  utcHourToAction: Ember.computed('offsetToSec', {
+    get( /* key */ ) {
+      return this.get('offsetToSec') ? Ember.$.trim(this.get('offsetToSec')) : null;
+    },
+    set(key, value) {
+      let now = moment().utc().hour();
+      let diff = (value - now) * 60 * 60;
+      this.set('offsetToSec', value ? diff : '');
+      return value;
+    }
+  }),
   utcHour: Ember.computed(function() {
     let i = 0;
     let arr = [];
@@ -19,7 +41,6 @@ export default Ember.Controller.extend({
     }
     return arr;
   }),
-
   contact: null,
   contactTrim: Ember.computed('contact', {
     get( /* key */ ) {
@@ -84,21 +105,5 @@ export default Ember.Controller.extend({
   user_name: 'my calls',
   query: '',
   sort: '',
-  sortDir: 'asc',
-  actions: {
-    utcHourFromAction() {
-      let now = moment().utc().hour();
-      let nowFrom = this.get('utcHourFrom');
-      let offsetFromHour = nowFrom - now;
-      let offsetFromSec = offsetFromHour * 60 * 60;
-      return this.set('offsetFromSec', offsetFromSec);
-    },
-    utcHourToAction() {
-      let now = moment().utc().hour();
-      let nowTo = this.get('utcHourTo');
-      let offsetToHour = nowTo - now;
-      let offsetToSec = offsetToHour * 60 * 60;
-      return this.set('offsetToSec', offsetToSec);
-    }
-  }
+  sortDir: 'asc'
 });
