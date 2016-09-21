@@ -20,14 +20,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
     return this.findPaged('task', {
       paramMapping: { total_pages: "total-pages" },
       q: {
-        contact_name_cont: params.contact,
-        contact_step_eq: params.contact_step,
-        contact_time_zone_cont: params.contact_time_zone,
-        subject_cont: params.subject,
-        date_due_gteq: params.date_due_gteq,
-        date_due_lteq: params.date_due_lteq,
-        offset_from: params.offsetFromSec,
-        offset_to: params.offsetToSec,
+        contact_name_cont: Ember.$.trim(params.contact),
+        contact_step_eq: Ember.$.trim(params.contact_step),
+        contact_time_zone_cont: Ember.$.trim(params.contact_time_zone),
+        subject_cont: Ember.$.trim(params.subject),
+        date_due_gteq: Ember.$.trim(params.date_due_gteq),
+        date_due_lteq: Ember.$.trim(params.date_due_lteq),
+        contact_utc_offset_gteq: Ember.$.trim(params.offset_from),
+        contact_utc_offset_lt: Ember.$.trim(params.offset_to),
         status_eq: (params.status_eq === 'all status' ? '' : params.status_eq),
         user_name_eq: (params.user_name === 'all calls' ? '' : user_name),
         s: `${params.sort} ${params.sortDir}`
