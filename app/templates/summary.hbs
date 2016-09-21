@@ -1,23 +1,25 @@
 {{#if task}}
-<div class="hr-divider m-y">
-  <h3 class="hr-divider-content hr-divider-heading">Call&nbsp;</h3>
-</div>
-<dl>
-  <dt>Date Due:</dt>
-  <dd>{{moment-format task.dateDue}}&nbsp;</dd>
-  <dt>Subject:</dt>
-  <dd>{{task.subject}}&nbsp;</dd>
-  <dt>Client:</dt>
-  <dd>{{task.contact.name}}&nbsp;</dd>
-  <dt>Step:</dt>
-  <dd>{{or task.contact.step 0}}&nbsp;</dd>
-  <dt>Status:</dt>
-  <dd>{{task.status}}&nbsp;</dd>
-  <dt>Outcome:</dt>
-  <dd>{{task.outcome}}&nbsp;</dd>
-  <dt>Reference:</dt>
-  <dd>{{task.reference}}&nbsp;</dd>
-</dl>
+  <div class="hr-divider m-y">
+    <h3 class="hr-divider-content hr-divider-heading">Call&nbsp;</h3>
+  </div>
+  <dl>
+    <dt>Owner:</dt>
+    <dd>{{model.user.name}}&nbsp;</dd>
+    <dt>Date Due:</dt>
+    <dd>{{moment-format task.dateDue}}&nbsp;</dd>
+    <dt>Subject:</dt>
+    <dd>{{task.subject}}&nbsp;</dd>
+    <dt>Client:</dt>
+    <dd>{{task.contact.name}}&nbsp;</dd>
+    <dt>Step:</dt>
+    <dd>{{or task.contact.step 0}}&nbsp;</dd>
+    <dt>Status:</dt>
+    <dd>{{task.status}}&nbsp;</dd>
+    <dt>Outcome:</dt>
+    <dd>{{task.outcome}}&nbsp;</dd>
+    <dt>Reference:</dt>
+    <dd>{{task.reference}}&nbsp;</dd>
+  </dl>
 {{/if}}
 <div class="hr-divider m-y">
   <h3 class="hr-divider-content hr-divider-heading">Client&nbsp;</h3>
@@ -47,6 +49,7 @@
 </div>
 <ul>
   {{#each-in (or model.agreementTags model.contact.agreementTags) as |key value|}}
-  <li>{{key}}: {{value}}</li>
+    <li>{{key}}: {{value}}</li>
   {{/each-in}}
 </ul>
+

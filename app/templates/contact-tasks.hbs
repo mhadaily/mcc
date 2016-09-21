@@ -17,6 +17,9 @@
         <th class="header {{if (eq tasks.meta.sort-attr-name 'outcome') (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
           {{link-to 'Outcome' (query-params sort="outcome" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
         </th>
+        <th class="header ">
+          Owner
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +31,7 @@
           </td>
           <td>{{task.status}}</td>
           <td>{{task.outcome}}</td>
+          <td>{{task.user.name}}</td>
         </tr>
       {{/each}}
     </tbody>
