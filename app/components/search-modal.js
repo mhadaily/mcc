@@ -12,11 +12,12 @@ export default Ember.Component.extend({
       let step = Ember.$.trim(this.get('step'));
       let country_or_state = Ember.$.trim(this.get('country_or_state'));
       let home_phone = Ember.$.trim(this.get('home_phone'));
+      let home_phone = Ember.$.trim(this.get('cell_phone'));
       let skype_id = Ember.$.trim(this.get('skype_id'));
       let time_zone = Ember.$.trim(this.get('time_zone'));
 
       this.sendAction('dismiss');
-      this.sendAction('queryChanged', contact, step, country_or_state, home_phone, skype_id, time_zone);
+      this.sendAction('queryChanged', contact, step, country_or_state, home_phone, cell_phone, skype_id, time_zone);
     }
   }
 });
