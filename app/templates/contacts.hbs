@@ -24,6 +24,17 @@
     <div class="form-group">
       {{input type="text" value=time_zone class="form-control" placeholder="Time Zone"}}
     </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="hr-divider m-t">
+          <h3 class="hr-divider-content hr-divider-heading">Client's Time</h3>
+        </div>
+        <div class="col-md-6">From:</div>
+        <div class="col-md-6">To:</div>
+        <div class="col-md-6">{{ember-selectize content=utcHour selection=utcHourFromAction placeholder="H"}} </div>
+        <div class="col-md-6">{{ember-selectize content=utcHour selection=utcHourToAction placeholder="H"}} </div>
+      </div>
+    </div>
     <button type="submit" class="btn btn-block btn-primary">Search</button>
   </form>
 </div>
@@ -70,6 +81,9 @@
               <th class="header {{if (eq model.meta.sort-attr-name 'time_zone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Time Zone' (query-params sort="time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'utc_offset') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Offset' (query-params sort="utc_offset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
             </tr>
           </thead>
           {{#if model.loading}}
@@ -94,6 +108,7 @@
                 <td>{{contact.country}}</td>
                 <td>{{contact.state}}</td>
                 <td>{{contact.timeZone}}</td>
+                <td>{{contact.utcOffsetFormat}}</td>
               </tr>
             {{/each}}
               {{/unless}}
