@@ -5,10 +5,11 @@ export default Ember.Controller.extend({
   statuses: [
     'all status', 'pending', 'completed', 'cancelled'
   ],
-  queryParams: ["contact", 'offsetFromSec', 'offsetToSec', "contact_step", "contact_time_zone", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "user_name", "query", "page", "perPage", "sort", "sortDir"],
+  queryParams: ["contact", 'utc_offset', 'offsetFromSec', 'offsetToSec', "contact_step", "contact_time_zone", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "user_name", "query", "page", "perPage", "sort", "sortDir"],
   taskOwners: [
     'my calls', 'all calls'
   ],
+  utc_offset: null,
   offsetFromSec: null,
   utcHourFromAction: Ember.computed('offsetFromSec', {
     get( /* key */ ) {

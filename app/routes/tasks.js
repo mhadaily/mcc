@@ -26,6 +26,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
         subject_cont: params.subject,
         date_due_gteq: params.date_due_gteq,
         date_due_lteq: params.date_due_lteq,
+        offset_from: params.offsetFromSec,
+        offset_to: params.offsetToSec,
         status_eq: (params.status_eq === 'all status' ? '' : params.status_eq),
         user_name_eq: (params.user_name === 'all calls' ? '' : user_name),
         s: `${params.sort} ${params.sortDir}`
