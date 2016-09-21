@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
   taskOwners: [
     'my calls', 'all calls'
   ],
-  offset_from: ' ',
+  offset_from: null,
   utcHourFromAction: Ember.computed('offset_from', {
     get( /* key */ ) {
       return this.get('offset_from') ? Ember.$.trim(this.get('offset_from')) : ' ';
@@ -17,11 +17,11 @@ export default Ember.Controller.extend({
     set(key, value) {
       let now = moment().utc().hour();
       let diff = (value - now) * 60 * 60;
-      this.set('offset_from', value ? diff : '');
+      this.set('offset_from', value === 'N/A' ? null : diff);
       return value;
     }
   }),
-  offset_to: ' ',
+  offset_to: null,
   utcHourToAction: Ember.computed('offset_to', {
     get( /* key */ ) {
       return this.get('offset_to') ? Ember.$.trim(this.get('offset_to')) : ' ';
@@ -29,13 +29,13 @@ export default Ember.Controller.extend({
     set(key, value) {
       let now = moment().utc().hour();
       let diff = (value - now) * 60 * 60;
-      this.set('offset_to', value ? diff : '');
+      this.set('offset_to', value === 'N/A' ? null : diff);
       return value;
     }
   }),
   utcHour: Ember.computed(function() {
     let i = 0;
-    let arr = ['n/a'];
+    let arr = ['N/A'];
     for (i; i <= 24; i++) {
       arr.push(i);
     }
