@@ -82,7 +82,7 @@
                 {{link-to 'Time Zone' (query-params sort="time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'utc_offset') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Offset' (query-params sort="utc_offset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+                {{link-to 'Local Time' (query-params sort="utc_offset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
             </tr>
           </thead>
@@ -120,4 +120,3 @@
   </div>
 </div>
 {{outlet}}
-
