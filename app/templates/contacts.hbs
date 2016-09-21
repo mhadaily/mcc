@@ -13,6 +13,9 @@
       {{input type="text" value=home_phone class="form-control" placeholder="Phone Number"}}
     </div>
     <div class="form-group">
+      {{input type="text" value=cell_phone class="form-control" placeholder="Cell Number"}}
+    </div>
+    <div class="form-group">
       {{input type="text" value=skype_id class="form-control" placeholder="Skype ID"}}
     </div>
     <div class="form-group">
@@ -50,7 +53,10 @@
                 {{link-to 'Step' (query-params sort="step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'home_phone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Phone' (query-params sort="home_phone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+                {{link-to 'Home Phone' (query-params sort="home_phone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th>
+              <th class="header {{if (eq model.meta.sort-attr-name 'cell_phone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Cell Phone' (query-params sort="cell_phone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'skype_id') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Skype ID' (query-params sort="skype_id" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
@@ -83,6 +89,7 @@
                 <td>{{link-to (or contact.email '[no email]') 'contact' contact}}</td>
                 <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step '0'}}</td>
                 <td>{{contact.homePhone}}</td>
+                <td>{{contact.cellPhone}}</td>
                 <td>{{contact.skypeId}}</td>
                 <td>{{contact.country}}</td>
                 <td>{{contact.state}}</td>
