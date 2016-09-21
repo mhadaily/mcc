@@ -24,7 +24,7 @@ export default Ember.Component.extend({
     searchNow() {
       var trimMe = function(str) {
         return Ember.$.trim(str);
-      }
+      };
       let contact = trimMe(this.get('contact'));
       let step = trimMe(this.get('step'));
       let country_or_state = trimMe(this.get('country_or_state'));
@@ -34,7 +34,7 @@ export default Ember.Component.extend({
       let time_zone = trimMe(this.get('time_zone'));
 
       this.sendAction('queryChanged', contact, step, country_or_state, home_phone, cell_phone, skype_id, time_zone);
-      debugger;
+      //debugger;
     }
   }
 });

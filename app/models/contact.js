@@ -40,7 +40,7 @@ export default DS.Model.extend({
     return result;
   }),
   utcOffsetFormat: Ember.computed(function() {
-    let hour = this.get('utcOffset') / 3600;
+    //let hour = this.get('utcOffset') / 3600;
     // return hour;
     let time = moment.tz(this.get('timeZone')).format('hh:mm a');
     return time;
