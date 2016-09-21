@@ -5,10 +5,12 @@ export default Ember.Controller.extend({
   statuses: [
     'all status', 'pending', 'completed', 'cancelled'
   ],
-  queryParams: ["contact", "contact_step", "contact_time_zone", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "user_name", "query", "page", "perPage", "sort", "sortDir"],
+  queryParams: ["contact", 'offsetFromSec', 'offsetToSec', "contact_step", "contact_time_zone", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "user_name", "query", "page", "perPage", "sort", "sortDir"],
   taskOwners: [
     'my calls', 'all calls'
   ],
+  offsetFromSec: null,
+  offsetToSec: null,
   utcHour: Ember.computed(function() {
     let i = 0;
     let arr = [];
@@ -17,6 +19,7 @@ export default Ember.Controller.extend({
     }
     return arr;
   }),
+
   contact: null,
   contactTrim: Ember.computed('contact', {
     get( /* key */ ) {
@@ -81,5 +84,21 @@ export default Ember.Controller.extend({
   user_name: 'my calls',
   query: '',
   sort: '',
-  sortDir: 'asc'
+  sortDir: 'asc',
+  actions: {
+    utcHourFromAction() {
+      let now = moment().utc().hour();
+      let nowFrom = this.get('utcHourFrom');
+      let offsetFromHour = nowFrom - now;
+      let offsetFromSec = offsetFromHour * 60 * 60;
+      return this.set('offsetFromSec', offsetFromSec);
+    },
+    utcHourToAction() {
+      let now = moment().utc().hour();
+      let nowTo = this.get('utcHourTo');
+      let offsetToHour = nowTo - now;
+      let offsetToSec = offsetToHour * 60 * 60;
+      return this.set('offsetToSec', offsetToSec);
+    }
+  }
 });

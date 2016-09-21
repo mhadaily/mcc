@@ -40,6 +40,7 @@ export default DS.Model.extend({
   }),
   utcOffsetFormat: Ember.computed(function() {
     let sec = this.get('utcOffset');
-    return moment.duration(sec, 'seconds');
+    //return moment.duration(sec, 'seconds');
+    return sec;
   })
 });
