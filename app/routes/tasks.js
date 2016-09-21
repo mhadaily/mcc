@@ -16,7 +16,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   page: 1,
   perPage: 20,
   model(params) {
-    let user_name = this.modelFor('application').account.get('name');
+    let user_id = this.modelFor('application').account.get('id');
     return this.findPaged('task', {
       paramMapping: { total_pages: "total-pages" },
       q: {
@@ -29,7 +29,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
         contact_utc_offset_gteq: Ember.$.trim(params.offset_from),
         contact_utc_offset_lt: Ember.$.trim(params.offset_to),
         status_eq: (params.status_eq === 'all status' ? '' : params.status_eq),
-        user_name_eq: (params.user_name === 'all calls' ? '' : user_name),
+        user_id_eq: (params.user_name === 'all calls' ? '' : user_id),
         s: `${params.sort} ${params.sortDir}`
       }
     });
