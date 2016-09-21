@@ -42,45 +42,9 @@ export default Ember.Controller.extend({
     return arr;
   }),
   contact: null,
-  contactTrim: Ember.computed('contact', {
-    get( /* key */ ) {
-      return this.get('contact') ? Ember.$.trim(this.get('contact')) : null;
-    },
-    set(key, value) {
-      this.set('contact', value ? Ember.$.trim(value) : '');
-      return value;
-    }
-  }),
   contact_step: null,
-  contact_stepTrim: Ember.computed('contact_step', {
-    get( /* key */ ) {
-      return this.get('contact_step') ? Ember.$.trim(this.get('contact_step')) : null;
-    },
-    set(key, value) {
-      this.set('contact_step', value ? Ember.$.trim(value) : '');
-      return value;
-    }
-  }),
   contact_time_zone: null,
-  contact_time_zoneTrim: Ember.computed('contact_time_zone', {
-    get( /* key */ ) {
-      return this.get('contact_time_zone') ? Ember.$.trim(this.get('contact_time_zone')) : null;
-    },
-    set(key, value) {
-      this.set('contact_time_zone', value ? Ember.$.trim(value) : '');
-      return value;
-    }
-  }),
   subject: null,
-  subjectTrim: Ember.computed('subject', {
-    get( /* key */ ) {
-      return this.get('subject') ? Ember.$.trim(this.get('subject')) : null;
-    },
-    set(key, value) {
-      this.set('subject', value ? Ember.$.trim(value) : '');
-      return value;
-    }
-  }),
   date_due_gteq: null,
   startDateToJSDate: Ember.computed('date_due_gteq', {
     get( /* key */ ) {
