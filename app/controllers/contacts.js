@@ -15,34 +15,13 @@ export default Ember.Controller.extend({
   sortBy: ['name:asc'],
   contacts: Ember.computed.sort('model', 'sortBy'),
   offset_from: null,
-  utcHourFromAction: Ember.computed('offset_from', {
-    get( /* key */ ) {
-      return this.get('offset_from') ? Ember.$.trim(this.get('offset_from')) : 'N/A';
-    },
-    set(key, value) {
-      let now = moment().utc().hour();
-      let diff = (value - now) * 60 * 60;
-      this.set('offset_from', value === 'N/A' ? null : diff);
-      return value;
-    }
-  }),
   offset_to: null,
-  utcHourToAction: Ember.computed('offset_to', {
-    get( /* key */ ) {
-      return this.get('offset_to') ? Ember.$.trim(this.get('offset_to')) : 'N/A';
-    },
-    set(key, value) {
-      let now = moment().utc().hour();
-      let diff = (value - now) * 60 * 60;
-      this.set('offset_to', value === 'N/A' ? null : diff);
-      return value;
-    }
-  }),
   utcHour: Ember.computed(function() {
     let i = 0;
-    let arr = ['N/A'];
+    let now = moment().utc().hour();
+    let arr = [{ id: 'N/A', label: 'N/A' }];
     for (i; i <= 24; i++) {
-      arr.push(i);
+      arr.push({ id: (i - now) * 60 * 60, label: i });
     }
     return arr;
   }),
