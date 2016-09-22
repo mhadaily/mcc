@@ -21,7 +21,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       paramMapping: { total_pages: "total-pages" },
       q: {
         contact_name_or_contact_email_or_contact_reference_cont: Ember.$.trim(params.contact),
-        contact_step_eq: Ember.$.trim(params.contact_step) === '0' ? '_blank' : Ember.$.trim(params.contact_step),
+        contact_step_eq_with_blank: Ember.$.trim(params.contact_step) === '0' ? '_blank' : Ember.$.trim(params.contact_step),
         contact_time_zone_cont: Ember.$.trim(params.contact_time_zone),
         subject_cont: Ember.$.trim(params.subject),
         date_due_gteq: Ember.$.trim(params.date_due_gteq),
