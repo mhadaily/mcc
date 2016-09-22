@@ -108,7 +108,11 @@
                 <td>{{contact.country}}</td>
                 <td>{{contact.state}}</td>
                 <td>{{contact.timeZone}}</td>
-                <td>{{contact.utcOffsetFormat}}</td>
+                <td>
+                  {{#unless (eq contact.timeZone null)}}
+                    {{contact.utcOffsetFormat}}
+                  {{/unless}}
+                </td>
               </tr>
             {{/each}}
               {{/unless}}
