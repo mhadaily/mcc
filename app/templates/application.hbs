@@ -1,8 +1,28 @@
 <div class="with-iconav">
   {{#if session.isAuthenticated}}
-    <!-- {{#bs-popover title="Search Client" tagName="button" }}
-      Temporary Not Working!
-    {{/bs-popover}}-->
+    {{#bs-popover title="Search Client" tagName="button" }}
+      <form class="form">
+        <div class="form-group">
+          {{input type="text" value=contact class="form-control" placeholder="Name/Email/Ref"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=step class="form-control" placeholder="Current Step"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=home_phone class="form-control" placeholder="Phone Number"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=cell_phone class="form-control" placeholder="Cell Number"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=skype_id class="form-control" placeholder="Skype ID"}}
+        </div>
+        <div class="form-group">
+          {{input type="text" value=country_or_state class="form-control" placeholder="Country or State"}}
+        </div>
+        <button {{action 'searchNow'}} type="button" class="btn btn-primary btn-block">Search</button>
+      </form>
+    {{/bs-popover}}
     <nav class="iconav iconav-inverse">
       <div class="iconav-brand">
         <span class="iconav-brand-icon"><img src="/img/logomobehat.png"></span>
