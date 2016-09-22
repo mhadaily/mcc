@@ -10,34 +10,13 @@ export default Ember.Controller.extend({
     'my calls', 'all calls'
   ],
   offset_from: null,
-  utcHourFromAction: Ember.computed('offset_from', {
-    get( /* key */ ) {
-      return this.get('offset_from') ? Ember.$.trim(this.get('offset_from')) : 'N/A';
-    },
-    set(key, value) {
-      let now = moment().utc().hour();
-      let diff = (value - now) * 60 * 60;
-      this.set('offset_from', value === 'N/A' ? null : diff);
-      return value;
-    }
-  }),
   offset_to: null,
-  utcHourToAction: Ember.computed('offset_to', {
-    get( /* key */ ) {
-      return this.get('offset_to') ? Ember.$.trim(this.get('offset_to')) : 'N/A';
-    },
-    set(key, value) {
-      let now = moment().utc().hour();
-      let diff = (value - now) * 60 * 60;
-      this.set('offset_to', value === 'N/A' ? null : diff);
-      return value;
-    }
-  }),
   utcHour: Ember.computed(function() {
     let i = 0;
-    let arr = ['N/A'];
+    let now = moment().utc().hour();
+    let arr = [{ id: 'N/A', label: 'N/A' }];
     for (i; i <= 24; i++) {
-      arr.push(i);
+      arr.push({ id: (i - now) * 60 * 60, label: i });
     }
     return arr;
   }),
@@ -69,5 +48,13 @@ export default Ember.Controller.extend({
   user_name: 'my calls',
   query: '',
   sort: '',
-  sortDir: 'asc'
+  sortDir: 'asc',
+  actions: {
+    selectuUtcFrom(selection) {
+      selection === 'N/A' ? this.set('offset_from', null) : this.set('offset_from', selection)
+    },
+    selectuUtcTo(selection) {
+      selection === 'N/A' ? this.set('offset_to', null) : this.set('offset_to', selection)
+    }
+  }
 });
