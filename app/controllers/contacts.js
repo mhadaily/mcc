@@ -25,4 +25,12 @@ export default Ember.Controller.extend({
     }
     return arr;
   }),
+  actions: {
+    selectuUtcFrom(selection) {
+      selection === 'N/A' ? this.set('offset_from', null) : this.set('offset_from', selection)
+    },
+    selectuUtcTo(selection) {
+      selection === 'N/A' ? this.set('offset_to', null) : this.set('offset_to', selection)
+    }
+  }
 });
