@@ -28,9 +28,6 @@ export default DS.Model.extend({
   tags: DS.attr(),
   spent: DS.attr(),
   extraData: DS.attr(),
-  currentTime: Ember.computed(function() {
-    return new Date();
-  }),
   agreementTags: Ember.computed('tags', function() {
     var tags = this.get('tags'),
       result = {};
@@ -38,12 +35,5 @@ export default DS.Model.extend({
       if (tags[k].match(/agreement/i)) { result[k] = tags[k]; }
     }
     return result;
-  }),
-  utcOffsetFormat: Ember.computed('timeZone', function() {
-    //let hour = this.get('utcOffset') / 3600;
-    // return hour;
-    let time = moment.tz(this.get('timeZone')).format('hh:mm a');
-    return time;
-
   })
 });
