@@ -26,6 +26,17 @@ export default Ember.Controller.extend({
     return arr;
   }),
   actions: {
+    queryClear() {
+      this.set('contact', '');
+      this.set('step', '');
+      this.set('home_phone', '');
+      this.set('cell_phone', '');
+      this.set('skype_id', '');
+      this.set('time_zone', '');
+      this.set('country_or_state', '');
+      this.set('offset_from', null);
+      this.set('offset_to', null);
+    },
     selectuUtcFrom(selection) {
       selection === 'N/A' ? this.set('offset_from', null) : this.set('offset_from', selection)
     },
