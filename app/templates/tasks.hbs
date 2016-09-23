@@ -110,7 +110,11 @@
                 <td>{{task.user.name}}</td>
                 <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
                 <td>{{task.contact.timeZone}}</td>
-                <td>{{current-time task.contact.timeZone}}</td>
+                <td>
+                  {{#unless (eq contact.timeZone null)}}
+                    {{current-time task.contact.timeZone}}
+                  {{/unless}}
+                </td>
                 <td>{{task.status}}</td>
                 <td>{{task.outcome}}</td>
               </tr>

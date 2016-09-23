@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
   offset_from: null,
   offset_to: null,
   utcHour: Ember.computed(function() {
-    let i = 0;
+    let i = -24;
     let now = moment().utc().hour();
     let arr = [{ id: 'N/A', label: 'N/A' }];
     for (i; i <= 24; i++) {
@@ -36,6 +36,7 @@ export default Ember.Controller.extend({
       this.set('country_or_state', '');
       this.set('offset_from', null);
       this.set('offset_to', null);
+      this.refresh();
     },
     selectuUtcFrom(selection) {
       selection === 'N/A' ? this.set('offset_from', null) : this.set('offset_from', selection)

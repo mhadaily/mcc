@@ -115,7 +115,7 @@
                 <td>{{contact.timeZone}}</td>
                 <td>
                   {{#unless (eq contact.timeZone null)}}
-                    {{contact.utcOffsetFormat}}
+                    {{current-time contact.timeZone}}
                   {{/unless}}
                 </td>
               </tr>
