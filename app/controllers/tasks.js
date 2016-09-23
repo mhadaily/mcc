@@ -50,6 +50,18 @@ export default Ember.Controller.extend({
   sort: '',
   sortDir: 'asc',
   actions: {
+    queryClear() {
+      this.set('contact', '');
+      this.set('contact_step', '');
+      this.set('contact_time_zone', '');
+      this.set('date_due_gteq', '');
+      this.set('date_due_lteq', '');
+      this.set('subject', '')
+      this.set('status_eq', 'pending');
+      this.set('user_name', 'my calls');
+      this.set('offset_from', null);
+      this.set('offset_to', null);
+    },
     selectuUtcFrom(selection) {
       selection === 'N/A' ? this.set('offset_from', null) : this.set('offset_from', selection)
     },

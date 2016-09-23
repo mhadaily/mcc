@@ -38,7 +38,12 @@
         <div class="col-md-6">{{ember-selectize content=utcHour selection=labelField optionValuePath="content.id" optionLabelPath="content.label" placeholder="H" select-value=(action 'selectuUtcTo')}} </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-block btn-primary">Search</button>
+    <div class="col-md-6">
+      <button type="reset" {{action 'queryClear' }} class="btn btn-block btn-default">Clear</button>
+    </div>
+    <div class="col-md-6">
+      <button type="submit" class="btn btn-block btn-primary">Search</button>
+    </div>
   </form>
 </div>
 <div class="container-fluid search-panel">
