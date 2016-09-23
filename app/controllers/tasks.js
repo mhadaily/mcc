@@ -51,12 +51,12 @@ export default Ember.Controller.extend({
   sortDir: 'asc',
   actions: {
     queryClear() {
-      this.set('contact', '');
-      this.set('contact_step', '');
-      this.set('contact_time_zone', '');
-      this.set('date_due_gteq', '');
-      this.set('date_due_lteq', '');
-      this.set('subject', '')
+      this.set('contact', null);
+      this.set('contact_step', null);
+      this.set('contact_time_zone', null);
+      this.set('date_due_gteq', null);
+      this.set('date_due_lteq', null);
+      this.set('subject', null)
       this.set('status_eq', 'pending');
       this.set('user_name', 'my calls');
       this.set('offset_from', null);
