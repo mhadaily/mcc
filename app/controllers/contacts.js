@@ -17,12 +17,18 @@ export default Ember.Controller.extend({
   offset_from: null,
   offset_to: null,
   utcHour: Ember.computed(function() {
-    let i = -24;
+    let i = 1;
     let now = moment().utc().hour();
-    let arr = [{ id: 'N/A', label: 'N/A' }];
+    let arr = [];
     for (i; i <= 24; i++) {
       arr.push({ id: (i - now) * 60 * 60, label: i });
     }
+    let j = -24;
+    for (j; j <= -12; j++) {
+      let m = j + 24;
+      arr.unshift({ id: -(m + now) * 60 * 60, label: j });
+    }
+    arr.unshift({ id: 'N/A', label: 'N/A' });
     return arr;
   }),
   actions: {
