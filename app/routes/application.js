@@ -41,5 +41,10 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   sessionAuthenticated() {
     this.refresh();
     this._super();
+  },
+  actions: {
+    pageRefresh() {
+      this.refresh();
+    }
   }
 });
