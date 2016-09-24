@@ -67,6 +67,7 @@ export default Ember.Controller.extend({
       this.set('user_name', 'my calls');
       this.set('offset_from', null);
       this.set('offset_to', null);
+      this.send("queryChanged");
     },
     selectuUtcFrom(selection) {
       selection === 'N/A' ? this.set('offset_from', null) : this.set('offset_from', selection)
