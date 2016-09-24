@@ -44,11 +44,8 @@ export default Ember.Controller.extend({
       this.set('offset_to', null);
       this.send("queryChanged");
     },
-    selectuUtcFrom(selection) {
-      selection === 'N/A' ? this.set('offset_from', null) : this.set('offset_from', selection)
-    },
-    selectuUtcTo(selection) {
-      selection === 'N/A' ? this.set('offset_to', null) : this.set('offset_to', selection)
+    selectuUtc(propertyName, selection) {
+      selection === 'N/A' ? this.set(propertyName, null) : this.set(propertyName, selection)
     }
   }
 });
