@@ -45,7 +45,7 @@ export default Ember.Controller.extend({
       this.send("queryChanged");
     },
     selectuUtc(propertyName, selection) {
-      selection === 'N/A' ? this.set(propertyName, null) : this.set(propertyName, selection)
+      selection === 'N/A' ? this.set(propertyName, null) : this.set(propertyName, selection);
     }
   }
 });
