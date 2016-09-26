@@ -62,7 +62,7 @@ export default Ember.Controller.extend({
       this.set('contact_time_zone', null);
       this.set('date_due_gteq', null);
       this.set('date_due_lteq', null);
-      this.set('subject', null)
+      this.set('subject', null);
       this.set('status_eq', 'pending');
       this.set('user_name', 'my calls');
       this.set('offset_from', null);
@@ -70,7 +70,7 @@ export default Ember.Controller.extend({
       this.send("queryChanged");
     },
     selectuUtc(propertyName, selection) {
-      selection === 'N/A' ? this.set(propertyName, null) : this.set(propertyName, selection)
+      selection === 'N/A' ? this.set(propertyName, null) : this.set(propertyName, selection);
     }
   }
 });
