@@ -1,6 +1,6 @@
 <div class="flush">
   <div class="h3 m-t-0 text-center">
-    <strong>September Sales Blitz Leaderboards: <button {{action 'pageRefresh'}}><span class="icon icon-cycle"></span></button></strong>
+    <strong>September Sales Blitz Leaderboards: <a {{action 'pageRefresh'}}><span class="icon icon-cycle"></span></a></strong>
   </div>
   {{#if (or (eq application.model.account.team "Coach") (eq application.model.account.role "superadmin"))}}
     <div class="row">
