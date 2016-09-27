@@ -54,6 +54,10 @@ export default Ember.Controller.extend({
   notes: Ember.computed('contact.notes.[]', 'contact.notes.@each.date', function() {
     return this.model.get('contact.notes').sortBy('date').reverse();
   }),
+  notes_and_task_notes_union: Ember.computed.union('task.taskNotes.[]','contact.notes.[]'),
+  notes_and_task_notes: Ember.computed('notes_and_task_notes_union.@each.date',function () {
+    return this.get('notes_and_task_notes_union').sortBy('date').reverse();
+  }),
   actions: {
     taskChangeColor: function() {
       this.set('blink', 'blinker');

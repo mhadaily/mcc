@@ -6,5 +6,5 @@ export default DS.Model.extend({
   task: DS.belongsTo(),
   reference: DS.attr(),
   note: DS.attr(),
-  date: DS.attr()
+  date: DS.attr(),
 });

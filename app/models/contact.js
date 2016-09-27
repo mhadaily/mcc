@@ -5,6 +5,7 @@ export default DS.Model.extend({
   notes: DS.hasMany(),
   salesOrders: DS.hasMany(),
   tasks: DS.hasMany(),
+  taskNotes: DS.hasMany(),
   date: DS.attr(),
   dateLastModified: DS.attr(),
   firstName: DS.attr(),
