@@ -11,6 +11,12 @@
         </tr>
       </thead>
       <tbody>
+      <tr>
+        {{#each task.taskNotes as |taskNote|}}
+            <td>{{moment-format taskNote.date}}</td>
+            <td> {{taskNote.note}}&nbsp;</td>
+        {{/each}}
+      </tr>
         {{#each notes as |note|}}
           <tr>
             <td>{{moment-format note.date}}</td>

@@ -6,6 +6,7 @@ export default DS.Model.extend({
   user: DS.belongsTo(),
   taskType: DS.belongsTo(),
   outcomeType: DS.belongsTo(),
+  taskNotes: DS.hasMany(),
   status: DS.attr(),
   statusEvent: DS.attr(),
   details: DS.attr(),
