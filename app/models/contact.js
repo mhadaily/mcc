@@ -26,7 +26,8 @@ export default DS.Model.extend({
   skypeId: DS.attr(),
   tags: DS.attr(),
   spent: DS.attr(),
-  extraData: DS.attr(),
+  mttbApplication: DS.attr(),
+  mttbInterview: DS.attr(),
   agreementTags: Ember.computed('tags', function() {
     var tags = this.get('tags'),
       result = {};

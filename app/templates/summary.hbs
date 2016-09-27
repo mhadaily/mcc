@@ -46,12 +46,4 @@
       <dt>Time Zone:</dt>
       <dd>{{contact.timeZone}}&nbsp;</dd>
 </dl>
-<div class="hr-divider m-y">
-  <h3 class="hr-divider-content hr-divider-heading">Agreement&nbsp;</h3>
-</div>
-<ul>
-  {{#each-in (or model.agreementTags model.contact.agreementTags) as |key value|}}
-    <li>{{key}}: {{value}}</li>
-  {{/each-in}}
-</ul>
-
+{{partial 'agreement'}}

@@ -30,6 +30,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.apiHost = process.env.API_HOST || 'mobecentral.dev'
+    ENV.apiPort = process.env.API_PORT ? ':' + process.env.API_PORT : ''
+    ENV.apiUrl = process.env.API_URL || `http://${ENV.apiHost}${ENV.apiPort}`;
   }
 
   if (environment === 'test') {
@@ -44,12 +47,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.apiHost = process.env.API_HOST || 'mobecentral.herokuapp.com'
+    ENV.apiPort = process.env.API_PORT ? ':' + process.env.API_PORT : ''
+    ENV.apiUrl = process.env.API_URL || `https://${ENV.apiHost}${ENV.apiPort}`;
   }
-
-  ENV.apiHost = process.env.API_HOST || 'mobecentral.herokuapp.com'
-  ENV.apiPort = process.env.API_PORT ? ':' + process.env.API_PORT : ''
-  ENV.apiUrl = process.env.API_URL || `https://${ENV.apiHost}${ENV.apiPort}`;
 
   return ENV;
 };
