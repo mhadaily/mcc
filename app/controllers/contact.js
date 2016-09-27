@@ -48,6 +48,10 @@ export default Ember.Controller.extend({
   notes: Ember.computed('model.notes.[]', 'model.notes.@each.date', function() {
     return this.get('model.notes').sortBy('date').reverse();
   }),
+  notes_and_task_notes_union: Ember.computed.union('contact.taskNotes.[]','contact.notes.[]'),
+  notes_and_task_notes: Ember.computed('notes_and_task_notes_union.@each.date',function () {
+    return this.get('notes_and_task_notes_union').sortBy('date').reverse();
+  }),
   query: '',
   sort: '',
   sortDir: 'asc',
