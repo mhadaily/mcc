@@ -44,7 +44,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   },
   actions: {
     pageRefresh() {
-      this.refresh();
+      location.reload();
     }
   }
 });
