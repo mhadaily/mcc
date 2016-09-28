@@ -3,7 +3,8 @@
     <div class="row">
       <div class="col-sm-3">
         <div class="dashhead-titles">
-          <h3 class="dashhead-title"> <span> {{link-to '<< Calls' (or backTo 'tasks')}} </span> | CLIENT: {{or contact.name 'unnamed'}}</h3>
+          <h3 class="dashhead-title"><span> {{link-to '<< Calls' (or backTo 'tasks')}} </span> |
+            CLIENT: {{or contact.name 'unnamed'}}</h3>
         </div>
       </div>
       <div class="col-sm-9">
@@ -19,14 +20,16 @@
           </li>
           {{#if (eq model.status "pending")}}
             <li>
-              {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary' disabled=(eq model.status "completed" 'disabled')}} Complete Your Call {{/link-to}}
+              {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary' disabled=(eq model.status "completed" 'disabled')}}
+                Complete Your Call {{/link-to}}
             </li>
             <li>
               {{link-to 'Reschedule Call' (query-params taskrf=model.id) tagName="button" class="btn btn-sm btn-primary"}}
             </li>
           {{/if}}
           <li>
-            <a class="btn btn-sm btn-primary" target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{contact.reference}}">Link to OAP</a>
+            <a class="btn btn-sm btn-primary" target="_blank"
+               href="https://app.ontraport.com/#!/contact/edit&id={{contact.reference}}">Link to OAP</a>
           </li>
         </ul>
       </div>
@@ -38,34 +41,39 @@
         <div class="row task-detail well {{blink}}">
           <div class="col-sm-12">
             <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
-            <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}&nbsp;</strong> |
+            <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}
+              &nbsp;</strong> |
               {{#if (eq model.status "pending")}}
                 {{#link-to (query-params refID=model.id)}} Cancel Your Call {{/link-to}}
               {{/if}}
             </p>
           </div>
         </div>
-        {{else}}
-          <div class="row task-detail well {{blink}}">
-            <div class="col-sm-12">
-              <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
-              <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}&nbsp;</strong> |
-                {{#if (eq model.status "pending")}}
-                  {{#link-to (query-params refID=model.id)}} Cancel Your Call {{/link-to}}
-                {{/if}}
-              </p>
-            </div>
+      {{else}}
+        <div class="row task-detail well {{blink}}">
+          <div class="col-sm-12">
+            <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
+            <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}
+              &nbsp;</strong> |
+              {{#if (eq model.status "pending")}}
+                {{#link-to (query-params refID=model.id)}} Cancel Your Call {{/link-to}}
+              {{/if}}
+            </p>
           </div>
+        </div>
       {{/liquid-if}}
       <ul class="nav nav-bordered" role="tablist">
         <li class="active" role="presentation">
-          <a href="#summary" role="tab" data-toggle="tab" aria-controls="summary">Summary <span class="badge"></span></a>
+          <a href="#summary" role="tab" data-toggle="tab" aria-controls="summary">Summary <span
+              class="badge"></span></a>
         </li>
         <li role="presentation">
-          <a href="#task-details" role="tab" data-toggle="tab" aria-controls="task-details">Call Details <span class="badge"></span></a>
+          <a href="#task-details" role="tab" data-toggle="tab" aria-controls="task-details">Call Details <span
+              class="badge"></span></a>
         </li>
         <li role="presentation">
-          <a href="#contact-details" role="tab" data-toggle="tab" aria-controls="contact-details">Client Details <span class="badge"></span></a>
+          <a href="#contact-details" role="tab" data-toggle="tab" aria-controls="contact-details">Client Details <span
+              class="badge"></span></a>
         </li>
         <li role="presentation">
           <a href="#task-activities" role="tab" data-toggle="tab" aria-controls="task-activities">Calls</a>
@@ -76,12 +84,12 @@
         <li role="presentation">
           <a href="#contact-tags" role="tab" data-toggle="tab" aria-controls="contact-tags">Contact Tags</a>
         </li>
-          <li role="presentation">
+        <li role="presentation">
           <a href="#contact-application" role="tab" data-toggle="tab" aria-controls="contact-application">Extra</a>
         </li>
-          <li role="presentation">
-              <a href="#contact-automation-log" role="tab" data-toggle="tab" aria-controls="contact-automation-log">Logs</a>
-          </li>
+        <li role="presentation">
+          <a href="#contact-automation-log" role="tab" data-toggle="tab" aria-controls="contact-automation-log">Logs</a>
+        </li>
       </ul>
       <div class="position-fixed content-block-tab" style="height:{{blockHeight}}px">
         <div class="tab-content">
@@ -103,14 +111,14 @@
           <div role="tabpanel" class="tab-pane" id="contact-tags">
             {{partial 'contact-tags'}}
           </div>
-            <div role="tabpanel" class="tab-pane" id="contact-application">
-              {{partial 'mttb-application'}}
-              {{partial 'mttb-interview'}}
-            </div>
-            <div role="tabpanel" class="tab-pane" id="contact-automation-log">
-              {{partial 'contact-logs'}}
-              {{partial 'automation-logs'}}
-            </div>
+          <div role="tabpanel" class="tab-pane" id="contact-application">
+            {{partial 'mttb-application'}}
+            {{partial 'mttb-interview'}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="contact-automation-log">
+            {{partial 'contact-logs'}}
+            {{partial 'automation-logs'}}
+          </div>
         </div>
       </div>
     </div>
@@ -125,4 +133,3 @@
   </div>
 </div>
 {{outlet}}
-
