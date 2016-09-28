@@ -6,6 +6,8 @@ export default DS.Model.extend({
   salesOrders: DS.hasMany(),
   tasks: DS.hasMany(),
   taskNotes: DS.hasMany(),
+  contactLogs: DS.hasMany(),
+  automationLogs: DS.hasMany(),
   date: DS.attr(),
   dateLastModified: DS.attr(),
   firstName: DS.attr(),
