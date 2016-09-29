@@ -4,5 +4,7 @@
 <ul>
   {{#each-in (or model.agreementTags model.contact.agreementTags) as |key value|}}
       <li>{{key}}: <strong>{{value}}</strong></li>
+  {{else}}
+      <p class="text-center text-muted">No Agreements</p>
   {{/each-in}}
 </ul>
