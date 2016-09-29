@@ -16,19 +16,19 @@ export default Ember.Controller.extend({
   contacts: Ember.computed.sort('model', 'sortBy'),
   offset_from: null,
   offset_to: null,
-  utcHour: Ember.computed(function() {
+  utcHour: Ember.computed(function () {
     let i = 1;
     let now = moment().utc().hour();
     let arr = [];
     for (i; i <= 24; i++) {
-      arr.push({ id: (i - now) * 60 * 60, label: i });
+      arr.push({id: (i - now) * 60 * 60, label: i});
     }
     let j = -24;
     for (j; j <= -12; j++) {
       let m = j + 24;
-      arr.unshift({ id: -(m + now) * 60 * 60, label: j });
+      arr.unshift({id: -(m + now) * 60 * 60, label: j});
     }
-    arr.unshift({ id: 'N/A', label: 'N/A' });
+    arr.unshift({id: 'N/A', label: 'N/A'});
     return arr;
   }),
   actions: {
@@ -45,7 +45,11 @@ export default Ember.Controller.extend({
       this.send("queryChanged");
     },
     selectuUtc(propertyName, selection) {
-      selection === 'N/A' ? this.set(propertyName, null) : this.set(propertyName, selection);
+      if (selection === 'N/A') {
+        this.set(propertyName, null);
+      } else {
+        this.set(propertyName, selection);
+      }
     }
   }
 });

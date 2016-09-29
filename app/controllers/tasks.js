@@ -11,19 +11,19 @@ export default Ember.Controller.extend({
   ],
   offset_from: null,
   offset_to: null,
-  utcHour: Ember.computed(function() {
+  utcHour: Ember.computed(function () {
     let i = 1;
     let now = moment().utc().hour();
     let arr = [];
     for (i; i <= 24; i++) {
-      arr.push({ id: (i - now) * 60 * 60, label: i });
+      arr.push({id: (i - now) * 60 * 60, label: i});
     }
     let j = -24;
     for (j; j <= -12; j++) {
       let m = j + 24;
-      arr.unshift({ id: -(m + now) * 60 * 60, label: j });
+      arr.unshift({id: -(m + now) * 60 * 60, label: j});
     }
-    arr.unshift({ id: 'N/A', label: 'N/A' });
+    arr.unshift({id: 'N/A', label: 'N/A'});
     return arr;
   }),
   contact: null,
@@ -32,7 +32,7 @@ export default Ember.Controller.extend({
   subject: null,
   date_due_gteq: null,
   startDateToJSDate: Ember.computed('date_due_gteq', {
-    get( /* key */ ) {
+    get(/* key */) {
       return this.get('date_due_gteq') ? moment(this.get('date_due_gteq')).toDate() : null;
     },
     set(key, value) {
@@ -42,7 +42,7 @@ export default Ember.Controller.extend({
   }),
   date_due_lteq: null,
   endDateToJSDate: Ember.computed('date_due_lteq', {
-    get( /* key */ ) {
+    get(/* key */) {
       return this.get('date_due_lteq') ? moment(this.get('date_due_lteq')).toDate() : null;
     },
     set(key, value) {
@@ -70,7 +70,11 @@ export default Ember.Controller.extend({
       this.send("queryChanged");
     },
     selectuUtc(propertyName, selection) {
-      selection === 'N/A' ? this.set(propertyName, null) : this.set(propertyName, selection);
+      if (selection === 'N/A') {
+        this.set(propertyName, null);
+      } else {
+        this.set(propertyName, selection);
+      }
     }
   }
 });
