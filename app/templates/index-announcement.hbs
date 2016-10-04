@@ -3,25 +3,96 @@
     <strong>Leaderboards for Omega October : <a {{action 'pageRefresh'}}><span class="icon icon-cycle"></span></a></strong>
   </div>
   {{#if (or (eq application.model.account.team "Coach") (eq application.model.account.role "superadmin"))}}
+    <div class="row">
+      <div class="col-lg-6">
+        <iframe width="210" height="130" src="https://www.youtube.com/embed/dmbvWqXUP-I?rel=0&amp;controls=0&amp;showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-lg-6">
+        <span style="font-size: large">
+        Business Coaches<br />
+        <strong>1st:</strong> Greg Atkins 3<br />
+        <strong>1st:</strong> Tammy Bee 3<br />
+        <strong>2nd:</strong> Travoye McCray 2<br />
+        <strong>2nd:</strong> Carlos Verdugo 2<br />
+      </span>
+      </div>
+    </div>
   {{/if}}
   {{#if (or (eq application.model.account.team "Senior Coach") (eq application.model.account.role "superadmin"))}}
     <div class="row">
       <div class="col-lg-6">
-        <iframe width="210" height="130" src="https://www.youtube.com/embed/dA5u7zU4UKw?rel=0&amp;controls=0&amp;showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+        <iframe width="210" height="130" src="https://www.youtube.com/embed/dmbvWqXUP-I?rel=0&amp;controls=0&amp;showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
       </div>
       <div class="col-lg-6">
         <span style="font-size: large">Senior Biz Coaches</span>
-        <br/>
+        <br />
         <strong>1st:</strong> Tiji Thomas $ 51,659.00
-        <br/>
+        <br />
         <strong>2nd:</strong> Marlon Nuqui $ 28764.
-        <br/>
+        <br />
         <strong>3rd:</strong> Max Aria $ 11,470.20
-        <br/>
+        <br />
         <strong>4th:</strong> Ryan Jaten $ $220.50
-        <br/>
+        <br />
+      </div>
+    </div>
+  {{/if}}
+  {{#if (or (eq application.model.account.team "Traffic Coach") (eq application.model.account.role "superadmin"))}}
+    <div class="row">
+      <div class="col-lg-6">
+        <iframe width="210" height="130" src="https://www.youtube.com/embed/dmbvWqXUP-I?rel=0&amp;controls=0&amp;showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-lg-6">
+        <span style="font-size: large">Traffic Coaches</span>
+        <br />
+        <strong>1st:</strong> Michelle Perna $ 6750
+        <br />
+        <strong>1st:</strong> David Amer $ 6750
+        <br />
+        <strong>2nd:</strong> Jason and Erika Miller $ 2250
       </div>
     </div>
   {{/if}}
   <small>(Updated 10/3/2016 11:59 pm  EST)</small>
+  <br />
+  <div class="row" style="height: 120px; overflow-y: scroll; background-color: #f2c900; font-size: smaller">
+    {{#if (or (eq application.model.account.team "Coach") (eq application.model.account.role "superadmin"))}}
+      <div class="col-md-6">
+        <strong>3rd:</strong>  Grant McDonnell 1<br />
+        <strong>3rd:</strong>  Steve Hamlin 1<br />
+        <strong>3rd:</strong>  Sherry De La Cruz 1<br />
+        <strong>3rd:</strong>  Terry McDonough 1<br />
+        <strong>3rd:</strong>  Sam Hutchinson 1<br />
+        <strong>3rd:</strong>  Glenn Bolton 1<br />
+        <strong>3rd:</strong>  Sebastian Apelbaum 1<br />
+        <strong>3rd:</strong>  Daryl Larnach 1<br />
+        <strong>4th:</strong>  Chris Ross 0<br />
+        <strong>4th:</strong>  Tyler Shurtliff 0<br />
+        <strong>4th:</strong>  Jeff Bigley 0<br />
+        <strong>4th:</strong>  Timothy Hillian 0<br />
+        <strong>4th:</strong>  Leigh Fish 0<br />
+        <strong>4th:</strong>  Laura Marsh 0<br />
+        <strong>4th:</strong>  David Traub 0<br />
+        <strong>4th:</strong>  Al Monteiro 0<br />
+        <strong>4th:</strong>  Karuna Kangaratnam 0<br />
+        <strong>4th:</strong>  Chuck Powers 0<br />
+        <strong>4th:</strong>  Chiko Matenda 0<br />
+        <strong>4th:</strong>  Paul Finney 0<br />
+
+
+      </div>
+    {{/if}}
+    {{#if (or (eq application.model.account.team "Traffic Coach") (eq application.model.account.role "superadmin"))}}
+      <div class="col-md-6">
+        <strong>3rd</strong>:   Regina Manuel $ 0  <br />
+        <strong>3rd</strong>:   Wayne Gosse $0  <br />
+        <strong>3rd</strong>:   Russell DeWitt $ 0  <br />
+        <strong>3rd</strong>:   Carlo Manf $ 0  <br />
+        <strong>3rd</strong>:   Raena Lynn $ 0  <br />
+        <strong>3rd</strong>:   Corey Moore $ 0  <br />
+        <strong>3rd</strong>:   Christian Stevenson $0  <br />
+        <strong>3rd</strong>:   Karen Otto $0  <br />
+      </div>
+    {{/if}}
+  </div>
 </div>
