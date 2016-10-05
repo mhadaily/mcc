@@ -1,14 +1,22 @@
-announcement widget:
-
-{{#each announceList as |announce|}}
-  <ul>
-    <li>  {{announce.chanel}}</li>
-    <li>{{announce.subject}}</li>
-    <li>
-      {{{announce.summary}}}</li>
-    <li>{{{announce.body}}}</li>
-    <li> {{moment-format announce.publish_at}}</li>
-  </ul>
-{{/each}}
-
+<div class="flush">
+  <div class="h3 m-t-0 text-center">
+    <strong>{{title}} <a {{action 'pageRefresh'}}><span class="icon icon-cycle"></span></a></strong>
+  </div>
+  {{#each announceList as |announce|}}
+    {{#if (eq announce.chanel channel)}}
+      <div class="row">
+        <div class="col-lg-12">
+          <span style="font-size: large">{{announce.subject}}</span><br/>
+          {{{announce.summary}}}
+        </div>
+      </div>
+      {{#if announce.body}}
+        <div class="row" style="background-color: #f2c900; font-size: smaller">
+          {{{announce.body}}}
+        </div>
+      {{/if}}
+      <small> Updated {{moment-format announce.publish_at format="MM-DD-YYYY" }} EST</small>
+    {{/if}}
+  {{/each}}
+</div>
 {{yield}}

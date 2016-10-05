@@ -4,6 +4,13 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
   announceList: Ember.computed(function () {
     return this.get('store').findAll('announcement');
-  })
+  }),
+  title: null,
+  channel: null,
+  actions: {
+    pageRefresh() {
+      location.reload();
+    }
+  }
 
 });
