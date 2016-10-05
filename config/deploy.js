@@ -24,14 +24,14 @@ module.exports = function(deployTarget) {
   ENV.s3 = {
     accessKeyId: process.env['AWS_ACCESS_KEY_ID'],
     secretAccessKey: process.env['AWS_SECRET_ACCESS_KEY'],
-    bucket: 'mobecallcentre2.squarrific.com',
+    bucket: 'mobecallcentre.squarrific.com',
     region: 'ap-southeast-1'
   }
 
   ENV['s3-index'] = {
     accessKeyId: process.env['AWS_ACCESS_KEY_ID'],
     secretAccessKey: process.env['AWS_SECRET_ACCESS_KEY'],
-    bucket: 'mobecallcentre2.squarrific.com',
+    bucket: 'mobecallcentre.squarrific.com',
     region: 'ap-southeast-1'
   }
 
