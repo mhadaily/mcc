@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  chanel: DS.attr(),
+  channel: DS.attr(),
   subject: DS.attr(),
   summary: DS.attr(),
   body: DS.attr(),

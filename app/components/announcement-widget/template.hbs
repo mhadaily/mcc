@@ -1,7 +1,7 @@
 <div class="flush">
 
   {{#each announceList as |announce|}}
-    {{#if (eq announce.chanel channel)}}
+    {{#if (eq announce.channel channel)}}
       <div class="h3 m-t-0 text-center">
         <strong>{{announce.subject}} <a {{action 'pageRefresh'}}><span class="icon icon-cycle"></span></a></strong>
       </div>

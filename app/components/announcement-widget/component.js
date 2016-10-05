@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   announceList: Ember.computed(function () {
     let chanel = this.get('channel');
     return this.get('store').query('announcement', {
-      q: {chanel_eq: chanel, s: 'publish_at desc'},
+      q: {channel_eq: chanel, s: 'publish_at desc'},
       page: 1,
       per_page: 1
     });
