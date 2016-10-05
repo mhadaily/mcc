@@ -5,5 +5,5 @@ export default DS.Model.extend({
   subject: DS.attr(),
   summary: DS.attr(),
   body: DS.attr(),
-  publish_at: DS.attr()
+  publish_at: DS.attr('Date')
 });
