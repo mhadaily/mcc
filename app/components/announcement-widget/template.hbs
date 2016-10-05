@@ -1,0 +1,14 @@
+announcement widget:
+
+{{#each announceList as |announce|}}
+  <ul>
+    <li>  {{announce.chanel}}</li>
+    <li>{{announce.subject}}</li>
+    <li>
+      {{{announce.summary}}}</li>
+    <li>{{{announce.body}}}</li>
+    <li> {{moment-format announce.publish_at}}</li>
+  </ul>
+{{/each}}
+
+{{yield}}
