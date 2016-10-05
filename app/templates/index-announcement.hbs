@@ -1,15 +1,15 @@
 {{#if (or (eq application.model.account.team "Coach") (eq application.model.account.role "superadmin"))}}
 
-  {{announcement-widget title="Leaderboards for Omega October:" channel="Coach"}}
+  {{announcement-widget channel="Coach"}}
 
 {{/if}}
 {{#if (or (eq application.model.account.team "Senior Coach") (eq application.model.account.role "superadmin"))}}
 
-  {{announcement-widget title="Leaderboards for Omega October:" channel="Senior Coach"}}
+  {{announcement-widget channel="Senior Coach"}}
 
 {{/if}}
 {{#if (or (eq application.model.account.team "Traffic Coach") (eq application.model.account.role "superadmin"))}}
 
-  {{announcement-widget title="Leaderboards for Omega October:" channel="Traffic Coach"}}
+  {{announcement-widget channel="Traffic Coach"}}
 
 {{/if}}
