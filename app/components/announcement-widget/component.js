@@ -4,10 +4,13 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
   channel: null,
   announceList: Ember.computed(function () {
-    let chanel = this.get('chanel');
-    return this.get('store').query('announcement', {q: {chanel_eq: chanel}, per_page: 3});
+    let chanel = this.get('channel');
+    return this.get('store').query('announcement', {
+      q: {chanel_eq: chanel, s: 'publish_at desc'},
+      page: 1,
+      per_page: 1
+    });
   }),
-  title: null,
   actions: {
     pageRefresh() {
       location.reload();
