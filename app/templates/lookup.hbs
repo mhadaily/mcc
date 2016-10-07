@@ -1,0 +1,118 @@
+<div class="search-col">
+  <div class="dashhead">
+    <h2 class="dashhead-title">LOOKUP</h2>
+  </div>
+  <form {{action 'queryChanged' on="submit" }} class="form">
+    <div class="form-group">
+      {{input type="text" value=contact_name class="form-control" placeholder="Name"}}
+    </div>
+    <div class="form-group">
+      {{input type="text" value=contact_email class="form-control" placeholder="Email"}}
+    </div>
+    <div class="form-group">
+      {{input type="text" value=reference class="form-control" placeholder="Reference"}}
+    </div>
+    {{!--<div class="form-group">--}}
+      {{!--{{input type="text" value=home_phone class="form-control" placeholder="Phone Number"}}--}}
+    {{!--</div>--}}
+    {{!--<div class="form-group">--}}
+      {{!--{{input type="text" value=cell_phone class="form-control" placeholder="Cell Number"}}--}}
+    {{!--</div>--}}
+    {{!--<div class="form-group">--}}
+      {{!--{{input type="text" value=skype_id class="form-control" placeholder="Skype ID"}}--}}
+    {{!--</div>--}}
+    <div class="col-md-6">
+      <button type="reset" {{action 'queryClear' }} class="btn btn-block btn-default">Reset</button>
+    </div>
+    <div class="col-md-6">
+      {{#if (or contact_name contact_email reference home_phone cell_phone skype_id)}}
+        <button type="submit" {{action 'queryChanged'}}  class="btn btn-block btn-primary">Lookup</button>
+      {{else}}
+        <button type="submit" {{action 'returnNothing'}} class="btn btn-block btn-primary disabled">Lookup</button>
+      {{/if}}
+    </div>
+  </form>
+</div>
+<div class="container-fluid search-panel">
+  <div class="col-md-12">
+    <div class="clearfix">
+      <div class="statcard p-a m-b">
+
+      </div>
+    </div>
+    <div class="table-full">
+      <div class="table-responsive">
+        <table class="table table-condensed" data-sort="table">
+          <thead>
+          <tr>
+            <th class="header">
+              Client
+            </th>
+            <th class="header">
+              Email
+            </th>
+            <th class="header">
+              Step
+            </th>
+            <th class="header">
+              Home Phone
+            </th>
+            <th class="header">
+              Cell Phone
+            </th>
+            <th class="header">
+              Skype ID
+            </th>
+            <th class="header">
+              Country
+            </th>
+            <th class="header">
+              State
+            </th>
+            <th class="header">
+              Time Zone
+            </th>
+            <th class="header">
+              Local Time
+            </th>
+          </tr>
+          </thead>
+          {{#if model.loading}}
+            <div class="padding-200">
+              {{ember-spinner}}
+            </div>
+          {{else}}
+            <tbody>
+            {{#unless model.length}}
+              <div class="m-a-1">
+                There is no client.
+              </div>
+            {{else}}
+              {{#each model as |contact|}}
+                <tr>
+                  <td>{{link-to (or contact.name '[unnamed]') 'contact' contact}}</td>
+                  <td>{{link-to (or contact.email '[no email]') 'contact' contact}}</td>
+                  <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step '0'}}</td>
+                  <td>{{contact.homePhone}}</td>
+                  <td>{{contact.cellPhone}}</td>
+                  <td>{{contact.skypeId}}</td>
+                  <td>{{contact.country}}</td>
+                  <td>{{contact.state}}</td>
+                  <td>{{contact.timeZone}}</td>
+                  <td>
+                    {{#unless (eq contact.timeZone null)}}
+                      {{current-time contact.timeZone}}
+                    {{/unless}}
+                  </td>
+                </tr>
+              {{/each}}
+            {{/unless}}
+            </tbody>
+          {{/if}}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{{outlet}}
+

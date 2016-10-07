@@ -41,6 +41,7 @@
     <div class="col-md-6">
       <button type="submit" class="btn btn-block btn-primary">Search</button>
     </div>
+
   </form>
 </div>
 <div class="container-fluid search-panel">
@@ -99,7 +100,7 @@
             <tbody>
               {{#unless model.length}}
                 <div class="m-a-1">
-                  Your search returned no result
+                  Your search returned no result, to lookup more please click here  {{#link-to "lookup" class="btn btn-danger" tagName="button"}}Lookup{{/link-to}}
                 </div>
           {{else}}
             {{#each model as |contact|}}

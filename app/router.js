@@ -63,7 +63,15 @@ Router.map(function() {
     });
   });
 
-  this.route('contacts');
+  this.route('contacts',function(){
+    this.modal('contact-lookup', {
+      withParams: ['lookup'],
+      actions: {
+        dimiss: 'dimiss',
+        lookUp: 'lookUp'
+      }
+    });
+  });
   this.route('contact', { path: 'contacts/:contact_id' }, function() {
     this.modal('step-modal', {
       withParams: ['step'],
@@ -89,6 +97,7 @@ Router.map(function() {
   this.route('settings');
   this.route('login');
   this.route('informations');
+  this.route('lookup');
 });
 
 export default Router;
