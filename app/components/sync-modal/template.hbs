@@ -1,0 +1,23 @@
+<div class="modal-content modal-sm">
+
+  <div class="modal-header">
+    <button {{action 'cancel'}} type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+        aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">{{contact.name}}</h4>
+  </div>
+  <div class="modal-body">
+    <div class="form-group row">
+      Are you sure you want to synchronize the contact?
+    </div>
+  </div>
+  <div class="modal-actions">
+    <button {{action 'cancel'}} type="button" class="btn-link modal-action" data-dismiss="modal">
+      Cancel
+    </button>
+    <button {{action 'update' contact.id}} type="button" class="btn-link modal-action" data-dismiss="modal">
+      <strong>Update</strong>
+    </button>
+  </div>
+</div>
+{{yield}}
+
