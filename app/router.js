@@ -93,6 +93,13 @@ Router.map(function() {
         contactSave: 'contactSave'
       }
     });
+    this.modal('sync-modal', {
+      withParams: ['refcon'],
+      actions: {
+        cancel: 'cancel',
+        syncContact: 'syncContact'
+      }
+    });
   });
   this.route('settings');
   this.route('login');

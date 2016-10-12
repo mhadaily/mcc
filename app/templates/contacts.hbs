@@ -31,8 +31,10 @@
         </div>
         <div class="col-md-6">From:</div>
         <div class="col-md-6">To:</div>
-        <div class="col-md-6">{{ember-selectize content=utcHour selection=valueField optionValuePath="content.id" optionLabelPath="content.label" select-value=(action 'selectuUtc' 'offset_from') placeholder="H"}} </div>
-        <div class="col-md-6">{{ember-selectize content=utcHour selection=labelField optionValuePath="content.id" optionLabelPath="content.label" placeholder="H" select-value=(action 'selectuUtc' 'offset_to')}} </div>
+        <div
+            class="col-md-6">{{ember-selectize content=utcHour selection=valueField optionValuePath="content.id" optionLabelPath="content.label" select-value=(action 'selectuUtc' 'offset_from') placeholder="H"}} </div>
+        <div
+            class="col-md-6">{{ember-selectize content=utcHour selection=labelField optionValuePath="content.id" optionLabelPath="content.label" placeholder="H" select-value=(action 'selectuUtc' 'offset_to')}} </div>
       </div>
     </div>
     <div class="col-md-6">
@@ -50,8 +52,8 @@
       {{page-numbers content=model class="pull-right"}}
       <div class="statcard p-a m-b">
         <span class="h3 statcard-number">
-            {{format-number model.meta.total-count format=",0"}}
-          </span>
+          {{format-number model.meta.total-count format=",0"}}
+        </span>
         <span class="statcard-desc text-mute">client(s)</span>
       </div>
     </div>
@@ -59,38 +61,38 @@
       <div class="table-responsive">
         <table class="table table-condensed" data-sort="table">
           <thead>
-            <tr>
-              <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Client' (query-params sort="name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'email') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Email' (query-params sort="email" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Step' (query-params sort="step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'home_phone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Home Phone' (query-params sort="home_phone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'cell_phone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Cell Phone' (query-params sort="cell_phone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'skype_id') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Skype ID' (query-params sort="skype_id" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'Country') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Country' (query-params sort="country" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'state') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'State' (query-params sort="state" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'time_zone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Time Zone' (query-params sort="time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'utc_offset') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Local Time' (query-params sort="utc_offset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th>
-            </tr>
+          <tr>
+            <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Client' (query-params sort="name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+            <th class="header {{if (eq model.meta.sort-attr-name 'email') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Email' (query-params sort="email" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+            <th class="header {{if (eq model.meta.sort-attr-name 'step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Step' (query-params sort="step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+            <th class="header {{if (eq model.meta.sort-attr-name 'home_phone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Home Phone' (query-params sort="home_phone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+            <th class="header {{if (eq model.meta.sort-attr-name 'cell_phone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Cell Phone' (query-params sort="cell_phone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+            <th class="header {{if (eq model.meta.sort-attr-name 'skype_id') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Skype ID' (query-params sort="skype_id" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+            <th class="header {{if (eq model.meta.sort-attr-name 'Country') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Country' (query-params sort="country" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+            <th class="header {{if (eq model.meta.sort-attr-name 'state') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'State' (query-params sort="state" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+            <th class="header {{if (eq model.meta.sort-attr-name 'time_zone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Time Zone' (query-params sort="time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+            <th class="header {{if (eq model.meta.sort-attr-name 'utc_offset') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Local Time' (query-params sort="utc_offset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+          </tr>
           </thead>
           {{#if model.loading}}
             <div class="padding-200">
@@ -98,30 +100,34 @@
             </div>
           {{else}}
             <tbody>
-              {{#unless model.length}}
-                <div class="m-a-1">
-                  Your search returned no result, to lookup more please click here  {{#link-to "lookup" class="btn btn-danger" tagName="button"}}Lookup{{/link-to}}
-                </div>
-          {{else}}
-            {{#each model as |contact|}}
+            {{#unless model.length}}
               <tr>
-                <td>{{link-to (or contact.name '[unnamed]') 'contact' contact}}</td>
-                <td>{{link-to (or contact.email '[no email]') 'contact' contact}}</td>
-                <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step '0'}}</td>
-                <td>{{contact.homePhone}}</td>
-                <td>{{contact.cellPhone}}</td>
-                <td>{{contact.skypeId}}</td>
-                <td>{{contact.country}}</td>
-                <td>{{contact.state}}</td>
-                <td>{{contact.timeZone}}</td>
-                <td>
-                  {{#unless (eq contact.timeZone null)}}
-                    {{current-time contact.timeZone}}
-                  {{/unless}}
+                <td colspan="10">
+                  <div class="well">There is nothing to show, please {{#link-to "lookup"}}click
+                    here{{/link-to}} to lookup more
+                  </div>
                 </td>
               </tr>
-            {{/each}}
-              {{/unless}}
+            {{else}}
+              {{#each model as |contact|}}
+                <tr>
+                  <td>{{link-to (or contact.name '[unnamed]') 'contact' contact}}</td>
+                  <td>{{link-to (or contact.email '[no email]') 'contact' contact}}</td>
+                  <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step '0'}}</td>
+                  <td>{{contact.homePhone}}</td>
+                  <td>{{contact.cellPhone}}</td>
+                  <td>{{contact.skypeId}}</td>
+                  <td>{{contact.country}}</td>
+                  <td>{{contact.state}}</td>
+                  <td>{{contact.timeZone}}</td>
+                  <td>
+                    {{#unless (eq contact.timeZone null)}}
+                      {{current-time contact.timeZone}}
+                    {{/unless}}
+                  </td>
+                </tr>
+              {{/each}}
+            {{/unless}}
             </tbody>
           {{/if}}
         </table>

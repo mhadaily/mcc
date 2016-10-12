@@ -1,6 +1,7 @@
 <div class="search-col">
   <div class="dashhead">
     <h2 class="dashhead-title">LOOKUP</h2>
+
   </div>
   <form {{action 'queryChanged' on="submit" }} class="form">
     <div class="form-group">
@@ -12,25 +13,41 @@
     <div class="form-group">
       {{input type="text" value=reference class="form-control" placeholder="Reference"}}
     </div>
-    {{!--<div class="form-group">--}}
-      {{!--{{input type="text" value=home_phone class="form-control" placeholder="Phone Number"}}--}}
+    <!--TODO-->
+    {{!-- <div class="form-group">--}}
+    {{!--{{input type="text" value=home_phone class="form-control" placeholder="Phone Number"}}--}}
     {{!--</div>--}}
     {{!--<div class="form-group">--}}
-      {{!--{{input type="text" value=cell_phone class="form-control" placeholder="Cell Number"}}--}}
+    {{!--{{input type="text" value=cell_phone class="form-control" placeholder="Cell Number"}}--}}
     {{!--</div>--}}
     {{!--<div class="form-group">--}}
-      {{!--{{input type="text" value=skype_id class="form-control" placeholder="Skype ID"}}--}}
+    {{!--{{input type="text" value=skype_id class="form-control" placeholder="Skype ID"}}--}}
     {{!--</div>--}}
     <div class="col-md-6">
       <button type="reset" {{action 'queryClear' }} class="btn btn-block btn-default">Reset</button>
     </div>
     <div class="col-md-6">
-      {{#if (or contact_name contact_email reference home_phone cell_phone skype_id)}}
+      {{#if (or contact_name contact_email reference)}}
         <button type="submit" {{action 'queryChanged'}}  class="btn btn-block btn-primary">Lookup</button>
       {{else}}
         <button type="submit" {{action 'returnNothing'}} class="btn btn-block btn-primary disabled">Lookup</button>
       {{/if}}
+      <br/>
+
     </div>
+
+    <p>Note:</p>
+    <p>
+      <small>
+        This search feature will return exact details of the client, thus, please fill one of the following input box
+        and try to search. To clarify, If you search for John only, it is less likely to show any results. However,
+        you can search for John Doe
+        and you will see the best matches. Nonetheless, We strongly recommend you to lookup by either Email or
+        Reference ID which is most likely to return one
+        result precisely.
+      </small>
+    </p>
+
   </form>
 </div>
 <div class="container-fluid search-panel">
@@ -42,74 +59,108 @@
     </div>
     <div class="table-full">
       <div class="table-responsive">
-        <table class="table table-condensed" data-sort="table">
-          <thead>
-          <tr>
-            <th class="header">
-              Client
-            </th>
-            <th class="header">
-              Email
-            </th>
-            <th class="header">
-              Step
-            </th>
-            <th class="header">
-              Home Phone
-            </th>
-            <th class="header">
-              Cell Phone
-            </th>
-            <th class="header">
-              Skype ID
-            </th>
-            <th class="header">
-              Country
-            </th>
-            <th class="header">
-              State
-            </th>
-            <th class="header">
-              Time Zone
-            </th>
-            <th class="header">
-              Local Time
-            </th>
-          </tr>
-          </thead>
-          {{#if model.loading}}
-            <div class="padding-200">
-              {{ember-spinner}}
+
+        {{#if model.lookupLists.data.loading}}
+          <div class="padding-200">
+            {{ember-spinner}}
+          </div>
+        {{else}}
+          {{#unless model.lookupLists.data.length}}
+            <div class="m-a-1">
+              There is no client.
             </div>
           {{else}}
-            <tbody>
-            {{#unless model.length}}
-              <div class="m-a-1">
-                There is no client.
+            {{#each model.lookupLists.data as |contact|}}
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" href="#{{contact.attributes.reference}}">{{contact.attributes.name}}
+                        [{{contact.attributes.reference}}]
+                        <small>Click to Open</small>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="{{contact.attributes.reference}}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <div class="col-md-5">
+                        <div class="hr-divider m-t m-b">
+                          <h3 class="hr-divider-content hr-divider-heading">Client Details</h3>
+                        </div>
+                        <dl>
+                          <dd>Reference</dd>
+                          <dt>{{contact.attributes.reference}}</dt>
+                          <dd>Email</dd>
+                          <dt>{{contact.attributes.email}}</dt>
+                          <dd>Step</dd>
+                          <dt class="{{unless contact.attributes.step 'text-danger'}}">{{or contact.attributes.step '0'}}</dt>
+                          <dd>Home Phone</dd>
+                          <dt>{{contact.attributes.home-phone}}</dt>
+                          <dd>Cell Phone</dd>
+                          <dt>{{contact.attributes.cell-phone}}</dt>
+                          <dd>Skype Id</dd>
+                          <dt>{{contact.attributes.skype-id}}</dt>
+                          <dd>Country</dd>
+                          <dt>{{contact.attributes.country}}</dt>
+                          <dd>City</dd>
+                          <dt>{{contact.attributes.city}}</dt>
+                          <dd>State</dd>
+                          <dt>{{contact.attributes.state}}</dt>
+                          <dd>Timezone</dd>
+                          <dt>{{contact.attributes.time-zone}}</dt>
+                          <dd>Localtime</dd>
+                          <dt>{{#unless (eq contact.attributes.time-zone null)}}
+                            {{current-time contact.attributes.time-zone}}
+                          {{/unless}}</dt>
+                          <dd>Business Coach</dd>
+                          <dt>{{contact.attributes.l1-mttb-coach}}</dt>
+                          <dd>Senior Business Coach</dd>
+                          <dt>{{contact.attributes.l2-mttb-coach}}</dt>
+
+                        </dl>
+                        <div class="hr-divider m-t m-b">
+                          <h3 class="hr-divider-content hr-divider-heading">Tags</h3>
+                        </div>
+
+                        {{#each-in contact.attributes.tags as |key value|}}
+                          <p>
+                            <small>{{key}}: {{value}}</small>
+                          </p>
+                        {{/each-in}}
+
+                      </div>
+                      <div class="col-md-7">
+                        <div class="hr-divider m-t m-b">
+                          <h3 class="hr-divider-content hr-divider-heading">Client Notes</h3>
+                        </div>
+                        <table class="table">
+                          <thead>
+                          <tr>
+                            <th class="header">Date</th>
+                            <th class="header">Content</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          {{#each model.lookupLists.included as |note|}}
+                            {{#each-in note as |key value|}}
+                              {{#if (eq value 'notes')}}
+                                <tr>
+                                  <td>{{moment-format note.attributes.data}}</td>
+                                  <td>{{breakLine note.attributes.content}}&nbsp;</td>
+                                </tr>
+                              {{/if}}
+                            {{/each-in}}
+                          {{/each}}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            {{else}}
-              {{#each model as |contact|}}
-                <tr>
-                  <td>{{link-to (or contact.name '[unnamed]') 'contact' contact}}</td>
-                  <td>{{link-to (or contact.email '[no email]') 'contact' contact}}</td>
-                  <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step '0'}}</td>
-                  <td>{{contact.homePhone}}</td>
-                  <td>{{contact.cellPhone}}</td>
-                  <td>{{contact.skypeId}}</td>
-                  <td>{{contact.country}}</td>
-                  <td>{{contact.state}}</td>
-                  <td>{{contact.timeZone}}</td>
-                  <td>
-                    {{#unless (eq contact.timeZone null)}}
-                      {{current-time contact.timeZone}}
-                    {{/unless}}
-                  </td>
-                </tr>
-              {{/each}}
-            {{/unless}}
-            </tbody>
-          {{/if}}
-        </table>
+            {{/each}}
+          {{/unless}}
+        {{/if}}
       </div>
     </div>
   </div>
