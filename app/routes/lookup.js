@@ -33,7 +33,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
             contact_email: Ember.$.trim(params.contact_email)
           }
         })
-      })
+      });
     }
   },
   actions: {
