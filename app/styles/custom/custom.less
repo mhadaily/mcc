@@ -17,13 +17,13 @@
     padding-right: 1px;
     text-align: center;
   }
-  &> li + li {
+  & > li + li {
     margin-left: 0px;
     padding-left: 5px;
     margin-right: 5px;
     border-left: 1px solid #ccc;
   }
-  &> li + li:last-child {
+  & > li + li:last-child {
     border-left: 0px;
   }
   h2 {
@@ -79,7 +79,7 @@
     z-index: 0;
   }
   .statcard {
-    &>a {
+    & > a {
       text-decoration: none;
     }
   }
@@ -177,3 +177,19 @@ h3,
 .announcement table {
   width: 100%;
 }
+
+.isSync {
+  z-index: 999;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  .center {
+    position: absolute;
+    left: 50%;
+    right: 0;
+    top: 50%;
+  }
+}
+

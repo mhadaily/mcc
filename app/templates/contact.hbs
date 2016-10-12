@@ -1,13 +1,18 @@
+{{#if isSync}}
+  <div class="isSync">
+    <div class="center"> Please Wait...</div>
+  </div>
+{{/if}}
 <div class="container-fluid p-t">
   <div class="dashhead dashhead-solid">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <div class="dashhead-titles">
           <h3 class="dashhead-title"><span> {{link-to '<< Clients' 'contacts'}}</span> |
             CLIENT: {{or model.name 'unnamed'}}</h3>
         </div>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-8">
         <ul class="nav nav-bordered pull-right">
           <li>
             <h2 class="statcard-number">Step: <strong>{{or model.step '0'}}</strong>&nbsp;</h2>
@@ -24,10 +29,15 @@
           <li>
             {{link-to 'Edit Contact' (query-params contactrf=model.id) tagName="button" class="btn btn-sm btn-primary"}}
           </li>
+          <li>
+            {{link-to 'Sync Contact' (query-params refcon=model.id)  tagName="button" class="btn btn-sm btn-primary"}}
+          </li>
+
         </ul>
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-sm-6">
       <ul class="nav nav-bordered m-y" role="tablist">
@@ -52,7 +62,7 @@
           <a href="#contact-application" role="tab" data-toggle="tab" aria-controls="contact-application">Extra</a>
         </li>
         {{!--<li role="presentation">--}}
-          {{!--<a href="#contact-automation-log" role="tab" data-toggle="tab" aria-controls="contact-automation-log">Logs</a>--}}
+        {{!--<a href="#contact-automation-log" role="tab" data-toggle="tab" aria-controls="contact-automation-log">Logs</a>--}}
         {{!--</li>--}}
       </ul>
       <div class="position-fixed">
@@ -77,8 +87,8 @@
             {{partial 'mttb-interview'}}
           </div>
           {{!--<div role="tabpanel" class="tab-pane" id="contact-automation-log">--}}
-            {{!--{{partial 'contact-logs'}}--}}
-            {{!--{{partial 'automation-logs'}}--}}
+          {{!--{{partial 'contact-logs'}}--}}
+          {{!--{{partial 'automation-logs'}}--}}
           {{!--</div>--}}
         </div>
       </div>
