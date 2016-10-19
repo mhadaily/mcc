@@ -1,14 +1,14 @@
-{{#if (or (eq application.model.account.team "Coach") (eq application.model.account.role "superadmin"))}}
+{{#if (or (eq application.model.account.team "Coach") (eq application.model.account.role.name "superadmin"))}}
 
   {{announcement-widget channel="Coach"}}
 
 {{/if}}
-{{#if (or (eq application.model.account.team "Senior Coach") (eq application.model.account.role "superadmin"))}}
+{{#if (or (eq application.model.account.team "Senior Coach") (eq application.model.account.role.name "superadmin"))}}
 
   {{announcement-widget channel="Senior Coach"}}
 
 {{/if}}
-{{#if (or (eq application.model.account.team "Traffic Coach") (eq application.model.account.role "superadmin"))}}
+{{#if (or (eq application.model.account.team "Traffic Coach") (eq application.model.account.role.name "superadmin"))}}
 
   {{announcement-widget channel="Traffic Coach"}}
 
