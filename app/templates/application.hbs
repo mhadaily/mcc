@@ -53,13 +53,12 @@
               <small class="iconav-nav-label visible-xs-block">Training</small>
             </a>
           {{/link-to-with-tip}}
-
-          {{#link-to-with-tip (query-params library='1' ) tagName="li" }}
-            <a href="#" title="Library" data-toggle="tooltip" data-placement="right" data-container="body">
-              <span class="icon icon-open-book"></span>
-              <small class="iconav-nav-label visible-xs-block">Library</small>
-            </a>
-          {{/link-to-with-tip}}
+          {{!--{{#link-to-with-tip (query-params library='1' ) tagName="li" }}--}}
+          {{!--<a href="#" title="Library" data-toggle="tooltip" data-placement="right" data-container="body">--}}
+          {{!--<span class="icon icon-open-book"></span>--}}
+          {{!--<small class="iconav-nav-label visible-xs-block">Library</small>--}}
+          {{!--</a>--}}
+          {{!--{{/link-to-with-tip}}--}}
           {{#link-to-with-tip (query-params search='1' ) tagName="li" }}
             <a href="#" title="Search Clients" data-toggle="tooltip" data-placement="right" data-container="body">
               <span class="icon icon-magnifying-glass"></span>
@@ -68,9 +67,10 @@
           {{/link-to-with-tip}}
           {{#link-to-with-tip 'settings' tagName="li" }}
             <a href="#" title= {{concat 'Signed in as ' model.account.name}} data-toggle="tooltip" data-placement="right" data-container="body">
-              {{gravatar-image email='account.email' class="img-circle img-responsive" title=model.account.name defaultImage='mm'}}
+              <span>{{gravatar-image email='account.email' class="img-circle img-responsive" title=model.account.name defaultImage='mm'}}</span>
               <small class="iconav-nav-label visible-xs-block">@model.account.name</small>
-            </a> {{/link-to-with-tip}}
+            </a>
+          {{/link-to-with-tip}}
         </ul>
       </div>
       <div class="name-vertical">
