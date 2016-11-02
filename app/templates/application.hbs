@@ -47,6 +47,13 @@
               <small class="iconav-nav-label visible-xs-block">Calles</small>
             </a>
           {{/link-to-with-tip}}
+          {{#link-to-with-tip 'training' tagName="li" }}
+            <a href="#" title="Training Videos" data-toggle="tooltip" data-placement="right" data-container="body">
+              <span class="icon icon-video"></span>
+              <small class="iconav-nav-label visible-xs-block">Training</small>
+            </a>
+          {{/link-to-with-tip}}
+
           {{#link-to-with-tip (query-params library='1' ) tagName="li" }}
             <a href="#" title="Library" data-toggle="tooltip" data-placement="right" data-container="body">
               <span class="icon icon-open-book"></span>

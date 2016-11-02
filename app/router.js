@@ -105,6 +105,7 @@ Router.map(function() {
   this.route('login');
   this.route('informations');
   this.route('lookup');
+  this.route('training');
 });
 
 export default Router;
