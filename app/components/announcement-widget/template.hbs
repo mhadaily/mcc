@@ -5,18 +5,20 @@
       <div class="h3 m-t-0 text-center">
         <strong>{{announce.subject}} <a {{action 'pageRefresh'}}><span class="icon icon-cycle"></span></a></strong>
       </div>
-      <div class="row">
-        <div class="col-lg-12 announcement">
-          {{{announce.summary}}}
-        </div>
-      </div>
-      {{#if announce.body}}
-        <div class="row" style="background-color: #f2c900; font-size: smaller">
+      <div class="clearfix" style="height:130px;overflow:auto;">
+        <div class="row">
           <div class="col-lg-12 announcement">
-            {{{announce.body}}}
+            {{{announce.summary}}}
           </div>
         </div>
-      {{/if}}
+        {{#if announce.body}}
+          <div class="row" style="background-color: #f2c900; font-size: smaller;">
+            <div class="col-lg-12 announcement">
+              {{{announce.body}}}
+            </div>
+          </div>
+        {{/if}}
+      </div>
       <small> Updated {{moment-customfmt announce.publish_at}} EST</small>
     {{/if}}
   {{/each}}
