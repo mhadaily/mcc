@@ -5,5 +5,6 @@ export default Ember.Component.extend({
   vid: null,
   title: null,
   password: null,
-  thumbnailUrl: null
+  thumbnailUrl: null,
+  download:null
 });

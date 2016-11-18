@@ -6,9 +6,13 @@
     <div class="caption">
       <p><i class="icon icon-clock"></i> Time: <strong>{{time}}</strong></p>
       <p><i class="icon icon-user"></i> Password: <strong>{{password}}</strong></p>
-      <p><a href="https://vimeo.com/{{vid}}" class="btn btn-primary btn-block" target="_blank" role="button">Click to
-        Watch</a></p>
+
     </div>
+    <p class="clearfix"><div class="col-sm-6"><a href="{{vid}}" class="btn btn-primary btn-block" target="_blank" role="button">Click to
+    Watch</a></div><div class="col-sm-6"><a href="{{download}}" class="btn btn-primary btn-block" target="_blank" role="button">download</a></div>
+    </p>
   </div>
+
+
 </div>
 {{yield}}
