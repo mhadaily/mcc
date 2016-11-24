@@ -3,7 +3,7 @@
     <div class="input-group">
       {{textarea value=noteContent placeholder="Quick Note" class="form-control custom-control" rows="2"}}
       <span class="input-group-btn btn-success">
-         <button class="btn btn-success" type="submit">Save</button>
+         <button id="saveDisabled" class="btn {{btnSuccess}}" type="submit">{{noteText}}</button>
       </span>
     </div>
   </form>

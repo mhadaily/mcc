@@ -7,6 +7,8 @@ export default Ember.Controller.extend({
   isSync: false,
   backTo: null,
   blink: null,
+  noteText: 'Save',
+  btnSuccess: 'btn-success',
   noteContent: null,
   blockHeight: Ember.computed('blockHeight', function () {
     let wheight = parseInt(window.innerHeight - 190, 10);

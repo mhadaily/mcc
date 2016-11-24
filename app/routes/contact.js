@@ -35,7 +35,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
     changeSave: function (step) {
       //debugger;
-      var newStepNumber = {
+      let newStepNumber = {
         step: step,
         contact: this.currentModel,
       };
@@ -50,11 +50,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
     contactSave: function (homePhone, skypeId) {
 
-      var newPhoneNumber = {
+      let newPhoneNumber = {
         homePhone: homePhone,
         contact: this.currentModel,
       };
-      var newSkypeId = {
+      let newSkypeId = {
         skypeId: skypeId,
         contact: this.currentModel,
       };
@@ -69,18 +69,25 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       });
     },
     newNote: function (noteContent) {
-      var newNoteData = {
+      Ember.$('button[type="submit"]').prop('disabled', true);
+      this.controller.set('btnSuccess', 'btn-danger');
+      this.controller.set('noteText', 'Saving note...');
+      let newNoteData = {
         content: noteContent,
         contact: this.currentModel,
         user: this.modelFor('application').account
       };
       this.store.createRecord('note', newNoteData).save().then(() => {
         this.get('notify').success('Note has been saved');
+        Ember.$('button[type="submit"]').prop('disabled', false);
+        this.controller.set('noteText', 'Save');
+        this.controller.set('btnSuccess', 'btn-success');
         this.controller.set('noteContent', ' ');
-
       }, function () {
         this.get('notify').error('Saving Note Failed! MR/MS ' + newNoteData.author);
-
+        this.controller.set('noteText', 'Save');
+        Ember.$('button[type="submit"]').prop('disabled', false);
+        this.controller.set('btnSuccess', 'btn-success');
       });
     }
   }

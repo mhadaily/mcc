@@ -3,10 +3,11 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   notify: Ember.inject.service('notify'),
+  disabled: null,
   actions: {
     changeSave: function(step) {
       //debugger;
-      var newStepNumber = {
+      let newStepNumber = {
         step: step,
         contact: this.currentModel.get('contact.id'),
       };
@@ -19,8 +20,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       });
     },
     dateSave: function(dateDue) {
-
-      var newDateDue = {
+      let newDateDue = {
         dateDue: dateDue,
         task: this.currentModel,
       };
@@ -34,17 +34,25 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       });
     },
     newNote: function(noteContent) {
-      //debugger;
-      var newNoteData = {
+      Ember.$('button[type="submit"]').prop('disabled', true);
+      this.controller.set('btnSuccess', 'btn-danger');
+      this.controller.set('noteText', 'Saving note...');
+      let newNoteData = {
         content: noteContent,
         contact: this.currentModel.get('contact'),
         user: this.modelFor('application').account
       };
       this.store.createRecord('note', newNoteData).save().then(() => {
         this.get('notify').success('Note has been saved');
+        this.controller.set('noteText', 'Save');
+        Ember.$('button[type="submit"]').prop('disabled', false);
+        this.controller.set('btnSuccess', 'btn-success');
         this.controller.set('noteContent', ' ');
       }, function() {
         this.get('notify').error('Saving Note Failed! MR/MS ' + newNoteData.author);
+        this.controller.set('noteText', 'Save');
+        Ember.$('button[type="submit"]').prop('disabled', false);
+        this.controller.set('btnSuccess', 'btn-success');
       });
     }
   }
