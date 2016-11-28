@@ -9,6 +9,7 @@
     "numeral": "^1.5.3",
     "spin.js": "^2.3.2",
     "bootstrap-datepicker": "^1.6.4",
-    "selectize": "miguelcobain/selectize.js#master"
+    "selectize": "miguelcobain/selectize.js#master",
+    "animate.css": "^3.5.2"
   }
 }

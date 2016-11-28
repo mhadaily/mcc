@@ -106,6 +106,7 @@ Router.map(function() {
   this.route('informations');
   this.route('lookup');
   this.route('training');
+  this.route('buyerlead');
 });
 
 export default Router;
