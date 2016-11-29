@@ -49,7 +49,7 @@
           {{/link-to-with-tip}}
           {{#link-to-with-tip 'buyerlead' tagName="li" }}
             <a href="#" title="Buyer Lead Process" data-toggle="tooltip" data-placement="right" data-container="body">
-              <span class="icon icon-pencil"></span>
+              <span class="icon icon-credit"></span>
               <small class="iconav-nav-label visible-xs-block">Buyer Lead Process</small>
             </a>
           {{/link-to-with-tip}}
@@ -72,8 +72,10 @@
             </a>
           {{/link-to-with-tip}}
           {{#link-to-with-tip 'settings' tagName="li" }}
-            <a href="#" title= {{concat 'Signed in as ' model.account.name}} data-toggle="tooltip" data-placement="right" data-container="body">
-              <span>{{gravatar-image email='account.email' class="img-circle img-responsive" title=model.account.name defaultImage='mm'}}</span>
+            <a href="#" title= {{concat 'Signed in as ' model.account.name}} data-toggle="tooltip"
+               data-placement="right" data-container="body">
+              <span>{{gravatar-image email='account.email' class="img-circle img-responsive" title=model.account.name
+                                     defaultImage='mm'}}</span>
               <small class="iconav-nav-label visible-xs-block">@model.account.name</small>
             </a>
           {{/link-to-with-tip}}
