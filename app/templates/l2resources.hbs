@@ -1,0 +1,23 @@
+{{#if (or (eq model.account.team "Phone Sales & Training / L2 Phone Sales") (eq model.account.role.name "superadmin"))}}
+  <div class="container-fluid p-t">
+    <div class="row">
+      <div class="dashhead dashhead-solid">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="dashhead-titles">
+              <h6>Training</h6>
+              <h3 class="dashhead-title">L2 Coach Resources: </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-t">
+      {{download-training title="25K Product Funnel Mentor" thumbnailUrl="img/training/l2-1.jpg" time="1.15MB" password="-" download="https://www.dropbox.com/sh/ls7t1qsxf3ifz8m/AAC_038xpvcfXPaAY5n3Xwq7a/Final%20Print/PM%20St-Kitts%202016/Seminar%20Room%20Handouts/25K-Product-Funnel-Mentor-16082016.pdf?dl=0"}}
+      {{download-training title="Diamond Bonuses" thumbnailUrl="img/training/l2-2.jpg" time="2.7MB" password="-" download="https://www.dropbox.com/sh/ls7t1qsxf3ifz8m/AACF98L6mohCvEeyrYJwGl6Ba/Final%20Print/PM%20St-Kitts%202016/Seminar%20Room%20Handouts/Diamond-Bonuses-10062016.pdf?dl=0"}}
+      {{download-training title="Mentorship 50K Program" thumbnailUrl="img/training/l2-3.jpg" time="1.06MB" password="-" download="https://www.dropbox.com/sh/ls7t1qsxf3ifz8m/AABsWSTS45EGq2kuHRlwpRbLa/Final%20Print/PM%20St-Kitts%202016/Seminar%20Room%20Handouts/Mentorship-50K-Program-16082016.pdf?dl=0"}}
+      {{download-training title="Mentorship 100K Program" thumbnailUrl="img/training/l2-4.jpg" time="4.48MB" password="-" download="https://www.dropbox.com/sh/ls7t1qsxf3ifz8m/AAA8L_VvwO-wmw6YMHaYTbTLa/Final%20Print/PM%20St-Kitts%202016/Seminar%20Room%20Handouts/Mentorship-100K-Program-09082016.pdf?dl=0"}}
+    </div>
+  </div>
+  {{outlet}}
+{{/if}}

@@ -1,3 +1,4 @@
+
 <div class="with-iconav">
   {{#if session.isAuthenticated}}
     {{#bs-popover title="Search Client" tagName="button" }}
@@ -59,6 +60,14 @@
               <small class="iconav-nav-label visible-xs-block">Training</small>
             </a>
           {{/link-to-with-tip}}
+          {{#if (or (eq model.account.team "Phone Sales & Training / L2 Phone Sales") (eq model.account.role.name "superadmin"))}}
+            {{#link-to-with-tip 'l2resources' tagName="li" }}
+              <a href="#" title="L2 Resources" data-toggle="tooltip" data-placement="right" data-container="body">
+                <span class="icon icon-blackboard"></span>
+                <small class="iconav-nav-label visible-xs-block">L2 Resources</small>
+              </a>
+            {{/link-to-with-tip}}
+          {{/if}}
           {{!--{{#link-to-with-tip (query-params library='1' ) tagName="li" }}--}}
           {{!--<a href="#" title="Library" data-toggle="tooltip" data-placement="right" data-container="body">--}}
           {{!--<span class="icon icon-open-book"></span>--}}
@@ -82,7 +91,8 @@
         </ul>
       </div>
       <div class="name-vertical">
-        <strong>{{concat 'Signed in as ' model.account.name}}</strong>
+
+        <strong>{{concat 'Signed in as ' model.account.name}} </strong>
       </div>
     </nav>
   {{/if}} {{outlet}}

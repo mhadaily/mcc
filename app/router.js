@@ -107,6 +107,7 @@ Router.map(function() {
   this.route('lookup');
   this.route('training');
   this.route('buyerlead');
+  this.route('l2resources');
 });
 
 export default Router;
