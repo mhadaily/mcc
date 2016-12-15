@@ -25,5 +25,4 @@ export default function() {
     this.toValue(true),
     this.use('scale')
   );
-
 }

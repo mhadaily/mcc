@@ -24,15 +24,23 @@
             <h2 class="statcard-number">Client Time: <strong>{{clock-timezone timezone=model.timeZone}}</strong></h2>
           </li>
           <li>
-            {{link-to 'Change Step' (query-params step=model.step) tagName='button' class='btn btn-sm btn-primary'}}
+            {{link-to 'Change Step' (query-params  step=(or model.step '0')) tagName='button' class='btn btn-sm btn-primary'}}
+            {{#if step}}
+              {{to-elsewhere named='modal' send=(hash body=(component 'step-modal' contact=model changeStep=(action 'changeStep') dismiss=(action (mut step) null)) onOutsideClick=(action (mut step) null)) }}
+            {{/if}}
           </li>
           <li>
             {{link-to 'Edit Contact' (query-params contactrf=model.id) tagName="button" class="btn btn-sm btn-primary"}}
+            {{#if contactrf}}
+              {{to-elsewhere named='modal' send=(hash body=(component 'contact-modal' contact=model update=(action 'update') dismiss=(action (mut contactrf) null)) onOutsideClick=(action (mut contactrf) null)) }}
+            {{/if}}
           </li>
           <li>
             {{link-to 'Sync Contact' (query-params refcon=model.id)  tagName="button" class="btn btn-sm btn-primary"}}
+            {{#if refcon}}
+              {{to-elsewhere named='modal' send=(hash body=(component 'sync-modal' sync=(action 'sync') dismiss=(action (mut refcon) null)) onOutsideClick=(action (mut refcon) null)) }}
+            {{/if}}
           </li>
-
         </ul>
       </div>
     </div>

@@ -1,8 +1,8 @@
-
 <div class="with-iconav">
   {{#if session.isAuthenticated}}
     {{#bs-popover title="Search Client" tagName="button" }}
-      <form class="form">
+      <form class="form" {{action "searchNow" contact step home_phone cell_phone skype_id country_or_state
+                                  on="submit"}}>
         <div class="form-group">
           {{input type="text" value=contact class="form-control" placeholder="Name/Email/Ref"}}
         </div>
@@ -21,7 +21,7 @@
         <div class="form-group">
           {{input type="text" value=country_or_state class="form-control" placeholder="Country or State"}}
         </div>
-        <button {{action 'searchNow'}} type="button" class="btn btn-primary btn-block">Search</button>
+        <button type="submit" class="btn btn-primary btn-block">Search</button>
       </form>
     {{/bs-popover}}
     <nav class="iconav iconav-inverse">
@@ -60,7 +60,8 @@
               <small class="iconav-nav-label visible-xs-block">Training</small>
             </a>
           {{/link-to-with-tip}}
-          {{#if (or (eq model.account.team "Phone Sales & Training / L2 Phone Sales") (eq model.account.role.name "superadmin"))}}
+          {{#if
+            (or (eq model.account.team "Phone Sales & Training / L2 Phone Sales") (eq model.account.role.name "superadmin"))}}
             {{#link-to-with-tip 'l2resources' tagName="li" }}
               <a href="#" title="L2 Resources" data-toggle="tooltip" data-placement="right" data-container="body">
                 L2
@@ -74,12 +75,18 @@
           {{!--<small class="iconav-nav-label visible-xs-block">Library</small>--}}
           {{!--</a>--}}
           {{!--{{/link-to-with-tip}}--}}
-          {{#link-to-with-tip (query-params search='1' ) tagName="li" }}
-            <a href="#" title="Search Clients" data-toggle="tooltip" data-placement="right" data-container="body">
-              <span class="icon icon-magnifying-glass"></span>
-              <small class="iconav-nav-label visible-xs-block">Search</small>
-            </a>
-          {{/link-to-with-tip}}
+          {{#if search}}
+            {{#link-to-with-tip (query-params search=true ) tagName="li" }}
+              <a href="#" title="Search Clients" data-toggle="tooltip" data-placement="right" data-container="body">
+                <span class="icon icon-magnifying-glass"></span>
+                <small class="iconav-nav-label visible-xs-block">Search</small>
+              </a>
+            {{/link-to-with-tip}}
+            {{#if search}}
+              {{to-elsewhere named='modal'
+                             send=(hash body=(component 'search-modal' searchNow=(action 'searchNow') dismiss=(action (mut search) false)) onOutsideClick=(action (mut search) false)) }}
+            {{/if}}
+          {{/if}}
           {{#link-to-with-tip 'settings' tagName="li" }}
             <a href="#" title= {{concat 'Signed in as ' model.account.name}} data-toggle="tooltip"
                data-placement="right" data-container="body">
@@ -95,7 +102,8 @@
         <strong>{{concat 'Hi ' model.account.name}} </strong>
       </div>
     </nav>
+
   {{/if}} {{outlet}}
 </div>
-{{liquid-modal}} {{ember-notify messageStyle='bootstrap' classPrefix="custom-notify"}}
+{{modal-target}} {{ember-notify messageStyle='bootstrap' classPrefix="custom-notify"}}
 

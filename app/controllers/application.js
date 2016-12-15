@@ -4,20 +4,16 @@ export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   queryParams: ['library', 'search'],
   library: null,
-  search: null,
+  search: false,
   actions: {
-    searchNow() {
-      var trimMe = function(str) {
-        return Ember.$.trim(str);
-      };
-      let contact = trimMe(this.get('contact'));
-      let step = trimMe(this.get('step'));
-      let country_or_state = trimMe(this.get('country_or_state'));
-      let home_phone = trimMe(this.get('home_phone'));
-      let cell_phone = trimMe(this.get('cell_phone'));
-      let skype_id = trimMe(this.get('skype_id'));
-      let time_zone = trimMe(this.get('time_zone'));
-
+    searchNow(...args) {
+      let contact = Ember.$.trim(args[0]);
+      let step = Ember.$.trim(args[1]);
+      let country_or_state = Ember.$.trim(args[2]);
+      let home_phone = Ember.$.trim(args[3]);
+      let cell_phone = Ember.$.trim(args[4]);
+      let skype_id = Ember.$.trim(args[5]);
+      let time_zone = Ember.$.trim(args[2]);
       this.transitionToRoute('contacts', {
         queryParams: {
           contact: contact,
@@ -29,7 +25,7 @@ export default Ember.Controller.extend({
           time_zone: time_zone
         }
       });
+      this.set('search', false);
     }
-
   }
 });

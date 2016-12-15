@@ -1,10 +1,15 @@
+{{#if isSync}}
+  <div class="isSync">
+    <div class="center"> Please Wait...</div>
+  </div>
+{{/if}}
 <div class="container-fluid p-t">
   <div class="dashhead dashhead-solid">
     <div class="row">
       <div class="col-sm-3">
         <div class="dashhead-titles">
-          <h3 class="dashhead-title"><span> {{link-to '<< Calls' (or backTo 'tasks')}} </span> |
-            CLIENT: {{or contact.name 'unnamed'}}</h3>
+          <h3 class="dashhead-title"><span> {{link-to '<< Calls' (or backTo 'tasks')}} </span> | CLIENT: {{or
+            contact.name 'unnamed'}} </h3>
         </div>
       </div>
       <div class="col-sm-9">
@@ -20,11 +25,29 @@
           </li>
           {{#if (eq model.status "pending")}}
             <li>
-              {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary' disabled=(eq model.status "completed" 'disabled')}}
-                Complete Your Call {{/link-to}}
+              {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary'
+                         disabled=(eq model.status "completed" 'disabled')}} Complete Your Call {{/link-to}}
+              {{#if ref}}
+                {{to-elsewhere named='modal'
+                               send=(hash body=(component 'task-modal'
+                                 selectOutcome=(action 'selectOutcome')
+                                 task=model
+                                 complete=(action 'complete')
+                                 dismiss=(action (mut ref) null))
+                                 onOutsideClick=(action (mut ref) null)) }}
+              {{/if}}
             </li>
             <li>
-              {{link-to 'Reschedule Call' (query-params taskrf=model.id) tagName="button" class="btn btn-sm btn-primary"}}
+              {{link-to 'Reschedule Call' (query-params taskref=model.id) tagName="button"
+                        class="btn btn-sm btn-primary"}}
+              {{#if taskref}}
+                {{to-elsewhere named='modal'
+                               send=(hash body=(component 'task-reschedule'
+                                 task=model
+                                 update=(action 'update')
+                                 dismiss=(action (mut taskref) null))
+                                 onOutsideClick=(action (mut taskref) null)) }}
+              {{/if}}
             </li>
           {{/if}}
           <li>
@@ -37,14 +60,21 @@
   </div>
   <div class="row">
     <div class="col-sm-6">
-      {{#liquid-if isChange class="change-description" }}
+      {{#if refid}}
+        {{to-elsewhere named='modal'
+                       send=(hash body=(component 'task-cancel'
+                         cancel=(action 'cancel')
+                         dismiss=(action (mut refid) null))
+                         onOutsideClick=(action (mut refid) null)) }}
+      {{/if}}
+      {{#if isChange class="change-description" }}
         <div class="row task-detail well {{blink}}">
           <div class="col-sm-12">
             <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
             <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}
               &nbsp;</strong> |
               {{#if (eq model.status "pending")}}
-                {{#link-to (query-params refID=model.id)}} Cancel Your Call {{/link-to}}
+                {{#link-to (query-params refid=model.id)}} Cancel Your Call {{/link-to}}
               {{/if}}
             </p>
           </div>
@@ -56,24 +86,24 @@
             <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}
               &nbsp;</strong> |
               {{#if (eq model.status "pending")}}
-                {{#link-to (query-params refID=model.id)}} Cancel Your Call {{/link-to}}
+                {{#link-to (query-params refid=model.id)}} Cancel Your Call {{/link-to}}
               {{/if}}
             </p>
           </div>
         </div>
-      {{/liquid-if}}
+      {{/if}}
       <ul class="nav nav-bordered" role="tablist">
         <li class="active" role="presentation">
           <a href="#summary" role="tab" data-toggle="tab" aria-controls="summary">Summary <span
-              class="badge"></span></a>
+            class="badge"></span></a>
         </li>
         <li role="presentation">
           <a href="#task-details" role="tab" data-toggle="tab" aria-controls="task-details">Call Details <span
-              class="badge"></span></a>
+            class="badge"></span></a>
         </li>
         <li role="presentation">
           <a href="#contact-details" role="tab" data-toggle="tab" aria-controls="contact-details">Client Details <span
-              class="badge"></span></a>
+            class="badge"></span></a>
         </li>
         <li role="presentation">
           <a href="#task-activities" role="tab" data-toggle="tab" aria-controls="task-activities">Calls</a>
@@ -116,15 +146,15 @@
             {{partial 'mttb-interview'}}
           </div>
           {{!--<div role="tabpanel" class="tab-pane" id="contact-automation-log">--}}
-            {{!--{{partial 'contact-logs'}}--}}
-            {{!--{{partial 'automation-logs'}}--}}
+          {{!--{{partial 'contact-logs'}}--}}
+          {{!--{{partial 'automation-logs'}}--}}
           {{!--</div>--}}
         </div>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="position-relative m-y">
-        {{partial 'note-list' notes}}
+        {{partial 'note-list'}}
       </div>
       <div class="position-relative">
         {{partial 'note-box'}}

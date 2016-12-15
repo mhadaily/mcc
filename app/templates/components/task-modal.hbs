@@ -1,34 +1,28 @@
 <div class="modal-content ">
   <div class="modal-header">
-    <button type="button" class="close" {{action "dismiss"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <button type="button" class="close" {{action dismiss}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="modal-title">Completing the Call</h4>
   </div>
   <div class="modal-body ">
     <form class="form">
       <div class="form-group">
         <label>OUTCOME: </label>
-        <select class="custom-select width100" value=selectedOutcome {{action 'selectOutcome' on='change' }}>
-          <option value=''>-- select an outcome --</option>
-          {{#each task.taskType.outcomes as |item|}}
-          <option value={{item}}>{{item}}</option>
-          {{/each}}
-        </select>
+        {{ember-selectize content=task.taskType.outcomes selection=labelField optionValuePath="content"
+                          optionLabelPath="content" placeholder="-- select an outcome --"
+                          select-value=(action selectOutcome 'selectedOutcome')}}
       </div>
       <div class="form-group">
         <label>NOTE: </label>
-        {{textarea value=noteContentModal class="form-control" rows="4" }}
+        {{textarea name="noteContentModal" value=noteContentModal class="form-control" rows="4" }}
       </div>
-      {{!--
-      <button type="button" class="btn btn-danger btn-lg" {{action "cancel"}} disabled="true">Cancel Task</button>
-      --}}
     </form>
   </div>
   <div class="row modal-footer">
     <div class="col-sm-6">
-      <button type="button" class="btn btn-default btn-block" {{action "dismiss"}}>Close without complete call</button>
+      <button type="button" class="btn btn-default btn-block" {{action dismiss}}>Close without complete call</button>
     </div>
     <div class="col-sm-6">
-      <button type="submit" class="btn btn-success btn-block" {{action "complete" noteContentModal selectedOutcome}}>Complete</button>
+      <button type="submit" class="btn btn-success btn-block" {{action complete noteContentModal}}>Complete</button>
     </div>
   </div>
 </div>

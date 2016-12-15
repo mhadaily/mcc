@@ -11,12 +11,12 @@
         </tr>
       </thead>
       <tbody>
-      {{#each notes_and_task_notes as |note|}}
-      <tr class="{{if note.note 'text-info'}}">
+        {{#each notes_and_task_notes as |note|}}
+          <tr class="{{if note.note 'text-info'}}">
             <td>{{moment-format note.date}}</td>
             <td>{{breakLine note.note}} {{breakLine note.content}}&nbsp;</td>
-      </tr>
-      {{/each}}
+          </tr>
+        {{/each}}
       </tbody>
     </table>
   </div>

@@ -4,10 +4,12 @@
   </div>
   <form class="form" {{action 'queryChanged' on="submit" }}>
     <div class="form-group">
-      {{bootstrap-datepicker value=startDateToJSDate format="yyyy-mm-dd" placeholder="Due date (from)" class="form-control" autoclose=true forceDateValue=true}}
+      {{bootstrap-datepicker value=startDateToJSDate format="yyyy-mm-dd" placeholder="Due date (from)"
+                             class="form-control" autoclose=true forceDateValue=true}}
     </div>
     <div class="form-group">
-      {{bootstrap-datepicker value=endDateToJSDate format="yyyy-mm-dd" placeholder="Due date (to)" class="form-control" autoclose=true forceDateValue=true}}
+      {{bootstrap-datepicker value=endDateToJSDate format="yyyy-mm-dd" placeholder="Due date (to)" class="form-control"
+                             autoclose=true forceDateValue=true}}
     </div>
     <div class="form-group">
       {{input type="text" value=contact class="form-control" placeholder="Name/Email/Ref."}}
@@ -34,8 +36,13 @@
         </div>
         <div class="col-md-6">From:</div>
         <div class="col-md-6">To:</div>
-        <div class="col-md-6">{{ember-selectize content=utcHour selection=valueField optionValuePath="content.id" optionLabelPath="content.label" select-value=(action 'selectuUtc' 'offset_from') placeholder="H"}} </div>
-        <div class="col-md-6">{{ember-selectize content=utcHour selection=labelField optionValuePath="content.id" optionLabelPath="content.label" placeholder="H" select-value=(action 'selectuUtc' 'offset_to')}} </div>
+        <div class="col-md-6">{{ember-selectize content=utcHour selection=valueField optionValuePath="content.id"
+                                                optionLabelPath="content.label"
+                                                select-value=(action 'selectuUtc' 'offset_from')
+                                                placeholder="H"}} </div>
+        <div class="col-md-6">{{ember-selectize content=utcHour selection=labelField optionValuePath="content.id"
+                                                optionLabelPath="content.label" placeholder="H"
+                                                select-value=(action 'selectuUtc' 'offset_to')}} </div>
       </div>
     </div>
     <div class="col-md-6">
@@ -62,32 +69,50 @@
         <table class="table table-condensed table-hover" data-sort="table">
           <thead>
             <tr>
-              <th class="header {{if (eq model.meta.sort-attr-name 'date_due') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Due' (query-params sort="date_due" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'date_due')
+                                     (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Due'
+                          (query-params sort="date_due" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'subject') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'subject')
+                                     (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Subject'
+                          (query-params sort="subject" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Client' (query-params sort="contact_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'name')
+                                     (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Client'
+                          (query-params sort="contact_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Owner' (query-params sort="user_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'name')
+                                     (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Owner'
+                          (query-params sort="user_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'step')
+                                     (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Step'
+                          (query-params sort="contact_step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'time_zone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Time Zone' (query-params sort="contact_time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'time_zone')
+                                     (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Time Zone'
+                          (query-params sort="contact_time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'utcOffset') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Local Time' (query-params sort="contact_utc_offset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'utcOffset')
+                                     (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Local Time'
+                          (query-params sort="contact_utc_offset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'status') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Status' (query-params sort="status" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'status')
+                                     (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Status'
+                          (query-params sort="status" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'outcome') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Outcome' (query-params sort="outcome" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              <th class="header {{if (eq model.meta.sort-attr-name 'outcome')
+                                     (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Outcome'
+                          (query-params sort="outcome" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
             </tr>
           </thead>
@@ -101,24 +126,24 @@
                 <div class="m-a-1">
                   Your search returned no result
                 </div>
-          {{else}}
-            {{#each model as |task|}}
-              <tr class="{{if task.isOverdue 'warning'}}">
-                <td class="{{if task.isOverdue 'text-danger'}}">{{moment-format task.dateDue}}</td>
-                <td>{{link-to task.subject 'task' task}}</td>
-                <td>{{task.contact.name}}</td>
-                <td>{{task.user.name}}</td>
-                <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
-                <td>{{task.contact.timeZone}}</td>
-                <td>
-                  {{#unless (eq contact.timeZone null)}}
-                    {{current-time task.contact.timeZone}}
-                  {{/unless}}
-                </td>
-                <td>{{task.status}}</td>
-                <td>{{task.outcome}}</td>
-              </tr>
-            {{/each}}
+              {{else}}
+                {{#each model as |task|}}
+                  <tr class="{{if task.isOverdue 'warning'}}">
+                    <td class="{{if task.isOverdue 'text-danger'}}">{{moment-format task.dateDue}}</td>
+                    <td>{{link-to task.subject 'task' task}}</td>
+                    <td>{{task.contact.name}}</td>
+                    <td>{{task.user.name}}</td>
+                    <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+                    <td>{{task.contact.timeZone}}</td>
+                    <td>
+                      {{#unless (eq contact.timeZone null)}}
+                        {{current-time task.contact.timeZone}}
+                      {{/unless}}
+                    </td>
+                    <td>{{task.status}}</td>
+                    <td>{{task.outcome}}</td>
+                  </tr>
+                {{/each}}
               {{/unless}}
             </tbody>
           {{/if}}

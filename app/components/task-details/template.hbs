@@ -1,6 +1,7 @@
 <div class="modal-content modal-smaller">
   <div class="modal-header">
-    <button type="button" class="close" {{action "dimiss"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <button type="button" class="close" {{action dismiss}} aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
     <h4 class="modal-title">CALL DETAILS</h4>
   </div>
   <div class="modal-body ">
@@ -19,12 +20,12 @@
       <dd>{{task.status}}&nbsp;</dd>
     </dl>
     <pre class="m-t" style="max-height:150px">
-{{{task.details}}}
-</pre>
+      {{{task.details}}}
+    </pre>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" {{action "dimiss"}}>Close</button>
-    <button type="button" class="btn btn-success" {{action "taskChangeColor"}}>{{link-to 'Go to this call' 'task' task}}</button>
+    <button type="button" class="btn btn-default" {{action dismiss}} >Close</button>
+    <button type="button" class="btn btn-success" {{action taskChangeColor}}> {{#link-to 'task' task}}Go to this call{{/link-to}}</button>
   </div>
 </div>
 <!-- /.modal-content -->

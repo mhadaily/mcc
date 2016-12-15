@@ -1,15 +1,20 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['backTo', 'step', 'ref', 'taskrf', 'refID'],
+  notify: Ember.inject.service('notify'),
+  queryParams: ['backTo', 'step', 'ref', 'taskref', 'refid'],
   step: null,
   ref: null,
-  refID: null,
+  refid: null,
+  isSync: false,
   backTo: null,
+  taskrf: null,
+  taskref: null,
   blink: null,
   noteText: 'Save',
   btnSuccess: 'btn-success',
   isChange: false,
+  selectedOutcome: null,
   blockHeight: Ember.computed('blockHeight', function() {
     let wheight = parseInt(window.innerHeight - 245, 10);
     // Fix heights on window resize
@@ -18,7 +23,6 @@ export default Ember.Controller.extend({
       if (iv !== null) {
         window.clearTimeout(iv);
       }
-      // Needs to be a timeout function so it doesn't fire every ms of resize
       iv = setTimeout(function() {
         Ember.$('.content-block-tab').height(window.innerHeight - 245);
       }, 20);
@@ -27,13 +31,11 @@ export default Ember.Controller.extend({
   }),
   blockHeightNote: Ember.computed('blockHeightNote', function() {
     let wheight = parseInt(window.innerHeight - 195, 10);
-    // Fix heights on window resize
     let iv = null;
     Ember.$(window).resize(function() {
       if (iv !== null) {
         window.clearTimeout(iv);
       }
-      // Needs to be a timeout function so it doesn't fire every ms of resize
       iv = setTimeout(function() {
         Ember.$('.content-block').height(window.innerHeight - 195);
       }, 20);
@@ -56,20 +58,75 @@ export default Ember.Controller.extend({
   notes: Ember.computed('contact.notes.[]', 'contact.notes.@each.date', function() {
     return this.model.get('contact.notes').sortBy('date').reverse();
   }),
-  notes_and_task_notes_union: Ember.computed.union('contact.taskNotes.[]','contact.notes.[]'),
-  notes_and_task_notes: Ember.computed('notes_and_task_notes_union.@each.date',function () {
+  notes_and_task_notes_union: Ember.computed.union('contact.taskNotes.[]', 'contact.notes.[]'),
+  notes_and_task_notes: Ember.computed('notes_and_task_notes_union.@each.date', function() {
     return this.get('notes_and_task_notes_union').sortBy('date').reverse();
   }),
   actions: {
+    selectOutcome(prop, selection){
+      this.set(prop, selection);
+    },
+    update(dateDue) {
+      this.send('dateSave', dateDue);
+      this.set('taskref', null);
+    },
+    complete(noteContentModal) {
+      this.set('isSync', true);
+      let selectedOutcome = this.get('selectedOutcome');
+      this.model.set('statusEvent', 'complete');
+      this.model.set('outcome', selectedOutcome);
+      this.model.set('note', noteContentModal);
+      if (Ember.$.trim(noteContentModal) && selectedOutcome) {
+        this.model.save().then(d => {
+          this.set('isSync', false);
+          this.get('notify').success('Task has been completed with following note :' + noteContentModal + ' and outcome is ' + selectedOutcome);
+          this.set('noteContentModal', ' ');
+          this.set('ref', null);
+          return d;
+        }).catch(e => {
+          this.set('isSync', false);
+          this.get('notify').error(e.message);
+          return e;
+        });
+      } else {
+        this.set('isSync', false);
+        this.get('notify').error('Please Select an Outcome and Write a Note before complete this task.');
+        this.set('ref', null);
+      }
+    },
+    cancel: function() {
+      let noteContentModal = Ember.$.trim(Ember.$('textarea[name="noteContentModal"]').val());
+      this.set('isSync', true);
+      this.model.set('statusEvent', 'cancel');
+      this.model.set('note', noteContentModal);
+      if (noteContentModal) {
+        this.model.save().then(d => {
+          this.set('isSync', false);
+          this.get('notify').success('Task has been cancelled with following note :' + noteContentModal + '!');
+          this.set('noteContentModal', ' ');
+          this.set('refid', null);
+          return d;
+        }).catch(e => {
+          this.set('isSync', false);
+          this.set('refid', null);
+          this.get('notify').error(e.message);
+          return e;
+        });
+      } else {
+        this.set('isSync', false);
+        this.get('notify').error('Please Select Write a Note before cancel this task.');
+        this.set('refid', null);
+      }
+    },
     taskChangeColor: function() {
       this.set('blink', 'blinker');
-      this.set('isChange', true);
-      // remove blinker after 1 sec, it must be passed to reference for 'this' so easily we can bind that.
       setTimeout(function() {
         this.set('blink', ' ');
-        this.set('isChange', false);
       }.bind(this), 1000);
+      this.set('taskref', null);
+    },
+    populateModal(){
+      this.set('taskref', true);
     }
   }
-
 });

@@ -5,21 +5,26 @@
   <table class="table" data-sort="table">
     <thead>
       <tr>
-        <th class="header {{if (eq tasks.meta.sort-attr-name 'date_due') (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+        <th class="header {{if (eq tasks.meta.sort-attr-name 'date_due')
+                               (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
           {{link-to 'Due' (query-params sort="date_due" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
         </th>
-        <th class="header {{if (eq tasks.meta.sort-attr-name 'subject') (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+        <th class="header {{if (eq tasks.meta.sort-attr-name 'subject')
+                               (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
           {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
         </th>
-        <th class="header {{if (eq tasks.meta.sort-attr-name 'status') (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+        <th class="header {{if (eq tasks.meta.sort-attr-name 'status')
+                               (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
           {{link-to 'Status' (query-params sort="status" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
         </th>
-        <th class="header {{if (eq tasks.meta.sort-attr-name 'outcome') (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+        <th class="header {{if (eq tasks.meta.sort-attr-name 'outcome')
+                               (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
           {{link-to 'Outcome' (query-params sort="outcome" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
         </th>
         <th class="header ">
           Owner
         </th>
+        <th>id</th>
       </tr>
     </thead>
     <tbody>
@@ -27,11 +32,24 @@
         <tr class="{{if task.isPending (if task.isOverdue 'warning') 'text-muted'}}">
           <td>{{moment-format task.dateDue}}</td>
           <td>
-            {{#link-to (query-params taskrf=task.id) class=(if task.isPending '' 'text-muted')}} {{task.subject}} {{/link-to}}
+            <a class={{if task.isPending '' 'text-muted'}} {{action 'populateModal'}}> {{task.subject}} </a>
+            {{#if taskref}}
+              {{to-elsewhere named='modal'
+                             send=(hash body=(component 'task-reschedule'
+                               task=task
+                               update=(action 'update')
+                               dismiss=(action (mut taskref) null))
+                               onOutsideClick=(action (mut taskref) null)) }}
+            {{/if}}
+            {{#if taskrf}}
+              {{to-elsewhere named='modal'
+                             send=(hash body=(component 'task-details' task=task taskChangeColor=(action 'taskChangeColor') dismiss=(action (mut taskrf) null)) onOutsideClick=(action (mut taskrf) null)) }}
+            {{/if}}
           </td>
           <td>{{task.status}}</td>
           <td>{{task.outcome}}</td>
           <td>{{task.user.name}}</td>
+          <td>{{#link-to "task" task invokeAction=(action 'taskChangeColor')}}{{task.id}}{{/link-to}}</td>
         </tr>
       {{/each}}
     </tbody>

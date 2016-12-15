@@ -5,7 +5,7 @@ import config from '../config/environment';
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   notify: Ember.inject.service('notify'),
   actions: {
-    syncContact: function (refcon) {
+    syncContact: function(refcon) {
       let headers = {};
       this.controller.set('isSync', true);
       this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
@@ -33,23 +33,25 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         return e;
       });
     },
-    changeSave: function (step) {
-      //debugger;
+    changeSave: function(step) {
+      this.controller.set('isSync', true);
       let newStepNumber = {
         step: step,
         contact: this.currentModel,
       };
       this.currentModel.set('step', newStepNumber.step);
       this.currentModel.save().then(d => {
+        this.controller.set('isSync', false);
         this.get('notify').success('Step has been saved to ' + newStepNumber.step);
         return d;
       }).catch(e => {
+        this.controller.set('isSync', false);
         this.get('notify').error(e.message);
         return e;
       });
     },
-    contactSave: function (homePhone, skypeId) {
-
+    contactSave: function(homePhone, skypeId) {
+      this.controller.set('isSync', true);
       let newPhoneNumber = {
         homePhone: homePhone,
         contact: this.currentModel,
@@ -61,14 +63,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.currentModel.set('homePhone', newPhoneNumber.homePhone);
       this.currentModel.set('skypeId', newSkypeId.skypeId);
       this.currentModel.save().then(d => {
+        this.controller.set('isSync', false);
         this.get('notify').success('Contact successfully updated');
         return d;
       }).catch(e => {
+        this.controller.set('isSync', false);
         this.get('notify').error(e.message);
         return e;
       });
     },
-    newNote: function (noteContent) {
+    newNote: function(noteContent) {
       Ember.$('button[type="submit"]').prop('disabled', true);
       this.controller.set('btnSuccess', 'btn-danger');
       this.controller.set('noteText', 'Saving note...');
@@ -83,7 +87,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.controller.set('noteText', 'Save');
         this.controller.set('btnSuccess', 'btn-success');
         this.controller.set('noteContent', ' ');
-      }, function () {
+      }, function() {
         this.get('notify').error('Saving Note Failed! MR/MS ' + newNoteData.author);
         this.controller.set('noteText', 'Save');
         Ember.$('button[type="submit"]').prop('disabled', false);

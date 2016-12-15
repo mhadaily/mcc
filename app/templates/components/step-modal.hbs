@@ -1,14 +1,14 @@
 <div class="modal-content">
   <div class="modal-header">
-    <button type="button" class="close"  {{action "dismiss"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <button type="button" class="close"  {{action dismiss}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="modal-title">Change step to</h4>
   </div>
   <div class="modal-body">
-   <p style="text-align:center;">
-   {{input type="number" value=step class="modal-input input-lg"}} </p>
+   <p class="text-center">
+   {{input type="number" name='stepNumber' value=(or contact.step 0) class="modal-input input-lg"}} </p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default"  {{action "dismiss"}}>Close</button>
-    <button type="button" class="btn btn-primary" {{action "change" step}}>Save changes</button>
+    <button type="button" class="btn btn-default"  {{action dismiss}}>Close</button>
+    <button type="button" class="btn btn-primary" {{action changeStep}}>Save changes</button>
   </div>
 </div><!-- /.modal-content -->
