@@ -10,11 +10,5 @@ export default Ember.Component.extend({
       page: 1,
       per_page: 1
     });
-  }),
-  actions: {
-    pageRefresh() {
-      location.reload();
-    }
-  }
-
+  })
 });

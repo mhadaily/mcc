@@ -19,8 +19,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       headers[headerName] = headerValue;
     });
 
-    var today = moment().startOf('day').toDate();
-    var tomorrow = moment().startOf('day').add(1, 'day').toDate();
+    const today = moment().startOf('day').toDate();
+    const tomorrow = moment().startOf('day').add(1, 'day').toDate();
     params.paramMapping = { total_pages: 'total-pages' };
 
     return Ember.RSVP.hash({
@@ -34,5 +34,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
         data: params
       })
     });
+  },
+  actions:{
+    pageRefresh(){
+      window.location.reload();
+    }
   }
 });
