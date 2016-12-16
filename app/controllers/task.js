@@ -62,6 +62,12 @@ export default Ember.Controller.extend({
   notes_and_task_notes: Ember.computed('notes_and_task_notes_union.@each.date', function() {
     return this.get('notes_and_task_notes_union').sortBy('date').reverse();
   }),
+  taskDetail: Ember.computed('taskref', function() {
+    let taskref = this.get('taskref');
+    if (taskref) {
+      return this.get('store').peekRecord('task', taskref);
+    }
+  }),
   actions: {
     selectOutcome(prop, selection){
       this.set(prop, selection);
@@ -119,14 +125,15 @@ export default Ember.Controller.extend({
       }
     },
     taskChangeColor: function() {
-      this.set('blink', 'blinker');
+      let _self = this;
+      _self.set('blink', 'blinker');
       setTimeout(function() {
-        this.set('blink', ' ');
-      }.bind(this), 1000);
-      this.set('taskref', null);
+        _self.set('blink', ' ');
+      }, 1000);
+      _self.set('taskref', null);
     },
-    populateModal(){
-      this.set('taskref', true);
+    populateModal(task){
+      this.set('taskref', task.id);
     }
   }
 });

@@ -58,6 +58,12 @@ export default Ember.Controller.extend({
   notes_and_task_notes: Ember.computed('notes_and_task_notes_union.@each.date', function() {
     return this.get('notes_and_task_notes_union').sortBy('date').reverse();
   }),
+  taskDetail: Ember.computed('taskrf', function() {
+    let taskrf = this.get('taskrf');
+    if (taskrf) {
+      return this.get('store').peekRecord('task', taskrf);
+    }
+  }),
   query: '',
   sort: '',
   sortDir: 'asc',
@@ -85,8 +91,8 @@ export default Ember.Controller.extend({
       }.bind(this), 1000);
       this.set('taskrf', null);
     },
-    populateModal(){
-      this.set('taskrf', true);
+    populateModal(task){
+      this.set('taskrf', task.id);
     }
   }
 });

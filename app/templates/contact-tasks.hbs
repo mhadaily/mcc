@@ -24,7 +24,7 @@
         <th class="header ">
           Owner
         </th>
-        <th>id</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -32,27 +32,27 @@
         <tr class="{{if task.isPending (if task.isOverdue 'warning') 'text-muted'}}">
           <td>{{moment-format task.dateDue}}</td>
           <td>
-            <a class={{if task.isPending '' 'text-muted'}} {{action 'populateModal'}}> {{task.subject}} </a>
-            {{#if taskref}}
-              {{to-elsewhere named='modal'
-                             send=(hash body=(component 'task-reschedule'
-                               task=task
-                               update=(action 'update')
-                               dismiss=(action (mut taskref) null))
-                               onOutsideClick=(action (mut taskref) null)) }}
-            {{/if}}
-            {{#if taskrf}}
-              {{to-elsewhere named='modal'
-                             send=(hash body=(component 'task-details' task=task taskChangeColor=(action 'taskChangeColor') dismiss=(action (mut taskrf) null)) onOutsideClick=(action (mut taskrf) null)) }}
-            {{/if}}
+            <a class={{if task.isPending '' 'text-muted'}} {{action 'populateModal' task}}> {{task.subject}} </a>
           </td>
           <td>{{task.status}}</td>
           <td>{{task.outcome}}</td>
           <td>{{task.user.name}}</td>
-          <td>{{#link-to "task" task invokeAction=(action 'taskChangeColor')}}{{task.id}}{{/link-to}}</td>
+          <td>{{#link-to "task" task invokeAction=(action 'taskChangeColor') class="btn btn-sm btn-default"}}open{{/link-to}}</td>
         </tr>
       {{/each}}
     </tbody>
   </table>
 </div>
 
+{{#if taskref}}
+  {{to-elsewhere named='modal'
+                 send=(hash body=(component 'task-reschedule'
+                   task=taskDetail
+                   update=(action 'update')
+                   dismiss=(action (mut taskref) null))
+                   onOutsideClick=(action (mut taskref) null)) }}
+{{/if}}
+{{#if taskrf}}
+  {{to-elsewhere named='modal'
+                 send=(hash body=(component 'task-details' task=taskDetail taskChangeColor=(action 'taskChangeColor') dismiss=(action (mut taskrf) null)) onOutsideClick=(action (mut taskrf) null)) }}
+{{/if}}
