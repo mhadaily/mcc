@@ -1,15 +1,23 @@
-{{#if (or (eq application.model.account.team "Phone Sales & Training / L1 Business Coach") (eq application.model.account.role.name "superadmin"))}}
+<div class="col-sm-12">
+  <div class="text-danger text-center">
+    <h4>Announcement  <a {{action 'pageRefresh'}}><span class="icon icon-cycle"></span></a></h4>
+  </div>
+  {{#if
+    (or (eq application.model.account.team "Phone Sales & Training / L1 Business Coach") (eq application.model.account.role.name "superadmin"))}}
 
-  {{announcement-widget channel="Coach"}}
+    {{announcement-widget channel="Business Coach"}}
 
-{{/if}}
-{{#if (or (eq application.model.account.team "Phone Sales & Training / L2 Phone Sales") (eq application.model.account.role.name "superadmin"))}}
+  {{/if}}
+  {{#if
+    (or (eq application.model.account.team "Phone Sales & Training / L2 Phone Sales") (eq application.model.account.role.name "superadmin"))}}
 
-  {{announcement-widget channel="Senior Coach"}}
+    {{announcement-widget channel="Senior Business Coach"}}
 
-{{/if}}
-{{#if (or (eq application.model.account.team "Phone Sales & Training / Traffic Coach") (eq application.model.account.role.name "superadmin"))}}
+  {{/if}}
+  {{#if
+    (or (eq application.model.account.team "Phone Sales & Training / Traffic Coach") (eq application.model.account.role.name "superadmin"))}}
 
-  {{announcement-widget channel="Traffic Coach"}}
+    {{announcement-widget channel="Traffic Coach"}}
 
-{{/if}}
+  {{/if}}
+</div>
