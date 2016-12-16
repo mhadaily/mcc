@@ -1,7 +1,7 @@
 /* jshint node: true */
 
 module.exports = function(deployTarget) {
-  var ENV = {
+  const ENV = {
     build: {}
     // include other plugin configuration that applies to all deploy targets here
   };
@@ -19,14 +19,14 @@ module.exports = function(deployTarget) {
       secretAccessKey: process.env['AWS_SECRET_ACCESS_KEY'],
       bucket: 'mobecallcentre2.squarrific.com',
       region: 'ap-southeast-1'
-    }
+    };
 
     ENV['s3-index'] = {
       accessKeyId: process.env['AWS_ACCESS_KEY_ID'],
       secretAccessKey: process.env['AWS_SECRET_ACCESS_KEY'],
       bucket: 'mobecallcentre2.squarrific.com',
       region: 'ap-southeast-1'
-    }
+    };
   }
 
   if (deployTarget === 'production') {
@@ -37,14 +37,14 @@ module.exports = function(deployTarget) {
       secretAccessKey: process.env['AWS_SECRET_ACCESS_KEY'],
       bucket: 'mobecallcentre.squarrific.com',
       region: 'ap-southeast-1'
-    }
+    };
 
     ENV['s3-index'] = {
       accessKeyId: process.env['AWS_ACCESS_KEY_ID'],
       secretAccessKey: process.env['AWS_SECRET_ACCESS_KEY'],
       bucket: 'mobecallcentre.squarrific.com',
       region: 'ap-southeast-1'
-    }
+    };
   }
 
   // Note: if you need to build some configuration asynchronously, you can return
