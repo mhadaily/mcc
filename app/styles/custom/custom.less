@@ -201,23 +201,31 @@ h3,
 
 }
 
-.dashboard {
-  .panel-group{
-    margin-bottom:5px;
+@media (min-width: @screen-md-min) {
+  .dashboard {
+    .panel-group {
+      margin-bottom: 5px;
+    }
+    .panel-default > .panel-heading {
+      background: rgba(236, 212, 139, 0.83)
+    }
+    .col-fixed-240 {
+      margin-left: 70px;
+      width: 400px;
+      position: fixed;
+      height: 100%;
+      overflow-y: auto;
+    }
+    .col-offset-475 {
+      padding-left: 475px;
+      width: 100%;
+      overflow-y: auto;
+    }
   }
-  .panel-default > .panel-heading{
-    color:#cc0000;
-  }
-  .col-fixed-240 {
-    margin-left: 70px;
-    width: 400px;
-    position: fixed;
-    height: 100%;
-    overflow-y: auto;
-  }
-  .col-offset-475{
-    padding-left: 475px;
-    width: 100%;
-    overflow-y: auto;
+}
+
+@media (max-width: @screen-md-min) {
+  .panel-group {
+    display: none;
   }
 }
