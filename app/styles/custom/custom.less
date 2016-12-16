@@ -195,8 +195,26 @@ h3,
 }
 
 @media (max-width: @screen-md-min) {
-  .iconav-slider > ul > li:last-child,.name-vertical {
+  .iconav-slider > ul > li:last-child, .name-vertical {
     display: none;
   }
 
+}
+
+.dashboard {
+  .panel-group{
+    margin-bottom:5px;
+  }
+  .col-fixed-240 {
+    margin-left: 70px;
+    width: 400px;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+  }
+  .col-offset-475{
+    padding-left: 475px;
+    width: 100%;
+    overflow-y: auto;
+  }
 }
