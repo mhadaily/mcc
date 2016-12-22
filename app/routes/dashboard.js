@@ -32,6 +32,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       summary: Ember.$.ajax(`${config.apiUrl}/analytics/phonereps`, {
         headers: headers,
         data: params
+      }),
+      leaderboard: Ember.$.ajax(`${config.apiUrl}/analytics/phonereps`, {
+        headers: headers,
+        data: params
       })
     });
   },
