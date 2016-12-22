@@ -11,5 +11,8 @@
     "bootstrap-datepicker": "^1.6.4",
     "selectize": "miguelcobain/selectize.js#master",
     "animate.css": "^3.5.2"
+  },
+  "devDependencies": {
+    "ember": "~2.10.0"
   }
 }
