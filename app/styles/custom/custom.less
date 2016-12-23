@@ -207,7 +207,25 @@ h3,
   .iconav-slider > ul > li:last-child, .name-vertical {
     display: none;
   }
+}
 
+.dashboard {
+  .panel-group{
+    margin-bottom:5px;
+  }
+  .col-fixed-240 {
+    margin-left: 70px;
+    width: 400px;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+  }
+  .col-offset-475{
+    padding-left: 485px;
+    width: 100%;
+    overflow-y: auto;
+    padding-right: 15px;
+  }
 }
 
 @media (min-width: @screen-md-min) {
@@ -219,14 +237,12 @@ h3,
       background: rgba(236, 212, 139, 0.83)
     }
     .col-fixed-240 {
-      margin-left: 70px;
       width: 400px;
       position: fixed;
       height: 100%;
       overflow-y: auto;
     }
     .col-offset-475 {
-      padding-left: 475px;
       width: 100%;
       overflow-y: auto;
     }
