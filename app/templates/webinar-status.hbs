@@ -1,0 +1,18 @@
+{{#if (or isSilverWebinar.registered (or isSilverWebinar.attendedLive (or isSilverWebinar.attendedReply)))}}
+  <div class="hr-divider m-y">
+    <h3 class="hr-divider-content hr-divider-heading">Silver Webinar Status&nbsp;</h3>
+  </div>
+
+  {{#if isSilverWebinar.registered}}
+    Registered
+  {{/if}}
+
+  {{#if isSilverWebinar.attendedLive}}
+    | Attended Live
+  {{/if}}
+
+  {{#if isSilverWebinar.attendedReply}}
+    | Attended Reply
+  {{/if}}
+
+{{/if}}

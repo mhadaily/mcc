@@ -45,6 +45,30 @@ export default Ember.Controller.extend({
   contact: Ember.computed('model', function() {
     return this.get('model');
   }),
+  tags: Ember.computed('model.tags.[]', function() {
+    let tagFromModel = this.get('model.tags');
+    return Object.keys(tagFromModel).map(key => tagFromModel[key]);
+  }),
+  isSilverWebinar: Ember.computed('tags.[]', function() {
+    let tags = this.get('tags');
+    let registered = false;
+    let attendedLive = false;
+    let attendedReply = false;
+    tags.find(tag => {
+      if (tag === 'Silver Webinar - Registered') {
+        registered = true;
+      } else if (tag === 'Silver Webinar - Attended Live') {
+        attendedLive = true;
+      } else if (tag === 'Silver Webinar - Attended Replay') {
+        attendedReply = true;
+      }
+    });
+    return {
+      registered,
+      attendedLive,
+      attendedReply,
+    };
+  }),
   tasks: Ember.computed('model.tasks.[]', 'model.tasks.@each.date', function() {
     return this.get('model.tasks').sortBy('dateDue').reverse();
   }),
@@ -91,8 +115,8 @@ export default Ember.Controller.extend({
       }.bind(this), 1000);
       this.set('taskrf', null);
     },
-    populateModal(task){
+    populateModal(task) {
       this.set('taskrf', task.id);
-    }
+    },
   }
 });

@@ -31,10 +31,11 @@ export default DS.Model.extend({
   spent: DS.attr(),
   mttbApplication: DS.attr(),
   mttbInterview: DS.attr(),
+  mttbStepUncontactable: DS.attr(),
   agreementTags: Ember.computed('tags', function() {
-    var tags = this.get('tags'),
+    let tags = this.get('tags'),
       result = {};
-    for (var k in tags) {
+    for (let k in tags) {
       if (tags[k].match(/agreement/i)) { result[k] = tags[k]; }
     }
     return result;

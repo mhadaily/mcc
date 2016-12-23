@@ -26,7 +26,9 @@
     {{/bs-popover}}
     <nav class="iconav iconav-inverse">
       <div class="iconav-brand">
-        <span class="iconav-brand-icon"><img src="/img/logomobehat.png"></span>
+        {{#link-to-with-tip 'index' tagName="a" class="iconav-brand-icon" }}
+          <img src="/img/logomobehat.png">
+        {{/link-to-with-tip}}
       </div>
       <div class="iconav-slider">
         <ul class="nav nav-pills iconav-nav">

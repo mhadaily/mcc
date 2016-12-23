@@ -19,8 +19,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       headers[headerName] = headerValue;
     });
 
-    const today = moment().startOf('day').toDate();
-    const tomorrow = moment().startOf('day').add(1, 'day').toDate();
+    let today = moment().startOf('day').toDate();
+    let tomorrow = moment().startOf('day').add(1, 'day').toDate();
     params.paramMapping = { total_pages: 'total-pages' };
 
     return Ember.RSVP.hash({
@@ -32,12 +32,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       summary: Ember.$.ajax(`${config.apiUrl}/analytics/phonereps`, {
         headers: headers,
         data: params
-      })
+      }),
+      leaderboard: Ember.$.ajax(`${config.apiUrl}/analytics/leaderboard`, {
+        headers: headers,
+        data: params
+      }),
     });
-  },
-  actions:{
-    pageRefresh(){
-      window.location.reload();
-    }
   }
 });

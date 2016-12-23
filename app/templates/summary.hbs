@@ -13,6 +13,10 @@
     <dd>{{task.contact.name}}&nbsp;</dd>
     <dt>Step:</dt>
     <dd>{{or task.contact.step 0}}&nbsp;</dd>
+    {{#if task.contact.mttbStepUncontactable}}
+      <dt>Step: Uncontactable:</dt>
+      <dd>{{task.contact.mttbStepUncontactable}}&nbsp;</dd>
+    {{/if}}
     <dt>Status:</dt>
     <dd>{{task.status}}&nbsp;</dd>
     <dt>Outcome:</dt>
@@ -25,25 +29,32 @@
   <h3 class="hr-divider-content hr-divider-heading">Client&nbsp;</h3>
 </div>
 <dl>
-  <dt>Reference:</<dt>
-    <dd>{{contact.reference}}<a target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{contact.reference}}"> (Link to OAP)</a></dd>
-    <dt>Name:</<dt>
-      <dd>{{contact.name}}&nbsp;</dd>
-      <dt>Email:</dt>
-      <dd>{{contact.email}}&nbsp;</dd>
-      <dt>Home Phone:</dt>
-      <dd>{{contact.homePhone}}&nbsp;</dd>
-      <dt>Cell Phone:</dt>
-      <dd>{{contact.cellPhone}}&nbsp;</dd>
-      <dt>Skype ID:</dt>
-      <dd>{{contact.skypeId}}&nbsp;</dd>
-      <dt>City:</dt>
-      <dd>{{contact.city}}&nbsp;</dd>
-      <dt>State:</dt>
-      <dd>{{contact.state}}&nbsp;</dd>
-      <dt>Country:</dt>
-      <dd>{{contact.country}}&nbsp;</dd>
-      <dt>Time Zone:</dt>
-      <dd>{{contact.timeZone}}&nbsp;</dd>
+  <dt>Reference:</dt>
+  <dd>{{contact.reference}}<a target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{contact.reference}}">
+    (Link to OAP)</a></dd>
+  <dt>Name:</dt>
+  <dd>{{contact.name}}&nbsp;</dd>
+  {{#if contact.mttbStepUncontactable}}
+    <dt>Step Uncontactable:</dt>
+    <dd><strong>{{contact.mttbStepUncontactable}}</strong>&nbsp;</dd>
+  {{/if}}
+  <dt>Email:</dt>
+  <dd>{{contact.email}}&nbsp;</dd>
+  <dt>Home Phone:</dt>
+  <dd>{{contact.homePhone}}&nbsp;</dd>
+  <dt>Cell Phone:</dt>
+  <dd>{{contact.cellPhone}}&nbsp;</dd>
+  <dt>Skype ID:</dt>
+  <dd>{{contact.skypeId}}&nbsp;</dd>
+  <dt>City:</dt>
+  <dd>{{contact.city}}&nbsp;</dd>
+  <dt>State:</dt>
+  <dd>{{contact.state}}&nbsp;</dd>
+  <dt>Country:</dt>
+  <dd>{{contact.country}}&nbsp;</dd>
+  <dt>Time Zone:</dt>
+  <dd>{{contact.timeZone}}&nbsp;</dd>
 </dl>
 {{partial 'agreement'}}
+
+{{partial 'webinar-status'}}

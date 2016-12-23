@@ -1,9 +1,14 @@
-<div class="dashboard">
-  <div class="col-fixed-240 bgFilledGrey8">
-    {{partial 'index-stats'}} {{partial 'index-steps'}} {{partial 'index-announcement'}}
-  </div>
-  <div class="col-offset-475">
-    {{partial 'index-tasks'}}
+<div class="container-fluid">
+  <div class="wrapper-index">
+    <div class="col-sm-4 bgFilledGrey8">
+      {{partial 'index-stats'}}
+      {{partial 'index-steps'}}
+      {{partial 'index-announcement'}}
+      {{partial 'leaderboard'}}
+    </div>
+    <div class="col-sm-8">
+      {{partial 'index-tasks'}}
+    </div>
   </div>
 </div>
 {{outlet}}

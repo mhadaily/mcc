@@ -1,0 +1,11 @@
+<div class="clearfix">
+  <dl>
+    {{#each-in model.leaderboard as |k v|}}
+      <dt><{{k}}/dt>
+      <dd>{{#each v as |data|}}
+        {{data.count_new}}
+      {{/each}}</dd>
+    {{/each-in}}
+  </dl>
+</div>
+
