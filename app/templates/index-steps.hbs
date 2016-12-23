@@ -3,7 +3,7 @@
     21 Steps
   </h3>
 </div>
-<div class="row list-group compact">
+<div class="clearfix list-group compact">
   <div class="col-sm-6">
     {{#link-to 'contacts'(query-params step="0" ) class="list-group-item" }}
       <span class="list-group-progress" style="width: {{format-number (div (or model.summary.step_0 0.0) model.summary.step_total) format=" 0.0% "}};"></span>

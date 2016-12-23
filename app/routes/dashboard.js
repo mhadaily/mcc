@@ -38,5 +38,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
         data: params
       }),
     });
+  },
+  actions:{
+    pageRefresh(){
+      window.location.reload();
+    }
   }
 });
