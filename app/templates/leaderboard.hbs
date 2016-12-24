@@ -1,14 +1,14 @@
-<div class="col-sm-12">
-  <div class="text-danger text-center">
-    <h4>Leaderboard  <a {{action 'pageRefresh'}}><span class="icon icon-cycle"></span></a></h4>
-  </div>
+<!--<div class="col-sm-12">-->
+  <!--<div class="text-danger text-center">-->
+    <!--<h4>Leaderboard  <a {{action 'pageRefresh'}}><span class="icon icon-cycle"></span></a></h4>-->
+  <!--</div>-->
   <dl>
     {{#each-in model.leaderboard as |k v|}}
-      <dt><{{k}}/dt>
+      <dt>{{k}}</dt>
       <dd>{{#each v as |data|}}
         {{data.count_new}}
       {{/each}}</dd>
     {{/each-in}}
   </dl>
-</div>
+<!--</div>-->
 

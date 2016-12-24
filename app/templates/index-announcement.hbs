@@ -1,23 +1,41 @@
 <div class="col-sm-12">
-  <div class="text-danger text-center">
-    <h4>Announcement  <a {{action 'pageRefresh'}}><span class="icon icon-cycle"></span></a></h4>
-  </div>
+  <!--<div class="text-danger text-center">-->
+    <!--<h4>Announcement <a {{action 'pageRefresh'}}><span class="icon icon-cycle"></span></a></h4>-->
+  <!--</div>-->
   {{#if
     (or (eq application.model.account.team "Phone Sales & Training / L1 Business Coach") (eq application.model.account.role.name "superadmin"))}}
 
     {{announcement-widget channel="Coach"}}
-
+    <div class="flush">
+      <div class="clearfix" style="background-color: #f2c900; font-size: smaller;">
+        <div class="col-lg-12 announcement">
+          {{partial 'leaderboard'}}
+        </div>
+      </div>
+    </div>
   {{/if}}
   {{#if
     (or (eq application.model.account.team "Phone Sales & Training / L2 Phone Sales") (eq application.model.account.role.name "superadmin"))}}
 
     {{announcement-widget channel="Business Coach"}}
-
+    <div class="flush">
+      <div class="clearfix" style="background-color: #f2c900; font-size: smaller;">
+        <div class="col-lg-12 announcement">
+          {{partial 'leaderboard'}}
+        </div>
+      </div>
+    </div>
   {{/if}}
   {{#if
     (or (eq application.model.account.team "Phone Sales & Training / Traffic Coach") (eq application.model.account.role.name "superadmin"))}}
 
     {{announcement-widget channel="Traffic Coach"}}
-
+    <div class="flush">
+      <div class="clearfix" style="background-color: #f2c900; font-size: smaller;">
+        <div class="col-lg-12 announcement">
+          {{partial 'leaderboard'}}
+        </div>
+      </div>
+    </div>
   {{/if}}
 </div>
