@@ -50,43 +50,27 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         return e;
       });
     },
-    contactSave: function(homePhone, skypeId, address, address_2, city, state, country) {
+    contactSave: function(...contactParams) {
       this.controller.set('isSync', true);
-      let newPhoneNumber = {
-        homePhone: homePhone,
+      console.log(contactParams);
+      const [homePhone, skypeId, address, address_2, city, state, country] = contactParams;
+      const newInfo = {
+        homePhone,
+        skypeId,
+        address,
+        address_2,
+        city,
+        state,
+        country,
         contact: this.currentModel,
       };
-      let newSkypeId = {
-        skypeId: skypeId,
-        contact: this.currentModel,
-      };
-      let newAddress = {
-        address: address,
-        contact: this.currentModel,
-      };
-      let newAddress2 = {
-        address2: address_2,
-        contact: this.currentModel,
-      };
-      let newCity = {
-        city: city,
-        contact: this.currentModel,
-      };
-      let newState = {
-        state: state,
-        contact: this.currentModel,
-      };
-      let newCountry = {
-        country: country,
-        contact: this.currentModel,
-      };
-      this.currentModel.set('homePhone', newPhoneNumber.homePhone);
-      this.currentModel.set('skypeId', newSkypeId.skypeId);
-      this.currentModel.set('address', newAddress.address);
-      this.currentModel.set('address2', newAddress2.address2);
-      this.currentModel.set('city', newCity.city);
-      this.currentModel.set('state', newState.state);
-      this.currentModel.set('country', newCountry.country);
+      this.currentModel.set('homePhone', newInfo.homePhone);
+      this.currentModel.set('skypeId', newInfo.skypeId);
+      this.currentModel.set('address', newInfo.address);
+      this.currentModel.set('address_2', newInfo.address_2);
+      this.currentModel.set('city', newInfo.city);
+      this.currentModel.set('state', newInfo.state);
+      this.currentModel.set('country', newInfo.country);
       this.currentModel.save().then(d => {
         this.controller.set('isSync', false);
         this.get('notify').success('Contact successfully updated');
