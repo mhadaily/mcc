@@ -4,15 +4,15 @@
   </div>
 
   {{#if isSilverWebinar.registered}}
-    Registered
+    <span class="label label-info">Registered</span>
   {{/if}}
 
   {{#if isSilverWebinar.attendedLive}}
-    | Attended Live
+    <span class="label label-success"> | Attended Live</span>
   {{/if}}
 
   {{#if isSilverWebinar.attendedReply}}
-    | Attended Reply
+    <span class="label label-warning"> | Attended Reply</span>
   {{/if}}
 
 {{/if}}
