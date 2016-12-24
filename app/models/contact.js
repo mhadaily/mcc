@@ -23,6 +23,8 @@ export default DS.Model.extend({
   l2MttbCoach: DS.attr(),
   timeZone: DS.attr(),
   utcOffset: DS.attr(),
+  address: DS.attr(),
+  address2: DS.attr(),
   city: DS.attr(),
   state: DS.attr(),
   country: DS.attr(),
