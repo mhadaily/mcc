@@ -1,18 +1,15 @@
-<div class="col-sm-3">
+<div class="col-sm-4">
   <div class="thumbnail">
     <h3 class="text-center">{{title}}</h3>
-
     <img src="{{thumbnailUrl}}" alt="{{title}}">
     <div class="caption">
       <p><i class="icon icon-clock"></i> Time: <strong>{{time}}</strong></p>
       <p><i class="icon icon-user"></i> Password: <strong>{{password}}</strong></p>
-
     </div>
-    <p class="clearfix"><div class="col-sm-6"><a href="{{vid}}" class="btn btn-primary btn-block" target="_blank" role="button">Click to
-    Watch</a></div><div class="col-sm-6"><a href="{{download}}" class="btn btn-primary btn-block" target="_blank" role="button">download</a></div>
-    </p>
+    <div class="clearfix">
+      <div class="col-sm-6"><a href="{{vid}}" class="btn btn-primary btn-block" target="_blank" role="button">Click to Watch</a></div>
+      <div class="col-sm-6"><a href="{{download}}" class="btn btn-primary btn-block" target="_blank" role="button">download</a></div>
+    </div>
   </div>
-
-
 </div>
 {{yield}}
