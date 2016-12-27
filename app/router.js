@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('training');
   this.route('buyerlead');
   this.route('l2resources');
+  this.route('calendar');
 });
 
 export default Router;
