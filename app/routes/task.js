@@ -7,7 +7,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   disabled: null,
   actions: {
     syncContact(refcon) {
-      debugger
       let headers = {};
       this.controller.set('isSync', true);
       this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
