@@ -71,7 +71,7 @@ export default Ember.Controller.extend({
   }),
   actions: {
     sync() {
-      let contact = this.get('contact');
+      let contact = this.model.get('contact').content;
       this.send('syncContact', contact.id);
       this.set('refcon', null);
     },
