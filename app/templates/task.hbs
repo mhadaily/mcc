@@ -9,7 +9,10 @@
       <div class="col-sm-3">
         <div class="dashhead-titles">
           <h3 class="dashhead-title"><span> {{link-to '<< Calls' (or backTo 'tasks')}} </span> | CLIENT: {{link-to (or
-            contact.name 'unnamed') 'contact' contact}} </h3>
+                                                                                                                     contact.name 'unnamed')
+                                                                                                                   'contact'
+                                                                                                                   contact}}
+          </h3>
         </div>
       </div>
       <div class="col-sm-9">
@@ -50,6 +53,13 @@
               {{/if}}
             </li>
           {{/if}}
+          <li>
+            {{link-to 'Sync Contact' (query-params refcon=contact.id)  tagName="button" class="btn btn-sm btn-primary"}}
+            {{#if refcon}}
+              {{to-elsewhere named='modal'
+                             send=(hash body=(component 'sync-modal' sync=(action 'sync') dismiss=(action (mut refcon) null)) onOutsideClick=(action (mut refcon) null)) }}
+            {{/if}}
+          </li>
           <li>
             <a class="btn btn-sm btn-primary" target="_blank"
                href="https://app.ontraport.com/#!/contact/edit&id={{contact.reference}}">Link to OAP</a>

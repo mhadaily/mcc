@@ -2,73 +2,79 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   notify: Ember.inject.service('notify'),
-  queryParams: ['backTo', 'step', 'ref', 'taskref', 'refid'],
+  queryParams: ['backTo', 'step', 'ref', 'taskref', 'refid', 'refcon'],
   step: null,
   ref: null,
   refid: null,
   isSync: false,
   backTo: null,
   taskrf: null,
+  refcon: null,
   taskref: null,
   blink: null,
   noteText: 'Save',
   btnSuccess: 'btn-success',
   isChange: false,
   selectedOutcome: null,
-  blockHeight: Ember.computed('blockHeight', function() {
+  blockHeight: Ember.computed('blockHeight', function () {
     let wheight = parseInt(window.innerHeight - 245, 10);
     // Fix heights on window resize
     let iv = null;
-    Ember.$(window).resize(function() {
+    Ember.$(window).resize(function () {
       if (iv !== null) {
         window.clearTimeout(iv);
       }
-      iv = setTimeout(function() {
+      iv = setTimeout(function () {
         Ember.$('.content-block-tab').height(window.innerHeight - 245);
       }, 20);
     });
     return wheight;
   }),
-  blockHeightNote: Ember.computed('blockHeightNote', function() {
+  blockHeightNote: Ember.computed('blockHeightNote', function () {
     let wheight = parseInt(window.innerHeight - 195, 10);
     let iv = null;
-    Ember.$(window).resize(function() {
+    Ember.$(window).resize(function () {
       if (iv !== null) {
         window.clearTimeout(iv);
       }
-      iv = setTimeout(function() {
+      iv = setTimeout(function () {
         Ember.$('.content-block').height(window.innerHeight - 195);
       }, 20);
     });
     return wheight;
   }),
   noteContent: null,
-  task: Ember.computed('model', function() {
+  task: Ember.computed('model', function () {
     return this.get('model');
   }),
-  contact: Ember.computed('model.contact', function() {
+  contact: Ember.computed('model.contact', function () {
     return this.get('model.contact');
   }),
-  tasks: Ember.computed('contact.tasks.[]', 'contact.tasks.@each.date', function() {
+  tasks: Ember.computed('contact.tasks.[]', 'contact.tasks.@each.date', function () {
     return this.model.get('contact.tasks').sortBy('dateDue').reverse();
   }),
-  salesOrders: Ember.computed('contact.salesOrders.[]', 'contact.salesOrders.@each.date', function() {
+  salesOrders: Ember.computed('contact.salesOrders.[]', 'contact.salesOrders.@each.date', function () {
     return this.model.get('contact.salesOrders').sortBy('date').reverse();
   }),
-  notes: Ember.computed('contact.notes.[]', 'contact.notes.@each.date', function() {
+  notes: Ember.computed('contact.notes.[]', 'contact.notes.@each.date', function () {
     return this.model.get('contact.notes').sortBy('date').reverse();
   }),
   notes_and_task_notes_union: Ember.computed.union('contact.taskNotes.[]', 'contact.notes.[]'),
-  notes_and_task_notes: Ember.computed('notes_and_task_notes_union.@each.date', function() {
+  notes_and_task_notes: Ember.computed('notes_and_task_notes_union.@each.date', function () {
     return this.get('notes_and_task_notes_union').sortBy('date').reverse();
   }),
-  taskDetail: Ember.computed('taskref', function() {
+  taskDetail: Ember.computed('taskref', function () {
     let taskref = this.get('taskref');
     if (taskref) {
       return this.get('store').peekRecord('task', taskref);
     }
   }),
   actions: {
+    sync() {
+      let contact = this.get('contact');
+      this.send('syncContact', contact.id);
+      this.set('refcon', null);
+    },
     selectOutcome(prop, selection){
       this.set(prop, selection);
     },
@@ -102,7 +108,7 @@ export default Ember.Controller.extend({
         this.set('ref', null);
       }
     },
-    cancel: function() {
+    cancel: function () {
       let noteContentModal = Ember.$.trim(Ember.$('textarea[name="noteContentModal"]').val());
       this.set('isSync', true);
       this.model.set('statusEvent', 'cancel');
@@ -127,10 +133,10 @@ export default Ember.Controller.extend({
         this.set('refid', null);
       }
     },
-    taskChangeColor: function() {
+    taskChangeColor: function () {
       let _self = this;
       _self.set('blink', 'blinker');
-      setTimeout(function() {
+      setTimeout(function () {
         _self.set('blink', ' ');
       }, 1000);
       _self.set('taskref', null);

@@ -1,10 +1,36 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import config from '../config/environment';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   notify: Ember.inject.service('notify'),
   disabled: null,
   actions: {
+    syncContact(refcon) {
+      debugger
+      let headers = {};
+      this.controller.set('isSync', true);
+      this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
+        headers[headerName] = headerValue;
+      });
+
+      return Ember.$.ajax(config.apiUrl + '/api/contacts/sync', {
+        type: "POST",
+        headers: headers,
+        data: {
+          id: refcon
+        }
+
+      }).then(data => {
+        this.controller.set('isSync', false);
+          this.get('store').pushPayload(data);
+          this.get('notify').success('Contact [' + refcon + '] has been synchronized');
+      }).fail(e => {
+        this.controller.set('isSync', false);
+        this.get('notify').error('Unable to get data! ' + e.message);
+        return e;
+      });
+    },
     changeSave: function(step) {
       let newStepNumber = {
         step: step,
