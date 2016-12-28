@@ -6,16 +6,23 @@
 <div class="container-fluid p-t">
   <div class="dashhead dashhead-solid">
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div class="dashhead-titles">
-          <h3 class="dashhead-title"><span> {{link-to '<< Calls' (or backTo 'tasks')}} </span> | CLIENT: {{link-to (or
-                                                                                                                     contact.name 'unnamed')
-                                                                                                                   'contact'
-                                                                                                                   contact}}
+          <h3 class="dashhead-title">
+            <span>{{link-to '<< Calls' (or backTo 'tasks')}}</span> | CLIENT: {{link-to (or contact.name 'unnamed') 'contact' contact}}
+            {{#if (or isSilverWebinar.attendedLive (or isSilverWebinar.attendedReply))}}
+              | <span class="label label-danger">Silver Webinar Attended </span>
+            {{else}}
+              {{#if isSilverWebinar.registered}}
+                | <span class="label label-info">Silver Webinar Registered</span>
+              {{else}}
+                | <span class="label label-default">Silver Webinar Not Attended </span>
+              {{/if}}
+            {{/if}}
           </h3>
         </div>
       </div>
-      <div class="col-sm-9">
+      <div class="col-sm-8">
         <ul class="nav nav-bordered pull-right">
           <li>
             <h2 class="statcard-number">Step: <strong>{{or contact.step '0'}}</strong>&nbsp;</h2>

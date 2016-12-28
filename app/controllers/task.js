@@ -69,6 +69,30 @@ export default Ember.Controller.extend({
       return this.get('store').peekRecord('task', taskref);
     }
   }),
+  tags: Ember.computed('model.contact.tags.[]', function () {
+    let tagFromModel = this.get('model.contact.tags');
+    return Object.keys(tagFromModel).map(key => tagFromModel[key]);
+  }),
+  isSilverWebinar: Ember.computed('tags.[]', function () {
+    let tags = this.get('tags');
+    let registered = false;
+    let attendedLive = false;
+    let attendedReply = false;
+    tags.find(tag => {
+      if (tag === 'Silver Webinar - Registered') {
+        registered = true;
+      } else if (tag === 'Silver Webinar - Attended Live') {
+        attendedLive = true;
+      } else if (tag === 'Silver Webinar - Attended Replay') {
+        attendedReply = true;
+      }
+    });
+    return {
+      registered,
+      attendedLive,
+      attendedReply,
+    };
+  }),
   actions: {
     sync() {
       let contact = this.model.get('contact').content;
