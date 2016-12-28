@@ -92,6 +92,9 @@ export default Ember.Controller.extend({
   sort: '',
   sortDir: 'asc',
   actions: {
+    clone(reference) {
+      this.send('duplicateTask', reference);
+    },
     changeStep() {
       let step = Ember.$.trim(Ember.$('input[name="stepNumber"]').val());
       this.send('changeSave', step);

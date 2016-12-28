@@ -5,7 +5,46 @@ import config from '../config/environment';
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   notify: Ember.inject.service('notify'),
   actions: {
-    syncContact: function (refcon) {
+    duplicateTask(id) {
+      // this.controller.set('isSync', true);
+      // let newTaskData = {
+      //   id: id,
+      // };
+      // this.store.createRecord('task', newTaskData).save().then(() => {
+      //   this.controller.set('isSync', false);
+      //   this.get('notify').success('New Task has been saved');
+      // }, (e) => {
+      //   this.controller.set('isSync', false);
+      //   this.get('notify').error('Failed! ' + e.message);
+      // });
+      let _self = this;
+
+      let headers = {};
+      this.controller.set('isSync', true);
+      this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
+        headers[headerName] = headerValue;
+      });
+
+      return Ember.$.ajax(config.apiUrl + '/api/tasks/duplicate', {
+        type: "POST",
+        headers: headers,
+        data: {
+          id: id
+        }
+
+      }).then(() => {
+        _self.get('currentModel').reload();
+        this.controller.set('isSync', false);
+        this.controller.set('taskrf', null);
+        this.get('notify').success('Task has been created');
+      }).fail(e => {
+        this.controller.set('isSync', false);
+        this.controller.set('taskrf', null);
+        this.get('notify').error('Unable to duplicate this task! ' + e.message);
+        return e;
+      });
+    },
+    syncContact(refcon) {
       let headers = {};
       this.controller.set('isSync', true);
       this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
@@ -33,7 +72,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         return e;
       });
     },
-    changeSave: function (step) {
+    changeSave(step) {
       this.controller.set('isSync', true);
       let newStepNumber = {
         step: step,
@@ -51,7 +90,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         return e;
       });
     },
-    contactSave: function (...contactParams) {
+    contactSave(...contactParams) {
       this.controller.set('isSync', true);
       console.log(contactParams);
       const [homePhone, skypeId, address, address_2, city, state, country, zipCode] = contactParams;
@@ -86,7 +125,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         return e;
       });
     },
-    newNote: function (noteContent) {
+    newNote(noteContent) {
       Ember.$('button[type="submit"]').prop('disabled', true);
       this.controller.set('btnSuccess', 'btn-danger');
       this.controller.set('noteText', 'Saving note...');
