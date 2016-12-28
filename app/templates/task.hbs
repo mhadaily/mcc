@@ -8,8 +8,8 @@
     <div class="row">
       <div class="col-sm-3">
         <div class="dashhead-titles">
-          <h3 class="dashhead-title"><span> {{link-to '<< Calls' (or backTo 'tasks')}} </span> | CLIENT: {{or
-            contact.name 'unnamed'}} </h3>
+          <h3 class="dashhead-title"><span> {{link-to '<< Calls' (or backTo 'tasks')}} </span> | CLIENT: {{link-to (or
+            contact.name 'unnamed') 'contact' contact}} </h3>
         </div>
       </div>
       <div class="col-sm-9">
