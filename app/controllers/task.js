@@ -90,7 +90,9 @@ export default Ember.Controller.extend({
           this.set('ref', null);
           return d;
         }).catch(e => {
+          this.model.rollbackAttributes();
           this.set('isSync', false);
+          // this.set('ref', null);
           this.get('notify').error(e.message);
           return e;
         });
@@ -113,8 +115,9 @@ export default Ember.Controller.extend({
           this.set('refid', null);
           return d;
         }).catch(e => {
+          this.model.rollbackAttributes();
           this.set('isSync', false);
-          this.set('refid', null);
+          // this.set('refid', null);
           this.get('notify').error(e.message);
           return e;
         });

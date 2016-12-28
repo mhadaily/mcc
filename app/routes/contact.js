@@ -45,6 +45,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.get('notify').success('Step has been saved to ' + newStepNumber.step);
         return d;
       }).catch(e => {
+        this.currentModel.rollbackAttributes();//revert back step
         this.controller.set('isSync', false);
         this.get('notify').error(e.message);
         return e;
@@ -79,6 +80,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.get('notify').success('Contact successfully updated');
         return d;
       }).catch(e => {
+        this.currentModel.rollbackAttributes(); //revert back all changes
         this.controller.set('isSync', false);
         this.get('notify').error(e.message);
         return e;

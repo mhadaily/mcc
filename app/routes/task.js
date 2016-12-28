@@ -30,6 +30,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.get('notify').success('Task successfully rescheduled');
         return d;
       }).catch(e => {
+        this.currentModel.rollbackAttributes();
         this.controller.set('isSync', false);
         this.get('notify').error(e.message);
         return e;
