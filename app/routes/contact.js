@@ -93,7 +93,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     contactSave(...contactParams) {
       this.controller.set('isSync', true);
       console.log(contactParams);
-      const [homePhone, skypeId, address, address_2, city, state, country, zipCode, cellPhone, officePhone] = contactParams;
+      const [homePhone, skypeId, address, address_2, city, state, country, zipCode, cellPhone, officePhone, firstName, lastName] = contactParams;
       const newInfo = {
         homePhone,
         skypeId,
@@ -105,6 +105,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         zipCode,
         cellPhone,
         officePhone,
+        firstName,
+        lastName,
         contact: this.currentModel,
       };
       this.currentModel.set('homePhone', newInfo.homePhone);
@@ -117,6 +119,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.currentModel.set('zipCode', newInfo.zipCode);
       this.currentModel.set('cellPhone', newInfo.cellPhone);
       this.currentModel.set('officePhone', newInfo.officePhone);
+      this.currentModel.set('firstName', newInfo.firstName);
+      this.currentModel.set('lastName', newInfo.lastName);
 
       this.currentModel.save().then(d => {
         this.controller.set('isSync', false);

@@ -102,6 +102,8 @@ export default Ember.Controller.extend({
     },
     update() {
       let homePhone = Ember.$.trim(Ember.$('input[name="billing_homePhone"]').val());
+      let firstName = Ember.$.trim(Ember.$('input[name="billing_firstName"]').val());
+      let lastName = Ember.$.trim(Ember.$('input[name="billing_lastName"]').val());
       let cellPhone = Ember.$.trim(Ember.$('input[name="billing_cellPhone"]').val());
       let officePhone = Ember.$.trim(Ember.$('input[name="billing_officePhone"]').val());
       let skypeId = Ember.$.trim(Ember.$('input[name="billing_skypeId"]').val());
@@ -111,7 +113,7 @@ export default Ember.Controller.extend({
       let state = Ember.$.trim(Ember.$('#billing_state').val());
       let country = Ember.$.trim(Ember.$('#billing_country').val());
       let zipcode = Ember.$.trim(Ember.$('input[name="billing_zipcode"]').val());
-      this.send('contactSave', homePhone, skypeId, address, address2, city, state, country, zipcode, cellPhone, officePhone);
+      this.send('contactSave', homePhone, skypeId, address, address2, city, state, country, zipcode, cellPhone, officePhone, firstName, lastName);
       this.set('contactrf', null);
     },
     sync() {
