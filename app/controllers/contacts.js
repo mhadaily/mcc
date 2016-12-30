@@ -2,9 +2,10 @@ import Ember from 'ember';
 import moment from 'moment';
 
 export default Ember.Controller.extend({
-  queryParams: ["contact", "step", "offset_from", "offset_to", "home_phone", "cell_phone", "skype_id", "time_zone", "country_or_state", "query", "page", "perPage", "sort", "sortDir"],
+  queryParams: ["contact", "step_number", "offset_from", "offset_to", "home_phone", "cell_phone", "skype_id", "time_zone", "country_or_state", "query", "page", "perPage", "sort", "sortDir"],
   contact: '',
-  step: '',
+  // step: '',
+  step_number: null,
   home_phone: '',
   cell_phone: '',
   skype_id: '',
@@ -34,7 +35,8 @@ export default Ember.Controller.extend({
   actions: {
     queryClear() {
       this.set('contact', '');
-      this.set('step', '');
+      // this.set('step', '');
+      this.set('step_number', null);
       this.set('home_phone', '');
       this.set('cell_phone', '');
       this.set('skype_id', '');

@@ -20,6 +20,7 @@ export default DS.Model.extend({
   cellPhone: DS.attr(),
   officePhone: DS.attr(),
   step: DS.attr(),
+  stepNumber: DS.attr(),
   l1MttbCoach: DS.attr(),
   l2MttbCoach: DS.attr(),
   timeZone: DS.attr(),

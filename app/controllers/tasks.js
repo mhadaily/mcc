@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   statuses: [
     'all status', 'pending', 'completed', 'cancelled'
   ],
-  queryParams: ["contact", 'offset_from', 'offset_to', "contact_step", "contact_time_zone", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "user_name", "query", "page", "perPage", "sort", "sortDir"],
+  queryParams: ["contact", 'offset_from', 'offset_to', "contact_step_number", "contact_time_zone", "subject", "date_due_gteq", "date_due_lteq", "status_eq", "user_name", "query", "page", "perPage", "sort", "sortDir"],
   taskOwners: [
     'my calls', 'all calls'
   ],
@@ -27,7 +27,8 @@ export default Ember.Controller.extend({
     return arr;
   }),
   contact: null,
-  contact_step: null,
+  // contact_step: null,
+  contact_step_number: null,
   contact_time_zone: null,
   subject: null,
   date_due_gteq: null,
@@ -58,7 +59,8 @@ export default Ember.Controller.extend({
   actions: {
     queryClear() {
       this.set('contact', null);
-      this.set('contact_step', null);
+      // this.set('contact_step', null);
+      this.set('contact_step_number', null);
       this.set('contact_time_zone', null);
       this.set('date_due_gteq', null);
       this.set('date_due_lteq', null);

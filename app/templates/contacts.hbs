@@ -6,8 +6,11 @@
     <div class="form-group">
       {{input type="text" value=contact class="form-control" placeholder="Name/Email/Ref"}}
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       {{input type="text" value=step class="form-control" placeholder="Current Step"}}
+    </div> -->
+    <div class="form-group">
+      {{input type="text" value=step_number class="form-control" placeholder="Current Step"}}
     </div>
     <div class="form-group">
       {{input type="text" value=home_phone class="form-control" placeholder="Phone Number"}}
@@ -68,8 +71,11 @@
             <th class="header {{if (eq model.meta.sort-attr-name 'email') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Email' (query-params sort="email" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
-            <th class="header {{if (eq model.meta.sort-attr-name 'step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+            <!-- <th class="header {{if (eq model.meta.sort-attr-name 'step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Step' (query-params sort="step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th> -->
+            <th class="header {{if (eq model.meta.sort-attr-name 'step_number') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Step' (query-params sort="step_number" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
             <th class="header {{if (eq model.meta.sort-attr-name 'home_phone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Home Phone' (query-params sort="home_phone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
@@ -113,7 +119,8 @@
                 <tr>
                   <td>{{link-to (or contact.name '[unnamed]') 'contact' contact}}</td>
                   <td>{{link-to (or contact.email '[no email]') 'contact' contact}}</td>
-                  <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step '0'}}</td>
+                  <!-- <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step '0'}}</td> -->
+                  <td align="center" class="{{if (eq contact.stepNumber 0) 'text-danger'}}">{{contact.stepNumber}}</td>
                   <td>{{contact.homePhone}}</td>
                   <td>{{contact.cellPhone}}</td>
                   <td>{{contact.skypeId}}</td>

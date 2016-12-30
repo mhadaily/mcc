@@ -17,8 +17,11 @@
     <div class="form-group">
       {{input type="text" value=subject class="form-control" placeholder="Subject"}}
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       {{input type="text" value=contact_step class="form-control" placeholder="Step"}}
+    </div> -->
+    <div class="form-group">
+      {{input type="text" value=contact_step_number class="form-control" placeholder="Step"}}
     </div>
     <div class="form-group">
       {{input type="text" value=contact_time_zone class="form-control" placeholder="Time Zone"}}
@@ -89,10 +92,15 @@
                 {{link-to 'Owner'
                           (query-params sort="user_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
-              <th class="header {{if (eq model.meta.sort-attr-name 'step')
+              <!-- <th class="header {{if (eq model.meta.sort-attr-name 'step')
                                      (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Step'
                           (query-params sort="contact_step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              </th> -->
+              <th class="header {{if (eq model.meta.sort-attr-name 'step_number')
+                                     (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+                {{link-to 'Step'
+                          (query-params sort="contact_step_number" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'time_zone')
                                      (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
@@ -133,7 +141,8 @@
                     <td>{{link-to task.subject 'task' task}}</td>
                     <td>{{task.contact.name}}</td>
                     <td>{{task.user.name}}</td>
-                    <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+                    <!-- <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td> -->
+                    <td align="center" class="{{if (eq task.contact.stepNumber 0) 'text-danger'}}">{{task.contact.stepNumber}}</td>
                     <td>{{task.contact.timeZone}}</td>
                     <td>
                       {{#unless (eq contact.timeZone null)}}
