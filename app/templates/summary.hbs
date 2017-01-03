@@ -10,7 +10,7 @@
     <dt>Subject:</dt>
     <dd>{{task.subject}}&nbsp;</dd>
     <dt>Client:</dt>
-    <dd>{{task.contact.name}}&nbsp;</dd>
+    <dd>{{task.contact.name}}&nbsp;{{link-to '(Link to Client)' 'contact' task.contact}}</dd>
     <dt>Step:</dt>
     <dd>{{or task.contact.step 0}}&nbsp;</dd>
     {{#if task.contact.mttbStepUncontactable}}
@@ -33,7 +33,7 @@
   <dd>{{contact.reference}}<a target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{contact.reference}}">
     (Link to OAP)</a></dd>
   <dt>Name:</dt>
-  <dd>{{contact.name}}&nbsp;</dd>
+  <dd>{{contact.name}}&nbsp;{{link-to '(Link to Client)' 'contact' contact}}</dd>
   {{#if contact.mttbStepUncontactable}}
     <dt>Step Uncontactable:</dt>
     <dd><strong>{{contact.mttbStepUncontactable}}</strong>&nbsp;</dd>

@@ -6,8 +6,8 @@
   <dd>{{moment-format contact.date 'MMM Do YY'}}&nbsp;</dd>
   <dt>Date Last Modified:</dt>
   <dd>{{moment-format contact.dateLastModified 'MMM Do YY'}}&nbsp;</dd>
-  <<dt>Name:</<dt>
-  <dd>{{contact.name}}&nbsp;</dd>
+  <dt>Name:</dt>
+  <dd>{{contact.name}}&nbsp;{{link-to '(Link to Client)' 'contact' contact}}</dd>
   <dt>Reference:</dt>
   <dd>{{contact.reference}} ({{contact.source}})&nbsp;</dd>
   <dt>Email:</dt>
