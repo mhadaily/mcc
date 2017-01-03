@@ -15,7 +15,7 @@
         {{#each notes_and_task_notes as |note|}}
           <tr class="{{if note.note 'text-info'}}">
             <td><small>{{note.user.name}}</small></td>
-            <td>{{moment-format note.date}}</td>
+            <td><small>{{moment-format note.date 'YYYY/MM/DD HH:MM'}}</small></td>
             <td>{{breakLine note.note}} {{breakLine note.content}}&nbsp;</td>
           </tr>
         {{/each}}
