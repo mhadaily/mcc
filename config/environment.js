@@ -1,7 +1,7 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
-  let ENV = {
+  var ENV = {
     moment: {
       includeTimezone: 'all',
       outputFormat: 'MM/DD/YYYY',
