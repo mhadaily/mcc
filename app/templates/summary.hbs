@@ -73,7 +73,7 @@
   <dt>Time Zone:</dt>
   <dd>{{contact.timeZone}}&nbsp;</dd>
   <dt>Last Contact:</dt>
-  <dd>{{contact.contactedAt}}&nbsp;</dd>
+  <dd>{{moment-format contact.contactedAt 'YYYY/MM/DD HH:MM'}}&nbsp;</dd>
 
 </dl>
 {{partial 'agreement'}}

@@ -135,7 +135,7 @@
                       {{current-time contact.timeZone}}
                     {{/unless}}
                   </td>
-                  <td>{{contact.contactedAt}}</td>
+                  <td>{{moment-format contact.contactedAt 'YYYY/MM/DD HH:MM'}}</td>
                 </tr>
               {{/each}}
             {{/unless}}
