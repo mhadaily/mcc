@@ -28,6 +28,16 @@
 <div class="hr-divider m-y">
   <h3 class="hr-divider-content hr-divider-heading">Client&nbsp;</h3>
 </div>
+{{#if task}}
+  <div class="clearfix">
+    {{link-to 'Edit Contact' (query-params contactrf=contact.id) tagName="button"
+              class="btn btn-sm btn-primary pull-right"}}
+    {{#if contactrf}}
+      {{to-elsewhere named='modal'
+                     send=(hash body=(component 'contact-modal' contact=contact update=(action 'updateClient') dismiss=(action (mut contactrf) null)) onOutsideClick=(action (mut contactrf) null)) }}
+    {{/if}}
+  </div>
+{{/if}}
 <dl>
   <dt>Reference:</dt>
   <dd>{{contact.reference}}<a target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{contact.reference}}">

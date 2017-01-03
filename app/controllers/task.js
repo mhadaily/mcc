@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   notify: Ember.inject.service('notify'),
-  queryParams: ['backTo', 'step', 'ref', 'taskref', 'noterf', 'tnoterf', 'refid', 'refcon'],
+  queryParams: ['backTo', 'step', 'ref', 'taskref', 'noterf', 'tnoterf', 'refid', 'refcon', 'contactrf'],
   step: null,
   ref: null,
   refid: null,
@@ -12,6 +12,7 @@ export default Ember.Controller.extend({
   noterf: null,
   tnoterf: null,
   refcon: null,
+  contactrf: null,
   taskref: null,
   blink: null,
   noteText: 'Save',
@@ -96,6 +97,22 @@ export default Ember.Controller.extend({
     };
   }),
   actions: {
+    updateClient() {
+      let homePhone = Ember.$.trim(Ember.$('input[name="billing_homePhone"]').val());
+      let firstName = Ember.$.trim(Ember.$('input[name="billing_firstName"]').val());
+      let lastName = Ember.$.trim(Ember.$('input[name="billing_lastName"]').val());
+      let cellPhone = Ember.$.trim(Ember.$('input[name="billing_cellPhone"]').val());
+      let officePhone = Ember.$.trim(Ember.$('input[name="billing_officePhone"]').val());
+      let skypeId = Ember.$.trim(Ember.$('input[name="billing_skypeId"]').val());
+      let address = Ember.$.trim(Ember.$('input[name="billing_address"]').val());
+      let address2 = Ember.$.trim(Ember.$('input[name="billing_address2"]').val());
+      let city = Ember.$.trim(Ember.$('input[name="billing_city"]').val());
+      let state = Ember.$.trim(Ember.$('#billing_state').val());
+      let country = Ember.$.trim(Ember.$('#billing_country').val());
+      let zipcode = Ember.$.trim(Ember.$('input[name="billing_zipcode"]').val());
+      this.send('contactSave', homePhone, skypeId, address, address2, city, state, country, zipcode, cellPhone, officePhone, firstName, lastName);
+      this.set('contactrf', null);
+    },
     sync() {
       let contact = this.model.get('contact').content;
       this.send('syncContact', contact.id);
