@@ -34,6 +34,7 @@ export default DS.Model.extend({
   skypeId: DS.attr(),
   tags: DS.attr(),
   spent: DS.attr(),
+  contactedAt: DS.attr(),
   mttbApplication: DS.attr(),
   mttbInterview: DS.attr(),
   mttbStepUncontactable: DS.attr(),
