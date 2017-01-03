@@ -2,13 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   notify: Ember.inject.service('notify'),
-  queryParams: ['backTo', 'step', 'ref', 'taskref', 'refid', 'refcon'],
+  queryParams: ['backTo', 'step', 'ref', 'taskref', 'noterf', 'tnoterf', 'refid', 'refcon'],
   step: null,
   ref: null,
   refid: null,
   isSync: false,
   backTo: null,
   taskrf: null,
+  noterf: null,
+  tnoterf: null,
   refcon: null,
   taskref: null,
   blink: null,
@@ -167,6 +169,14 @@ export default Ember.Controller.extend({
     },
     populateModal(task){
       this.set('taskref', task.id);
+    },
+    discNote() {
+      this.send('discardNote', this.get('noterf'));
+      this.set('noterf', null);
+    },
+    discTaskNote() {
+      this.send('discardTaskNote', this.get('tnoterf'));
+      this.set('tnoterf', null);
     }
   }
 });

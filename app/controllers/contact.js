@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['refcon', 'backTo', 'step', 'taskrf', 'contactrf', "sort", "sortDir", "query"],
+  queryParams: ['refcon', 'backTo', 'step', 'taskrf', 'contactrf', 'noterf', 'tnoterf', "sort", "sortDir", "query"],
   step: null,
   refcon: null,
   isSync: false,
@@ -9,6 +9,8 @@ export default Ember.Controller.extend({
   blink: null,
   taskrf: null,
   contactrf: null,
+  noterf: null,
+  tnoterf: null,
   noteText: 'Save',
   btnSuccess: 'btn-success',
   noteContent: null,
@@ -120,6 +122,14 @@ export default Ember.Controller.extend({
       let contact = this.get('contact');
       this.send('syncContact', contact.id);
       this.set('refcon', null);
+    },
+    discNote() {
+      this.send('discardNote', this.get('noterf'));
+      this.set('noterf', null);
+    },
+    discTaskNote() {
+      this.send('discardTaskNote', this.get('tnoterf'));
+      this.set('tnoterf', null);
     },
     taskChangeColor() {
       this.set('blink', 'blinker');

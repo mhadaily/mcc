@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <button {{action dismiss}} type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+    aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title">Confirm to discard this Note?</h4>
+</div>
+<div class="modal-body">
+  {{note.content}}
+</div>
+<div class="modal-actions">
+  <button {{action dismiss}} type="button" class="btn-link modal-action" data-dismiss="modal">
+    Cancel
+  </button>
+  <button {{action discard}} type="button" class="btn-link modal-action">
+    <strong>Discard</strong>
+  </button>
+</div>
+{{yield}}

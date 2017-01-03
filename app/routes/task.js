@@ -89,6 +89,46 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.controller.set('btnSuccess', 'btn-success');
         this.controller.set('noteText', 'Save');
       }
+    },
+    discardNote(noterf) {
+      let headers = {};
+      this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
+        headers[headerName] = headerValue;
+      });
+
+      return Ember.$.ajax(config.apiUrl + '/api/notes/discard', {
+        type: "POST",
+        headers: headers,
+        data: {
+          id: noterf
+        }
+      }).then(data => {
+        this.get('store').pushPayload(data);
+        this.get('notify').success('Note has been discarded');
+      }).fail(e => {
+        this.get('notify').error('Unable to discard note! ' + e.message);
+        return e;
+      });
+    },
+    discardTaskNote(tnoterf) {
+      let headers = {};
+      this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
+        headers[headerName] = headerValue;
+      });
+
+      return Ember.$.ajax(config.apiUrl + '/api/task-notes/discard', {
+        type: "POST",
+        headers: headers,
+        data: {
+          id: tnoterf
+        }
+      }).then(data => {
+        this.get('store').pushPayload(data);
+        this.get('notify').success('Note has been discarded');
+      }).fail(e => {
+        this.get('notify').error('Unable to discard note! ' + e.message);
+        return e;
+      });
     }
   }
 });

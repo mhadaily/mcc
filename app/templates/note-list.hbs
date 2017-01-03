@@ -9,18 +9,40 @@
           <th class="header">Author</th>
           <th class="header headerSortDown">Date</th>
           <th class="header">Content</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         {{#each notes_and_task_notes as |note|}}
-          <tr class="{{if note.note 'text-info'}}">
-            <td><small>{{note.user.name}}</small></td>
-            <td><small>{{moment-format note.date 'YYYY/MM/DD HH:MM'}}</small></td>
-            <td>{{breakLine note.note}} {{breakLine note.content}}&nbsp;</td>
-          </tr>
+          {{#unless (eq note.status 'active')}}
+            <tr>
+              <td colspan="4" align="center">
+                <span class="text-muted">This note has been discarded</span>
+              </td>
+            </tr>
+          {{else}}
+            <tr class="{{if note.note 'text-info'}}">
+              <td><small>{{note.user.name}}</small></td>
+              <td><small>{{moment-format note.date 'YYYY/MM/DD HH:MM'}}</small></td>
+              <td>{{breakLine note.note}} {{breakLine note.content}}&nbsp;</td>
+              <td>
+                {{#if note.content}}
+                  {{link-to 'Discard' (query-params noterf=note.id) tagName="button" class="btn btn-sm btn-primary"}}
+                  {{#if noterf}}
+                      {{to-elsewhere named='modal' send=(hash body=(component 'note-discard' discard=(action 'discNote') dismiss=(action (mut noterf) null)) onOutsideClick=(action (mut noterf) null)) }}
+                  {{/if}}
+                {{/if}}
+                {{#if note.note}}
+                  {{link-to 'Discard' (query-params tnoterf=note.id) tagName="button" class="btn btn-sm btn-primary"}}
+                  {{#if tnoterf}}
+                      {{to-elsewhere named='modal' send=(hash body=(component 'note-discard' discard=(action 'discTaskNote') dismiss=(action (mut tnoterf) null)) onOutsideClick=(action (mut tnoterf) null)) }}
+                  {{/if}}
+                {{/if}}
+              </td>
+            </tr>
+          {{/unless}}
         {{/each}}
       </tbody>
     </table>
   </div>
 </div>
-

@@ -7,5 +7,6 @@ export default DS.Model.extend({
   reference: DS.attr(),
   source: DS.attr(),
   date: DS.attr(),
-  content: DS.attr()
+  content: DS.attr(),
+  status: DS.attr()
 });
