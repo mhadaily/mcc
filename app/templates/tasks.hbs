@@ -4,15 +4,15 @@
   </div>
   <form class="form" {{action 'queryChanged' on="submit" }}>
     <div class="form-group">
+      {{input type="text" value=contact class="form-control" placeholder="Name/Email/Ref."}}
+    </div>
+    <div class="form-group">
       {{bootstrap-datepicker value=startDateToJSDate format="yyyy-mm-dd" placeholder="Due date (from)"
                              class="form-control" autoclose=true forceDateValue=true}}
     </div>
     <div class="form-group">
       {{bootstrap-datepicker value=endDateToJSDate format="yyyy-mm-dd" placeholder="Due date (to)" class="form-control"
                              autoclose=true forceDateValue=true}}
-    </div>
-    <div class="form-group">
-      {{input type="text" value=contact class="form-control" placeholder="Name/Email/Ref."}}
     </div>
     <div class="form-group">
       {{input type="text" value=subject class="form-control" placeholder="Subject"}}
