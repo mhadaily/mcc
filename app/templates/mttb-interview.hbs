@@ -1,9 +1,7 @@
 <div class="hr-divider m-y">
-    <h3 class="hr-divider-content hr-divider-heading">MTTB Interview&nbsp;</h3>
+  <h3 class="hr-divider-content hr-divider-heading">MTTB Interview&nbsp;</h3>
 </div>
-<dl>
-  {{#each-in contact.mttbInterview as |key value|}}
-      <dt>{{key}}:</dt>
-      <dd>{{value}}&nbsp;</dd>
-  {{/each-in}}
-</dl>
+
+{{#each-in contact.mttbInterview as |key value|}}
+  <div class="clearfix">{{key}}:&nbsp;<strong>{{value}}</strong></div>
+{{/each-in}}
