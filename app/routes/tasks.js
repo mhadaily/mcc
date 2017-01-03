@@ -26,7 +26,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
         contact_time_zone_cont: Ember.$.trim(params.contact_time_zone),
         subject_cont: Ember.$.trim(params.subject),
         date_due_gteq: Ember.$.trim(params.date_due_gteq),
-        date_due_lteq: Ember.$.trim(params.date_due_lteq),
+        date_due_lt: Ember.$.trim(params.date_due_lteq),
         contact_utc_offset_gteq: Ember.$.trim(params.offset_from),
         contact_utc_offset_lt: Ember.$.trim(params.offset_to),
         status_eq: (params.status_eq === 'all status' ? '' : params.status_eq),
