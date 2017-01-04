@@ -12,7 +12,11 @@ export default DS.Model.extend({
   dateLastModified: DS.attr(),
   firstName: DS.attr(),
   lastName: DS.attr(),
-  name: DS.attr(),
+  name: Ember.computed('firstName', 'lastName', function () {
+    const firstName = this.get('firstName');
+    const lastName = this.get('firstName');
+    return `${firstName} ${lastName}`;
+  }),
   reference: DS.attr(),
   source: DS.attr(),
   email: DS.attr(),
@@ -38,11 +42,13 @@ export default DS.Model.extend({
   mttbApplication: DS.attr(),
   mttbInterview: DS.attr(),
   mttbStepUncontactable: DS.attr(),
-  agreementTags: Ember.computed('tags', function() {
+  agreementTags: Ember.computed('tags', function () {
     let tags = this.get('tags'),
       result = {};
     for (let k in tags) {
-      if (tags[k].match(/agreement/i)) { result[k] = tags[k]; }
+      if (tags[k].match(/agreement/i)) {
+        result[k] = tags[k];
+      }
     }
     return result;
   })
