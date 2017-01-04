@@ -98,8 +98,8 @@
             <th class="header {{if (eq model.meta.sort-attr-name 'utc_offset') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Local Time' (query-params sort="utc_offset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
-            <th class="header {{if (eq model.meta.sort-attr-name 'contactedAt') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-              {{link-to 'Last Contact' (query-params sort="contactedAt" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            <th class="header {{if (eq model.meta.sort-attr-name 'contacted_at') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Last Contact' (query-params sort="contacted_at" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
           </tr>
           </thead>
