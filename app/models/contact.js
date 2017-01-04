@@ -27,6 +27,8 @@ export default DS.Model.extend({
   stepNumber: DS.attr(),
   l1MttbCoach: DS.attr(),
   l2MttbCoach: DS.attr(),
+  l1Affiliate: DS.attr(),
+  l2Affiliate: DS.attr(),
   timeZone: DS.attr(),
   utcOffset: DS.attr(),
   address: DS.attr(),
