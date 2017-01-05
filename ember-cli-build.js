@@ -20,6 +20,7 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  app.import('bower_components/js-cookie/src/js.cookie.js');
   app.import('bower_components/theme-dashboard/dist/toolkit.js');
   app.import('bower_components/theme-dashboard/fonts/toolkit-entypo.eot',   { destDir: '/fonts' });
   app.import('bower_components/theme-dashboard/fonts/toolkit-entypo.ttf',   { destDir: '/fonts' });
