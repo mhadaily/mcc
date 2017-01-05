@@ -92,7 +92,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
     contactSave(...contactParams) {
       this.controller.set('isSync', true);
-      console.log(contactParams);
       const [homePhone, skypeId, address, address_2, city, state, country, zipCode, cellPhone, officePhone, firstName, lastName] = contactParams;
       const newInfo = {
         homePhone,

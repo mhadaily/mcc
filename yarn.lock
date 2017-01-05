@@ -1672,7 +1672,7 @@ ember-cli-htmlbars-inline-precompile@0.3.6:
     ember-cli-htmlbars "^1.0.0"
     hash-for-dep "^1.0.2"
 
-ember-cli-htmlbars@1.1.1, ember-cli-htmlbars@^1.0.0, ember-cli-htmlbars@^1.0.10, ember-cli-htmlbars@^1.0.3:
+ember-cli-htmlbars@1.1.1, ember-cli-htmlbars@^1.0.0, ember-cli-htmlbars@^1.0.10, ember-cli-htmlbars@^1.0.3, ember-cli-htmlbars@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-1.1.1.tgz#8776cf59796dac8f32e8625fc6d1ea45ffa55de1"
   dependencies:
@@ -1808,11 +1808,12 @@ ember-cli-release@^0.2.9:
     semver "^4.3.1"
     silent-error "^1.0.0"
 
-ember-cli-selectize@0.5.5:
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/ember-cli-selectize/-/ember-cli-selectize-0.5.5.tgz#32ba5ae79d73ab25745429831e4cdc267327a19c"
+ember-cli-selectize@0.5.11:
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/ember-cli-selectize/-/ember-cli-selectize-0.5.11.tgz#f7b79888b979c5f4f8aa6518b8ede5a0b2c39477"
   dependencies:
-    ember-cli-babel "^5.1.5"
+    ember-cli-babel "^5.1.6"
+    ember-cli-import-polyfill "^0.2.0"
     ember-getowner-polyfill "1.0.1"
     ember-new-computed "^1.0.0"
 
@@ -1980,6 +1981,13 @@ ember-data@^2.10.0:
     semver "^5.1.0"
     silent-error "^1.0.0"
 
+ember-elsewhere@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/ember-elsewhere/-/ember-elsewhere-0.4.1.tgz#2c5c73e323ca438a9bb85f60552478d7cd2b784a"
+  dependencies:
+    ember-cli-babel "^5.1.5"
+    ember-cli-htmlbars "^1.1.0"
+
 ember-export-application-global@^1.0.5:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ember-export-application-global/-/ember-export-application-global-1.1.1.tgz#f257d5271268932a89d7392679ce4db89d7154af"
@@ -2005,6 +2013,12 @@ ember-hash-helper-polyfill@^0.1.2:
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-version-checker "^1.2.0"
+
+ember-ignore-children-helper@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-ignore-children-helper/-/ember-ignore-children-helper-1.0.0.tgz#7645d769377779ff292235725b5b1f5c2e4c16ab"
+  dependencies:
+    ember-cli-babel "^5.1.6"
 
 ember-inflector@^1.9.4:
   version "1.9.6"
