@@ -137,6 +137,7 @@ export default Ember.Controller.extend({
           this.get('notify').success('Task has been completed with following note :' + noteContentModal + ' and outcome is ' + selectedOutcome);
           this.set('noteContentModal', ' ');
           this.set('ref', null);
+          Cookies.remove("_mcc_complete_tmp");
           return d;
         }).catch(e => {
           this.model.rollbackAttributes();
@@ -151,13 +152,14 @@ export default Ember.Controller.extend({
         this.set('ref', null);
       }
     },
-    cancel: function () {
+    cancel() {
       let noteContentModal = Ember.$.trim(Ember.$('textarea[name="noteContentModal"]').val());
       this.set('isSync', true);
       this.model.set('statusEvent', 'cancel');
       this.model.set('note', noteContentModal);
       if (noteContentModal) {
         this.model.save().then(d => {
+          Cookies.remove("_mcc_cancel_tmp");
           this.set('isSync', false);
           this.get('notify').success('Task has been cancelled with following note :' + noteContentModal + '!');
           this.set('noteContentModal', ' ');
