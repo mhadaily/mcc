@@ -133,7 +133,7 @@
             <tbody>
               {{#unless model.length}}
                 <div class="m-a-1">
-                  Your search returned no result
+                  There is no call with your search criteria, you may further search in  {{#link-to 'contacts'}} Contacts {{/link-to}} page
                 </div>
               {{else}}
                 {{#each model as |task|}}
