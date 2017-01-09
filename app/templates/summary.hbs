@@ -40,10 +40,9 @@
 {{/if}}
 <dl>
   <dt>Reference:</dt>
-  <dd>{{contact.reference}}<a target="_blank" href="https://app.ontraport.com/#!/contact/edit&id={{contact.reference}}">
-    (Link to OAP)</a></dd>
+  <dd>{{contact.reference}}&nbsp;</dd>
   <dt>Name:</dt>
-  <dd>{{contact.name}}&nbsp;{{link-to '(Link to Client)' 'contact' contact}}</dd>
+  <dd>{{contact.name}}&nbsp;{{link-to '(Link to Client)' 'contact' contact}}&nbsp;</dd>
   {{#if contact.mttbStepUncontactable}}
     <dt>Step Uncontactable:</dt>
     <dd><strong>{{contact.mttbStepUncontactable}}</strong>&nbsp;</dd>
