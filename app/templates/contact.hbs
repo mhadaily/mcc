@@ -84,9 +84,9 @@
         <li role="presentation">
           <a href="#contact-application" role="tab" data-toggle="tab" aria-controls="contact-application">Extra</a>
         </li>
-        {{!--<li role="presentation">--}}
-        {{!--<a href="#contact-automation-log" role="tab" data-toggle="tab" aria-controls="contact-automation-log">Logs</a>--}}
-        {{!--</li>--}}
+        <li role="presentation">
+        <a href="#contact-automation-log" role="tab" data-toggle="tab" aria-controls="contact-automation-log">Logs</a>
+        </li>
       </ul>
       <div class="position-fixed">
         <div class="tab-content content-block-tab" style="height:{{blockHeight}}px">
@@ -109,10 +109,10 @@
             {{partial 'mttb-application'}}
             {{partial 'mttb-interview'}}
           </div>
-          {{!--<div role="tabpanel" class="tab-pane" id="contact-automation-log">--}}
-          {{!--{{partial 'contact-logs'}}--}}
-          {{!--{{partial 'automation-logs'}}--}}
-          {{!--</div>--}}
+          <div role="tabpanel" class="tab-pane" id="contact-automation-log">
+          {{partial 'contact-logs'}}
+          {{!--partial 'automation-logs'--}}
+          </div>
         </div>
       </div>
     </div>
