@@ -48,7 +48,7 @@ export default DS.Model.extend({
     let tags = this.get('tags'),
       result = {};
     for (let k in tags) {
-      if (tags[k].match(/license/i)) {
+      if (tags[k].match(/agreement/i)) {
         result[k] = tags[k];
       }
     }
