@@ -17,6 +17,26 @@ export default Ember.Controller.extend({
   contacts: Ember.computed.sort('model', 'sortBy'),
   offset_from: null,
   offset_to: null,
+  date_gteq: null,
+  startDateToJSDate: Ember.computed('date_gteq', {
+    get(/* key */) {
+      return this.get('date_gteq') ? moment(this.get('date_gteq')).toDate() : null;
+    },
+    set(key, value) {
+      this.set('date_gteq', value ? moment(value).format('YYYY-MM-DD') : '');
+      return value;
+    }
+  }),
+  date_lteq: null,
+  endDateToJSDate: Ember.computed('date_lteq', {
+    get(/* key */) {
+      return this.get('date_lteq') ? moment(this.get('date_lteq')).toDate() : null;
+    },
+    set(key, value) {
+      this.set('date_lteq', value ? moment(value).format('YYYY-MM-DD') : '');
+      return value;
+    }
+  }),
   utcHour: Ember.computed(function () {
     let i = 1;
     let now = moment().utc().hour();

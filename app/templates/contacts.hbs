@@ -28,6 +28,14 @@
       {{input type="text" value=time_zone class="form-control" placeholder="Time Zone"}}
     </div>
     <div class="form-group">
+      {{bootstrap-datepicker value=startDateToJSDate format="yyyy-mm-dd" placeholder="Created date (from)"
+                             class="form-control" autoclose=true forceDateValue=true}}
+    </div>
+    <div class="form-group">
+      {{bootstrap-datepicker value=endDateToJSDate format="yyyy-mm-dd" placeholder="Created date (before)" class="form-control"
+                             autoclose=true forceDateValue=true}}
+    </div>
+    <div class="form-group">
       <div class="row">
         <div class="hr-divider m-t">
           <h3 class="hr-divider-content hr-divider-heading">Client's Time</h3>
@@ -65,15 +73,15 @@
         <table class="table table-condensed table-small" data-sort="table">
           <thead>
           <tr>
+            <th class="header {{if (eq model.meta.sort-attr-name 'date') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Date' (query-params sort="date" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
             <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Client' (query-params sort="name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
             <th class="header {{if (eq model.meta.sort-attr-name 'email') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Email' (query-params sort="email" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
-            <!-- <th class="header {{if (eq model.meta.sort-attr-name 'step') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-              {{link-to 'Step' (query-params sort="step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-            </th> -->
             <th class="header {{if (eq model.meta.sort-attr-name 'step_number') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Step' (query-params sort="step_number" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
@@ -120,9 +128,9 @@
             {{else}}
               {{#each model as |contact|}}
                 <tr>
+                  <td>{{moment-format contact.date}}</td>
                   <td>{{link-to (or contact.name '[unnamed]') 'contact' contact}}</td>
                   <td>{{link-to (or contact.email '[no email]') 'contact' contact}}</td>
-                  <!-- <td align="center" class="{{unless contact.step 'text-danger'}}">{{or contact.step '0'}}</td> -->
                   <td align="center" class="{{if (eq contact.stepNumber 0) 'text-danger'}}">{{contact.stepNumber}}</td>
                   <td>{{contact.homePhone}}</td>
                   <td>{{contact.cellPhone}}</td>
