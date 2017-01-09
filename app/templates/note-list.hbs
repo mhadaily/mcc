@@ -23,7 +23,7 @@
           {{else}}
             <tr class="{{if note.note 'text-info'}}">
               <td><small>{{note.user.name}}</small></td>
-              <td><small>{{moment-format note.date 'YYYY/MM/DD HH:MM'}}</small></td>
+              <td><small>{{moment-format note.date}}</small></td>
               <td>{{breakLine note.note}} {{breakLine note.content}}&nbsp;</td>
               <td>
                 {{#if note.content}}
