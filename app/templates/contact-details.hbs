@@ -2,22 +2,30 @@
   <h3 class="hr-divider-content hr-divider-heading">{{contact.name}}&nbsp;</h3>
 </div>
 <dl>
+  <dt>Reference:</dt>
+  <dd>{{contact.reference}} ({{contact.source}})&nbsp;</dd>
+  <dt>Name:</dt>
+  <dd>{{contact.name}}&nbsp;{{link-to '(Link to Client)' 'contact' contact}}&nbsp;</dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
   <dt>Date:</dt>
   <dd>{{moment-format contact.date}}&nbsp;</dd>
   <dt>Date Last Modified:</dt>
   <dd>{{moment-format contact.dateLastModified}}&nbsp;</dd>
-  <dt>Name:</dt>
-  <dd>{{contact.name}}&nbsp;{{link-to '(Link to Client)' 'contact' contact}}&nbsp;</dd>
-  <dt>Reference:</dt>
-  <dd>{{contact.reference}} ({{contact.source}})&nbsp;</dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
   <dt>Email:</dt>
   <dd>{{contact.email}}&nbsp;</dd>
   <dt>Home Phone:</dt>
   <dd>{{contact.homePhone}}&nbsp;</dd>
   <dt>Cell Phone:</dt>
   <dd>{{contact.cellPhone}}&nbsp;</dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
   <dt>Skype ID:</dt>
   <dd>{{contact.skypeId}}&nbsp;</dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
   <dt>City:</dt>
   <dd>{{contact.city}}&nbsp;</dd>
   <dt>State:</dt>
@@ -26,10 +34,14 @@
   <dd>{{contact.country}}&nbsp;</dd>
   <dt>Time Zone:</dt>
   <dd>{{contact.timeZone}}&nbsp;</dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
   <dt>Business Coach:</dt>
   <dd>{{contact.l1MttbCoach}}&nbsp;</dd>
   <dt>Senior Business Coach:</dt>
   <dd>{{contact.l2MttbCoach}}&nbsp;</dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
   <dt>L1 Affiliate:</dt>
   <dd>{{contact.l1Affiliate}}&nbsp;</dd>
   <dt>L2 Affiliate:</dt>
