@@ -10,7 +10,7 @@
         <div class="dashhead-titles">
           <h3 class="dashhead-title">
             {{link-to '<< Clients' 'contacts'}}
-            CLIENT: {{link-to (or model.name 'unnamed') 'contact' model}}
+            CLIENT: {{link-to (or model.name 'unnamed') 'contact' model}} | {{model.email}}
             {{#if (or isSilverWebinar.attendedLive (or isSilverWebinar.attendedReply))}}
               | <span class="label label-danger">Silver Webinar Attended </span>
             {{else}}
