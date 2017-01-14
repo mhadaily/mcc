@@ -9,6 +9,6 @@
   {{/each-in}}
 
   {{#if (or model.silverAgreementSigned model.contact.silverAgreementSigned)}}
-    <li> {{mlrToSilver}} Agreement Signed: {{moment-format (or model.mttbMlrDate model.contact.mttbMlrDate)}}</li>
+    <li> {{or model.mlrToSilver model.contact.mlrToSilver}} Agreement Signed: {{moment-format (or model.mttbMlrDate model.contact.mttbMlrDate)}}</li>
   {{/if}}
 </ul>
