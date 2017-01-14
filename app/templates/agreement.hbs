@@ -1,10 +1,14 @@
 <div class="hr-divider m-y">
-    <h3 class="hr-divider-content hr-divider-heading">Agreement&nbsp;</h3>
+  <h3 class="hr-divider-content hr-divider-heading">Agreement&nbsp;</h3>
 </div>
 <ul>
   {{#each-in (or model.agreementTags model.contact.agreementTags) as |key value|}}
-      <li>{{key}}: <strong>{{value}}</strong></li>
+    <li>{{key}}: <strong>{{value}}</strong></li>
   {{else}}
-      <p class="text-center text-muted">No Agreements</p>
+    <p class="text-center text-muted">No Agreements</p>
   {{/each-in}}
+
+  {{#if (or model.silverAgreementSigned model.contact.silverAgreementSigned)}}
+    <li> {{mlrToSilver}} Agreement Signed: {{moment-format (or model.mttbMlrDate model.contact.mttbMlrDate)}}</li>
+  {{/if}}
 </ul>

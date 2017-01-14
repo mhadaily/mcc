@@ -44,6 +44,16 @@ export default DS.Model.extend({
   mttbApplication: DS.attr(),
   mttbInterview: DS.attr(),
   mttbStepUncontactable: DS.attr(),
+  mttbStepUncontactable: DS.attr(),
+  silverAgreementSigned: DS.attr(),
+  mttbMlrDate: DS.attr(),
+  mttbLevel: DS.attr(),
+  mlrToSilver: Ember.computed('mttbLevel', function () {
+    let mttbLevel = this.get('mttbLevel');
+    if (mttbLevel === "MLR") {
+      return 'SILVER';
+    }
+  }),
   agreementTags: Ember.computed('tags', function () {
     let tags = this.get('tags'),
       result = {};
