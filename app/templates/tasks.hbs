@@ -140,7 +140,7 @@
                   <tr class="{{if task.isOverdue 'warning'}}">
                     <td class="{{if task.isOverdue 'text-danger'}}">{{moment-format task.dateDue}}</td>
                     <td>{{link-to task.subject 'task' task}}</td>
-                    <td>{{task.contact.name}}</td>
+                    <td>{{task.contact.name}}<br>{{task.contact.email}}</td>
                     <td>{{task.user.name}}</td>
                     <!-- <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td> -->
                     <td align="center" class="{{if (eq task.contact.stepNumber 0) 'text-danger'}}">{{task.contact.stepNumber}}</td>
