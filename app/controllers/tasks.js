@@ -11,6 +11,7 @@ export default Ember.Controller.extend({
   ],
   offset_from: null,
   offset_to: null,
+  perPageList: [10, 25, 50, 100],
   utcHour: Ember.computed(function () {
     let i = 1;
     let now = moment().utc().hour();
@@ -57,6 +58,9 @@ export default Ember.Controller.extend({
   sort: '',
   sortDir: 'asc',
   actions: {
+    sendPerPage(selection){
+      this.send('changePerPage', selection);
+    },
     queryClear() {
       this.set('contact', null);
       // this.set('contact_step', null);

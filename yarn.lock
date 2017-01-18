@@ -1808,13 +1808,13 @@ ember-cli-release@^0.2.9:
     semver "^4.3.1"
     silent-error "^1.0.0"
 
-ember-cli-selectize@0.5.11:
-  version "0.5.11"
-  resolved "https://registry.yarnpkg.com/ember-cli-selectize/-/ember-cli-selectize-0.5.11.tgz#f7b79888b979c5f4f8aa6518b8ede5a0b2c39477"
+ember-cli-selectize@^0.5.12:
+  version "0.5.12"
+  resolved "https://registry.yarnpkg.com/ember-cli-selectize/-/ember-cli-selectize-0.5.12.tgz#38af65b12d01d8ff20ba252235105bed10b7111a"
   dependencies:
     ember-cli-babel "^5.1.6"
     ember-cli-import-polyfill "^0.2.0"
-    ember-getowner-polyfill "1.0.1"
+    ember-getowner-polyfill "^1.1.1"
     ember-new-computed "^1.0.0"
 
 ember-cli-spinjs@1.0.7:
@@ -1994,18 +1994,18 @@ ember-export-application-global@^1.0.5:
   dependencies:
     ember-cli-babel "^5.1.10"
 
-ember-getowner-polyfill@1.0.1, ember-getowner-polyfill@^1.0.1, ember-getowner-polyfill@~1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-1.0.1.tgz#f60a31d25d642461dac4b4746184afaf7f5084ae"
-  dependencies:
-    ember-cli-babel "^5.1.5"
-
-ember-getowner-polyfill@1.1.1:
+ember-getowner-polyfill@1.1.1, ember-getowner-polyfill@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-1.1.1.tgz#6bb6603827dd2f8f33be2434570a86cc9e5273ff"
   dependencies:
     ember-cli-babel "^5.1.6"
     ember-cli-version-checker "^1.2.0"
+
+ember-getowner-polyfill@^1.0.1, ember-getowner-polyfill@~1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-1.0.1.tgz#f60a31d25d642461dac4b4746184afaf7f5084ae"
+  dependencies:
+    ember-cli-babel "^5.1.5"
 
 ember-hash-helper-polyfill@^0.1.2:
   version "0.1.2"

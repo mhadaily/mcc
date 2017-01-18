@@ -14,7 +14,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   },
 
   page: 1,
-  perPage: 20,
+  perPage: 25,
   model(params) {
     const due_gteq = params.date_due_gteq ? params.date_due_gteq + ' 00:00:00' : params.date_due_gteq;
     const due_lteq = params.date_due_lteq ? params.date_due_lteq + ' 00:00:00' : params.date_due_lteq;
@@ -38,6 +38,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   },
   actions: {
     queryChanged() {
+      this.refresh();
+    },
+    changePerPage(number){
+      this.set('perPage',number);
       this.refresh();
     }
   }

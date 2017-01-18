@@ -60,12 +60,25 @@
 <div class="container-fluid search-panel">
   <div class="col-md-12">
     <div class="clearfix">
-      {{page-numbers content=model class="pull-right"}}
-      <div class="statcard p-a m-b">
+      <div class="col-md-4">
+        <div class="statcard p-a m-b">
         <span class="h3 statcard-number">
           {{format-number model.meta.total-count format=",0"}}
         </span>
-        <span class="statcard-desc text-mute">client(s)</span>
+          <span class="statcard-desc text-mute">client(s)</span>
+        </div>
+      </div>
+      <div class="col-md-2">
+        {{ember-selectize content=perPageList
+                          value=labelField
+                          selection=25 class="p-a"
+                          optionValuePath="content"
+                          optionLabelPath="content"
+                          select-value=(action 'sendPerPage')
+        }}
+      </div>
+      <div class="col-md-6">
+        {{page-numbers content=model class="pull-right"}}
       </div>
     </div>
     <div class="table-full">

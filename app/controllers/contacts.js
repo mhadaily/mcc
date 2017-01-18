@@ -14,6 +14,7 @@ export default Ember.Controller.extend({
   query: '',
   page: 1,
   sortBy: ['name:asc'],
+  perPageList: [10, 25, 50, 100],
   contacts: Ember.computed.sort('model', 'sortBy'),
   offset_from: null,
   offset_to: null,
@@ -53,6 +54,9 @@ export default Ember.Controller.extend({
     return arr;
   }),
   actions: {
+    sendPerPage(selection){
+      this.send('changePerPage', selection);
+    },
     queryClear() {
       this.set('contact', '');
       // this.set('step', '');

@@ -11,7 +11,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
     date_lteq: {replace: true},
   },
   page: 1,
-  perPage: 20,
+  perPage: 25,
   model(params) {
     return this.findPaged('contact', {
       paramMapping: { total_pages: "total-pages" },
@@ -33,6 +33,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   },
   actions: {
     queryChanged() {
+      this.refresh();
+    },
+    changePerPage(number){
+      this.set('perPage',number);
       this.refresh();
     }
   }
