@@ -14,13 +14,7 @@
       </thead>
       <tbody>
         {{#each notes_and_task_notes as |note|}}
-          {{#unless (eq note.status 'active')}}
-            <tr>
-              <td colspan="4" align="center">
-                <span class="text-muted">This note has been discarded</span>
-              </td>
-            </tr>
-          {{else}}
+          {{#if (eq note.status 'active')}}
             <tr class="{{if note.note 'text-info'}}">
               <td><small>{{note.user.name}}</small></td>
               <td><small>{{moment-format note.date}}</small></td>
@@ -40,7 +34,7 @@
                 {{/if}}
               </td>
             </tr>
-          {{/unless}}
+          {{/if}}
         {{/each}}
       </tbody>
     </table>
