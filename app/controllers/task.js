@@ -187,7 +187,11 @@ export default Ember.Controller.extend({
       _self.set('taskref', null);
     },
     populateModal(task){
-      this.set('taskref', task.id);
+      if (task.data.status === 'pending') {
+        this.set('taskref', task.id);
+      } else {
+        this.get('notify').info('Completed Task cannot be rescheduled again.');
+      }
     },
     discNote() {
       this.send('discardNote', this.get('noterf'));
