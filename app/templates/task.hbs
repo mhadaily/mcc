@@ -9,7 +9,9 @@
       <div class="col-sm-4">
         <div class="dashhead-titles">
           <h3 class="dashhead-title">
-            <span>{{link-to '<< Calls' (or backTo 'tasks')}}</span> | CLIENT: {{link-to (or contact.name 'unnamed') 'contact' contact}} | {{contact.email}}
+            <span>{{link-to '<< Calls' (or backTo 'tasks')}}</span> | CLIENT: {{link-to (or contact.name 'unnamed')
+                                                                                        'contact' contact}}
+            | {{contact.email}}
             {{#if (or isSilverWebinar.attendedLive (or isSilverWebinar.attendedReply))}}
               | <span class="label label-danger">Silver Webinar Attended </span>
             {{else}}
@@ -130,9 +132,9 @@
         <li role="presentation">
           <a href="#contact-application" role="tab" data-toggle="tab" aria-controls="contact-application">Extra</a>
         </li>
-        {{!--<li role="presentation">--}}
-        {{!--<a href="#contact-automation-log" role="tab" data-toggle="tab" aria-controls="contact-automation-log">Logs</a>--}}
-        {{!--</li>--}}
+        <li role="presentation">
+          <a href="#contact-automation-log" role="tab" data-toggle="tab" aria-controls="contact-automation-log">Logs</a>
+        </li>
       </ul>
       <div class="position-fixed content-block-tab" style="height:{{blockHeight}}px">
         <div class="tab-content">
@@ -158,10 +160,10 @@
             {{partial 'mttb-application'}}
             {{partial 'mttb-interview'}}
           </div>
-          {{!--<div role="tabpanel" class="tab-pane" id="contact-automation-log">--}}
-          {{!--{{partial 'contact-logs'}}--}}
+          <div role="tabpanel" class="tab-pane" id="contact-automation-log">
+            {{partial 'contact-logs'}}
+          </div>
           {{!--{{partial 'automation-logs'}}--}}
-          {{!--</div>--}}
         </div>
       </div>
     </div>
