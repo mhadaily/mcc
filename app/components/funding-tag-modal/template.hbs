@@ -1,0 +1,22 @@
+<div class="modal-content modal-sm">
+  <div class="modal-header">
+    <button {{action dismiss}} type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+      aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">{{contact.name}}</h4>
+  </div>
+  <div class="modal-body">
+    <div class="form-group row">
+     Would you like to submit your request for Funding Stage?
+    </div>
+  </div>
+  <div class="modal-actions">
+    <button {{action dismiss}} type="button" class="btn-link modal-action" data-dismiss="modal">
+      No, Cancel
+    </button>
+    <button {{action "addTag" contact.id}} type="button" class="btn-link modal-action" data-dismiss="modal">
+      <strong>Yes, Submit</strong>
+    </button>
+  </div>
+</div>
+{{yield}}
+
