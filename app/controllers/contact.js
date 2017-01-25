@@ -1,13 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['refcon', 'backTo', 'step', 'taskrf', 'contactrf', 'noterf', 'tnoterf', "sort", "sortDir", "query"],
+  queryParams: ['refcon', 'backTo', 'step', 'taskrf', 'fundingtag', 'contactrf', 'noterf', 'tnoterf', "sort", "sortDir", "query"],
   step: null,
   refcon: null,
   isSync: false,
   backTo: null,
   blink: null,
   taskrf: null,
+  fundingtag: null,
   contactrf: null,
   noterf: null,
   tnoterf: null,

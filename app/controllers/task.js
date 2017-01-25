@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   notify: Ember.inject.service('notify'),
-  queryParams: ['backTo', 'step', 'ref', 'taskref', 'noterf', 'tnoterf', 'refid', 'refcon', 'contactrf'],
+  queryParams: ['backTo', 'step', 'ref', 'fundingtag', 'taskref', 'noterf', 'tnoterf', 'refid', 'refcon', 'contactrf'],
   step: null,
   ref: null,
   refid: null,
@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
   tnoterf: null,
   refcon: null,
   contactrf: null,
+  fundingtag: null,
   taskref: null,
   blink: null,
   noteText: 'Save',
