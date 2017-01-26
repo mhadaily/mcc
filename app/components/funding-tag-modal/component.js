@@ -20,10 +20,10 @@ export default Ember.Component.extend({
         oap_funding_tag_id: 4126
       };
       return Ember.$.ajax(config.apiUrl + '/api/contacts/add_tag', {
-        type: "POST",
-        headers: headers,
-        data: data
-      })
+          type: "POST",
+          headers: headers,
+          data: data
+        })
         .then(res => {
           this.get('store').pushPayload(res);
           this.get('notify').success('You request was successfully added to the contact');

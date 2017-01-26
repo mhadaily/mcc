@@ -56,16 +56,19 @@
                              send=(hash body=(component 'sync-modal' sync=(action 'sync') dismiss=(action (mut refcon) null)) onOutsideClick=(action (mut refcon) null)) }}
             {{/if}}
           </li>
-          {{#if (eq application.model.account.role.name "superadmin")}}
-            <li>
+          <li>
+            {{#if model.isFundingStage}}
+              {{link-to 'FS Already Requested'  (query-params fundingtag=null) tagName="button"
+                        class="btn btn-sm btn-primary" disabled="disabled"}}
+            {{else}}
               {{link-to 'Request Funding Stage' (query-params fundingtag=model.id)  tagName="button"
                         class="btn btn-sm btn-primary"}}
               {{#if fundingtag}}
                 {{to-elsewhere named='modal'
                                send=(hash body=(component 'funding-tag-modal' contact=contact dismiss=(action (mut fundingtag) null)) onOutsideClick=(action (mut fundingtag) null)) }}
               {{/if}}
-            </li>
-          {{/if}}
+            {{/if}}
+          </li>
         </ul>
       </div>
     </div>

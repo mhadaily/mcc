@@ -55,5 +55,10 @@ export default DS.Model.extend({
       }
     }
     return result;
-  })
+  }),
+  isFundingStage: Ember.computed('tags', function () {
+    let tags = this.get('tags');
+    // return id of "Funding Tag - Started"
+    return Object.keys(tags).find(key => key === '4126');
+  }),
 });
