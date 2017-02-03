@@ -18,7 +18,7 @@
             <tr class="{{if note.note 'text-info'}}">
               <td><small>{{note.user.name}}</small></td>
               <td><small>{{moment-format note.date}}</small></td>
-              <td>{{breakLine note.note}} {{breakLine note.content}}&nbsp;</td>
+              <td>{{break-line note.note}} {{break-line note.content}}&nbsp;</td>
               <td>
                 {{#if note.content}}
                   {{link-to 'Discard' (query-params noterf=note.id) tagName="button" class="btn btn-sm btn-default"}}

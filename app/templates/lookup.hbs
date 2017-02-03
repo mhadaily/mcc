@@ -146,7 +146,7 @@
                               {{#if (eq value 'notes')}}
                                 <tr>
                                   <td>{{moment-format note.attributes.data}}</td>
-                                  <td>{{breakLine note.attributes.content}}&nbsp;</td>
+                                  <td>{{break-line note.attributes.content}}&nbsp;</td>
                                 </tr>
                               {{/if}}
                             {{/each-in}}
@@ -166,4 +166,3 @@
   </div>
 </div>
 {{outlet}}
-
