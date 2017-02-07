@@ -62,9 +62,9 @@ module.exports = function(environment) {
 
   }
 
-  ENV.apiHost = process.env.API_HOST || 'mobecentral.herokuapp.com';
+  ENV.apiHost = process.env.API_HOST || 'coaches.mobe.com';
   ENV.apiPort = process.env.API_PORT ? ':' + process.env.API_PORT : '';
-  ENV.apiUrl = process.env.API_URL || `https://${ENV.apiHost}${ENV.apiPort}`;
+  ENV.apiUrl = process.env.API_URL || `//${ENV.apiHost}${ENV.apiPort}`;
 
   return ENV;
 };

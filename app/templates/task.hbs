@@ -27,13 +27,16 @@
       <div class="col-sm-8">
         <ul class="nav nav-bordered pull-right">
           <li>
-            <h2 class="statcard-number">Step: <strong>{{or contact.step '0'}}</strong>&nbsp;</h2>
+            <h2 class="statcard-number">Step:<br/><strong>{{or contact.step '0'}}</strong>&nbsp;</h2>
           </li>
           <li>
-            <h2 class="statcard-number">Spent: <strong>${{format-number contact.spent format=",0"}}</strong>&nbsp;</h2>
+            <h2 class="statcard-number">Spent:<br/><strong>${{format-number contact.spent format=",0"}}</strong>&nbsp;</h2>
           </li>
           <li>
-            <h2 class="statcard-number">Client Time: <strong>{{clock-timezone timezone=contact.timeZone}}</strong></h2>
+            <h2 class="statcard-number">Client Time:<br/><strong>{{clock-timezone timezone=contact.timeZone}}</strong></h2>
+          </li>
+          <li>
+            <h2 class="statcard-number">Traffic Coach: <br/><strong>{{contact.trafficCoach}}</strong>&nbsp;</h2>
           </li>
           {{#if (eq model.status "pending")}}
             <li>
