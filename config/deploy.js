@@ -1,3 +1,5 @@
+/* jshint node: true */
+
 var VALID_DEPLOY_TARGETS = [ //update these to match what you call your deployment targets
   'dev',
   'qa',
