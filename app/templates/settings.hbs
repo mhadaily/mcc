@@ -53,7 +53,6 @@
                 {{ember-selectize content=countries selection=valueField optionValuePath="content.value"
                                   value=model.country
                                   optionLabelPath="content.text"
-                                  select-value=(action 'selectCountry')
                                   placeholder="Country"}}
 
               </div>
@@ -66,7 +65,6 @@
                 {{ember-selectize content=timezones selection=valueField optionValuePath="content.value"
                                   value=model.timeZone
                                   optionLabelPath="content.text"
-                                  select-value=(action 'selectTimezone')
                                   placeholder="TimeZone"}}
               </div>
             </div>
@@ -79,7 +77,7 @@
 
     </div>
     <div class="col-md-6 col-sm-12">
-      <form action="post" class="passowrd">
+      <form action="post" name="passowrdEdit">
         <div class="panel panel-default">
           <div class="panel-heading">Password</div>
           <div class="panel-body">
