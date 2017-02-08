@@ -5,5 +5,9 @@ export default DS.Model.extend({
   name: DS.attr(),
   email: DS.attr(),
   team: DS.attr(),
-  role: DS.attr()
+  phone: DS.attr(),
+  skypeId: DS.attr(),
+  country: DS.attr(),
+  timeZone: DS.attr(),
+  calendar: DS.attr(),
 });

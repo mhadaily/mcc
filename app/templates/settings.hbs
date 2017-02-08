@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row m-t-md">
     <div class="col-md-6 col-sm-12">
-      <form>
+      <form action="post" name="profile">
         <div class="panel panel-default">
           <div class="panel-heading">Profile</div>
           <div class="panel-body">
@@ -50,7 +50,7 @@
                 <label class="control-label">Country</label>
               </div>
               <div class="col-sm-9">
-                <select class="country optional form-control" name="user[country]" id="user_country">
+                <select class="country form-control" name="country_user">
                   <option value=""></option>
                   <option value="AF">Afghanistan</option>
                   <option value="AX">Åland Islands</option>
@@ -310,7 +310,7 @@
                 <label class="control-label">Timezone</label>
               </div>
               <div class="col-sm-9">
-                <select class="form-control" name="user[time_zone]" id="user_time_zone">
+                <select class="form-control" name="time_zone_user">
                   <option value=""></option>
                   <option value="Africa/Abidjan">Africa - Abidjan</option>
                   <option value="Africa/Accra">Africa - Accra</option>
@@ -594,7 +594,7 @@
                   <option value="Asia/Khandyga">Asia - Khandyga</option>
                   <option value="Asia/Kolkata">Asia - Kolkata</option>
                   <option value="Asia/Krasnoyarsk">Asia - Krasnoyarsk</option>
-                  <option selected="selected" value="Asia/Kuala_Lumpur">Asia - Kuala Lumpur</option>
+                  <option value="Asia/Kuala_Lumpur">Asia - Kuala Lumpur</option>
                   <option value="Asia/Kuching">Asia - Kuching</option>
                   <option value="Asia/Kuwait">Asia - Kuwait</option>
                   <option value="Asia/Macao">Asia - Macao</option>
@@ -681,8 +681,6 @@
                   <option value="Brazil/DeNoronha">Brazil - De Noronha</option>
                   <option value="Brazil/East">Brazil - East</option>
                   <option value="Brazil/West">Brazil - West</option>
-                  <option value="CET">CET</option>
-                  <option value="CST6CDT">CST6CDT</option>
                   <option value="Canada/Atlantic">Canada - Atlantic</option>
                   <option value="Canada/Central">Canada - Central</option>
                   <option value="Canada/East-Saskatchewan">Canada - East-Saskatchewan</option>
@@ -694,47 +692,6 @@
                   <option value="Canada/Yukon">Canada - Yukon</option>
                   <option value="Chile/Continental">Chile - Continental</option>
                   <option value="Chile/EasterIsland">Chile - Easter Island</option>
-                  <option value="Cuba">Cuba</option>
-                  <option value="EET">EET</option>
-                  <option value="EST">EST</option>
-                  <option value="EST5EDT">EST5EDT</option>
-                  <option value="Egypt">Egypt</option>
-                  <option value="Eire">Eire</option>
-                  <option value="Etc/GMT">Etc - GMT</option>
-                  <option value="Etc/GMT+0">Etc - GMT+0</option>
-                  <option value="Etc/GMT+1">Etc - GMT+1</option>
-                  <option value="Etc/GMT+10">Etc - GMT+10</option>
-                  <option value="Etc/GMT+11">Etc - GMT+11</option>
-                  <option value="Etc/GMT+12">Etc - GMT+12</option>
-                  <option value="Etc/GMT+2">Etc - GMT+2</option>
-                  <option value="Etc/GMT+3">Etc - GMT+3</option>
-                  <option value="Etc/GMT+4">Etc - GMT+4</option>
-                  <option value="Etc/GMT+5">Etc - GMT+5</option>
-                  <option value="Etc/GMT+6">Etc - GMT+6</option>
-                  <option value="Etc/GMT+7">Etc - GMT+7</option>
-                  <option value="Etc/GMT+8">Etc - GMT+8</option>
-                  <option value="Etc/GMT+9">Etc - GMT+9</option>
-                  <option value="Etc/GMT-0">Etc - GMT-0</option>
-                  <option value="Etc/GMT-1">Etc - GMT-1</option>
-                  <option value="Etc/GMT-10">Etc - GMT-10</option>
-                  <option value="Etc/GMT-11">Etc - GMT-11</option>
-                  <option value="Etc/GMT-12">Etc - GMT-12</option>
-                  <option value="Etc/GMT-13">Etc - GMT-13</option>
-                  <option value="Etc/GMT-14">Etc - GMT-14</option>
-                  <option value="Etc/GMT-2">Etc - GMT-2</option>
-                  <option value="Etc/GMT-3">Etc - GMT-3</option>
-                  <option value="Etc/GMT-4">Etc - GMT-4</option>
-                  <option value="Etc/GMT-5">Etc - GMT-5</option>
-                  <option value="Etc/GMT-6">Etc - GMT-6</option>
-                  <option value="Etc/GMT-7">Etc - GMT-7</option>
-                  <option value="Etc/GMT-8">Etc - GMT-8</option>
-                  <option value="Etc/GMT-9">Etc - GMT-9</option>
-                  <option value="Etc/GMT0">Etc - GMT0</option>
-                  <option value="Etc/Greenwich">Etc - Greenwich</option>
-                  <option value="Etc/UCT">Etc - UCT</option>
-                  <option value="Etc/UTC">Etc - UTC</option>
-                  <option value="Etc/Universal">Etc - Universal</option>
-                  <option value="Etc/Zulu">Etc - Zulu</option>
                   <option value="Europe/Amsterdam">Europe - Amsterdam</option>
                   <option value="Europe/Andorra">Europe - Andorra</option>
                   <option value="Europe/Astrakhan">Europe - Astrakhan</option>
@@ -798,16 +755,6 @@
                   <option value="Europe/Zagreb">Europe - Zagreb</option>
                   <option value="Europe/Zaporozhye">Europe - Zaporozhye</option>
                   <option value="Europe/Zurich">Europe - Zurich</option>
-                  <option value="GB">GB</option>
-                  <option value="GB-Eire">GB-Eire</option>
-                  <option value="GMT">GMT</option>
-                  <option value="GMT+0">GMT+0</option>
-                  <option value="GMT-0">GMT-0</option>
-                  <option value="GMT0">GMT0</option>
-                  <option value="Greenwich">Greenwich</option>
-                  <option value="HST">HST</option>
-                  <option value="Hongkong">Hongkong</option>
-                  <option value="Iceland">Iceland</option>
                   <option value="Indian/Antananarivo">Indian - Antananarivo</option>
                   <option value="Indian/Chagos">Indian - Chagos</option>
                   <option value="Indian/Christmas">Indian - Christmas</option>
@@ -819,23 +766,9 @@
                   <option value="Indian/Mauritius">Indian - Mauritius</option>
                   <option value="Indian/Mayotte">Indian - Mayotte</option>
                   <option value="Indian/Reunion">Indian - Reunion</option>
-                  <option value="Iran">Iran</option>
-                  <option value="Israel">Israel</option>
-                  <option value="Jamaica">Jamaica</option>
-                  <option value="Japan">Japan</option>
-                  <option value="Kwajalein">Kwajalein</option>
-                  <option value="Libya">Libya</option>
-                  <option value="MET">MET</option>
-                  <option value="MST">MST</option>
-                  <option value="MST7MDT">MST7MDT</option>
                   <option value="Mexico/BajaNorte">Mexico - Baja Norte</option>
                   <option value="Mexico/BajaSur">Mexico - Baja Sur</option>
                   <option value="Mexico/General">Mexico - General</option>
-                  <option value="NZ">NZ</option>
-                  <option value="NZ-CHAT">NZ-CHAT</option>
-                  <option value="Navajo">Navajo</option>
-                  <option value="PRC">PRC</option>
-                  <option value="PST8PDT">PST8PDT</option>
                   <option value="Pacific/Apia">Pacific - Apia</option>
                   <option value="Pacific/Auckland">Pacific - Auckland</option>
                   <option value="Pacific/Bougainville">Pacific - Bougainville</option>
@@ -875,30 +808,6 @@
                   <option value="Pacific/Tahiti">Pacific - Tahiti</option>
                   <option value="Pacific/Tarawa">Pacific - Tarawa</option>
                   <option value="Pacific/Tongatapu">Pacific - Tongatapu</option>
-                  <option value="Pacific/Truk">Pacific - Truk</option>
-                  <option value="Pacific/Wake">Pacific - Wake</option>
-                  <option value="Pacific/Wallis">Pacific - Wallis</option>
-                  <option value="Pacific/Yap">Pacific - Yap</option>
-                  <option value="Poland">Poland</option>
-                  <option value="Portugal">Portugal</option>
-                  <option value="ROC">ROC</option>
-                  <option value="ROK">ROK</option>
-                  <option value="Singapore">Singapore</option>
-                  <option value="SystemV/AST4">SystemV - AST4</option>
-                  <option value="SystemV/AST4ADT">SystemV - AST4ADT</option>
-                  <option value="SystemV/CST6">SystemV - CST6</option>
-                  <option value="SystemV/CST6CDT">SystemV - CST6CDT</option>
-                  <option value="SystemV/EST5">SystemV - EST5</option>
-                  <option value="SystemV/EST5EDT">SystemV - EST5EDT</option>
-                  <option value="SystemV/HST10">SystemV - HST10</option>
-                  <option value="SystemV/MST7">SystemV - MST7</option>
-                  <option value="SystemV/MST7MDT">SystemV - MST7MDT</option>
-                  <option value="SystemV/PST8">SystemV - PST8</option>
-                  <option value="SystemV/PST8PDT">SystemV - PST8PDT</option>
-                  <option value="SystemV/YST9">SystemV - YST9</option>
-                  <option value="SystemV/YST9YDT">SystemV - YST9YDT</option>
-                  <option value="Turkey">Turkey</option>
-                  <option value="UCT">UCT</option>
                   <option value="US/Alaska">US - Alaska</option>
                   <option value="US/Aleutian">US - Aleutian</option>
                   <option value="US/Arizona">US - Arizona</option>
@@ -912,11 +821,6 @@
                   <option value="US/Pacific">US - Pacific</option>
                   <option value="US/Pacific-New">US - Pacific-New</option>
                   <option value="US/Samoa">US - Samoa</option>
-                  <option value="UTC">UTC</option>
-                  <option value="Universal">Universal</option>
-                  <option value="W-SU">W-SU</option>
-                  <option value="WET">WET</option>
-                  <option value="Zulu">Zulu</option>
                   <option value="" disabled="disabled">-------------</option>
                 </select>
               </div>
@@ -930,7 +834,7 @@
 
     </div>
     <div class="col-md-6 col-sm-12">
-      <form>
+      <form action="post" class="passowrd">
         <div class="panel panel-default">
           <div class="panel-heading">Profile</div>
           <div class="panel-body">
