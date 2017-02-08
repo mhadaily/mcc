@@ -13,6 +13,12 @@ export default Ember.Controller.extend({
     selectTimezone(selection){
       console.log(selection);
     },
+    savePassword(){
+      console.warn('Will be completed Soon');
+    },
+    saveProfile(){
+
+    },
   }
 
 });
