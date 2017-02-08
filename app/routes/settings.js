@@ -15,12 +15,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       console.warn('Will be completed Soon');
     },
     saveProfile(){
-      this.currentModel.save().then((d) => {
-        this.get('notify').success('Contact successfully updated');
-        return d;
-      }).catch((e) => {
-        this.get('notify').error(e.message);
-      });
+      this.currentModel.save()
+        .then((d) => {
+          this.get('notify').success('Contact successfully updated');
+          return d;
+        })
+        .catch((e) => {
+          this.get('notify').error(e.message);
+        });
     }
   }
 });
