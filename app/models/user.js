@@ -10,4 +10,6 @@ export default DS.Model.extend({
   country: DS.attr(),
   timeZone: DS.attr(),
   calendar: DS.attr(),
+  role: DS.attr(),
+  status: DS.attr(),
 });
