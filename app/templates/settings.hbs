@@ -1,124 +1,126 @@
 <div class="container-fluid">
   <div class="row m-t-md">
-    <div class="col-md-6 col-sm-12">
-      <form action="post" name="profile">
-        <div class="panel panel-default">
-          <div class="panel-heading">Profile</div>
-          <div class="panel-body">
-            <div class="form-group row">
-              <div class="col-sm-3">
-                <label class="control-label">Email</label>
+    <div class="container">
+      <div class="col-md-6 col-sm-12">
+        <form action="post" name="profile">
+          <div class="panel panel-default">
+            <div class="panel-heading">Profile</div>
+            <div class="panel-body">
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="control-label">Email</label>
+                </div>
+                <div class="col-sm-9">
+                  {{model.email}}
+                </div>
               </div>
-              <div class="col-sm-9">
-                {{model.email}}
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="control-label">Name</label>
+                </div>
+                <div class="col-sm-9">
+                  {{model.name}}
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-3">
-                <label class="control-label">Name</label>
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="control-label">Skype ID</label>
+                </div>
+                <div class="col-sm-9">
+                  {{input name='skype_user' value=model.skypeId type="text" class="form-control"}}
+                </div>
               </div>
-              <div class="col-sm-9">
-                {{model.name}}
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="control-label">Phone</label>
+                </div>
+                <div class="col-sm-9">
+                  {{input name='phone_user' value=model.phone type="text" class="form-control"}}
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-3">
-                <label class="control-label">Skype ID</label>
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="control-label">Calendar</label>
+                </div>
+                <div class="col-sm-9">
+                  {{input name='calendar_user' value=model.calendar type="text" class="form-control"}}
+                </div>
               </div>
-              <div class="col-sm-9">
-                {{input name='skype_user' value=model.skypeId type="text" class="form-control"}}
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-3">
-                <label class="control-label">Phone</label>
-              </div>
-              <div class="col-sm-9">
-                {{input name='phone_user' value=model.phone type="text" class="form-control"}}
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-3">
-                <label class="control-label">Calendar</label>
-              </div>
-              <div class="col-sm-9">
-                {{input name='calendar_user' value=model.calendar type="text" class="form-control"}}
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-3">
-                <label class="control-label">Country</label>
-              </div>
-              <div class="col-sm-9">
-                {{ember-selectize content=countries selection=valueField optionValuePath="content.value"
-                                  value=model.country
-                                  optionLabelPath="content.text"
-                                  placeholder="Country"}}
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="control-label">Country</label>
+                </div>
+                <div class="col-sm-9">
+                  {{ember-selectize content=countries selection=valueField optionValuePath="content.value"
+                                    value=model.country
+                                    optionLabelPath="content.text"
+                                    placeholder="Country"}}
 
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="control-label">Timezone</label>
+                </div>
+                <div class="col-sm-9">
+                  {{ember-selectize content=timezones selection=valueField optionValuePath="content.value"
+                                    value=model.timeZone
+                                    optionLabelPath="content.text"
+                                    placeholder="TimeZone"}}
+                </div>
+              </div>
+              <div class="panel-footer">
+                <button class="btn btn-success btn-block" {{action "saveProfile"}}>Save new profile</button>
               </div>
             </div>
-            <div class="form-group row">
-              <div class="col-sm-3">
-                <label class="control-label">Timezone</label>
+          </div>
+        </form>
+
+      </div>
+      <div class="col-md-6 col-sm-12" style="display: none;">
+        <form action="post" name="passowrdEdit">
+          <div class="panel panel-default">
+            <div class="panel-heading">Password</div>
+            <div class="panel-body">
+              <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Note!</strong> This section will be completed soon, at this time doesn't work
               </div>
-              <div class="col-sm-9">
-                {{ember-selectize content=timezones selection=valueField optionValuePath="content.value"
-                                  value=model.timeZone
-                                  optionLabelPath="content.text"
-                                  placeholder="TimeZone"}}
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="control-label">Login</label>
+                </div>
+                <div class="col-sm-9">
+                  {{model.email}}
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="control-label">Password</label>
+                </div>
+                <div class="col-sm-9">
+                  {{input name='password_user' value=model.password type="text" class="form-control"}}
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="control-label">Password Confirmation</label>
+                </div>
+                <div class="col-sm-9">
+                  {{input name='password_confirmation_user' value=model.passwordConfirmation type="text"
+                          class="form-control"}}
+                </div>
               </div>
             </div>
             <div class="panel-footer">
-              <button class="btn btn-success btn-block" {{action "saveProfile"}}>Save new profile</button>
+              <button class="btn btn-success btn-block" {{action "savePassword"}} disabled>Save new Password</button>
             </div>
           </div>
-        </div>
-      </form>
-
-    </div>
-    <div class="col-md-6 col-sm-12">
-      <form action="post" name="passowrdEdit">
-        <div class="panel panel-default">
-          <div class="panel-heading">Password</div>
-          <div class="panel-body">
-            <div class="alert alert-danger">
-            	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            	<strong>Note!</strong> This section will be completed soon, at this time doesn't work
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-3">
-                <label class="control-label">Login</label>
-              </div>
-              <div class="col-sm-9">
-                {{model.email}}
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-3">
-                <label class="control-label">Password</label>
-              </div>
-              <div class="col-sm-9">
-                {{input name='password_user' value=model.password type="text" class="form-control"}}
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-3">
-                <label class="control-label">Password Confirmation</label>
-              </div>
-              <div class="col-sm-9">
-                {{input name='password_confirmation_user' value=model.passwordConfirmation type="text"
-                        class="form-control"}}
-              </div>
-            </div>
-          </div>
-          <div class="panel-footer">
-            <button class="btn btn-success btn-block" {{action "savePassword"}} disabled>Save new Password</button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="col-md-12">
-      <button {{action 'invalidateSession'}} class="btn btn-danger btn-block">Logout</button>
+        </form>
+      </div>
+      <div class="col-md-12">
+        <button {{action 'invalidateSession'}} class="btn btn-danger btn-block">Logout</button>
+      </div>
     </div>
   </div>
 </div>
