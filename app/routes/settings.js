@@ -28,11 +28,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         headers[headerName] = headerValue;
       });
 
-      return Ember.$.ajax(config.apiUrl + '/api/users/password', {
+      return Ember.$.ajax(config.apiUrl + `/api/users/${id}/password`, {
         type: "POST",
         headers: headers,
         data: {
-          id,
           password,
           password_confirmation
         }
