@@ -69,23 +69,19 @@
                                     placeholder="TimeZone"}}
                 </div>
               </div>
-              <div class="panel-footer">
-                <button class="btn btn-success btn-block" {{action "saveProfile"}}>Save new profile</button>
+              <div class="panel-footer text-center">
+                <button class="btn btn-success" {{action "saveProfile"}}>Save new profile</button>
               </div>
             </div>
           </div>
         </form>
 
       </div>
-      <div class="col-md-6 col-sm-12" style="display: none;">
-        <form action="post" name="passowrdEdit">
+      <div class="col-md-6 col-sm-12">
+        <form {{action "savePassword" on="submit"}}>
           <div class="panel panel-default">
             <div class="panel-heading">Password</div>
             <div class="panel-body">
-              <div class="alert alert-danger">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Note!</strong> This section will be completed soon, at this time doesn't work
-              </div>
               <div class="form-group row">
                 <div class="col-sm-3">
                   <label class="control-label">Login</label>
@@ -99,7 +95,7 @@
                   <label class="control-label">Password</label>
                 </div>
                 <div class="col-sm-9">
-                  {{input name='password_user' value=model.password type="text" class="form-control"}}
+                  {{input name='password_user' value=passwordFields.password type="password" class="form-control" required=true}}
                 </div>
               </div>
               <div class="form-group row">
@@ -107,13 +103,13 @@
                   <label class="control-label">Password Confirmation</label>
                 </div>
                 <div class="col-sm-9">
-                  {{input name='password_confirmation_user' value=model.passwordConfirmation type="text"
-                          class="form-control"}}
+                  {{input name='password_confirmation_user' value=passwordFields.passwordConfirmation type="password"
+                          class="form-control" required=true}}
                 </div>
               </div>
             </div>
-            <div class="panel-footer">
-              <button class="btn btn-success btn-block" {{action "savePassword"}} disabled>Save new Password</button>
+            <div class="panel-footer text-center">
+              <button class="btn btn-success">Save new Password</button>
             </div>
           </div>
         </form>
