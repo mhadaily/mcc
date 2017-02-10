@@ -1,6 +1,6 @@
 /* jshint node: true */
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   var ENV = {
     moment: {
       includeTimezone: 'all',
@@ -64,7 +64,8 @@ module.exports = function(environment) {
 
   ENV.apiHost = process.env.API_HOST || 'coaches.mobe.com';
   ENV.apiPort = process.env.API_PORT ? ':' + process.env.API_PORT : '';
-  ENV.apiUrl = process.env.API_URL || `//${ENV.apiHost}${ENV.apiPort}`;
+  ENV.httpVshttps = ENV.apiHost.includes('mobe.com') ? 'https:' : 'http:';
+  ENV.apiUrl = process.env.API_URL || `${ENV.httpVshttps}//${ENV.apiHost}${ENV.apiPort}`;
 
   return ENV;
 };
