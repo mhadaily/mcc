@@ -52,7 +52,7 @@
                                  onOutsideClick=(action (mut ref) null)) }}
               {{/if}}
             </li>
-            <!--<li>
+            <li>
               {{link-to 'Reschedule Call' (query-params taskref=model.id) tagName="button"
                         class="btn btn-sm btn-primary"}}
               {{#if taskref}}
@@ -63,7 +63,7 @@
                                  dismiss=(action (mut taskref) null))
                                  onOutsideClick=(action (mut taskref) null)) }}
               {{/if}}
-            </li>-->
+            </li>
           {{/if}}
           <li>
             {{link-to 'Sync Contact' (query-params refcon=contact.id)  tagName="button" class="btn btn-sm btn-primary"}}
