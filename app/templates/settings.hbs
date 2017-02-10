@@ -95,7 +95,8 @@
                   <label class="control-label">Password</label>
                 </div>
                 <div class="col-sm-9">
-                  {{input name='password_user' value=passwordFields.password type="password" class="form-control" required=true}}
+                  {{input name='password_user' value=passwordFields.password type="password" class="form-control"
+                          required=true}}
                 </div>
               </div>
               <div class="form-group row">
@@ -113,9 +114,12 @@
             </div>
           </div>
         </form>
-      </div>
-      <div class="col-md-12">
-        <button {{action 'invalidateSession'}} class="btn btn-danger btn-block">Logout</button>
+        <div class="panel panel-default">
+          <div class="panel-heading">Logout</div>
+          <div class="panel-body text-center">
+            <button {{action 'invalidateSession'}} class="btn btn-danger">Logout</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
