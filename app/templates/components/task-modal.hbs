@@ -13,15 +13,15 @@
                           optionLabelPath="content" placeholder="-- select an outcome --"
                           select-value=(action selectOutcome 'selectedOutcome')}}
       </div>
-      <div class="form-group">
-        <label><span class="required">*</span> NOTE: </label>
+      <div id="com-note-box" class="form-group">
+        <label><span class="text-danger">*</span> NOTE: </label>
         {{textarea name="noteContentModal" value=noteContentModal class="form-control" rows="4"
-                   focus-out="updateTmpContent" required="true"}}
+                   focus-out="updateTmpContent"}}
       </div>
 
     </form>
   </div>
-  <div class="row modal-footer">
+  <div class="clearfix modal-footer">
     <div class="col-sm-8">
       <button type="button" class="btn btn-default btn-block" {{action dismiss}}>Close without complete call</button>
     </div>
