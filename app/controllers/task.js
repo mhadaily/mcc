@@ -127,14 +127,12 @@ export default Ember.Controller.extend({
       this.set('taskref', null);
     },
     complete(noteContentModal) {
-      this.set('isSync', true);
       let selectedOutcome = this.get('selectedOutcome');
       this.model.set('statusEvent', 'complete');
       this.model.set('outcome', selectedOutcome);
       this.model.set('note', noteContentModal);
       if (Ember.$.trim(noteContentModal)) {
         this.model.save().then(d => {
-          this.set('isSync', false);
           this.get('notify').success('Task has been completed with following note :' + noteContentModal + ' and outcome is ' + selectedOutcome);
           this.set('noteContentModal', ' ');
           this.set('ref', null);
@@ -142,15 +140,11 @@ export default Ember.Controller.extend({
           return d;
         }).catch(e => {
           this.model.rollbackAttributes();
-          this.set('isSync', false);
-          // this.set('ref', null);
           this.get('notify').error(e.message);
           return e;
         });
       } else {
-        this.set('isSync', false);
         this.get('notify').error('Please Select Write a Note before complete this task.');
-        this.set('ref', null);
       }
     },
     cancel() {
