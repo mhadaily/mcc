@@ -1,25 +1,27 @@
-<div class="modal-header">
-  <button {{action dismiss}} type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-    aria-hidden="true">&times;</span></button>
-  <h4 class="modal-title">{{task.subject}}</h4>
-</div>
-<div class="modal-body">
-  <div class="form-group row">
-    <div class="col-sm-4">
-      <label class="control-label">Date Due</label>
-    </div>
-    <div class="col-sm-8">
-      {{bootstrap-datepicker name="dateDue" value=task.dateDue format="yyyy-mm-dd" class="form-control" autoclose=true
-                             forceDateValue=true}}
+<div class="modal-content modal-smaller">
+  <div class="modal-header">
+    <button {{action dismiss}} type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+      aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">{{task.subject}}</h4>
+  </div>
+  <div class="modal-body">
+    <div class="form-group row">
+      <div class="col-sm-4">
+        <label class="control-label">Date Due</label>
+      </div>
+      <div class="col-sm-8">
+        {{bootstrap-datepicker name="dateDue" value=task.dateDue format="yyyy-mm-dd" class="form-control" autoclose=true
+                               forceDateValue=true}}
+      </div>
     </div>
   </div>
-</div>
-<div class="modal-actions">
-  <button {{action dismiss}} type="button" class="btn-link modal-action" data-dismiss="modal">
-    Cancel
-  </button>
-  <button {{action update task.dateDue}} type="button" class="btn-link modal-action">
-    <strong>Reschedule</strong>
-  </button>
+  <div class="modal-actions">
+    <button {{action dismiss}} type="button" class="btn-link modal-action" data-dismiss="modal">
+      Cancel
+    </button>
+    <button {{action update task.dateDue}} type="button" class="btn-link modal-action">
+      <strong>Reschedule</strong>
+    </button>
+  </div>
 </div>
 {{yield}}
