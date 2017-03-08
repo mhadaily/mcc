@@ -110,8 +110,6 @@ export default Ember.Controller.extend({
       const getFieldValue = function (str) {
         return self.get(str);
       };
-      const stateValue = oapStates.filter(oapState => oapState.text === getFieldValue('contact.state'))[0].value;
-      const countryValue = oapCountires.filter(oapCountry => oapCountry.text === getFieldValue('contact.country'))[0].value;
 
       const fieldsValue = [
         getFieldValue('contact.homePhone'),
@@ -123,8 +121,8 @@ export default Ember.Controller.extend({
         getFieldValue('contact.address'),
         getFieldValue('contact.address_2'),
         getFieldValue('contact.city'),
-        stateValue,
-        countryValue,
+        getFieldValue('contact.state'),
+        getFieldValue('contact.country'),
         getFieldValue('contact.zipCode')
       ];
       this.send('contactSave', fieldsValue);
