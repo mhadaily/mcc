@@ -6,23 +6,21 @@ export default Ember.Controller.extend({
   library: null,
   search: false,
   actions: {
-    searchNow(...args) {
-      let contact = Ember.$.trim(args[0]);
-      let step = Ember.$.trim(args[1]);
-      let country_or_state = Ember.$.trim(args[2]);
-      let home_phone = Ember.$.trim(args[3]);
-      let cell_phone = Ember.$.trim(args[4]);
-      let skype_id = Ember.$.trim(args[5]);
-      let time_zone = Ember.$.trim(args[2]);
+    searchNow(...fields) {
+      let contact, step, home_phone, cell_phone, skype_id, country_or_state;
+      let trimmedFields = fields.map(item => Ember.$.trim(item));
+
+      [contact, step, home_phone, cell_phone, skype_id, country_or_state] = trimmedFields;
+
       this.transitionToRoute('contacts', {
         queryParams: {
-          contact: contact,
-          step: step,
-          country_or_state: country_or_state,
-          home_phone: home_phone,
-          cell_phone: cell_phone,
-          skype_id: skype_id,
-          time_zone: time_zone
+          contact,
+          step,
+          country_or_state,
+          home_phone,
+          cell_phone,
+          skype_id,
+          time_zone: country_or_state
         }
       });
       this.set('search', false);
