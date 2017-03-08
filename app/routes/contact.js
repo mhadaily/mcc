@@ -6,17 +6,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   notify: Ember.inject.service('notify'),
   actions: {
     duplicateTask(id) {
-      // this.controller.set('isSync', true);
-      // let newTaskData = {
-      //   id: id,
-      // };
-      // this.store.createRecord('task', newTaskData).save().then(() => {
-      //   this.controller.set('isSync', false);
-      //   this.get('notify').success('New Task has been saved');
-      // }, (e) => {
-      //   this.controller.set('isSync', false);
-      //   this.get('notify').error('Failed! ' + e.message);
-      // });
       let _self = this;
 
       let headers = {};
@@ -91,6 +80,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       });
     },
     contactSave(contactFields) {
+      this.controller.set('isSync', true);
       const [homePhone, firstName, lastName, cellPhone, officePhone, skypeId, address, address_2, city, state, country, zipCode] = contactFields;
       const setCurrentModelField = (modelField, newValue) => {
         return this.currentModel.set(modelField, newValue);
@@ -111,9 +101,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
       this.currentModel.save().then(d => {
         this.get('notify').success(`Contact ${firstName} ${lastName} successfully updated`);
+        this.controller.set('isSync', false);
         return d;
       }).catch(e => {
         this.currentModel.rollbackAttributes(); //revert back all changes
+        this.controller.set('isSync', false);
         this.get('notify').error(e.message);
         return e;
       });
