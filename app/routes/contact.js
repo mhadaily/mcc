@@ -90,44 +90,30 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         return e;
       });
     },
-    contactSave(...contactParams) {
-      this.controller.set('isSync', true);
-      const [homePhone, skypeId, address, address_2, city, state, country, zipCode, cellPhone, officePhone, firstName, lastName] = contactParams;
-      const newInfo = {
-        homePhone,
-        skypeId,
-        address,
-        address_2,
-        city,
-        state,
-        country,
-        zipCode,
-        cellPhone,
-        officePhone,
-        firstName,
-        lastName,
-        contact: this.currentModel,
+    contactSave(contactFields) {
+      const [homePhone, firstName, lastName, cellPhone, officePhone, skypeId, address, address_2, city, state, country, zipCode] = contactFields;
+      const setCurrentModelField = (modelField, newValue) => {
+        return this.currentModel.set(modelField, newValue);
       };
-      this.currentModel.set('homePhone', newInfo.homePhone);
-      this.currentModel.set('skypeId', newInfo.skypeId);
-      this.currentModel.set('address', newInfo.address);
-      this.currentModel.set('address_2', newInfo.address_2);
-      this.currentModel.set('city', newInfo.city);
-      this.currentModel.set('state', newInfo.state);
-      this.currentModel.set('country', newInfo.country);
-      this.currentModel.set('zipCode', newInfo.zipCode);
-      this.currentModel.set('cellPhone', newInfo.cellPhone);
-      this.currentModel.set('officePhone', newInfo.officePhone);
-      this.currentModel.set('firstName', newInfo.firstName);
-      this.currentModel.set('lastName', newInfo.lastName);
+
+      setCurrentModelField('homePhone', homePhone);
+      setCurrentModelField('skypeId', skypeId);
+      setCurrentModelField('address', address);
+      setCurrentModelField('address_2', address_2);
+      setCurrentModelField('city', city);
+      setCurrentModelField('state', state);
+      setCurrentModelField('country', country);
+      setCurrentModelField('zipCode', zipCode);
+      setCurrentModelField('cellPhone', cellPhone);
+      setCurrentModelField('officePhone', officePhone);
+      setCurrentModelField('firstName', firstName);
+      setCurrentModelField('lastName', lastName);
 
       this.currentModel.save().then(d => {
-        this.controller.set('isSync', false);
-        this.get('notify').success('Contact successfully updated');
+        this.get('notify').success(`Contact ${firstName} ${lastName} successfully updated`);
         return d;
       }).catch(e => {
         this.currentModel.rollbackAttributes(); //revert back all changes
-        this.controller.set('isSync', false);
         this.get('notify').error(e.message);
         return e;
       });

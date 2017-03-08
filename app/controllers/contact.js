@@ -1,4 +1,6 @@
 import Ember from 'ember';
+import oapStates from '../utils/oapstates';
+import oapCountires from '../utils/oapcountries';
 
 export default Ember.Controller.extend({
   queryParams: ['refcon', 'backTo', 'step', 'taskrf', 'fundingtag', 'contactrf', 'noterf', 'tnoterf', "sort", "sortDir", "query"],
@@ -104,19 +106,28 @@ export default Ember.Controller.extend({
       this.set('step', null);
     },
     update() {
-      let homePhone = Ember.$.trim(Ember.$('input[name="billing_homePhone"]').val());
-      let firstName = Ember.$.trim(Ember.$('input[name="billing_firstName"]').val());
-      let lastName = Ember.$.trim(Ember.$('input[name="billing_lastName"]').val());
-      let cellPhone = Ember.$.trim(Ember.$('input[name="billing_cellPhone"]').val());
-      let officePhone = Ember.$.trim(Ember.$('input[name="billing_officePhone"]').val());
-      let skypeId = Ember.$.trim(Ember.$('input[name="billing_skypeId"]').val());
-      let address = Ember.$.trim(Ember.$('input[name="billing_address"]').val());
-      let address2 = Ember.$.trim(Ember.$('input[name="billing_address2"]').val());
-      let city = Ember.$.trim(Ember.$('input[name="billing_city"]').val());
-      let state = Ember.$.trim(Ember.$('#billing_state').val());
-      let country = Ember.$.trim(Ember.$('#billing_country').val());
-      let zipcode = Ember.$.trim(Ember.$('input[name="billing_zipcode"]').val());
-      this.send('contactSave', homePhone, skypeId, address, address2, city, state, country, zipcode, cellPhone, officePhone, firstName, lastName);
+      let self = this;
+      const getFieldValue = function (str) {
+        return self.get(str);
+      };
+      const stateValue = oapStates.filter(oapState => oapState.text === getFieldValue('contact.state'))[0].value;
+      const countryValue = oapCountires.filter(oapCountry => oapCountry.text === getFieldValue('contact.country'))[0].value;
+
+      const fieldsValue = [
+        getFieldValue('contact.homePhone'),
+        getFieldValue('contact.firstName'),
+        getFieldValue('contact.lastName'),
+        getFieldValue('contact.cellPhone'),
+        getFieldValue('contact.officePhone'),
+        getFieldValue('contact.skypeId'),
+        getFieldValue('contact.address'),
+        getFieldValue('contact.address_2'),
+        getFieldValue('contact.city'),
+        stateValue,
+        countryValue,
+        getFieldValue('contact.zipCode')
+      ];
+      this.send('contactSave', fieldsValue);
       this.set('contactrf', null);
     },
     sync() {
