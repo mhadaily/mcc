@@ -7,15 +7,15 @@ export default Ember.Controller.extend({
   search: false,
   actions: {
     searchNow(...fields) {
-      let contact, step, home_phone, cell_phone, skype_id, country_or_state;
+      let contact, step_number, home_phone, cell_phone, skype_id, country_or_state;
       let trimmedFields = fields.map(item => Ember.$.trim(item));
 
-      [contact, step, home_phone, cell_phone, skype_id, country_or_state] = trimmedFields;
+      [contact, step_number, home_phone, cell_phone, skype_id, country_or_state] = trimmedFields;
 
       this.transitionToRoute('contacts', {
         queryParams: {
           contact,
-          step,
+          step_number,
           country_or_state,
           home_phone,
           cell_phone,
