@@ -4,7 +4,7 @@
   <h4 class="modal-title">{{or contact.name 'unnamed'}}</h4>
 </div>
 <div class="modal-body modal-lg">
-  <form class="form" {{action update on='submit'}}>
+  <form class="form" {{action update state country on='submit'}}>
     <div class="col-md-6">
       <div class="form-group row">
         <div class="col-sm-3">
@@ -102,9 +102,8 @@
             {{ember-selectize id="billing_state"
                               content=oapStates
                               optionValuePath="content.value"
-                              value=contact.state
+                              value=state
                               optionLabelPath="content.text"
-                              on-init=(action 'mapState')
                               placeholder="State"}}
           </div>
         </div>
@@ -118,8 +117,7 @@
             {{ember-selectize  id="billing_country"
                                content=oapCountries
                                optionValuePath="content.value"
-                               value=contact.country
-                               on-init=(action 'mapCountry')
+                               value=country
                                optionLabelPath="content.text"
                                placeholder="Country"}}
           </div>
