@@ -102,8 +102,9 @@
             {{ember-selectize id="billing_state"
                               content=oapStates
                               optionValuePath="content.value"
-                              value=contact.stateCode
+                              value=contact.state
                               optionLabelPath="content.text"
+                              on-init=(action 'mapState')
                               placeholder="State"}}
           </div>
         </div>
@@ -117,7 +118,8 @@
             {{ember-selectize  id="billing_country"
                                content=oapCountries
                                optionValuePath="content.value"
-                               value=contact.countryCode
+                               value=contact.country
+                               on-init=(action 'mapCountry')
                                optionLabelPath="content.text"
                                placeholder="Country"}}
           </div>
