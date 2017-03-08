@@ -101,8 +101,7 @@
           <div class="col-sm-9">
             {{ember-selectize id="billing_state"
                               content=oapStates
-                              selection=valueField
-                              optionValuePath="content.text"
+                              optionValuePath="content.value"
                               value=contact.state
                               optionLabelPath="content.text"
                               placeholder="State"}}
@@ -117,8 +116,7 @@
           <div class="col-sm-8">
             {{ember-selectize  id="billing_country"
                                content=oapCountries
-                               selection=valueField
-                               optionValuePath="content.text"
+                               optionValuePath="content.value"
                                value=contact.country
                                optionLabelPath="content.text"
                                placeholder="Country"}}
