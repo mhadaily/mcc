@@ -114,7 +114,7 @@ export default Ember.Controller.extend({
       this.set('step', null);
     },
     updateRescheduleTask(dateDue, taskRef) {
-      this.send('dateSave', dateDue, taskRef);
+      this.send('dateSave', dateDue, );
       this.set('taskref', null);
     },
     update(state, country) {

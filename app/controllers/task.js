@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   notify: Ember.inject.service('notify'),
-  queryParams: ['backTo', 'step', 'ref', 'fundingtag', 'taskref', 'noterf', 'tnoterf', 'refid', 'refcon', 'contactrf'],
+  queryParams: ['backTo', 'step', 'ref', 'fundingtag', 'taskref', 'taskrf', 'noterf', 'tnoterf', 'refid', 'refcon', 'contactrf'],
   step: null,
   ref: null,
   refid: null,
@@ -67,7 +67,13 @@ export default Ember.Controller.extend({
   notes_and_task_notes: Ember.computed('notes_and_task_notes_union.@each.date', function () {
     return this.get('notes_and_task_notes_union').sortBy('date').reverse();
   }),
-  taskDetail: Ember.computed('taskref', function () {
+  taskDetail: Ember.computed('taskrf', function () {
+    let taskrf = this.get('taskrf');
+    if (taskrf) {
+      return this.get('store').peekRecord('task', taskrf);
+    }
+  }),
+  taskDetailReschedule: Ember.computed('taskref', function () {
     let taskref = this.get('taskref');
     if (taskref) {
       return this.get('store').peekRecord('task', taskref);
@@ -98,6 +104,9 @@ export default Ember.Controller.extend({
     };
   }),
   actions: {
+    clone(reference) {
+      this.send('duplicateTask', reference);
+    },
     updateClient() {
       let homePhone = Ember.$.trim(Ember.$('input[name="billing_homePhone"]').val());
       let firstName = Ember.$.trim(Ember.$('input[name="billing_firstName"]').val());
@@ -122,7 +131,7 @@ export default Ember.Controller.extend({
     selectOutcome(prop, selection){
       this.set(prop, selection);
     },
-    update(dateDue) {
+    updateRescheduleTask(dateDue) {
       this.send('dateSave', dateDue);
       this.set('taskref', null);
     },
@@ -186,12 +195,15 @@ export default Ember.Controller.extend({
       }, 1000);
       _self.set('taskref', null);
     },
-    populateModal(task){
+    populateModal(task) {
       if (task.data.status !== 'pending') {
         this.get('notify').info(`${task.data.status} Task cannot be rescheduled again.`);
         return;
       }
       this.set('taskref', task.id);
+    },
+    populateModalDetails(task) {
+      this.set('taskrf', task.id);
     },
     discNote() {
       this.send('discardNote', this.get('noterf'));

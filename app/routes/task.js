@@ -86,6 +86,32 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.get('notify').error('Saving Note Failed! MR/MS ');
       });
     },
+    duplicateTask(id) {
+      let headers = {};
+      this.controller.set('isSync', true);
+      this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
+        headers[headerName] = headerValue;
+      });
+
+      return Ember.$.ajax(config.apiUrl + '/api/tasks/duplicate', {
+        type: "POST",
+        headers: headers,
+        data: {
+          id: id
+        }
+
+      }).then(() => {
+        this.currentModel.reload();
+        this.controller.set('isSync', false);
+        this.controller.set('taskrf', null);
+        this.get('notify').success('Task has been created');
+      }).fail(e => {
+        this.controller.set('isSync', false);
+        this.controller.set('taskrf', null);
+        this.get('notify').error('Unable to duplicate this task! ' + e.message);
+        return e;
+      });
+    },
     dateSave: function (dateDue) {
       this.controller.set('isSync', true);
       let newDateDue = {

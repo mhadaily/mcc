@@ -36,7 +36,11 @@
         <td>{{task.status}}</td>
         <td>{{task.outcome}}</td>
         <td>{{task.user.name}}</td>
-        <td><a {{action 'populateModal' task}}>open</a></td>
+        <td>
+          <a {{action 'populateModal' task}}>Reschedule</a>
+          <br/>
+          <a {{action 'populateModalDetails' task}}>Details</a>
+        </td>
       </tr>
     {{/each}}
     </tbody>
@@ -46,8 +50,8 @@
 {{#if taskref}}
   {{to-elsewhere named='modal'
                  send=(hash body=(component 'task-reschedule'
-                   task=taskDetail
-                   update=(action 'update')
+                   task=taskDetailReschedule
+                   updateRescheduleTask=(action 'updateRescheduleTask')
                    dismiss=(action (mut taskref) null))
                    onOutsideClick=(action (mut taskref) null)) }}
 {{/if}}
