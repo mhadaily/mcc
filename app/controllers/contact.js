@@ -106,9 +106,9 @@ export default Ember.Controller.extend({
       this.set('step', null);
     },
     update(state, country) {
-      let self = this;
-      const getFieldValue = function (str) {
-        return self.get(str);
+
+      const getFieldValue =  (str) => {
+        return this.get(str);
       };
 
       const fieldsValue = [
