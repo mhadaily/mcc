@@ -19,7 +19,7 @@
     <button {{action dismiss}} type="button" class="btn-link modal-action" data-dismiss="modal">
       Cancel
     </button>
-    <button {{action update task.dateDue}} type="button" class="btn-link modal-action">
+    <button {{action updateRescheduleTask task.dateDue task.id}} type="button" class="btn-link modal-action">
       <strong>Reschedule</strong>
     </button>
   </div>
