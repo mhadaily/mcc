@@ -3,13 +3,15 @@ import oapStates from '../utils/oapstates';
 import oapCountires from '../utils/oapcountries';
 
 export default Ember.Controller.extend({
-  queryParams: ['refcon', 'backTo', 'step', 'taskrf', 'fundingtag', 'contactrf', 'noterf', 'tnoterf', "sort", "sortDir", "query"],
+  queryParams: ['refcon', 'backTo', 'step', 'taskrf', 'taskref', 'fundingtag', 'contactrf', 'noterf', 'tnoterf', "sort", "sortDir", "query"],
+  notify: Ember.inject.service(),
   step: null,
   refcon: null,
   isSync: false,
   backTo: null,
   blink: null,
   taskrf: null,
+  taskref: null,
   fundingtag: null,
   contactrf: null,
   noterf: null,
@@ -93,6 +95,12 @@ export default Ember.Controller.extend({
       return this.get('store').peekRecord('task', taskrf);
     }
   }),
+  taskDetailReschedule: Ember.computed('taskref', function () {
+    let taskref = this.get('taskref');
+    if (taskref) {
+      return this.get('store').peekRecord('task', taskref);
+    }
+  }),
   query: '',
   sort: '',
   sortDir: 'asc',
@@ -105,9 +113,13 @@ export default Ember.Controller.extend({
       this.send('changeSave', step);
       this.set('step', null);
     },
+    updateRescheduleTask(dateDue, taskRef) {
+      this.send('dateSave', dateDue, taskRef);
+      this.set('taskref', null);
+    },
     update(state, country) {
 
-      const getFieldValue =  (str) => {
+      const getFieldValue = (str) => {
         return this.get(str);
       };
 
@@ -149,6 +161,13 @@ export default Ember.Controller.extend({
       this.set('taskrf', null);
     },
     populateModal(task) {
+      if (task.data.status !== 'pending') {
+        this.get('notify').info(`${task.data.status} Task cannot be rescheduled again.`);
+        return;
+      }
+      this.set('taskref', task.id);
+    },
+    populateModalDetails(task) {
       this.set('taskrf', task.id);
     },
   }

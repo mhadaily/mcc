@@ -152,6 +152,24 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         return e;
       });
     },
+    dateSave: function (dateDue, taskRef) {
+      this.controller.set('isSync', true);
+      let newDateDue = {
+        dateDue: dateDue,
+        task: this.store.peekRecord('task', taskRef),
+      };
+      newDateDue.task.set('dateDue', newDateDue.dateDue);
+      newDateDue.task.save().then(d => {
+        this.controller.set('isSync', false);
+        this.get('notify').success('Task successfully rescheduled');
+        return d;
+      }).catch(e => {
+        newDateDue.task.rollbackAttributes();
+        this.controller.set('isSync', false);
+        this.get('notify').error(e.message);
+        return e;
+      });
+    },
     discardTaskNote(tnoterf) {
       let headers = {};
       this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
