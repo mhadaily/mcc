@@ -2,11 +2,12 @@
 
 var VALID_DEPLOY_TARGETS = [ //update these to match what you call your deployment targets
   'dev',
-  'qa',
+  'canary',
   'prod'
 ];
 
-module.exports = function(deployTarget) {
+module.exports = function (deployTarget) {
+
   var ENV = {
     build: {},
     redis: {
@@ -27,7 +28,7 @@ module.exports = function(deployTarget) {
     ENV.plugins = ['build', 'redis']; // only care about deploying index.html into redis in dev
   }
 
-  if (deployTarget === 'qa' || deployTarget === 'prod') {
+  if (deployTarget === 'canary' || deployTarget === 'prod') {
     ENV.build.environment = 'production';
     ENV.s3.accessKeyId = process.env.AWS_KEY;
     ENV.s3.secretAccessKey = process.env.AWS_SECRET;
@@ -35,8 +36,11 @@ module.exports = function(deployTarget) {
     ENV.s3.region = 'us-east-1'/* YOUR S3 REGION */;
   }
 
-  if (deployTarget === 'qa') {
+  if (deployTarget === 'canary') {
+    ENV.build.environment = 'canary';
     ENV.redis.url = process.env.QA_REDIS_URL;
+    ENV.redis.keyPrefix = 'canary-coaches:index';
+    ENV.s3.prefix = 'canary-coaches';
   }
 
   if (deployTarget === 'prod') {
@@ -46,7 +50,7 @@ module.exports = function(deployTarget) {
   // return ENV;
 
   var Promise = require('ember-cli/lib/ext/promise');
-  return new Promise(function(resolve, reject){
+  return new Promise(function (resolve, reject) {
     var exec = require('child_process').exec;
     var command = 'heroku config:get REDIS_URL --app mobecentral';
     exec(command, function (error, stdout, stderr) {

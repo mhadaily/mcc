@@ -2,12 +2,28 @@
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
+  var env = EmberApp.env() || 'development';
+
+  var fingerprintOptions = {
+    enabled: true,
+  };
+
+  switch (env) {
+    case 'development':
+      fingerprintOptions.prepend = 'http://localhost:4200/';
+      break;
+    case 'production':
+      fingerprintOptions.prepend = '//s3.amazonaws.com/mobe-assets/coaches/';
+      break;
+    case 'canary':
+      fingerprintOptions.prepend = '//s3.amazonaws.com/mobe-assets/canary-coaches/';
+      break;
+
+  }
+
   var app = new EmberApp(defaults, {
-    // Add options here
-    fingerprint: {
-      prepend: '//s3.amazonaws.com/mobe-assets/coaches/'
-    }
+    fingerprint: fingerprintOptions
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -25,10 +41,10 @@ module.exports = function(defaults) {
 
   app.import('bower_components/js-cookie/src/js.cookie.js');
   app.import('bower_components/theme-dashboard/dist/toolkit.js');
-  app.import('bower_components/theme-dashboard/fonts/toolkit-entypo.eot',   { destDir: '/fonts' });
-  app.import('bower_components/theme-dashboard/fonts/toolkit-entypo.ttf',   { destDir: '/fonts' });
-  app.import('bower_components/theme-dashboard/fonts/toolkit-entypo.woff',  { destDir: '/fonts' });
-  app.import('bower_components/theme-dashboard/fonts/toolkit-entypo.woff2', { destDir: '/fonts' });
+  app.import('bower_components/theme-dashboard/fonts/toolkit-entypo.eot', {destDir: '/fonts'});
+  app.import('bower_components/theme-dashboard/fonts/toolkit-entypo.ttf', {destDir: '/fonts'});
+  app.import('bower_components/theme-dashboard/fonts/toolkit-entypo.woff', {destDir: '/fonts'});
+  app.import('bower_components/theme-dashboard/fonts/toolkit-entypo.woff2', {destDir: '/fonts'});
 
   return app.toTree();
 };
