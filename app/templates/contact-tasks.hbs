@@ -23,6 +23,7 @@
     <tbody>
     {{#each tasks as |task|}}
       <tr class="{{if task.isPending (if task.isOverdue 'warning') 'text-muted'}}">
+        {{#unless task.loading}}
         <td>{{moment-format task.dateDue}}<br>
          <small>Owner: {{task.user.name}}</small>
         </td>
@@ -36,6 +37,7 @@
           <br/>
           <a {{action 'populateModalDetails' task}}>Details</a>
         </td>
+        {{/unless}}
       </tr>
     {{/each}}
     </tbody>
