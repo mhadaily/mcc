@@ -67,7 +67,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         step: step,
         contact: this.currentModel,
       };
-      this.currentModel.set('step', newStepNumber.step);
+      this.currentModel.set('stepNumber', newStepNumber.step);
       this.currentModel.save().then(d => {
         this.controller.set('isSync', false);
         this.get('notify').success('Step has been saved to ' + newStepNumber.step);
