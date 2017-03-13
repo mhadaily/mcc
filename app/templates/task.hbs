@@ -9,23 +9,77 @@
       <div class="col-sm-4">
         <div class="dashhead-titles">
           <h3 class="dashhead-title">
-            <span>{{link-to '<< Calls' (or backTo 'tasks')}}</span> | CLIENT: {{link-to (or contact.name 'unnamed')
-                                                                                        'contact' contact}}
-            | {{contact.email}}
-            {{#if (or isSilverWebinar.attendedLive (or isSilverWebinar.attendedReply))}}
-              | <span class="label label-danger">Silver Webinar Attended </span>
-            {{else}}
-              {{#if isSilverWebinar.registered}}
-                | <span class="label label-info">Silver Webinar Registered</span>
-              {{else}}
-                | <span class="label label-default">Silver Webinar Not Attended </span>
-              {{/if}}
-            {{/if}}
+            <span>{{link-to '<< Calls' (or backTo 'tasks')}}</span>
+            <br>{{link-to (or contact.name 'unnamed') 'contact' contact}} | {{contact.email}}
           </h3>
         </div>
       </div>
       <div class="col-sm-8">
+        <div class="dropdown pull-right p-r-md p-t-10 p-b-10">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All Actions <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+          {{#if (eq model.status "pending")}}
+            <li>
+              {{#link-to (query-params ref=model.id) tagName='a'
+                         disabled=(eq model.status "completed" 'disabled')}} Complete Your Call {{/link-to}}
+              {{#if ref}}
+                {{to-elsewhere named='modal'
+                               send=(hash body=(component 'task-modal'
+                                 selectOutcome=(action 'selectOutcome')
+                                 task=model
+                                 complete=(action 'complete')
+                                 dismiss=(action (mut ref) null))
+                                 onOutsideClick=(action (mut ref) null)) }}
+              {{/if}}
+            </li>
+            <li class="divider"></li>
+            <li>
+              {{link-to 'Reschedule Call' (query-params taskref=model.id) tagName="a"
+              }}
+              {{#if taskref}}
+                {{to-elsewhere named='modal'
+                               send=(hash body=(component 'task-reschedule'
+                                 task=model
+                                 update=(action 'update')
+                                 dismiss=(action (mut taskref) null))
+                                 onOutsideClick=(action (mut taskref) null)) }}
+              {{/if}}
+            </li>
+            <li class="divider"></li>
+          {{/if}}
+            <li>
+              {{link-to 'Sync Contact' (query-params refcon=contact.id)  tagName="a" }}
+              {{#if refcon}}
+                {{to-elsewhere named='modal'
+                               send=(hash body=(component 'sync-modal' sync=(action 'sync') dismiss=(action (mut refcon) null)) onOutsideClick=(action (mut refcon) null)) }}
+              {{/if}}
+            </li>
+            <li class="divider"></li>
+            <li>
+              {{#if model.contact.isFundingStage}}
+                {{link-to 'FS Already Requested'  (query-params fundingtag=null) tagName="a"
+                          class="btn btn-sm btn-primary" disabled="disabled"}}
+              {{else}}
+                {{link-to 'Request Funding Stage' (query-params fundingtag=model.id)  tagName="a"
+                }}
+                {{#if fundingtag}}
+                  {{to-elsewhere named='modal'
+                                 send=(hash body=(component 'funding-tag-modal' contact=model.contact dismiss=(action (mut fundingtag) null)) onOutsideClick=(action (mut fundingtag) null)) }}
+                {{/if}}
+              {{/if}}
+            </li>
+          </ul>
+        </div>
         <ul class="nav nav-bordered pull-right">
+          {{#if (or isSilverWebinar.attendedLive (or isSilverWebinar.attendedReply))}}
+            <li><h2 class="statcard-number">Silver Webinar<br/><strong> Attended </strong>&nbsp;</h2></li>
+          {{else}}
+            {{#if isSilverWebinar.registered}}
+              <li><h2 class="statcard-number">Silver Webinar<br/><strong> Registered </strong>&nbsp;</h2></li>
+            {{else}}
+              <li><h2 class="statcard-number">Silver Webinar<br/><strong> Not Attended </strong>&nbsp;</h2></li>
+            {{/if}}
+          {{/if}}
           <li>
             <h2 class="statcard-number">Step:<br/><strong>{{or contact.step '0'}}</strong>&nbsp;</h2>
           </li>
@@ -38,53 +92,7 @@
           <li>
             <h2 class="statcard-number">Traffic Coach: <br/><strong>{{contact.trafficCoach}}</strong>&nbsp;</h2>
           </li>
-          {{#if (eq model.status "pending")}}
-            <li>
-              {{#link-to (query-params ref=model.id) tagName='button' class='btn btn-sm btn-primary'
-                         disabled=(eq model.status "completed" 'disabled')}} Complete Your Call {{/link-to}}
-              {{#if ref}}
-                {{to-elsewhere named='modal'
-                               send=(hash body=(component 'task-modal'
-                                 selectOutcome=(action 'selectOutcome')
-                                 task=model
-                                 complete=(action 'complete')
-                                 dismiss=(action (mut ref) null))
-                                 onOutsideClick=(action (mut ref) null)) }}
-              {{/if}}
-            </li>
-            <li>
-              {{link-to 'Reschedule Call' (query-params taskref=model.id) tagName="button"
-                        class="btn btn-sm btn-primary"}}
-              {{#if taskref}}
-                {{to-elsewhere named='modal'
-                               send=(hash body=(component 'task-reschedule'
-                                 task=model
-                                 update=(action 'update')
-                                 dismiss=(action (mut taskref) null))
-                                 onOutsideClick=(action (mut taskref) null)) }}
-              {{/if}}
-            </li>
-          {{/if}}
-          <li>
-            {{link-to 'Sync Contact' (query-params refcon=contact.id)  tagName="button" class="btn btn-sm btn-primary"}}
-            {{#if refcon}}
-              {{to-elsewhere named='modal'
-                             send=(hash body=(component 'sync-modal' sync=(action 'sync') dismiss=(action (mut refcon) null)) onOutsideClick=(action (mut refcon) null)) }}
-            {{/if}}
-          </li>
-          <li>
-            {{#if model.contact.isFundingStage}}
-              {{link-to 'FS Already Requested'  (query-params fundingtag=null) tagName="button"
-                        class="btn btn-sm btn-primary" disabled="disabled"}}
-            {{else}}
-              {{link-to 'Request Funding Stage' (query-params fundingtag=model.id)  tagName="button"
-                        class="btn btn-sm btn-primary"}}
-              {{#if fundingtag}}
-                {{to-elsewhere named='modal'
-                               send=(hash body=(component 'funding-tag-modal' contact=model.contact dismiss=(action (mut fundingtag) null)) onOutsideClick=(action (mut fundingtag) null)) }}
-              {{/if}}
-            {{/if}}
-          </li>
+          <li>&nbsp;</li>
         </ul>
       </div>
     </div>
