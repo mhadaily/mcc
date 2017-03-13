@@ -17,25 +17,20 @@
                              (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
         {{link-to 'Status' (query-params sort="status" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
       </th>
-      <th class="header {{if (eq tasks.meta.sort-attr-name 'outcome')
-                             (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-        {{link-to 'Outcome' (query-params sort="outcome" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
-      </th>
-      <th class="header ">
-        Owner
-      </th>
       <th></th>
     </tr>
     </thead>
     <tbody>
     {{#each tasks as |task|}}
       <tr class="{{if task.isPending (if task.isOverdue 'warning') 'text-muted'}}">
-        <td>{{moment-format task.dateDue}}</td>
+        <td>{{moment-format task.dateDue}}<br>
+         <small>Owner: {{task.user.name}}</small>
+        </td>
         <td>{{#link-to "task" task invokeAction=(action 'taskChangeColor')
-                       class=(if task.isPending '' 'text-muted')}}{{task.subject}} {{/link-to}}</td>
+                       class=(if task.isPending '' 'text-muted')}}{{task.subject}} {{/link-to}}<br/>
+          <small>Outcome: {{task.outcome}}</small>
+        </td>
         <td>{{task.status}}</td>
-        <td>{{task.outcome}}</td>
-        <td>{{task.user.name}}</td>
         <td>
           <a {{action 'populateModal' task}}>Reschedule</a>
           <br/>
