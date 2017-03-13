@@ -108,13 +108,12 @@ export default Ember.Controller.extend({
     clone(reference) {
       this.send('duplicateTask', reference);
     },
-    changeStep() {
-      let step = Ember.$.trim(Ember.$('input[name="stepNumber"]').val());
-      this.send('changeSave', step);
+    changeStep(stepNumber) {
+      this.send('changeSave', Number(stepNumber));
       this.set('step', null);
     },
     updateRescheduleTask(dateDue, taskRef) {
-      this.send('dateSave', dateDue, );
+      this.send('dateSave', dateDue, taskRef);
       this.set('taskref', null);
     },
     update(state, country) {

@@ -26,7 +26,7 @@
       <div class="col-sm-8">
         <ul class="nav nav-bordered pull-right">
           <li>
-            <h2 class="statcard-number">Step: <br/><strong>{{or model.step '0'}}</strong>&nbsp;</h2>
+            <h2 class="statcard-number">Step: <br/><strong>{{or model.stepNumber '0'}}</strong>&nbsp;</h2>
           </li>
           <li>
             <h2 class="statcard-number">Spent: <br/><strong>${{format-number model.spent format=",0"}}</strong>&nbsp;</h2>
@@ -38,11 +38,11 @@
             <h2 class="statcard-number">Traffic Coach: <br/><strong>{{model.trafficCoach}}</strong>&nbsp;</h2>
           </li>
           <li>
-            {{link-to 'Change Step' (query-params  step=(or model.step '0')) tagName='button'
+            {{link-to 'Change Step' (query-params  step=(or model.stepNumber '0')) tagName='button'
                       class='btn btn-sm btn-primary'}}
             {{#if step}}
               {{to-elsewhere named='modal'
-                             send=(hash body=(component 'step-modal' contact=model changeStep=(action 'changeStep') dismiss=(action (mut step) null)) onOutsideClick=(action (mut step) null)) }}
+                             send=(hash body=(component 'step-modal' contact=model stepNumber=model.stepNumber changeStep=(action 'changeStep') dismiss=(action (mut step) null)) onOutsideClick=(action (mut step) null)) }}
             {{/if}}
           </li>
           <li>
