@@ -25,7 +25,13 @@
       <tr class="{{if task.isPending (if task.isOverdue 'warning') 'text-muted'}}">
         {{#unless task.loading}}
         <td>{{moment-format task.dateDue}}<br>
-         <small>{{#unless (eq task.source 'OAP')}}<span class="icon icon-users"></span>{{/unless}}  Owner: {{task.user.name}}</small>
+          {{#if task.source 'OAP'}}
+            <span  style="color:blue;font-size:17px;">&bull;</span>
+          {{else}}
+            <span style="color:red;font-size:17px;">&bull;</span>
+          {{/if}}
+         <small>
+           Owner: {{task.user.name}}</small>
         </td>
         <td>{{#link-to "task" task invokeAction=(action 'taskChangeColor')
                        class=(if task.isPending '' 'text-muted')}}{{task.subject}} {{/link-to}}<br/>
