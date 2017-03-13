@@ -86,6 +86,7 @@
         <table class="table table-condensed table-hover table-small" data-sort="table">
           <thead>
             <tr>
+              <th></th>
               <th class="header {{if (eq model.meta.sort-attr-name 'date_due')
                                      (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Due'
@@ -151,6 +152,15 @@
               {{else}}
                 {{#each model as |task|}}
                   <tr class="{{if task.isOverdue 'warning'}}">
+                    <td>
+                    <td>
+                      {{#if (eq task.source 'OAP')}}
+                        <span class="bullet__task bullet__task-oap">&bull;</span>
+                      {{else}}
+                        <span class="bullet__task bullet__task-mc">&bull;</span>
+                      {{/if}}
+                    </td>
+                    </td>
                     <td class="{{if task.isOverdue 'text-danger'}}">{{moment-format task.dateDue}}</td>
                     <td>{{link-to task.subject 'task' task}}</td>
                     <td>{{task.contact.name}}<br>{{task.contact.email}}</td>
