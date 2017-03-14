@@ -48,6 +48,7 @@
               <th class="header {{if (eq model.todayTasks.meta.sort-attr-name 'step') (if (eq model.todayTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.todayTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
+              <th>Client Time</th>
             </tr>
           </thead>
           <tbody>
@@ -57,6 +58,7 @@
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
                 <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+                <td>{{clock-timezone timezone=task.contact.timeZone}}</td>
               </tr>
             {{/each}}
           </tbody>
@@ -91,6 +93,7 @@
               <th class="header {{if (eq model.overdueTasks.meta.sort-attr-name 'step') (if (eq model.overdueTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.overdueTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
+              <th>Client Time</th>
             </tr>
           </thead>
           <tbody>
@@ -100,6 +103,7 @@
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
                 <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+                <td>{{clock-timezone timezone=task.contact.timeZone}}</td>
               </tr>
             {{/each}}
           </tbody>
@@ -134,6 +138,7 @@
               <th class="header {{if (eq model.futureTasks.meta.sort-attr-name 'step') (if (eq model.futureTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.futureTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
+              <th>Client Time</th>
             </tr>
           </thead>
           <tbody>
@@ -143,6 +148,7 @@
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
                 <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+                <td>{{clock-timezone timezone=task.contact.timeZone}}</td>
               </tr>
             {{/each}}
           </tbody>
@@ -178,6 +184,7 @@
                 {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.completedTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
               <th class="header">Completed</th>
+              <th>Client Time</th>
             </tr>
           </thead>
           <tbody>
@@ -188,6 +195,7 @@
                 <td>{{task.contact.name}}</td>
                 <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
                 <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
+                <td>{{clock-timezone timezone=task.contact.timeZone}}</td>
               </tr>
             {{/each}}
           </tbody>
@@ -222,6 +230,7 @@
               <th class="header {{if (eq model.cancelledTasks.meta.sort-attr-name 'step') (if (eq model.cancelledTasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Step' (query-params sort="contact_step" sortDir=(if (eq model.cancelledTasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
               </th>
+              <th>Client Time</th>
             </tr>
           </thead>
           <tbody>
@@ -231,6 +240,7 @@
                 <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
                 <td>{{task.contact.name}}</td>
                 <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
+                <td>{{clock-timezone timezone=task.contact.timeZone}}</td>
               </tr>
             {{/each}}
           </tbody>
