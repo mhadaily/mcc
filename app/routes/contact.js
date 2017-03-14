@@ -4,7 +4,30 @@ import config from '../config/environment';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   notify: Ember.inject.service('notify'),
+
   actions: {
+    emailLogs(id) {
+      let headers = {};
+      this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
+        headers[headerName] = headerValue;
+      });
+
+      return Ember.$.ajax(config.apiUrl + '/api/email-logs', {
+        type: "GET",
+        headers: headers,
+        data: {
+          q: {
+            contactable_type_eq: 'Contact',
+            contactable_id_eq: 96943
+          }
+        }
+
+      }).then((emails) => {
+        console.log(emails);
+      }).fail(e => {
+        console.error(e);
+      });
+    },
     duplicateTask(id) {
       let _self = this;
 
