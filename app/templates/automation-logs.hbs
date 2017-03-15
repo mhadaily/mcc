@@ -1,25 +1,31 @@
 <div class="table-full">
-    <div class="hr-divider m-t">
-        <h3 class="hr-divider-content hr-divider-heading">Automation Logs</h3>
-    </div>
-    <div class="table-responsive">
-        <table class="table" data-sort="table">
-            <thead>
-            <tr>
-                <th class="header">Date</th>
-                <th class="header">reference</th>
-                <th class="header">Subject</th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#each contact.automationLogs as |automationLog|}}
-                <tr>
-                    <td>{{moment-format automationLog.date}}</td>
-                    <td>{{automationLog.reference}}</td>
-                    <td>{{automationLog.what}}</td>
-                </tr>
-            {{/each}}
-            </tbody>
-        </table>
-    </div>
+  <div class="hr-divider m-t">
+    <h3 class="hr-divider-content hr-divider-heading">Automation Logs</h3>
+  </div>
+  <div class="table-responsive">
+    <table class="table" data-sort="table">
+      <thead>
+      <tr>
+        <th class="header">Date</th>
+        <th class="header">reference</th>
+        <th class="header">Subject</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#if contact.automationLogs.content.isLoaded}}
+        {{#each contact.automationLogs as |automationLog|}}
+          <tr>
+            <td>{{moment-format automationLog.date}}</td>
+            <td>{{automationLog.reference}}</td>
+            <td>{{automationLog.what}}</td>
+          </tr>
+        {{/each}}
+      {{else}}
+        <tr class="padding-200">
+          <td colspan="3"> {{ember-spinner}}</td>
+        </tr>
+      {{/if}}
+      </tbody>
+    </table>
+  </div>
 </div>
