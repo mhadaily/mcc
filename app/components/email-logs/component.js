@@ -25,11 +25,14 @@ export default Ember.Component.extend({
           }
         }
       }).then((emails) => {
-        let data =  emails.data[0].attributes;
-        this.set('emailLogs',data);
+        let data = emails.data[0].attributes;
+        this.set('emailLogs', data);
       }).fail(e => {
         this.get('notify').error(e.message);
       });
     }
+  },
+  onDestroy(){
+    this.set('emailLogs', null);
   }
 });
