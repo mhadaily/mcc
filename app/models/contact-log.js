@@ -5,7 +5,7 @@ export default DS.Model.extend({
   contact: DS.belongsTo(),
   reference: DS.attr(),
   topic: DS.attr(),
-  resource: DS.att(),
+  resource: DS.attr(),
   contactLogType: DS.attr(),
   date: DS.attr(),
   translated: Ember.computed('contactLogType', function () {
