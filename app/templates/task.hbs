@@ -5,8 +5,8 @@
 {{/if}}
 <div class="container-fluid p-t">
   <div class="dashhead dashhead-solid">
-    <div class="row">
-      <div class="col-sm-4">
+    <div class="clearfix">
+      <div class="col-sm-5">
         <div class="dashhead-titles">
           <h3 class="dashhead-title">
             <span>{{link-to '<< Calls' (or backTo 'tasks')}}</span>
@@ -14,7 +14,7 @@
           </h3>
         </div>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-7">
         <div class="dropdown pull-right p-r-md p-t-10 p-b-10">
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All Actions <span class="caret"></span></button>
           <ul class="dropdown-menu">
@@ -97,7 +97,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="clearfix">
     <div class="col-sm-6">
       {{#if refid}}
         {{to-elsewhere named='modal'
