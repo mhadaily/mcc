@@ -9,13 +9,11 @@ export default Ember.Component.extend({
   contactable_id: null,
 
   init(){
-    console.log('emaillog started component')
     this._super(...arguments);
     let headers = {};
     this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
       headers[headerName] = headerValue;
     });
-
     if (this.get('contactable_id')) {
       return Ember.$.ajax(config.apiUrl + '/api/email-logs', {
         type: "GET",
@@ -26,7 +24,6 @@ export default Ember.Component.extend({
             contactable_id_eq: this.get('contactable_id')
           }
         }
-
       }).then((emails) => {
         let data =  emails.data[0].attributes;
         this.set('emailLogs',data);
