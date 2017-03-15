@@ -13,14 +13,20 @@
       </tr>
       </thead>
       <tbody>
-      {{#with emailLogs as |email|}}
-        <tr>
-          <td>{{email.email-id}}</td>
-          <td>{{email.subject}}</td>
-          <td>{{{email.body}}}</td>
-          <td>{{email.status}}</td>
+      {{#if emailLogs}}
+        {{#with emailLogs as |email|}}
+          <tr>
+            <td>{{email.email-id}}</td>
+            <td>{{email.subject}}</td>
+            <td>{{{email.body}}}</td>
+            <td>{{email.status}}</td>
+          </tr>
+        {{/with}}
+      {{else}}
+        <tr class="padding-200">
+          <td colspan="4"> {{ember-spinner}}</td>
         </tr>
-      {{/with}}
+      {{/if}}
       </tbody>
     </table>
   </div>
