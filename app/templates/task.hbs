@@ -40,7 +40,7 @@
                 {{to-elsewhere named='modal'
                                send=(hash body=(component 'task-reschedule'
                                  task=model
-                                 update=(action 'update')
+                                 updateRescheduleTask=(action 'updateRescheduleTask')
                                  dismiss=(action (mut taskref) null))
                                  onOutsideClick=(action (mut taskref) null)) }}
               {{/if}}
