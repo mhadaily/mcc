@@ -86,7 +86,6 @@
         <table class="table table-condensed table-hover table-small" data-sort="table">
           <thead>
             <tr>
-              <th></th>
               <th class="header {{if (eq model.meta.sort-attr-name 'date_due')
                                      (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Due'
@@ -96,6 +95,7 @@
                                      (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
                 {{link-to 'Subject'
                           (query-params sort="subject" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+                <sub><span class="bullet__task bullet__task-oap">&bull;</span> </sub> <small>OAP</small>  <sub><span class="bullet__task bullet__task-mc">&bull; </span></sub> <small>MC</small>
               </th>
               <th class="header {{if (eq model.meta.sort-attr-name 'name')
                                      (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
@@ -152,20 +152,17 @@
               {{else}}
                 {{#each model as |task|}}
                   <tr class="{{if task.isOverdue 'warning'}}">
+                    <td class="{{if task.isOverdue 'text-danger'}}">{{moment-format task.dateDue}}</td>
                     <td>
-                    <td class="vertical__top">
                       {{#if (eq task.source 'OAP')}}
                         <span class="bullet__task bullet__task-oap">&bull;</span>
                       {{else}}
                         <span class="bullet__task bullet__task-mc">&bull;</span>
                       {{/if}}
+                      {{link-to task.subject 'task' task}}
                     </td>
-                    </td>
-                    <td class="{{if task.isOverdue 'text-danger'}}">{{moment-format task.dateDue}}</td>
-                    <td>{{link-to task.subject 'task' task}}</td>
                     <td>{{task.contact.name}}<br>{{task.contact.email}}</td>
                     <td>{{task.user.name}}</td>
-                    <!-- <td align="center" class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td> -->
                     <td align="center" class="{{if (eq task.contact.stepNumber 0) 'text-danger'}}">{{task.contact.stepNumber}}</td>
                     <td>{{task.contact.timeZone}}</td>
                     <td>
