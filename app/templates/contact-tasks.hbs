@@ -12,6 +12,7 @@
       <th class="header {{if (eq tasks.meta.sort-attr-name 'subject')
                              (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
         {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
+        <span class="bullet__task bullet__task-oap">&bull; OAP</span>   <span class="bullet__task bullet__task-mc">&bull; MC</span>
       </th>
       <th class="header {{if (eq tasks.meta.sort-attr-name 'status')
                              (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
