@@ -12,7 +12,7 @@
       <th class="header {{if (eq tasks.meta.sort-attr-name 'subject')
                              (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
         {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
-        <span class="bullet__task bullet__task-oap">&bull; OAP</span>   <span class="bullet__task bullet__task-mc">&bull; MC</span>
+        <sub><span class="bullet__task bullet__task-oap">&bull;</span> </sub> <small>OAP</small>  <sub><span class="bullet__task bullet__task-mc">&bull; </span></sub> <small>MC</small>
       </th>
       <th class="header {{if (eq tasks.meta.sort-attr-name 'status')
                              (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
@@ -28,13 +28,13 @@
           Owner: {{task.user.name}}</small>
         </td>
         <td width="65%">{{#link-to "task" task invokeAction=(action 'taskChangeColor')
-                       class=(if task.isPending '' 'text-muted')}}<small>
+                       class=(if task.isPending '' 'text-muted')}}
           {{#if task.source 'OAP'}}
             <span class="bullet__task bullet__task-oap">&bull;</span>
           {{else}}
             <span class="bullet__task bullet__task-mc">&bull;</span>
           {{/if}}
-          {{task.subject}}</small>{{/link-to}}<br/>
+          {{task.subject}}{{/link-to}}<br/>
           <small>Outcome: {{task.outcome}}</small>
         </td>
           <td width="10%"><small>{{task.status}}</small><br/>
