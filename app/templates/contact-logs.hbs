@@ -13,6 +13,7 @@
         <th class="header">Type</th>
         <th class="header">Date</th>
         <th class="header">Topic</th>
+        <th class="header">Content</th>
       </tr>
       </thead>
       <tbody>
@@ -22,6 +23,7 @@
             <td>{{contactLogs.translated}}</td>
             <td>{{moment-format contactLogs.date}}</td>
             <td>{{contactLogs.topic}}</td>
+            <td>{{{contactLogs.resource}}}</td>
           </tr>
         {{/each}}
       {{else}}
