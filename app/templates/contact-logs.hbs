@@ -10,20 +10,21 @@
     <table class="table" data-sort="table">
       <thead>
       <tr>
-        <th class="header">Type</th>
-        <th class="header">Date</th>
+        <th class="header">Type/Date</th>
         <th class="header">Topic</th>
-        <th class="header">Content</th>
       </tr>
       </thead>
       <tbody>
       {{#if contact.contactLogs.content.isLoaded}}
         {{#each contact.contactLogs as |contactLogs|}}
           <tr>
-            <td>{{contactLogs.translated}}</td>
-            <td>{{moment-format contactLogs.date}}</td>
-            <td>{{contactLogs.topic}}</td>
-            <td>{{{contactLogs.resource}}}</td>
+            <td><label class="label label-info">{{contactLogs.translated}} </label>
+              <br/>{{moment-format contactLogs.date}}</td>
+            <td>{{contactLogs.topic}}<br>
+              {{#if contactLogs.resource}}
+                <iframe class="iframe__dotted" srcdoc={{contactLogs.resource}} width="100%"></iframe>
+              {{/if}}
+            </td>
           </tr>
         {{/each}}
       {{else}}
