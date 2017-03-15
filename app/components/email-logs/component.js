@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   emailLogs: null,
   contactable_id: null,
 
-  init(){
+  didInsertElement(){
     this._super(...arguments);
     let headers = {};
     this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
@@ -32,7 +32,7 @@ export default Ember.Component.extend({
       });
     }
   },
-  onDestroy(){
+  willDestroyElement(){
     this.set('emailLogs', null);
   }
 });
