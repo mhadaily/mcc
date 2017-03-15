@@ -3,10 +3,10 @@
     <h3 class="hr-divider-content hr-divider-heading">Contact Logs</h3>
   </div>
   <div class="table-responsive">
-    <div class="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <strong>Note:</strong> All logs are back dated to 2016.
-    </div>
+    <!--<div class="alert">-->
+    <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+    <!--<strong>Note:</strong> All logs are back dated to 2016.-->
+    <!--</div>-->
     <table class="table" data-sort="table">
       <thead>
       <tr>
@@ -16,13 +16,19 @@
       </tr>
       </thead>
       <tbody>
-      {{#each contact.contactLogs as |contactLogs|}}
-        <tr>
-          <td>{{contactLogs.translated}}</td>
-          <td>{{moment-format contactLogs.date}}</td>
-          <td>{{contactLogs.topic}}</td>
+      {{#if contact.contactLogs.content.isLoaded}}
+        {{#each contact.contactLogs as |contactLogs|}}
+          <tr>
+            <td>{{contactLogs.translated}}</td>
+            <td>{{moment-format contactLogs.date}}</td>
+            <td>{{contactLogs.topic}}</td>
+          </tr>
+        {{/each}}
+      {{else}}
+        <tr class="padding-200">
+          <td colspan="3"> {{ember-spinner}}</td>
         </tr>
-      {{/each}}
+      {{/if}}
       </tbody>
     </table>
   </div>
