@@ -153,7 +153,7 @@
                 {{#each model as |task|}}
                   <tr class="{{if task.isOverdue 'warning'}}">
                     <td>
-                    <td>
+                    <td class="vertical__top">
                       {{#if (eq task.source 'OAP')}}
                         <span class="bullet__task bullet__task-oap">&bull;</span>
                       {{else}}
