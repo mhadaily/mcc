@@ -10,13 +10,14 @@
         <div class="dashhead-titles">
           <h3 class="dashhead-title">
             {{link-to '<< Clients' 'contacts'}}
-           <br>{{link-to (or model.name 'unnamed') 'contact' model}} | {{model.email}}
+            <br>{{link-to (or model.name 'unnamed') 'contact' model}} | {{model.email}}
           </h3>
         </div>
       </div>
       <div class="col-sm-8">
         <div class="dropdown pull-right p-r-md p-t-10 p-b-10">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All Actions <span class="caret"></span></button>
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All Actions <span
+            class="caret"></span></button>
           <ul class="dropdown-menu">
             <li>
               {{link-to 'Change Step' (query-params  step=(or model.stepNumber '0')) tagName='a'
@@ -72,10 +73,12 @@
             <h2 class="statcard-number">Step: <br/><strong>{{or model.stepNumber '0'}}</strong>&nbsp;</h2>
           </li>
           <li>
-            <h2 class="statcard-number">Spent: <br/><strong>${{format-number model.spent format=",0"}}</strong>&nbsp;</h2>
+            <h2 class="statcard-number">Spent: <br/><strong>${{format-number model.spent format=",0"}}</strong>&nbsp;
+            </h2>
           </li>
           <li>
-            <h2 class="statcard-number">Client Time: <br/><strong>{{clock-timezone timezone=model.timeZone}}</strong></h2>
+            <h2 class="statcard-number">Client Time: <br/><strong>{{clock-timezone timezone=model.timeZone}}</strong>
+            </h2>
           </li>
           <li>
             <h2 class="statcard-number">Traffic Coach: <br/><strong>{{model.trafficCoach}}</strong>&nbsp;</h2>
@@ -112,7 +115,7 @@
           <a href="#contact-application" role="tab" data-toggle="tab" aria-controls="contact-application">Extra</a>
         </li>
         <li role="presentation">
-          <a href="#contact-automation-log" role="tab" data-toggle="tab" aria-controls="contact-automation-log">Logs</a>
+          <a href="#contact-logs" role="tab" data-toggle="tab" aria-controls="contact-logs">Logs</a>
         </li>
       </ul>
       <div class="position-fixed">
@@ -136,9 +139,29 @@
             {{partial 'mttb-application'}}
             {{partial 'mttb-interview'}}
           </div>
-          <div role="tabpanel" class="tab-pane" id="contact-automation-log">
-            {{partial 'contact-logs'}}
-            {{!--partial 'automation-logs'--}}
+          <div role="tabpanel" class="tab-pane" id="contact-logs">
+            <ul class="nav nav-bordered m-y" role="tablist">
+              <li class="active" role="presentation">
+                <a href="#contactLog" role="tab" data-toggle="tab" aria-controls="contactLog">Contact log</a>
+              </li>
+              <li role="presentation">
+                <a href="#emailLog" role="tab" data-toggle="tab" aria-controls="emailLog">Email Log</a>
+              </li>
+              <li role="presentation">
+                <a href="#automationLog" role="tab" data-toggle="tab" aria-controls="automationLog">Automation Log</a>
+              </li>
+            </ul>
+            <div class="tab-content content-block-tab">
+              <div role="tabpanel" class="tab-pane active" id="contactLog">
+                {{partial 'contact-logs'}}
+              </div>
+              <div role="tabpanel" class="tab-pane" id="emailLog">
+                {{email-logs contactable_id=model.id}}
+              </div>
+              <div role="tabpanel" class="tab-pane" id="automationLog">
+                {{partial 'automation-logs'}}
+              </div>
+            </div>
           </div>
         </div>
       </div>
