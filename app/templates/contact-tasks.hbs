@@ -29,7 +29,7 @@
         </td>
         <td width="65%">{{#link-to "task" task invokeAction=(action 'taskChangeColor')
                        class=(if task.isPending '' 'text-muted')}}
-          {{#if task.source 'OAP'}}
+          {{#if (eq task.source 'OAP')}}
             <span class="bullet__task bullet__task-oap">&bull;</span>
           {{else}}
             <span class="bullet__task bullet__task-mc">&bull;</span>
