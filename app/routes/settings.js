@@ -36,7 +36,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           password_confirmation
         }
       }).then(data => {
-        this.get('notify').success('Password has been changed');
+        this.get('notify').success('Password has been changed' + data);
         this.get('session').invalidate();
       }).fail(e => {
         return this.get('notify').error('Unable to change password! ' + e.message);
