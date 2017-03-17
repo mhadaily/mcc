@@ -2,13 +2,19 @@
   <div class="modal-header">
     <button type="button" class="close" {{action dismiss}} aria-label="Close"><span aria-hidden="true">&times;</span>
     </button>
-    <h6 class="modal-title">Completing the Call</h6>
-    <h5 class="modal-title">Client Name: {{task.contact.name}}</h5>
+    <h6 class="modal-title">Completing the Call  </h6>
+    <h5 class="modal-title"> Client Name: {{task.contact.name}} -
+    </h5>
   </div>
   <div class="modal-body ">
     <form class="form">
       <div class="form-group">
-        <label>OUTCOME: </label>
+        <label> OUTCOME: [ {{#if (eq task.source 'OAP')}}
+          <sub><span class="bullet__task bullet__task-oap">&bull;</span></sub> <small>OAP</small>
+        {{else}}
+          <sub><span class="bullet__task bullet__task-mc">&bull;</span></sub> <small>MC</small>
+        {{/if}} ]
+        </label>
         {{ember-selectize content=task.taskType.outcomes selection=labelField optionValuePath="content"
                           optionLabelPath="content" placeholder="-- select an outcome --"
                           select-value=(action selectOutcome 'selectedOutcome')}}
