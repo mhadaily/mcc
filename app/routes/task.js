@@ -10,48 +10,32 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('currentUser', this.modelFor('application').account.id);
   },
   actions: {
-    contactSave(...contactParams) {
+    contactSave(contactFields) {
       this.controller.set('isSync', true);
-      const [homePhone, skypeId, address, address_2, city, state, country, zipCode, cellPhone, officePhone, firstName, lastName] = contactParams;
-      const newInfo = {
-        homePhone,
-        skypeId,
-        address,
-        address_2,
-        city,
-        state,
-        country,
-        zipCode,
-        cellPhone,
-        officePhone,
-        firstName,
-        lastName,
-        contact: this.currentModel.get('contact'),
-      };
-
-      this.currentModel.get('contact').set('homePhone', newInfo.homePhone);
-      this.currentModel.get('contact').set('skypeId', newInfo.skypeId);
-      this.currentModel.get('contact').set('address', newInfo.address);
-      this.currentModel.get('contact').set('address_2', newInfo.address_2);
-      this.currentModel.get('contact').set('city', newInfo.city);
-      this.currentModel.get('contact').set('state', newInfo.state);
-      this.currentModel.get('contact').set('country', newInfo.country);
-      this.currentModel.get('contact').set('zipCode', newInfo.zipCode);
-      this.currentModel.get('contact').set('cellPhone', newInfo.cellPhone);
-      this.currentModel.get('contact').set('officePhone', newInfo.officePhone);
-      this.currentModel.get('contact').set('firstName', newInfo.firstName);
-      this.currentModel.get('contact').set('lastName', newInfo.lastName);
-
-      this.currentModel.get('contact').content.save().then(d => {
-        this.controller.set('isSync', false);
-        this.get('notify').success('Contact successfully updated');
-        return d;
-      }).catch(e => {
-        this.currentModel.get('contact').content.rollbackAttributes(); //revert back all changes
-        this.controller.set('isSync', false);
-        this.get('notify').error(e.message);
-        return e;
-      });
+      const [homePhone, firstName, lastName, cellPhone, officePhone, skypeId, address, address_2, city, state, country, zipCode] = contactFields;
+      this.store.findRecord('contact', this.currentModel.get('contact.id'))
+        .then(contact => {
+          contact.set('homePhone', homePhone);
+          contact.set('skypeId', skypeId);
+          contact.set('address', address);
+          contact.set('address_2', address_2);
+          contact.set('city', city);
+          contact.set('state', state);
+          contact.set('country', country);
+          contact.set('zipCode', zipCode);
+          contact.set('cellPhone', cellPhone);
+          contact.set('officePhone', officePhone);
+          contact.set('firstName', firstName);
+          contact.set('lastName', lastName);
+          contact.save().then(() => {
+            this.get('notify').success(`Contact ${firstName} ${lastName} successfully updated`);
+            this.controller.set('isSync', false);
+          });
+        })
+        .catch(e => {
+          this.get('notify').error(e.message);
+          this.controller.set('isSync', false);
+        });
     },
     syncContact(refcon) {
       let headers = {};

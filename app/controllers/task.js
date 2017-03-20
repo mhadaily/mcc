@@ -108,20 +108,26 @@ export default Ember.Controller.extend({
     clone(reference) {
       this.send('duplicateTask', reference);
     },
-    updateClient() {
-      let homePhone = Ember.$.trim(Ember.$('input[name="billing_homePhone"]').val());
-      let firstName = Ember.$.trim(Ember.$('input[name="billing_firstName"]').val());
-      let lastName = Ember.$.trim(Ember.$('input[name="billing_lastName"]').val());
-      let cellPhone = Ember.$.trim(Ember.$('input[name="billing_cellPhone"]').val());
-      let officePhone = Ember.$.trim(Ember.$('input[name="billing_officePhone"]').val());
-      let skypeId = Ember.$.trim(Ember.$('input[name="billing_skypeId"]').val());
-      let address = Ember.$.trim(Ember.$('input[name="billing_address"]').val());
-      let address2 = Ember.$.trim(Ember.$('input[name="billing_address2"]').val());
-      let city = Ember.$.trim(Ember.$('input[name="billing_city"]').val());
-      let state = Ember.$.trim(Ember.$('#billing_state').val());
-      let country = Ember.$.trim(Ember.$('#billing_country').val());
-      let zipcode = Ember.$.trim(Ember.$('input[name="billing_zipcode"]').val());
-      this.send('contactSave', homePhone, skypeId, address, address2, city, state, country, zipcode, cellPhone, officePhone, firstName, lastName);
+    update(state, country) {
+      const getFieldValue = (str) => {
+        return this.model.get(str);
+      };
+
+      const fieldsValue = [
+        getFieldValue('contact.homePhone'),
+        getFieldValue('contact.firstName'),
+        getFieldValue('contact.lastName'),
+        getFieldValue('contact.cellPhone'),
+        getFieldValue('contact.officePhone'),
+        getFieldValue('contact.skypeId'),
+        getFieldValue('contact.address'),
+        getFieldValue('contact.address_2'),
+        getFieldValue('contact.city'),
+        state,
+        country,
+        getFieldValue('contact.zipCode')
+      ];
+      this.send('contactSave', fieldsValue);
       this.set('contactrf', null);
     },
     sync() {
