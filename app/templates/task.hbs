@@ -16,37 +16,42 @@
       </div>
       <div class="col-sm-7">
         <div class="dropdown pull-right p-r-md p-t-10 p-b-10">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All Actions <span class="caret"></span></button>
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All Actions <span
+            class="caret"></span></button>
           <ul class="dropdown-menu">
-          {{#if (eq model.status "pending")}}
-            <li>
-              {{#link-to (query-params ref=model.id) tagName='a'
-                         disabled=(eq model.status "completed" 'disabled')}} Complete Your Call {{/link-to}}
-              {{#if ref}}
-                {{to-elsewhere named='modal'
-                               send=(hash body=(component 'task-modal'
-                                 selectOutcome=(action 'selectOutcome')
-                                 task=model
-                                 complete=(action 'complete')
-                                 dismiss=(action (mut ref) null))
-                                 onOutsideClick=(action (mut ref) null)) }}
+            {{#if (eq model.status "pending")}}
+              {{#if (eq currentUser model.user.id)}}
+                <li>
+
+                  {{#link-to (query-params ref=model.id) tagName='a'
+                             disabled=(eq model.status "completed" 'disabled')}} Complete Your Call {{/link-to}}
+                  {{#if ref}}
+                    {{to-elsewhere named='modal'
+                                   send=(hash body=(component 'task-modal'
+                                     selectOutcome=(action 'selectOutcome')
+                                     task=model
+                                     complete=(action 'complete')
+                                     dismiss=(action (mut ref) null))
+                                     onOutsideClick=(action (mut ref) null)) }}
+                  {{/if}}
+
+                </li>
+                <li class="divider"></li>
+                <li>
+                  {{link-to 'Reschedule Call' (query-params taskref=model.id) tagName="a"
+                  }}
+                  {{#if taskref}}
+                    {{to-elsewhere named='modal'
+                                   send=(hash body=(component 'task-reschedule'
+                                     task=model
+                                     updateRescheduleTask=(action 'updateRescheduleTask')
+                                     dismiss=(action (mut taskref) null))
+                                     onOutsideClick=(action (mut taskref) null)) }}
+                  {{/if}}
+                </li>
+                <li class="divider"></li>
               {{/if}}
-            </li>
-            <li class="divider"></li>
-            <li>
-              {{link-to 'Reschedule Call' (query-params taskref=model.id) tagName="a"
-              }}
-              {{#if taskref}}
-                {{to-elsewhere named='modal'
-                               send=(hash body=(component 'task-reschedule'
-                                 task=model
-                                 updateRescheduleTask=(action 'updateRescheduleTask')
-                                 dismiss=(action (mut taskref) null))
-                                 onOutsideClick=(action (mut taskref) null)) }}
-              {{/if}}
-            </li>
-            <li class="divider"></li>
-          {{/if}}
+            {{/if}}
             <li>
               {{link-to 'Sync Contact' (query-params refcon=contact.id)  tagName="a" }}
               {{#if refcon}}
@@ -84,10 +89,12 @@
             <h2 class="statcard-number">Step:<br/><strong>{{or contact.step '0'}}</strong>&nbsp;</h2>
           </li>
           <li>
-            <h2 class="statcard-number">Spent:<br/><strong>${{format-number contact.spent format=",0"}}</strong>&nbsp;</h2>
+            <h2 class="statcard-number">Spent:<br/><strong>${{format-number contact.spent format=",0"}}</strong>&nbsp;
+            </h2>
           </li>
           <li>
-            <h2 class="statcard-number">Client Time:<br/><strong>{{clock-timezone timezone=contact.timeZone}}</strong></h2>
+            <h2 class="statcard-number">Client Time:<br/><strong>{{clock-timezone timezone=contact.timeZone}}</strong>
+            </h2>
           </li>
           <li>
             <h2 class="statcard-number">Traffic Coach: <br/><strong>{{contact.trafficCoach}}</strong>&nbsp;</h2>
@@ -121,11 +128,17 @@
       {{else}}
         <div class="row task-detail well {{blink}}">
           <div class="col-sm-12">
+            {{#if (not-eq currentUser model.user.id)}}
+              <div class="alert alert-danger">Owner of this task, {{model.user.name}}, is not you, therefore, you are
+                not able to perform any actions.
+              </div>{{/if}}
             <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
             <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}
               &nbsp;</strong> |
-              {{#if (eq model.status "pending")}}
-                {{#link-to (query-params refid=model.id)}} Cancel Your Call {{/link-to}}
+              {{#if (eq currentUser model.user.id)}}
+                {{#if (eq model.status "pending")}}
+                  {{#link-to (query-params refid=model.id)}} Cancel Your Call {{/link-to}}
+                {{/if}}
               {{/if}}
             </p>
           </div>

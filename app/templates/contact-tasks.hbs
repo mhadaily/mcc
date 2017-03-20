@@ -12,7 +12,10 @@
       <th class="header {{if (eq tasks.meta.sort-attr-name 'subject')
                              (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
         {{link-to 'Subject' (query-params sort="subject" sortDir=(if (eq tasks.meta.sort-dir 'desc') 'asc' 'desc'))}}
-        <sub><span class="bullet__task bullet__task-oap">&bull;</span> </sub> <small>OAP</small>  <sub><span class="bullet__task bullet__task-mc">&bull; </span></sub> <small>MC</small>
+        <sub><span class="bullet__task bullet__task-oap">&bull;</span> </sub>
+        <small>OAP</small>
+        <sub><span class="bullet__task bullet__task-mc">&bull; </span></sub>
+        <small>MC</small>
       </th>
       <th class="header {{if (eq tasks.meta.sort-attr-name 'status')
                              (if (eq tasks.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
@@ -24,22 +27,27 @@
     {{#each tasks as |task|}}
       <tr class="{{if task.isPending (if task.isOverdue 'warning') 'text-muted'}}">
         {{#unless task.loading}}
-        <td width="25%"><small>{{moment-format task.dateDue}}<br>
-          Owner: {{task.user.name}}</small>
-        </td>
-        <td width="65%">{{#link-to "task" task invokeAction=(action 'taskChangeColor')
-                       class=(if task.isPending '' 'text-muted')}}
-          {{#if (eq task.source 'OAP')}}
-            <span class="bullet__task bullet__task-oap">&bull;</span>
-          {{else}}
-            <span class="bullet__task bullet__task-mc">&bull;</span>
-          {{/if}}
-          {{task.subject}}{{/link-to}}<br/>
-          <small>Outcome: {{task.outcome}}</small>
-        </td>
-          <td width="10%"><small>{{task.status}}</small><br/>
-            <a {{action 'populateModal' task}}><i class="icon icon-calendar"></i></a>
-            <a {{action 'populateModalDetails' task}}><i class="icon icon-list"></i></a>
+          <td width="25%">
+            <small>{{moment-format task.dateDue}}<br>
+              Owner: {{task.user.name}}</small>
+          </td>
+          <td width="65%">{{#link-to "task" task invokeAction=(action 'taskChangeColor')
+                                     class=(if task.isPending '' 'text-muted')}}
+            {{#if (eq task.source 'OAP')}}
+              <span class="bullet__task bullet__task-oap">&bull;</span>
+            {{else}}
+              <span class="bullet__task bullet__task-mc">&bull;</span>
+            {{/if}}
+            {{task.subject}}{{/link-to}}<br/>
+            <small>Outcome: {{task.outcome}}</small>
+          </td>
+          <td width="10%">
+            <small>{{task.status}}</small>
+            <br/>
+            {{#if (eq currentUser task.user.id)}}
+              <a {{action 'populateModal' task}}><i class="icon icon-calendar"></i></a>
+              <a {{action 'populateModalDetails' task}}><i class="icon icon-list"></i></a>
+            {{/if}}
           </td>
         {{/unless}}
       </tr>
