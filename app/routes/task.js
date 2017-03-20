@@ -5,6 +5,10 @@ import config from '../config/environment';
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   notify: Ember.inject.service('notify'),
   disabled: null,
+  setupController(controller){
+    this._super(...arguments);
+    controller.set('currentUser', this.modelFor('application').account.id);
+  },
   actions: {
     contactSave(...contactParams) {
       this.controller.set('isSync', true);

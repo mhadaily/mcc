@@ -20,6 +20,7 @@ export default Ember.Controller.extend({
   btnSuccess: 'btn-success',
   isChange: false,
   selectedOutcome: null,
+  currentUser: null,
   blockHeight: Ember.computed('blockHeight', function () {
     let wheight = parseInt(window.innerHeight - 245, 10);
     // Fix heights on window resize
