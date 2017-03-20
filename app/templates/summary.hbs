@@ -34,7 +34,7 @@
               class="btn btn-sm btn-primary pull-right"}}
     {{#if contactrf}}
       {{to-elsewhere named='modal'
-                     send=(hash body=(component 'contact-modal' contact=contact update=(action 'updateClient') dismiss=(action (mut contactrf) null)) onOutsideClick=(action (mut contactrf) null)) }}
+                     send=(hash body=(component 'contact-modal' contact=contact update=(action 'update') dismiss=(action (mut contactrf) null)) onOutsideClick=(action (mut contactrf) null)) }}
     {{/if}}
   </div>
 {{/if}}
