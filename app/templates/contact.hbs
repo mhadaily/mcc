@@ -16,18 +16,15 @@
       </div>
       <div class="col-sm-7">
         <div class="dropdown pull-right p-r-md p-t-10 p-b-10">
+          {{link-to 'Change Step' (query-params  step=(or model.stepNumber '0'))
+                    tagName='a' class="btn btn-primary"}}
+          {{#if step}}
+            {{to-elsewhere named='modal'
+                           send=(hash body=(component 'step-modal' contact=model stepNumber=model.stepNumber changeStep=(action 'changeStep') dismiss=(action (mut step) null)) onOutsideClick=(action (mut step) null)) }}
+          {{/if}}
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Actions<span
             class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li>
-              {{link-to 'Change Step' (query-params  step=(or model.stepNumber '0')) tagName='a'
-              }}
-              {{#if step}}
-                {{to-elsewhere named='modal'
-                               send=(hash body=(component 'step-modal' contact=model stepNumber=model.stepNumber changeStep=(action 'changeStep') dismiss=(action (mut step) null)) onOutsideClick=(action (mut step) null)) }}
-              {{/if}}
-            </li>
-            <li class="divider"></li>
             <li>
               {{link-to 'Edit Contact' (query-params contactrf=model.id) tagName="a"}}
               {{#if contactrf}}
