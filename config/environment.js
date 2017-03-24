@@ -2,6 +2,10 @@
 
 module.exports = function (environment) {
   var ENV = {
+    preloader: {
+      removeDelay: false,
+      loadedClass: false
+    },
     moment: {
       includeTimezone: 'all',
       outputFormat: 'DD MMM YYYY hh:mm',

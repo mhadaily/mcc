@@ -23,7 +23,13 @@ module.exports = function (defaults) {
   }
 
   var app = new EmberApp(defaults, {
-    fingerprint: fingerprintOptions
+    fingerprint: fingerprintOptions,
+    'ember-cli-preloader': {
+      paths: {
+        html: 'app/preloader/preloader.html',
+        css: 'app/preloader/preloader.css'
+      }
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

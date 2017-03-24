@@ -35,6 +35,7 @@
     "ember-cli-less": "1.5.3",
     "ember-cli-moment-shim": "2.0.0",
     "ember-cli-pagination": "2.2.2",
+    "ember-cli-preloader": "0.2.0",
     "ember-cli-qunit": "^3.0.1",
     "ember-cli-release": "^0.2.9",
     "ember-cli-selectize": "^0.5.12",
