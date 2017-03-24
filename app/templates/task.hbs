@@ -16,7 +16,7 @@
       </div>
       <div class="col-sm-7">
         <div class="dropdown pull-right p-r-md p-t-10 p-b-10">
-
+          {{#if (eq currentUser model.user.id)}}
             {{#link-to (query-params ref=model.id) tagName='a' class="btn btn-primary"
                        disabled=(eq model.status "completed" 'disabled')}} Complete Your Call {{/link-to}}
             {{#if ref}}
@@ -28,7 +28,7 @@
                                dismiss=(action (mut ref) null))
                                onOutsideClick=(action (mut ref) null)) }}
             {{/if}}
-
+          {{/if}}
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Actions<span
             class="caret"></span></button>
           <ul class="dropdown-menu">
