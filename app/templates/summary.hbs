@@ -30,8 +30,8 @@
 </div>
 {{#if task}}
   <div class="clearfix">
-    {{link-to 'Edit Contact' (query-params contactrf=contact.id) tagName="button"
-              class="btn btn-sm btn-primary pull-right"}}
+    {{link-to 'Edit Contact' (query-params contactrf=contact.id) tagName="a"
+              class="text-button pull-right"}}
     {{#if contactrf}}
       {{to-elsewhere named='modal'
                      send=(hash body=(component 'contact-modal' contact=contact update=(action 'update') dismiss=(action (mut contactrf) null)) onOutsideClick=(action (mut contactrf) null)) }}

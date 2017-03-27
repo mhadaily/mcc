@@ -72,6 +72,14 @@
                 {{/if}}
               {{/if}}
             </li>
+            <li class="divider"></li>
+            <li>
+              {{link-to 'Edit Contact' (query-params contactrf=contact.id) tagName="a"}}
+              {{#if contactrf}}
+                {{to-elsewhere named='modal'
+                               send=(hash body=(component 'contact-modal' contact=contact update=(action 'update') dismiss=(action (mut contactrf) null)) onOutsideClick=(action (mut contactrf) null)) }}
+              {{/if}}
+            </li>
           </ul>
         </div>
         <ul class="nav nav-bordered pull-right">
