@@ -92,6 +92,7 @@
               {{link-to 'Due'
                         (query-params sort="date_due" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
+
             <th class="header {{if (eq model.meta.sort-attr-name 'subject')
                                    (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Subject'
@@ -103,39 +104,34 @@
             </th>
             <th class="header {{if (eq model.meta.sort-attr-name 'name')
                                    (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-              {{link-to 'Client'
-                        (query-params sort="contact_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-            </th>
-            <th class="header {{if (eq model.meta.sort-attr-name 'name')
-                                   (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Owner'
                         (query-params sort="user_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
-            <!-- <th class="header {{if (eq model.meta.sort-attr-name 'step')
-                                        (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-                {{link-to 'Step'
-                          (query-params sort="contact_step" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              </th> -->
             <th class="header {{if (eq model.meta.sort-attr-name 'step_number')
                                    (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Step'
                         (query-params sort="contact_step_number" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+
+            <th class="header {{if (eq model.meta.sort-attr-name 'name')
+                                   (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Client'
+                        (query-params sort="contact_name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+            <th class="header">
+              <a href="">Phone / Skype</a>
             </th>
             <th class="header {{if (eq model.meta.sort-attr-name 'time_zone')
                                    (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}
 
               {{if (eq model.meta.sort-attr-name 'utcOffset')
                    (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-              {{link-to 'Time Zone'
-                        (query-params sort="contact_time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-              /
               {{link-to 'Local Time'
                         (query-params sort="contact_utc_offset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-            </th>
-            <th class="header {{if (eq model.meta.sort-attr-name 'outcome')
-                                   (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-              {{link-to 'Outcome'
-                        (query-params sort="outcome" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              /
+              {{link-to 'Time Zone'
+                        (query-params sort="contact_time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+
             </th>
           </tr>
           </thead>
@@ -156,25 +152,28 @@
                   <td class="{{if task.isOverdue 'text-danger'}}">{{moment-format task.dateDue}}</td>
                   <td>
                     {{#if (eq task.source 'OAP')}}
-                      <span class="bullet__task bullet__task-oap">&bull;</span>
+                      <span class="bullet__task bullet__task-sm bullet__task-oap">&bull;</span>
                     {{else}}
-                      <span class="bullet__task bullet__task-mc">&bull;</span>
+                      <span class="bullet__task bullet__task-sm bullet__task-mc">&bull;</span>
                     {{/if}}
-                    {{link-to task.subject 'task' task}}<br/>{{task.status}}
+                    {{link-to task.subject 'task' task}}<br/>{{task.outcome}}
                   </td>
-                  <td><strong>{{task.contact.name}}</strong><br>{{task.contact.email}}</td>
-                  <td>{{task.user.name}}</td>
+                  <td><strong>{{task.user.name}}</strong><br>{{task.status}}</td>
+
                   <td align="center"
                       class="{{if (eq task.contact.stepNumber 0) 'text-danger'}}">
                     <span class="badge label-s-0">
                       {{task.contact.stepNumber}}
-                    </span></td>
-                  <td>{{task.contact.timeZone}}<br>
-                    {{#unless (eq contact.timeZone null)}}
-                      {{current-time task.contact.timeZone}}
-                    {{/unless}}
+                    </span>
                   </td>
-                  <td>{{task.outcome}}</td>
+                  <td><strong>{{task.contact.name}}</strong><br>{{task.contact.email}}</td>
+                  <td>
+                    <strong>{{task.contact.cellPhone}}</strong><br/>{{task.contact.skypeId}}
+                  </td>
+                  <td>{{#unless (eq contact.timeZone null)}}
+                    <strong>{{current-time task.contact.timeZone}}</strong>
+                  {{/unless}}<br><span class="text-muted">{{task.contact.timeZone}}</span>
+                  </td>
                 </tr>
               {{/each}}
             {{/unless}}
