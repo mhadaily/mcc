@@ -89,15 +89,15 @@
             <th class="header {{if (eq model.meta.sort-attr-name 'date') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Date' (query-params sort="date" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
-            <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-              {{link-to 'Client' (query-params sort="name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-            </th>
-            <th class="header {{if (eq model.meta.sort-attr-name 'email') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-              {{link-to 'Email' (query-params sort="email" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-            </th>
             <th class="header {{if (eq model.meta.sort-attr-name 'step_number') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Step' (query-params sort="step_number" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
+            <th class="header {{if (eq model.meta.sort-attr-name 'name') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}} {{if (eq model.meta.sort-attr-name 'email') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              {{link-to 'Client' (query-params sort="name" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              /
+              {{link-to 'Email' (query-params sort="email" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+            </th>
+
             <th class="header {{if (eq model.meta.sort-attr-name 'home_phone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Home Phone' (query-params sort="home_phone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
@@ -107,17 +107,16 @@
             <th class="header {{if (eq model.meta.sort-attr-name 'skype_id') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Skype ID' (query-params sort="skype_id" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
-            <th class="header {{if (eq model.meta.sort-attr-name 'Country') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+            <th class="header {{if (eq model.meta.sort-attr-name 'Country') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}} {{if (eq model.meta.sort-attr-name 'state') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Country' (query-params sort="country" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-            </th>
-            <th class="header {{if (eq model.meta.sort-attr-name 'state') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+              /
               {{link-to 'State' (query-params sort="state" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+
             </th>
-            <th class="header {{if (eq model.meta.sort-attr-name 'time_zone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
-              {{link-to 'Time Zone' (query-params sort="time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
-            </th>
-            <th class="header {{if (eq model.meta.sort-attr-name 'utc_offset') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
+            <th class="header {{if (eq model.meta.sort-attr-name 'time_zone') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}} {{if (eq model.meta.sort-attr-name 'utc_offset') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Local Time' (query-params sort="utc_offset" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
+              /
+              {{link-to 'Time Zone' (query-params sort="time_zone" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
             </th>
             <th class="header {{if (eq model.meta.sort-attr-name 'contacted_at') (if (eq model.meta.sort-dir 'asc') 'headerSortDown' 'headerSortUp')}}">
               {{link-to 'Last Contact' (query-params sort="contacted_at" sortDir=(if (eq model.meta.sort-dir 'desc') 'asc' 'desc'))}}
@@ -142,19 +141,22 @@
               {{#each model as |contact|}}
                 <tr>
                   <td>{{moment-format contact.date}}</td>
-                  <td>{{link-to (or contact.name '[unnamed]') 'contact' contact}}</td>
-                  <td>{{link-to (or contact.email '[no email]') 'contact' contact}}</td>
-                  <td align="center" class="{{if (eq contact.stepNumber 0) 'text-danger'}}">{{contact.stepNumber}}</td>
+                  <td align="center" class="{{if (eq contact.stepNumber 0) 'text-danger'}}">
+                    <span class="badge label-s-0">{{contact.stepNumber}}</span>
+                  </td>
+                  <td>{{link-to (or contact.name '[unnamed]') 'contact' contact}}
+                    <br/>{{or contact.email '[no email]'}}</td>
                   <td>{{contact.homePhone}}</td>
                   <td>{{contact.cellPhone}}</td>
                   <td>{{contact.skypeId}}</td>
-                  <td>{{contact.country}}</td>
-                  <td>{{contact.state}}</td>
-                  <td>{{contact.timeZone}}</td>
+                  <td><strong>{{contact.country}}</strong>
+                    <br><span class="text-muted">{{contact.state}}</span></td>
                   <td>
-                    {{#unless (eq contact.timeZone null)}}
+                    <strong>{{#unless (eq contact.timeZone null)}}
                       {{current-time contact.timeZone}}
-                    {{/unless}}
+                    {{/unless}}</strong>
+                    <br>
+                    <span class="text-muted">{{contact.timeZone}}</span>
                   </td>
                   <td>{{moment-format contact.contactedAt}}</td>
                 </tr>
