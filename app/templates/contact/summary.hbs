@@ -1,0 +1,36 @@
+<dl>
+  <dt>Reference:</dt>
+  <dd>{{model.reference}}&nbsp;</dd>
+  <dt>Name:</dt>
+  <dd>{{model.name}}&nbsp;{{link-to '(Link to Client)' 'contact' model}}&nbsp;</dd>
+  {{#if model.mttbStepUncontactable}}
+    <dt>Step Uncontactable:</dt>
+    <dd><strong>{{model.mttbStepUncontactable}}</strong>&nbsp;</dd>
+  {{/if}}
+  <dt>Email:</dt>
+  <dd><a target="_bank" href="mailto:{{model.email}}">{{model.email}}&nbsp;</a></dd>
+  <dt>Home Phone:</dt>
+  <dd>{{model.homePhone}}&nbsp;</dd>
+  <dt>Cell Phone:</dt>
+  <dd>{{model.cellPhone}}&nbsp;</dd>
+  <dt>Office Phone:</dt>
+  <dd>{{model.officePhone}}&nbsp;</dd>
+  <dt>Skype ID:</dt>
+  <dd>{{model.skypeId}}&nbsp; <a href="skype:{{model.skypeId}}?call">Call </a>|<a href="skype:{{model.skypeId}}?chat"> Chat</a> </dd>
+  <dt>Address:</dt>
+  <dd>{{model.address}}&nbsp;</dd>
+  <dt>Address2:</dt>
+  <dd>{{model.address_2}}&nbsp;</dd>
+  <dt>City:</dt>
+  <dd>{{model.city}}&nbsp;</dd>
+  <dt>ZipCode/PostalCode</dt>
+  <dd>{{model.zipCode}}&nbsp;</dd>
+  <dt>State:</dt>
+  <dd>{{model.state}}&nbsp;</dd>
+  <dt>Country:</dt>
+  <dd>{{model.country}}&nbsp;</dd>
+  <dt>Time Zone:</dt>
+  <dd>{{model.timeZone}}&nbsp;</dd>
+  <dt>Last Contact:</dt>
+  <dd>{{moment-format model.contactedAt}}&nbsp;</dd>
+</dl>

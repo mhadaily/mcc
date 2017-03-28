@@ -91,69 +91,17 @@
 
     <div class="col-sm-6">
       <ul class="nav nav-bordered m-y" role="tablist">
-        <li class="active" role="presentation">
-          <a href="#summary" role="tab" data-toggle="tab" aria-controls="summary">Summary <span
-            class="badge"></span></a>
-        </li>
-        <li role="presentation">
-          <a href="#contact-details" role="tab" data-toggle="tab" aria-controls="contact-details">Client Details <span
-            class="badge"></span></a>
-        </li>
-        <li role="presentation">
-          <a href="#task-activities" role="tab" data-toggle="tab" aria-controls="task-activities">Calls</a>
-        </li>
-        <li role="presentation">
-          <a href="#sale-activities" role="tab" data-toggle="tab" aria-controls="sale-activities">Sales</a>
-        </li>
-        <li role="presentation">
-          <a href="#contact-tags" role="tab" data-toggle="tab" aria-controls="contact-tags">Contact Tags</a>
-        </li>
-        <li role="presentation">
-          <a href="#contact-application" role="tab" data-toggle="tab" aria-controls="contact-application">Extra</a>
-        </li>
-        <li role="presentation">
-          <a href="#contact-logs" role="tab" data-toggle="tab" aria-controls="contact-logs">Logs</a>
-        </li>
+        {{#each tabs as |tab|}}
+          {{#link-to tab.route tagName='li' href=false}}
+            {{#link-to tab.route}}{{tab.name}}{{/link-to}}
+          {{/link-to}}
+        {{/each}}
       </ul>
       <div class="position-fixed">
         <div class="tab-content content-block-tab" style="height:{{blockHeight}}px">
-          <div role="tabpanel" class="tab-pane active" id="summary">
-            {{partial 'summary'}}
-          </div>
-          <div role="tabpanel" class="tab-pane" id="contact-details">
-            {{partial 'contact-details'}}
-          </div>
-          <div role="tabpanel" class="tab-pane" id="task-activities">
-            {{partial 'contact-tasks'}}
-          </div>
-          <div role="tabpanel" class="tab-pane" id="sale-activities">
-            {{partial 'contact-sales-orders'}}
-          </div>
-          <div role="tabpanel" class="tab-pane" id="contact-tags">
-            {{partial 'contact-tags'}}
-          </div>
-          <div role="tabpanel" class="tab-pane" id="contact-application">
-            {{partial 'mttb-application'}}
-            {{partial 'mttb-interview'}}
-          </div>
-          <div role="tabpanel" class="tab-pane" id="contact-logs">
-            <ul class="nav nav-bordered m-y" role="tablist">
-              <li class="active" role="presentation">
-                <a href="#contactLog" role="tab" data-toggle="tab" aria-controls="contactLog">Contact log</a>
-              </li>
-              <li role="presentation">
-                <a href="#emailLog" role="tab" data-toggle="tab" aria-controls="emailLog">Email Log</a>
-              </li>
-            </ul>
-            <div class="tab-content content-block-tab">
-              <div role="tabpanel" class="tab-pane active" id="contactLog">
-                {{partial 'contact-logs'}}
-              </div>
-              <div role="tabpanel" class="tab-pane" id="emailLog">
-                {{email-logs contactable_id=model.id}}
-              </div>
+            <div role="tabpanel" class="tab-pane active">
+              {{outlet}}
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -167,4 +115,3 @@
     </div>
   </div>
 </div>
-{{outlet}}

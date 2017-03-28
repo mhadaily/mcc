@@ -19,6 +19,15 @@ export default Ember.Controller.extend({
   noteText: 'Save',
   btnSuccess: 'btn-success',
   noteContent: null,
+  tabs: [
+    { name: 'Summary', route: 'contact.summary' },
+    { name: 'Contact Details', route: 'contact.contact-details' },
+    { name: 'Calls', route: 'contact.task-activities' },
+    { name: 'Sales', route: 'contact.sale-activities' },
+    { name: 'Tags', route: 'contact.contact-tags' },
+    { name: 'Application', route: 'contact.contact-application' },
+    { name: 'Logs', route: 'contact.contact-logs' },
+  ],
   blockHeight: Ember.computed('blockHeight', function () {
     let wheight = parseInt(window.innerHeight - 190, 10);
     // Fix heights on window resize
