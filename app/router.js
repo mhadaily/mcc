@@ -28,10 +28,13 @@ Router.map(function() {
   this.route('task', { path: 'tasks/:task_id' });
   this.route('contacts');
   this.route('contact', { path: 'contacts/:contact_id' }, function() {
+    this.route('calls', function() {
+      this.route('index', { path: '/' });
+      this.route('show', { path: ':call_id' });
+    });
     this.route('summary');
     this.route('details');
     this.route('sales');
-    this.route('calls');
     this.route('tags');
     this.route('logs');
     this.route('interview');
