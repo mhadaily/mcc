@@ -2,6 +2,7 @@ import Ember from 'ember';
 const { Controller, computed } = Ember;
 
 export default Controller.extend({
+  currentUser: null,
   contact: computed('model', function() {
     return this.get('model');
   }),
