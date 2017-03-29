@@ -26,8 +26,7 @@ export default Ember.Component.extend({
         }
       }).then((emails) => {
         if (emails.data.length > 0) {
-          const data = emails.data;
-          return this.set('emailLogs', data);
+          return this.set('emailLogs', emails.data);
         }
         this.set('emailLogs', {});
       }).fail(e => {
