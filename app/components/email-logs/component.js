@@ -26,11 +26,11 @@ export default Ember.Component.extend({
         }
       }).then((emails) => {
         if (emails.data.length > 0) {
-          let data = emails.data[0].attributes;
+          const data = emails.data;
           return this.set('emailLogs', data);
         }
         this.set('emailLogs', {});
-      }).fail(e => {
+      }).catch(e => {
         this.get('notify').error(e.message);
       });
     }
