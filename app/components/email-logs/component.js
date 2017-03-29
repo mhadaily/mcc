@@ -30,7 +30,7 @@ export default Ember.Component.extend({
           return this.set('emailLogs', data);
         }
         this.set('emailLogs', {});
-      }).catch(e => {
+      }).fail(e => {
         this.get('notify').error(e.message);
       });
     }
