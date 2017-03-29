@@ -1,0 +1,9 @@
+<div class="hr-divider m-y">
+  <h3 class="hr-divider-content hr-divider-heading">Contact Tags</h3>
+</div>
+<ul>
+  {{#each-in model.tags as |key value|}}
+    <li>{{key}}: {{value}}</li>
+  {{/each-in}}
+</ul>
+{{outlet}}

@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:contact/task-activities', 'Unit | Route | contact/task activities', {
+moduleFor('route:contact/tags', 'Unit | Route | contact/tags', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
