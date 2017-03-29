@@ -156,7 +156,7 @@
                     {{else}}
                       <span class="bullet__task bullet__task-sm bullet__task-mc">&bull;</span>
                     {{/if}}
-                    {{link-to task.subject 'task' task}}<br/><span class="text-muted">{{task.outcome}}</span>
+                    {{#link-to 'contact.calls.show' task.contact task}}{{task.subject}}{{/link-to}}<br/><span class="text-muted">{{task.outcome}}</span>
                   </td>
                   <td><strong>{{task.user.name}}</strong><br>{{task.status}}</td>
 
