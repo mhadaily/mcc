@@ -1,42 +1,58 @@
-{{#link-to 'contact.calls.index' class='btn btn-danger'}}Back{{/link-to}}
-{{#if refid}}
-  {{to-elsewhere named='modal'
-                 send=(hash body=(component 'task-cancel'
-                   cancel=(action 'cancel')
-                   dismiss=(action (mut refid) null))
-                   onOutsideClick=(action (mut refid) null)) }}
-{{/if}}
-{{#if isChange class="change-description" }}
-  <div class="row task-detail well {{blink}}">
-    <div class="col-sm-12">
-      <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
-      <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}
-        &nbsp;</strong> |
-        {{#if (eq model.status "pending")}}
-          {{#link-to (query-params refid=model.id)}} Cancel Your Call {{/link-to}}
-        {{/if}}
-      </p>
-    </div>
+<div class="clearfix">
+  <div class="col-md-3">
+    {{#link-to 'contact.calls.index' class='btn btn-danger'}}Back{{/link-to}}
   </div>
-{{else}}
-  <div class="row task-detail well {{blink}}">
-    <div class="col-sm-12">
-      {{#if (not-eq currentUser model.user.id)}}
-        <div class="alert alert-danger">Owner of this task, {{model.user.name}}, is not you, therefore, you are
-          not able to perform any actions.
-        </div>{{/if}}
-      <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
-      <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}
-        &nbsp;</strong> |
-        {{#if (eq currentUser model.user.id)}}
-          {{#if (eq model.status "pending")}}
-            {{#link-to (query-params refid=model.id)}} Cancel Your Call {{/link-to}}
-          {{/if}}
+  {{#if (eq currentUser model.user.id)}}
+    {{#if (eq model.status "pending")}}
+      <div class="col-md-3">
+        {{link-to 'Reschedule Call' (query-params callrf=model.id) class='btn btn-primary'}}
+        {{#if callrf}}
+          {{to-elsewhere named='modal'
+                         send=(hash body=(component 'task-reschedule'
+                           task=model
+                           updateRescheduleTask=(action 'updateRescheduleTask')
+                           dismiss=(action (mut callrf) null))
+                           onOutsideClick=(action (mut callrf) null)) }}
         {{/if}}
-      </p>
-    </div>
+      </div>
+      <div class="col-md-3">
+        {{#link-to (query-params refid=model.id) class='btn btn-primary'}} Cancel Your Call {{/link-to}}
+        {{#if refid}}
+          {{to-elsewhere named='modal'
+                         send=(hash body=(component 'task-cancel'
+                           cancel=(action 'cancel')
+                           dismiss=(action (mut refid) null))
+                           onOutsideClick=(action (mut refid) null)) }}
+        {{/if}}
+      </div>
+      <div class="col-md-3">
+        {{#link-to (query-params ref=model.id) class='btn btn-primary'}} Complete Your Call {{/link-to}}
+        {{#if ref}}
+          {{to-elsewhere named='modal'
+                         send=(hash body=(component 'task-modal'
+                           selectOutcome=(action 'selectOutcome')
+                           task=model
+                           complete=(action 'complete')
+                           dismiss=(action (mut ref) null))
+                           onOutsideClick=(action (mut ref) null)) }}
+        {{/if}}
+      </div>
+    {{/if}}
+  {{/if}}
+</div>
+<div class="clearfix task-detail well">
+  <div class="col-sm-12">
+    {{#if (not-eq currentUser model.user.id)}}
+      <div class="alert alert-danger">Owner of this task, {{model.user.name}}, is not you, therefore, you are
+        not able to perform any actions.
+      </div>{{/if}}
+    <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
+    <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}
+      &nbsp;</strong>
+    </p>
   </div>
-{{/if}}
+</div>
+
 <div class="hr-divider m-y">
   <h3 class="hr-divider-content hr-divider-heading">Call Details</h3>
 </div>

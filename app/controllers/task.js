@@ -2,10 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   notify: Ember.inject.service('notify'),
-  queryParams: ['backTo', 'step', 'ref', 'fundingtag', 'taskref', 'taskrf', 'noterf', 'tnoterf', 'refid', 'refcon', 'contactrf'],
+  queryParams: ['backTo', 'step', 'fundingtag', 'taskrf', 'noterf', 'tnoterf', 'refcon', 'contactrf'],
   step: null,
-  ref: null,
-  refid: null,
   isSync: false,
   backTo: null,
   taskrf: null,
@@ -14,7 +12,6 @@ export default Ember.Controller.extend({
   refcon: null,
   contactrf: null,
   fundingtag: null,
-  taskref: null,
   blink: null,
   noteText: 'Save',
   btnSuccess: 'btn-success',
