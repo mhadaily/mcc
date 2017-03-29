@@ -1,0 +1,68 @@
+{{#link-to 'contact.calls.index' class='btn btn-danger'}}Back{{/link-to}}
+{{#if refid}}
+  {{to-elsewhere named='modal'
+                 send=(hash body=(component 'task-cancel'
+                   cancel=(action 'cancel')
+                   dismiss=(action (mut refid) null))
+                   onOutsideClick=(action (mut refid) null)) }}
+{{/if}}
+{{#if isChange class="change-description" }}
+  <div class="row task-detail well {{blink}}">
+    <div class="col-sm-12">
+      <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
+      <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}
+        &nbsp;</strong> |
+        {{#if (eq model.status "pending")}}
+          {{#link-to (query-params refid=model.id)}} Cancel Your Call {{/link-to}}
+        {{/if}}
+      </p>
+    </div>
+  </div>
+{{else}}
+  <div class="row task-detail well {{blink}}">
+    <div class="col-sm-12">
+      {{#if (not-eq currentUser model.user.id)}}
+        <div class="alert alert-danger">Owner of this task, {{model.user.name}}, is not you, therefore, you are
+          not able to perform any actions.
+        </div>{{/if}}
+      <h3><span class="text-danger text-uppercase">Call:</span> {{model.subject}}</h3>
+      <p> Date Due: <strong>{{moment-format model.dateDue}}&nbsp;</strong> | Status: <strong>{{model.status}}
+        &nbsp;</strong> |
+        {{#if (eq currentUser model.user.id)}}
+          {{#if (eq model.status "pending")}}
+            {{#link-to (query-params refid=model.id)}} Cancel Your Call {{/link-to}}
+          {{/if}}
+        {{/if}}
+      </p>
+    </div>
+  </div>
+{{/if}}
+<div class="hr-divider m-y">
+  <h3 class="hr-divider-content hr-divider-heading">Call Details</h3>
+</div>
+<dl>
+  <dt>Owner:</dt>
+  <dd>{{model.user.name}}&nbsp;</dd>
+  <dt>Call Type:</dt>
+  <dd>{{model.subject}}&nbsp;</dd>
+  <dt>Status:</dt>
+  <dd><span class="label label-info">{{model.status}}</span>&nbsp;</dd>
+  <dt>Outcome:</dt>
+  <dd>{{model.outcome}}&nbsp;</dd>
+  <dt>Date Due:</dt>
+  <dd>{{moment-format model.dateDue}}&nbsp;</dd>
+  <dt>Date Assigned:</dt>
+  <dd>{{moment-format model.dateAssigned}}&nbsp;</dd>
+  <dt>Date Completed:</dt>
+  <dd>{{moment-format model.dateCompleted}}&nbsp;</dd>
+  <dt>Client:</dt>
+  <dd>{{model.contact.name}}&nbsp;</dd>
+</dl>
+<div class="hr-divider m-y">
+  <h3 class="hr-divider-content hr-divider-heading">Sent Email as Assignment {{hover-help placement='right'
+                                                                                          title='This is a content of email which has been sent to the coach.'}}</h3>
+</div>
+<pre class="m-t fixed-pre">
+  {{{model.details}}}
+</pre>
+{{outlet}}
