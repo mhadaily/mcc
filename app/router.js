@@ -32,7 +32,7 @@ Router.map(function() {
       this.route('index', { path: '/' });
       this.route('show', { path: ':call_id' });
     });
-    this.route('summary');
+    this.route('summary', { path: '/' });
     this.route('details');
     this.route('sales');
     this.route('tags');
