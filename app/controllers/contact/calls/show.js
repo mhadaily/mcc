@@ -11,12 +11,23 @@ export default Controller.extend({
   ref: null,
   callrf: null,
   actions: {
+    resetContext(){
+      this.set('noteContentModal', ' ');
+      this.set('ref', null);
+      this.set('refid', null);
+    },
     selectOutcome(prop, selection){
       this.set(prop, selection);
     },
     updateRescheduleTask(dateDue) {
-      this.send('dateSave', dateDue);
-      this.set('taskref', null);
+      this.model.set('dateDue', dateDue);
+      this.model.save().then(d => {
+        this.get('notify').success(`Task ${d.id} successfully rescheduled`);
+        this.set('callrf', null);
+      }).catch(e => {
+        this.model.rollbackAttributes();
+        this.get('notify').error(e.message);
+      });
     },
     complete(noteContentModal) {
       let selectedOutcome = this.get('selectedOutcome');
@@ -25,18 +36,15 @@ export default Controller.extend({
       this.model.set('note', noteContentModal);
       if (trim(noteContentModal)) {
         this.model.save().then(d => {
-          this.get('notify').success('Task has been completed with following note :' + noteContentModal + ' and outcome is ' + selectedOutcome);
-          this.set('noteContentModal', ' ');
-          this.set('ref', null);
+          this.get('notify').success(`Task ${d.id} has been completed with following note : ${noteContentModal} and outcome is ${selectedOutcome}`);
           Cookies.remove('_mcc_complete_tmp');
-          return d;
+          this.actions.resetContext();
         }).catch(e => {
           this.model.rollbackAttributes();
           this.set('ref', null);
           this.get('notify').error(e.message);
         });
       } else {
-        this.set('isSync', false);
         $('#com-note-box').addClass('text-danger').append('<span>Note is mandatory</span>');
         this.get('notify').error('Please Select Write a Note before complete this task.');
       }
@@ -47,10 +55,8 @@ export default Controller.extend({
       if (noteContentModal) {
         this.model.save().then(d => {
           Cookies.remove('_mcc_cancel_tmp');
-          this.get('notify').success('Task has been cancelled with following note :' + noteContentModal + '!');
-          this.set('noteContentModal', ' ');
-          this.set('refid', null);
-          return d;
+          this.get('notify').success(`Task ${d.id} has been cancelled with following note: ${noteContentModal}`);
+          this.actions.resetContext();
         }).catch(e => {
           this.model.rollbackAttributes();
           this.get('notify').error(e.message);
