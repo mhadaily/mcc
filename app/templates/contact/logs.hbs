@@ -1,0 +1,35 @@
+<div class="table-full">
+  <div class="hr-divider m-t">
+    <h3 class="hr-divider-content hr-divider-heading">Contact Logs</h3>
+  </div>
+  <div class="table-responsive">
+    <table class="table" data-sort="table">
+      <thead>
+      <tr>
+        <th class="header">Type/Date</th>
+        <th class="header">Topic</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#if model.contactLogs.content.isLoaded}}
+        {{#each model.contactLogs as |contactLogs|}}
+          <tr>
+            <td><label class="label label-info">{{contactLogs.translated}} </label>
+              <br/>{{moment-format contactLogs.date}}</td>
+            <td>{{contactLogs.topic}}<br>
+              {{#if contactLogs.resource}}
+                <iframe class="iframe__dotted" srcdoc={{contactLogs.resource}} width="100%"></iframe>
+              {{/if}}
+            </td>
+          </tr>
+        {{/each}}
+      {{else}}
+        <tr class="padding-200">
+          <td colspan="3"> {{ember-spinner}}</td>
+        </tr>
+      {{/if}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{outlet}}
