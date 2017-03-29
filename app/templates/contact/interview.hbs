@@ -1,0 +1,16 @@
+<div class="hr-divider m-y">
+  <h3 class="hr-divider-content hr-divider-heading">MTTB Application&nbsp;</h3>
+</div>
+{{#each-in model.mttbApplication as |key value|}}
+  <div class="clearfix">{{key}}:&nbsp;<strong>{{value}}</strong></div>
+{{/each-in}}
+
+<div class="hr-divider m-y">
+  <h3 class="hr-divider-content hr-divider-heading">MTTB Interview&nbsp;</h3>
+</div>
+
+{{#each-in model.mttbInterview as |key value|}}
+  <div class="clearfix">{{key}}:&nbsp;<strong>{{value}}</strong></div>
+{{/each-in}}
+
+{{outlet}}
