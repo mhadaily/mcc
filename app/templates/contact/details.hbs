@@ -1,0 +1,53 @@
+<div class="hr-divider m-y">
+  <h3 class="hr-divider-content hr-divider-heading">{{model.name}}&nbsp;</h3>
+</div>
+<dl>
+  <dt>Reference:</dt>
+  <dd>{{model.reference}}&nbsp;</dd>
+  <dt>Name:</dt>
+  <dd>{{model.name}}&nbsp;{{link-to '(Link to Client)' 'contact' contact}}&nbsp;</dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
+  <dt>Date:</dt>
+  <dd>{{moment-format model.date}}&nbsp;</dd>
+  <dt>Date Last Modified:</dt>
+  <dd>{{moment-format model.dateLastModified}}&nbsp;</dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
+  <dt>Email:</dt>
+  <dd><a target="_bank" href="mailto:{{model.email}}">{{model.email}}&nbsp;</a></dd>
+  <dt>Home Phone:</dt>
+  <dd>{{model.homePhone}}&nbsp;</dd>
+  <dt>Cell Phone:</dt>
+  <dd>{{model.cellPhone}}&nbsp;</dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
+  <dt>Skype ID:</dt>
+  <dd>{{model.skypeId}}&nbsp; <a href="skype:{{model.skypeId}}?call">Call </a>|<a href="skype:{{model.skypeId}}?chat"> Chat</a> </dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
+  <dt>City:</dt>
+  <dd>{{model.city}}&nbsp;</dd>
+  <dt>State:</dt>
+  <dd>{{model.state}}&nbsp;</dd>
+  <dt>Country:</dt>
+  <dd>{{model.country}}&nbsp;</dd>
+  <dt>Time Zone:</dt>
+  <dd>{{model.timeZone}}&nbsp;</dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
+  <dt>L0 Coach:</dt>
+  <dd>{{model.l0MttbCoach}}&nbsp;</dd>
+  <dt>L1 Coach:</dt>
+  <dd>{{model.l1MttbCoach}}&nbsp;</dd>
+  <dt>L2 Coach:</dt>
+  <dd>{{model.l2MttbCoach}}&nbsp;</dd>
+  <dt>Traffic Coach:</dt>
+  <dd>{{model.trafficCoach}}&nbsp;</dd>
+  <dt>&nbsp;</dt>
+  <dd>&nbsp;</dd>
+  <dt>L1 Affiliate:</dt>
+  <dd>{{model.l1Affiliate}}&nbsp;</dd>
+  <dt>L2 Affiliate:</dt>
+  <dd>{{model.l2Affiliate}}&nbsp;</dd>
+</dl>
