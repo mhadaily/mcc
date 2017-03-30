@@ -1,4 +1,3 @@
-/*jshint -W117 */
 import Ember from 'ember';
 const { inject, Controller, $ } = Ember;
 const { trim } = $;
