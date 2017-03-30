@@ -123,7 +123,7 @@ export default Ember.Controller.extend({
       this.send('dateSave', dateDue, taskRef);
       this.set('taskref', null);
     },
-    update(state, country) {
+    update() {
 
       const getFieldValue = (str) => {
         return this.get(str);
@@ -139,8 +139,8 @@ export default Ember.Controller.extend({
         getFieldValue('contact.address'),
         getFieldValue('contact.address_2'),
         getFieldValue('contact.city'),
-        state,
-        country,
+        getFieldValue('contact.state_code'),
+        getFieldValue('contact.country_code'),
         getFieldValue('contact.zipCode')
       ];
       this.send('contactSave', fieldsValue);

@@ -50,22 +50,8 @@ export default DS.Model.extend({
   mttbStepUncontactable: DS.attr(),
   silverAgreementSigned: DS.attr(),
   mlrDate: DS.attr(),
-  stateCode: Ember.computed('state', function () {
-    const state = this.get('state');
-    const stateCode = oapStates.filter(oapState => oapState.text === state);
-    if (stateCode.length === 1) {
-      return stateCode[0].value;
-    }
-    return state;
-  }),
-  countryCode: Ember.computed('country', function () {
-    const country = this.get('country');
-    const countryCode = oapCountries.filter(oapCountry => oapCountry.text === country);
-    if (countryCode.length === 1) {
-      return countryCode[0].value;
-    }
-    return country;
-  }),
+  state_code: DS.attr(),
+  country_code: DS.attr(),
   agreementTags: Ember.computed('tags', function () {
     let tags = this.get('tags'),
       result = {};

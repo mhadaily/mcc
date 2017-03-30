@@ -102,7 +102,7 @@
             {{ember-selectize id="billing_state"
                               content=oapStates
                               optionValuePath="content.value"
-                              value=state
+                              value=contact.state_code
                               optionLabelPath="content.text"
                               placeholder="State"}}
           </div>
@@ -117,7 +117,7 @@
             {{ember-selectize  id="billing_country"
                                content=oapCountries
                                optionValuePath="content.value"
-                               value=country
+                               value=contact.country_code
                                optionLabelPath="content.text"
                                placeholder="Country"}}
           </div>
