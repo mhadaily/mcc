@@ -43,11 +43,10 @@
             <li class="divider"></li>
             <li>
               {{#if model.isFundingStage}}
-                {{link-to 'FS Already Requested'  (query-params fundingtag=null) tagName="a"
-                          disabled="disabled"}}
-              {{else}}
-                {{link-to 'Request Funding Stage' (query-params fundingtag=model.id)  tagName="a"
-                }}
+                <p class="text-muted">FS Already Requested</p>
+              {{else}}das
+                {{link-to 'Request Funding Stage' (query-params fundingtag=model.id)
+                          tagName="a"}}
                 {{#if fundingtag}}
                   {{to-elsewhere named='modal'
                                  send=(hash body=(component 'funding-tag-modal' contact=contact dismiss=(action (mut fundingtag) null)) onOutsideClick=(action (mut fundingtag) null)) }}

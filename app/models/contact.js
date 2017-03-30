@@ -1,7 +1,5 @@
 import Ember from 'ember';
 import DS from 'ember-data';
-import oapStates from '../utils/oapstates';
-import oapCountries from '../utils/oapcountries';
 
 export default DS.Model.extend({
   notes: DS.hasMany(),
@@ -65,6 +63,6 @@ export default DS.Model.extend({
   isFundingStage: Ember.computed('tags', function () {
     let tags = this.get('tags');
     // return id of "Funding Tag - Started"
-    return Object.keys(tags).find(key => key === '4126');
+    return Object.keys(tags).find(key => key === '4126' || key === 4126);
   }),
 });
