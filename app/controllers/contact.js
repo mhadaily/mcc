@@ -106,11 +106,9 @@ export default Ember.Controller.extend({
       this.set('taskref', null);
     },
     update() {
-
       const getFieldValue = (str) => {
         return this.get(str);
       };
-
       const fieldsValue = [
         getFieldValue('contact.homePhone'),
         getFieldValue('contact.firstName'),
