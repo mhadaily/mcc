@@ -68,4 +68,4 @@
   {{to-elsewhere named='modal'
                  send=(hash body=(component 'task-details' task=taskDetail taskChangeColor=(action 'taskChangeColor') clone=(action 'clone') dismiss=(action (mut taskrf) null)) onOutsideClick=(action (mut taskrf) null)) }}
 {{/if}}
-{{outlet}}
+{{liquid-outlet}}

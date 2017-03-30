@@ -1,58 +1,47 @@
 export default function() {
   this.transition(
-    this.fromRoute('index'),
+    this.toRoute('dashboard'),
     this.use('crossFade'),
     this.reverse('crossFade')
   );
   this.transition(
-    this.fromRoute('contacts'),
     this.toRoute('tasks'),
-    this.use('toUp'),
-    this.reverse('toDown')
+    this.use('toUp')
   );
   this.transition(
-    this.toRoute('contact.index'),
-    this.use('toLeft'),
-    this.reverse('toRight')
+    this.toRoute('contacts'),
+    this.use('toUp')
+  );
+  this.transition(
+    this.toRoute('contact.summary'),
+    this.use('toLeft')
   );
   this.transition(
     this.toRoute('contact.calls'),
-    this.use('toLeft'),
-    this.reverse('toRight')
+    this.use('toLeft')
+  );
+  this.transition(
+    this.toRoute('contact.calls.show'),
+    this.use('toDown')
   );
   this.transition(
     this.toRoute('contact.details'),
-    this.use('toLeft'),
-    this.reverse('toRight')
+    this.use('toLeft')
   );
   this.transition(
     this.toRoute('contact.sales'),
-    this.use('toLeft'),
-    this.reverse('toRight')
+    this.use('toLeft')
   );
   this.transition(
     this.toRoute('contact.tags'),
-    this.use('toLeft'),
-    this.reverse('toRight')
+    this.use('toLeft')
   );
   this.transition(
     this.toRoute('contact.interview'),
-    this.use('toLeft'),
-    this.reverse('toRight')
+    this.use('toLeft')
   );
   this.transition(
     this.toRoute('contact.logs'),
-    this.use('toLeft'),
-    this.reverse('toRight')
-  );
-  this.transition(
-    this.toRoute('task'),
-    this.use('toLeft'),
-    this.reverse('toRight')
-  );
-  this.transition(
-    this.hasClass('change-description'),
-    this.toValue(true),
-    this.use('scale')
+    this.use('toLeft')
   );
 }
