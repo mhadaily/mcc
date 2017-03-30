@@ -7,20 +7,20 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   actions: {
     duplicateTask(id) {
       let _self = this;
-
+      
       let headers = {};
       this.controller.set('isSync', true);
       this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
         headers[headerName] = headerValue;
       });
-
+      
       return Ember.$.ajax(config.apiUrl + '/api/tasks/duplicate', {
-        type: "POST",
+        type: 'POST',
         headers: headers,
         data: {
-          id: id
-        }
-
+          id: id,
+        },
+        
       }).then(() => {
         _self.get('currentModel').reload();
         this.controller.set('isSync', false);
@@ -39,14 +39,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
         headers[headerName] = headerValue;
       });
-
+      
       return Ember.$.ajax(config.apiUrl + '/api/contacts/sync', {
-        type: "POST",
+        type: 'POST',
         headers: headers,
         data: {
-          id: refcon
-        }
-
+          id: refcon,
+        },
+        
       }).then(data => {
         this.controller.set('isSync', false);
         if (data) {
@@ -81,27 +81,28 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
     contactSave(contactFields) {
       this.controller.set('isSync', true);
-      const [homePhone, firstName, lastName, cellPhone, officePhone, skypeId, address, address_2, city, state, country, zipCode] = contactFields;
+      const [homePhone, firstName, lastName, cellPhone, officePhone, skypeId, address, address_2, city, state_code, country_code, zipCode] = contactFields;
       const setCurrentModelField = (modelField, newValue) => {
         return this.currentModel.set(modelField, newValue);
       };
-
+      
       setCurrentModelField('homePhone', homePhone);
       setCurrentModelField('skypeId', skypeId);
       setCurrentModelField('address', address);
       setCurrentModelField('address_2', address_2);
       setCurrentModelField('city', city);
-      setCurrentModelField('state', state);
-      setCurrentModelField('country', country);
+      setCurrentModelField('state_code', state_code);
+      setCurrentModelField('country_code', country_code);
       setCurrentModelField('zipCode', zipCode);
       setCurrentModelField('cellPhone', cellPhone);
       setCurrentModelField('officePhone', officePhone);
       setCurrentModelField('firstName', firstName);
       setCurrentModelField('lastName', lastName);
-
+      
       this.currentModel.save().then(d => {
         this.get('notify').success(`Contact ${firstName} ${lastName} successfully updated`);
         this.controller.set('isSync', false);
+        this.currentModel.reload();
         return d;
       }).catch(e => {
         this.currentModel.rollbackAttributes(); //revert back all changes
@@ -117,7 +118,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       let newNoteData = {
         content: noteContent,
         contact: this.currentModel,
-        user: this.modelFor('application').account
+        user: this.modelFor('application').account,
       };
       this.store.createRecord('note', newNoteData).save().then(() => {
         this.get('notify').success('Note has been saved');
@@ -125,7 +126,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.controller.set('noteText', 'Save');
         this.controller.set('btnSuccess', 'btn-success');
         this.controller.set('noteContent', ' ');
-      }, function () {
+      }, function() {
         this.get('notify').error('Saving Note Failed! MR/MS ' + newNoteData.author);
         this.controller.set('noteText', 'Save');
         Ember.$('button[type="submit"]').prop('disabled', false);
@@ -137,13 +138,13 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
         headers[headerName] = headerValue;
       });
-
+      
       return Ember.$.ajax(config.apiUrl + '/api/notes/discard', {
-        type: "POST",
+        type: 'POST',
         headers: headers,
         data: {
-          id: noterf
-        }
+          id: noterf,
+        },
       }).then(data => {
         this.get('store').pushPayload(data);
         this.get('notify').success('Note has been discarded');
@@ -152,7 +153,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         return e;
       });
     },
-    dateSave: function (dateDue, taskRef) {
+    dateSave: function(dateDue, taskRef) {
       this.controller.set('isSync', true);
       let newDateDue = {
         dateDue: dateDue,
@@ -175,13 +176,13 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
         headers[headerName] = headerValue;
       });
-
+      
       return Ember.$.ajax(config.apiUrl + '/api/task-notes/discard', {
-        type: "POST",
+        type: 'POST',
         headers: headers,
         data: {
-          id: tnoterf
-        }
+          id: tnoterf,
+        },
       }).then(data => {
         this.get('store').pushPayload(data);
         this.get('notify').success('Note has been discarded');
@@ -189,6 +190,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.get('notify').error('Unable to discard note! ' + e.message);
         return e;
       });
-    }
-  }
+    },
+  },
 });
