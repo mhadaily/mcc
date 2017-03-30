@@ -6,15 +6,11 @@ export default Controller.extend({
   notify: inject.service('notify'),
   queryParams: ['refid', 'ref', 'callrf'],
   currentUser: null,
+  taskrf: null,
   refid: null,
   ref: null,
   callrf: null,
   actions: {
-    resetContext(){
-      this.set('noteContentModal', ' ');
-      this.set('ref', null);
-      this.set('refid', null);
-    },
     selectOutcome(prop, selection){
       this.set(prop, selection);
     },
@@ -37,7 +33,8 @@ export default Controller.extend({
         this.model.save().then(d => {
           this.get('notify').success(`Task ${d.id} has been completed with following note : ${noteContentModal} and outcome is ${selectedOutcome}`);
           Cookies.remove('_mcc_complete_tmp');
-          this.actions.resetContext();
+          this.set('noteContentModal', ' ');
+          this.set('ref', null);
         }).catch(e => {
           this.model.rollbackAttributes();
           this.set('ref', null);
@@ -55,10 +52,12 @@ export default Controller.extend({
         this.model.save().then(d => {
           Cookies.remove('_mcc_cancel_tmp');
           this.get('notify').success(`Task ${d.id} has been cancelled with following note: ${noteContentModal}`);
-          this.actions.resetContext();
+          this.set('noteContentModal', ' ');
+          this.set('refid', null);
         }).catch(e => {
           this.model.rollbackAttributes();
           this.get('notify').error(e.message);
+          this.set('refid', null);
           return e;
         });
       } else {
