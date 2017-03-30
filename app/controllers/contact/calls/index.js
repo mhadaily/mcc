@@ -1,8 +1,11 @@
 import Ember from 'ember';
-const { Controller, computed } = Ember;
+const { Controller, computed, inject } = Ember;
 
 export default Controller.extend({
+  notify: inject.service(),
   currentUser: null,
+  isSync: false,
+  taskrf: null,
   contact: computed('model', function() {
     return this.get('model');
   }),
@@ -35,7 +38,7 @@ export default Controller.extend({
     },
     taskChangeColor() {
       this.set('blink', 'blinker');
-      setTimeout(function () {
+      setTimeout(function() {
         this.set('blink', ' ');
       }.bind(this), 1000);
       this.set('taskrf', null);
@@ -50,6 +53,6 @@ export default Controller.extend({
     populateModalDetails(task) {
       this.set('taskrf', task.id);
     },
-  }
+  },
   
 });

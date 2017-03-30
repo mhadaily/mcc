@@ -5,34 +5,6 @@ import config from '../config/environment';
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   notify: Ember.inject.service('notify'),
   actions: {
-    duplicateTask(id) {
-      let _self = this;
-      
-      let headers = {};
-      this.controller.set('isSync', true);
-      this.get('session').authorize('authorizer:oauth2-bearer', (headerName, headerValue) => {
-        headers[headerName] = headerValue;
-      });
-      
-      return Ember.$.ajax(config.apiUrl + '/api/tasks/duplicate', {
-        type: 'POST',
-        headers: headers,
-        data: {
-          id: id,
-        },
-        
-      }).then(() => {
-        _self.get('currentModel').reload();
-        this.controller.set('isSync', false);
-        this.controller.set('taskrf', null);
-        this.get('notify').success('Task has been created');
-      }).fail(e => {
-        this.controller.set('isSync', false);
-        this.controller.set('taskrf', null);
-        this.get('notify').error('Unable to duplicate this task! ' + e.message);
-        return e;
-      });
-    },
     syncContact(refcon) {
       let headers = {};
       this.controller.set('isSync', true);

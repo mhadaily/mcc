@@ -83,30 +83,12 @@ export default Ember.Controller.extend({
       attendedReply,
     };
   }),
-  tasks: Ember.computed('model.tasks.[]', 'model.tasks.@each.date', function () {
-    return this.get('model.tasks').sortBy('dateDue').reverse();
-  }),
-  salesOrders: Ember.computed('model.salesOrders.[]', 'model.salesOrders.@each.date', function () {
-    return this.get('model.salesOrders').sortBy('date').reverse();
-  }),
   notes: Ember.computed('model.notes.[]', 'model.notes.@each.date', function () {
     return this.get('model.notes').sortBy('date').reverse();
   }),
   notes_and_task_notes_union: Ember.computed.union('contact.taskNotes.[]', 'contact.notes.[]'),
   notes_and_task_notes: Ember.computed('notes_and_task_notes_union.@each.date', function () {
     return this.get('notes_and_task_notes_union').sortBy('date').reverse();
-  }),
-  taskDetail: Ember.computed('taskrf', function () {
-    let taskrf = this.get('taskrf');
-    if (taskrf) {
-      return this.get('store').peekRecord('task', taskrf);
-    }
-  }),
-  taskDetailReschedule: Ember.computed('taskref', function () {
-    let taskref = this.get('taskref');
-    if (taskref) {
-      return this.get('store').peekRecord('task', taskref);
-    }
   }),
   query: '',
   sort: '',
