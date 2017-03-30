@@ -44,7 +44,7 @@
             <li>
               {{#if model.isFundingStage}}
                 <p class="text-muted">FS Already Requested</p>
-              {{else}}das
+              {{else}}
                 {{link-to 'Request Funding Stage' (query-params fundingtag=model.id)
                           tagName="a"}}
                 {{#if fundingtag}}
