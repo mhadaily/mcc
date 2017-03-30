@@ -1,6 +1,4 @@
 import Ember from 'ember';
-import oapStates from '../utils/oapstates';
-import oapCountires from '../utils/oapcountries';
 
 export default Ember.Controller.extend({
   queryParams: ['refcon', 'backTo', 'step', 'taskrf', 'taskref', 'fundingtag', 'contactrf', 'noterf', 'tnoterf', "sort", "sortDir", "query"],
