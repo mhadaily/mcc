@@ -59,7 +59,7 @@
     "ember-source": "^2.11.0",
     "ember-truth-helpers": "1.2.0",
     "eonasdan-bootstrap-datetimepicker": "4.15.35",
-    "liquid-fire": "0.27.0",
+    "liquid-fire": "0.27.1",
     "loader.js": "^4.0.10"
   },
   "engines": {
