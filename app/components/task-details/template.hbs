@@ -26,7 +26,7 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-default" {{action dismiss}} >Close</button>
     <button type="button" class="btn btn-danger"  {{action clone task.id}}>Duplicate</button>
-    <button type="button" class="btn btn-success" {{action taskChangeColor}}> {{#link-to 'task' task}}Go to this call{{/link-to}}</button>
+    <button type="button" class="btn btn-success" {{action taskChangeColor}}> {{#link-to 'contact.calls.show' task.contact task}}Go to this call{{/link-to}}</button>
   </div>
 </div>
 <!-- /.modal-content -->
