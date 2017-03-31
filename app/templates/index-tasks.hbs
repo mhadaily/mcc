@@ -55,7 +55,7 @@
             {{#each model.todayTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue}}</td>
-                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
+                <td>{{#link-to 'contact.calls.show' task.contact task}}{{task.subject}}{{/link-to}}</td>
                 <td>{{task.contact.name}}</td>
                 <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
                 <td>{{clock-timezone timezone=task.contact.timeZone}}</td>
@@ -100,7 +100,7 @@
             {{#each model.overdueTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue}}</td>
-                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
+                <td>{{#link-to 'contact.calls.show' task.contact task}}{{task.subject}}{{/link-to}}</td>
                 <td>{{task.contact.name}}</td>
                 <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
                 <td>{{clock-timezone timezone=task.contact.timeZone}}</td>
@@ -145,7 +145,7 @@
             {{#each model.futureTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue}}</td>
-                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
+                <td>{{#link-to 'contact.calls.show' task.contact task}}{{task.subject}}{{/link-to}}</td>
                 <td>{{task.contact.name}}</td>
                 <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
                 <td>{{clock-timezone timezone=task.contact.timeZone}}</td>
@@ -191,7 +191,7 @@
             {{#each model.completedTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue}}</td>
-                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
+                <td>{{#link-to 'contact.calls.show' task.contact task}}{{task.subject}}{{/link-to}}</td>
                 <td>{{task.contact.name}}</td>
                 <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
                 <td>{{and task.dateComplete (moment-format task.dateComplete)}}</td>
@@ -237,7 +237,7 @@
             {{#each model.cancelledTasks as |task|}}
               <tr>
                 <td>{{moment-format task.dateDue}}</td>
-                <td>{{link-to task.subject 'task' task (query-params backTo="index")}}</td>
+                <td>{{#link-to 'contact.calls.show' task.contact task}}{{task.subject}}{{/link-to}}</td>
                 <td>{{task.contact.name}}</td>
                 <td class="{{unless task.contact.step 'text-danger'}}">{{or task.contact.step 0}}</td>
                 <td>{{clock-timezone timezone=task.contact.timeZone}}</td>
