@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import oapStates from '../utils/oapstates';
-import oapCountires from '../utils/oapcountries';
+//import oapStates from '../utils/oapstates';
+//import oapCountires from '../utils/oapcountries';
 
 export default Ember.Controller.extend({
   queryParams: ['refcon', 'backTo', 'step', 'taskrf', 'taskref', 'fundingtag', 'contactrf', 'noterf', 'tnoterf', "sort", "sortDir", "query"],
@@ -109,8 +109,14 @@ export default Ember.Controller.extend({
       this.send('duplicateTask', reference);
     },
     changeStep(stepNumber) {
-      this.send('changeSave', Number(stepNumber));
-      this.set('step', null);
+      const validNumbers = [-3,-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,130];
+      const step = Number(stepNumber);
+      if(validNumbers.includes(step)) {
+        this.send('changeSave', step);
+        this.set('step', null);
+      } else {
+        this.get('notify').error('Step number is invalid, step number must be between 0 to 21, 130 , -3 or -1');
+      }
     },
     updateRescheduleTask(dateDue, taskRef) {
       this.send('dateSave', dateDue, taskRef);
