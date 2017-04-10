@@ -1,11 +1,11 @@
 <div class="clearfix">
-  <div class="col-md-3">
-    {{#link-to 'contact.calls.index' class='btn btn-danger btn-sm'}}
+  <div class="col-md-4">
+    {{#link-to 'contact.calls.index'}}
       <i class="icon icon-arrow-left" aria-hidden="true"></i> Contact Calls{{/link-to}}
   </div>
   {{#if (eq currentUser model.user.id)}}
     {{#if (eq model.status "pending")}}
-      <div class="col-md-3">
+      <div class="col-md-8 text-right">
         {{link-to 'Reschedule Call' (query-params callrf=model.id) class='btn btn-primary btn-sm'}}
         {{#if callrf}}
           {{to-elsewhere named='modal'
@@ -15,8 +15,6 @@
                            dismiss=(action (mut callrf) null))
                            onOutsideClick=(action (mut callrf) null)) }}
         {{/if}}
-      </div>
-      <div class="col-md-3">
         {{#link-to (query-params refid=model.id) class='btn btn-primary btn-sm'}} Cancel Your Call {{/link-to}}
         {{#if refid}}
           {{to-elsewhere named='modal'
@@ -25,8 +23,6 @@
                            dismiss=(action (mut refid) null))
                            onOutsideClick=(action (mut refid) null)) }}
         {{/if}}
-      </div>
-      <div class="col-md-3">
         {{#link-to (query-params ref=model.id) class='btn btn-primary btn-sm'}} Complete Your Call {{/link-to}}
         {{#if ref}}
           {{to-elsewhere named='modal'
